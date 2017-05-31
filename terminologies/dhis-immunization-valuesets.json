@@ -1,0 +1,48 @@
+{
+  "resourceType": "ValueSet",
+  "id": "dhis2-immunization-tz",
+  "meta": {
+    "lastUpdated": "2016-08-03T11:59:03.495+03:00"
+  },
+  "url": "http://hl7.org/fhir/ValueSet/dhis2-immunization",
+  "version": "1.0.0",
+  "name": "DHIS2 Immunization Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2015-10-24T07:41:03+11:00",
+  "description": "This value set defines the set of codes that are used in DHIS2 for Immunization.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://dhis.moh.go.tz/api/ValueSet",
+        "concept": [
+          {
+            "code": "Q2fFmlGkxRN"
+          },
+          {
+            "code": "VPH0M4oc6bs"
+          },
+          {
+            "code": "JXJ6K85BwHb"
+          },
+          {
+            "code": "communit009"
+          },
+          {
+            "code":"O9HZJ5frgiJ"
+          },
+          {
+            "code":"hO9LkFt8n2p"
+          },
+          {
+            "code":"D34hFrwiUpq"
+          },
+          {
+            "code":"dhZIhHwaWUX"
+          }
+        ]
+      }
+    ]
+  }
+}

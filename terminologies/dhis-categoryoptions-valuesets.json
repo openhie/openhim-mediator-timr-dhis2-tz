@@ -1,0 +1,87 @@
+{
+  "resourceType": "ValueSet",
+  "id": "dhis2-immunization-categoryoptions-tz",
+  "meta": {
+    "lastUpdated": "2016-08-03T11:59:03.495+03:00"
+  },
+  "url": "http://hl7.org/fhir/ValueSet/dhis2-immunization",
+  "version": "1.0.0",
+  "name": "DHIS2 Immunization Category Options",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2017-10-24T07:41:03+11:00",
+  "description": "This value set defines the set of codes that are used in DHIS for Immunization Category Options.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://dhis.moh.go.tz/api/categoryOptions",
+        "concept": [
+          {
+            "code": "syxWmui9UMq"
+          },
+          {
+            "code": "mtUMlCLFTTz"
+          },
+          {
+            "code": "GF4Nq9E8x6l"
+          },
+          {
+            "code": "UsRGaDRgUTs"
+          },
+          {
+            "code":"eP9pcI4ukz6"
+          },
+          {
+            "code":"Cw0V80VVLNX"
+          },
+          {
+            "code":"GmtTdRJ9Dih"
+          },
+          {
+            "code":"umPv9rcFjMF"
+          },
+          {
+            "code":"xLotqtMo0pI"
+          },
+          {
+            "code":"yJGjbc6TyRD"
+          },
+          {
+            "code":"uRyYLXG9XA0"
+          },
+          {
+            "code":"OvHXpnMl7gh"
+          },
+          {
+            "code":"Sp2etmxyrbe"
+          },
+          {
+            "code":"mFoITfPNk1X"
+          },
+          {
+            "code":"VHZkVs3JQih"
+          },
+          {
+            "code":"KM4ToXnjKoo"
+          },
+          {
+            "code":"i3RHRoyrkuO"
+          },
+          {
+            "code":"NUUhXEngiby"
+          },
+          {
+            "code":"uCOUSgiyOlY"
+          },
+          {
+            "code":"xC6xZ8LQHok"
+          },
+          {
+            "code":"vycrB36Akzs"
+          }
+        ]
+      }
+    ]
+  }
+}

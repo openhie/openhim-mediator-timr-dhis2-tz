@@ -1,0 +1,108 @@
+{
+  "resourceType": "ValueSet",
+  "id": "dhis2-categoryoptions-tz-Codesystems",
+  "meta": {
+    "lastUpdated": "2016-08-03T11:59:03.495+03:00"
+  },
+  "url": "http://hl7.org/fhir/Codesystems/dhis2-immunization",
+  "version": "1.0.0",
+  "name": "DHIS2 Category Options Codesystem",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2017-10-24T07:41:03+11:00",
+  "description": "This Code Systems defines the set of codes that are used in DHIS2 Category Options.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://dhis.moh.go.tz/api/categoryOptions",
+        "concept": [
+          {
+            "code": "syxWmui9UMq",
+	          "display": "KE"
+          },
+          {
+            "code": "mtUMlCLFTTz",
+	          "display": "ME"
+          },
+          {
+            "code": "GF4Nq9E8x6l",
+	          "display": "Umri miaka 5 hadi umri chini ya miaka 60"
+          },
+          {
+            "code": "UsRGaDRgUTs",
+            "display": "Umri miaka 60 au zaidi"
+          },
+          {
+            "code":"Cw0V80VVLNX",
+            "display": "Umri mwaka 1 hadi umri chini ya miaka 5"
+          },
+          {
+            "code":"GmtTdRJ9Dih",
+            "display": "> 5"
+          },
+          {
+            "code":"umPv9rcFjMF",
+            "display": "< 5"
+          },
+          {
+            "code":"xLotqtMo0pI",
+            "display": "Umri chini ya mwezi 1"
+          },
+          {
+            "code":"uRyYLXG9XA0",
+            "display": "Above 1"
+          },
+          {
+            "code":"mFoITfPNk1X",
+            "display": "Week 10"
+          },
+          {
+            "code":"VHZkVs3JQih",
+            "display": "Week 6"
+          },
+          {
+            "code":"i3RHRoyrkuO",
+            "display": "Umri mwezi 1 hadi umri chini ya mwaka 1"
+          },
+          {
+            "code":"NUUhXEngiby",
+            "display": "Under 1"
+          },
+          {
+            "code":"OvHXpnMl7gh",
+            "display": "Outside Service Area"
+          },
+          {
+            "code":"Sp2etmxyrbe",
+            "display": "Inside Service Area"
+          },
+          {
+            "code":"KM4ToXnjKoo",
+            "display": "IPD"
+          },
+          {
+            "code":"eP9pcI4ukz6",
+            "display": "OPD"
+          },
+          {
+            "code":"vycrB36Akzs",
+            "display": "Dose 0"
+          },
+          {
+            "code":"uCOUSgiyOlY",
+            "display": "Dose 1"
+          },
+          {
+            "code":"xC6xZ8LQHok",
+            "display": "Dose 2"
+          },
+          {
+            "code":"yJGjbc6TyRD",
+            "display": "Dose 3"
+          }
+        ]
+      }
+    ]
+  }
+}

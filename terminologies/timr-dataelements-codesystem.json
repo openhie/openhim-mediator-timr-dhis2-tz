@@ -1,0 +1,53 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "dhis2-category-options",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/dhis2-category-options"
+    ]
+  },
+  "url": "http://timr.marc-hi.ca:8080/fhir",
+  "version": "1.0.0",
+  "name": "DHIS2 Category Options",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2016-08-04",
+  "description": "This is a codesystem for DHIS2 category options.",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+  {
+    "display": "ORAL POLIO VACCINE",
+    "code": "02"
+  },
+  {
+    "display": "Rotavirus Vaccine",
+    "code": "122"
+  },
+  {
+    "display": "BACILLUS CALMETTE-GUERIN VACCINE",
+    "code": "19"
+  },
+  {
+    "display": "Pneumococcal conjugate PCV 13",
+    "code": "133"
+  },
+  {
+    "display": "DTP - Haemophilus influenzae type b conjugate and hepatitis b",
+    "code": "102"
+  },
+  {
+    "display": "Measles vaccine",
+    "code": "05"
+  },
+  {
+    "display": "Measles and Rubella",
+    "code": "04"
+  },
+  {
+    "display": "Tetanus Toxoid",
+    "code": "112"
+  }
+]
+}

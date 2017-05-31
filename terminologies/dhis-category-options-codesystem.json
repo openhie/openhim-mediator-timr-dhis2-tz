@@ -1,0 +1,2105 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "dhis2-category-options",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/dhis2-category-options"
+    ]
+  },
+  "url": "http://dhis.moh.go.tz/api/categoryOptions",
+  "version": "1.0.0",
+  "name": "DHIS2 Category Options",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2016-08-04",
+  "description": "This is a codesystem for DHIS2 category options.",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+  {
+    "display": "0-14",
+    "code": "krqRTKI45Zn"
+  },
+  {
+    "display": "<1",
+    "code": "fkCzK8Dx7Rm"
+  },
+  {
+    "display": "< 1",
+    "code": "h8JRv8POdfy"
+  },
+  {
+    "display": "10 -14",
+    "code": "aZcKJ9XxvaF"
+  },
+  {
+    "display": "10-14",
+    "code": "Mdkde8xwzA9"
+  },
+  {
+    "display": "10–14",
+    "code": "uwoqazX1GDS"
+  },
+  {
+    "display": "1–14",
+    "code": "mtBLhamml25"
+  },
+  {
+    "display": "12 months",
+    "code": "tSzNMO5TYPe"
+  },
+  {
+    "display": "1-4",
+    "code": "LBipXEMD6mq"
+  },
+  {
+    "display": "1-4 weeks",
+    "code": "TNdK6TqVYxb"
+  },
+  {
+    "display": "<15",
+    "code": "MH5ye3nIBSF"
+  },
+  {
+    "display": "15+",
+    "code": "Ijv4UlogAwe"
+  },
+  {
+    "display": "15 - 19",
+    "code": "NBUqkluApYH"
+  },
+  {
+    "display": "15–19",
+    "code": "jvoqPElWfMO"
+  },
+  {
+    "display": "15-24",
+    "code": "zjbwjbqHKu0"
+  },
+  {
+    "display": "15–25",
+    "code": "oPXDqMXpm2r"
+  },
+  {
+    "display": "15-49",
+    "code": "FfN1mqXvpR7"
+  },
+  {
+    "display": "15 Months",
+    "code": "YZMZQO0mLXJ"
+  },
+  {
+    "display": "1–9",
+    "code": "KytDmc87wGx"
+  },
+  {
+    "display": "1 month",
+    "code": "hKejM6pdWuf"
+  },
+  {
+    "display": "< 1 week",
+    "code": "HI7awU7sKeO"
+  },
+  {
+    "display": "1 YR Follow Up  (VIA+ treated with cryo or LEEP)",
+    "code": "s8eLultGdcP"
+  },
+  {
+    "display": "< 20",
+    "code": "f7YVGS4pq11"
+  },
+  {
+    "display": ">= 20",
+    "code": "BSJAFluplFZ"
+  },
+  {
+    "display": "20 - 24",
+    "code": "LecdypIHyXj"
+  },
+  {
+    "display": "20–24",
+    "code": "g0ZQDydRUhE"
+  },
+  {
+    "display": "21 Months",
+    "code": "irtlIACiNze"
+  },
+  {
+    "display": "24 months",
+    "code": "Pf3emtIZJZy"
+  },
+  {
+    "display": "25–29",
+    "code": "w1x9ySUHTDK"
+  },
+  {
+    "display": "25-34",
+    "code": "aFQ5D2fc3dI"
+  },
+  {
+    "display": "25-49",
+    "code": "YcPft2bZDlc"
+  },
+  {
+    "display": "26+",
+    "code": "qeq58aeIpvQ"
+  },
+  {
+    "display": "2 months",
+    "code": "JEMPWuctYFX"
+  },
+  {
+    "display": "30–34",
+    "code": "oZPSFMk6HRs"
+  },
+  {
+    "display": "35-44",
+    "code": "apyqpH7S9wd"
+  },
+  {
+    "display": "35-49",
+    "code": "WQgvKKxvCDF"
+  },
+  {
+    "display": "35–49",
+    "code": "zag4Juelih6"
+  },
+  {
+    "display": "<35 yrs",
+    "code": "Xc2bmBCbFOP"
+  },
+  {
+    "display": ">=35 yrs",
+    "code": "SGCKt94NVkn"
+  },
+  {
+    "display": "3 months",
+    "code": "wUQDvkHLsP1"
+  },
+  {
+    "display": "45-54",
+    "code": "twn1KNZzcZa"
+  },
+  {
+    "display": "4 months",
+    "code": "IjpoEUUuQoU"
+  },
+  {
+    "display": "> 4 weeks",
+    "code": "cxnlXZIJsh4"
+  },
+  {
+    "display": "< 5",
+    "code": "umPv9rcFjMF"
+  },
+  {
+    "display": "> 5",
+    "code": "GmtTdRJ9Dih"
+  },
+  {
+    "display": ">=50",
+    "code": "YExRHwo8SpZ"
+  },
+  {
+    "display": ">= 50",
+    "code": "pnpnA04bfUW"
+  },
+  {
+    "display": "50+",
+    "code": "gd8jV4QMv6x"
+  },
+  {
+    "display": "50 - 60",
+    "code": "HKU7NijIEIH"
+  },
+  {
+    "display": "55-64",
+    "code": "N0LFW0e3ps6"
+  },
+  {
+    "display": "5 months",
+    "code": "J0TFoCdkQxY"
+  },
+  {
+    "display": "60+",
+    "code": "p1b4SYcdjJw"
+  },
+  {
+    "display": "60% - 3SD",
+    "code": "fz6jtM42TRB"
+  },
+  {
+    "display": "60%-80% - 2-3SD",
+    "code": "pQn6MrxxRrX"
+  },
+  {
+    "display": "65+",
+    "code": "WlrPFgB5jbL"
+  },
+  {
+    "display": "6 months",
+    "code": "eSWfmiOKtkj"
+  },
+  {
+    "display": "80% - 2SD",
+    "code": "USOndmQvhK9"
+  },
+  {
+    "display": "9 Monhts",
+    "code": "daRxfEc6w6L"
+  },
+  {
+    "display": "Abdomen",
+    "code": "WL5lmF2L3bx"
+  },
+  {
+    "display": "Above 1",
+    "code": "uRyYLXG9XA0"
+  },
+  {
+    "display": "Adjustment/Lost",
+    "code": "AP6pkhUpmfP"
+  },
+  {
+    "display": "Admitted",
+    "code": "FnztXdjatFl"
+  },
+  {
+    "display": "Agree on time frame of starting use of backup tool ",
+    "code": "Vx1PpiQhmhu"
+  },
+  {
+    "display": "ANC",
+    "code": "CfoRQBawijW"
+  },
+  {
+    "display": "Appropriate storage and handling of test kits",
+    "code": "cTBS1fJUVrZ"
+  },
+  {
+    "display": "Balance on hand",
+    "code": "CSHoHlJ1bpM"
+  },
+  {
+    "display": "Barium Meal",
+    "code": "QeQIFOglqIx"
+  },
+  {
+    "display": "Baseline",
+    "code": "mtggn5gipEY"
+  },
+  {
+    "display": "Beginning Balance",
+    "code": "G9DG4dPJ4BG"
+  },
+  {
+    "display": "Binafsi",
+    "code": "a63CN0I7hT8"
+  },
+  {
+    "display": "Case",
+    "code": "AK2hRYwU5CJ"
+  },
+  {
+    "display": "Case 1",
+    "code": "tgEw6frpBck"
+  },
+  {
+    "display": "Case 2",
+    "code": "KRsLk8uwYQF"
+  },
+  {
+    "display": "Case 3",
+    "code": "QmlPOHW0ao8"
+  },
+  {
+    "display": "Chest",
+    "code": "l0dCIElTM0S"
+  },
+  {
+    "display": "CHF/TIKA",
+    "code": "MKG2tzWEYEx"
+  },
+  {
+    "display": "Child Protection",
+    "code": "wiWuoqhd6Zd"
+  },
+  {
+    "display": "Chini ya Siku 7",
+    "code": "fgbzWKexMNl"
+  },
+  {
+    "display": "Clinicians",
+    "code": "k3TW0txL52Z"
+  },
+  {
+    "display": "commodities_Consumption records not proper/ backlogs",
+    "code": "ZK0IzMFRYhQ"
+  },
+  {
+    "display": "commodities_DBS kits",
+    "code": "I4LFVSfPrbU"
+  },
+  {
+    "display": "commodities_Do not know how to do recording/ use LMIS tools",
+    "code": "U5GbkPgeTKw"
+  },
+  {
+    "display": "commodities_Don't know consumption rate of the product",
+    "code": "xSRyKaO5RqC"
+  },
+  {
+    "display": "commodities_Expiration dates not clearly marked",
+    "code": "FeMpckJhEt9"
+  },
+  {
+    "display": "commodities_Facility over-ordered TLE/ NVP syrup due to multiple reasons",
+    "code": "GKvFvVV9r8E"
+  },
+  {
+    "display": "commodities_Facility under-ordered  due to multiple reasons",
+    "code": "dAsdPV7FT5a"
+  },
+  {
+    "display": "commodities_Facility under-ordered TLE due to multiple reasons (overstated stock on hand",
+    "code": "S2TPljpYO65"
+  },
+  {
+    "display": "commodities_Forecasting problems/ poor forecasting",
+    "code": "v6TGsmb0UI3"
+  },
+  {
+    "display": "commodities_ILS forms not comprehensive in estimating new clients",
+    "code": "tEpgfCJJ9ZA"
+  },
+  {
+    "display": "commodities_Inadequate stock at Zonal MSD: rationing by MSD level",
+    "code": "ZPjJMYi5cNV"
+  },
+  {
+    "display": "commodities_Kits expired or damaged ",
+    "code": "atfILqXb36E"
+  },
+  {
+    "display": "commodities_Lack of R&R form",
+    "code": "ymvwswvRoIf"
+  },
+  {
+    "display": "commodities_Lack of R&R/ ILS form",
+    "code": "vqXkWysj1tA"
+  },
+  {
+    "display": "commodities_ Ledger entries not updated",
+    "code": "RVVjl6gP4Wj"
+  },
+  {
+    "display": "commodities_MSD delivered TLE/ NVP syrup with short shelf life",
+    "code": "cUQ1go0nyzI"
+  },
+  {
+    "display": "commodities_MSD did not have transport to bring stock to facility",
+    "code": "TeSwQAqVZO8"
+  },
+  {
+    "display": "commodities_ MSD repackaging kits leading to mixing of expiry dates",
+    "code": "G6H2xDRbkrp"
+  },
+  {
+    "display": "commodities_Not using FEFO (First Expiry First Out) due to failure to examine expiry date during physical inventory",
+    "code": "H2EGU00Ihf6"
+  },
+  {
+    "display": "commodities_NVP",
+    "code": "bHpqWjzykNJ"
+  },
+  {
+    "display": "commodities_Order submitted late",
+    "code": "JWs5nqrslRM"
+  },
+  {
+    "display": "commodities_Poor data quality",
+    "code": "E8CD5vXsfEE"
+  },
+  {
+    "display": "commodities_Poor record keeping",
+    "code": "HHo83vz2xcE"
+  },
+  {
+    "display": "commodities_Received stock w/o sending request (pushed)",
+    "code": "cYCoanRqpzd"
+  },
+  {
+    "display": "commodities_R& R ILS not available at site",
+    "code": "HTcAih3uaqu"
+  },
+  {
+    "display": "commodities_R&R/ILS not filled out properly",
+    "code": "Q07lOhjGsS5"
+  },
+  {
+    "display": "commodities_R&R not filled out properly",
+    "code": "ylNNrvFwdJC"
+  },
+  {
+    "display": "commodities_RTK",
+    "code": "o8PNsVs1xRs"
+  },
+  {
+    "display": "commodities_Site did not order ",
+    "code": "nhfM0qXzLoR"
+  },
+  {
+    "display": "commodities_Stock expired or damaged",
+    "code": "hXo49cR1n4U"
+  },
+  {
+    "display": "commodities_Supply collection/ logistics barriers/problems",
+    "code": "AyUKKqaahs2"
+  },
+  {
+    "display": "commodities_TLE",
+    "code": "wkNZ0RGIZbC"
+  },
+  {
+    "display": "commodities_TLE borrowed by other facilities",
+    "code": "IyuojA2SqBX"
+  },
+  {
+    "display": "commodities_TLE expired/ damaged",
+    "code": "g9ei6DIAMGN"
+  },
+  {
+    "display": "commodities_Transferred (lent) to another facility",
+    "code": "snlpFlVJxGD"
+  },
+  {
+    "display": "commodities_Untrained staff at facility",
+    "code": "x6AIEuBG1BN"
+  },
+  {
+    "display": "commodities_Very long lead time taken by MSD/ DMO to deliver commodities",
+    "code": "RQHaqPS5fxX"
+  },
+  {
+    "display": "Completed",
+    "code": "I7rcL3SYTNH"
+  },
+  {
+    "display": "CTC",
+    "code": "JvwGh9IzI5k"
+  },
+  {
+    "display": "CTC in Charge",
+    "code": "fCOMvGf5fC0"
+  },
+  {
+    "display": "CTC Pharmacy",
+    "code": "wuhIircOZKF"
+  },
+  {
+    "display": "CTC Store",
+    "code": "ni3TkBNnvos"
+  },
+  {
+    "display": "DACC",
+    "code": "wi923lJQpdS"
+  },
+  {
+    "display": "Data Clerk",
+    "code": "Dh9s53GOSqz"
+  },
+  {
+    "display": "Death",
+    "code": "VhNO4NXMhGj"
+  },
+  {
+    "display": "Death ",
+    "code": "wHeGJ7iXaiB"
+  },
+  {
+    "display": "default",
+    "code": "ePX5OPZ3wxl"
+  },
+  {
+    "display": "Deteriorated",
+    "code": "thibcW9V13i"
+  },
+  {
+    "display": "DHIS Data Entry Person",
+    "code": "rejPDoFWxhz"
+  },
+  {
+    "display": "DHIS Data entry person to be closely supervised",
+    "code": "SI3ICxWsa0L"
+  },
+  {
+    "display": "DHIS Data entry person to be closely supervised ",
+    "code": "FcfOPE8CCXb"
+  },
+  {
+    "display": "Distribute SOPs (eg different job aids) and tools",
+    "code": "cGhyiUQ3SCG"
+  },
+  {
+    "display": "District collects order and forwards request to appropriate Programme Officer @ MoHSW or with Implementing Partner",
+    "code": "XqXU0sFCFmh"
+  },
+  {
+    "display": "District ensures R&R/ILS forms are available at sites",
+    "code": "ElkyWxoPlDF"
+  },
+  {
+    "display": "District follow-up on site level incidents reported (including investigation of quality of specific lots)",
+    "code": "KB07MHJivmU"
+  },
+  {
+    "display": "District Lab Technologist",
+    "code": "azvHJrTTPw8"
+  },
+  {
+    "display": "District Lab Technologist provides mentorship/ supervision on Testing QA & Ordering",
+    "code": "njXOpOj9BRi"
+  },
+  {
+    "display": "District level to provide cards",
+    "code": "EJ6d2E9X94F"
+  },
+  {
+    "display": "District level to provide proper TA on documentation",
+    "code": "HsHfZq09kib"
+  },
+  {
+    "display": "District OJT and mentorship to sites on commodity management",
+    "code": "cWD0PkF20wb"
+  },
+  {
+    "display": "District Pharmacist",
+    "code": "wEG9i3ZMotx"
+  },
+  {
+    "display": "District provides mentorship/ supervision on QA Testing ",
+    "code": "id3ZivFUUqc"
+  },
+  {
+    "display": "District provides mentorship/ supervision on Testing QA and/or Commodities Mgmt",
+    "code": "SvbrcuL2O6M"
+  },
+  {
+    "display": "District reports incidents to RHMT for advice/ further follow-up",
+    "code": "WUoFtfxThn4"
+  },
+  {
+    "display": "District SS to sites to assess staff competency on test kits management (ordering, receiving, distributing and documenting) ",
+    "code": "RxfcjFsqDAY"
+  },
+  {
+    "display": "District to assess competency and training needs concerning Testing QA and commodities mgmt",
+    "code": "XaEZnTgwVDY"
+  },
+  {
+    "display": "District to distribute orders (logbooks)",
+    "code": "ivHxcMaAfTV"
+  },
+  {
+    "display": "District to distribute SOPs (eg different job aids) and tools",
+    "code": "gVDmDbZ7CwO"
+  },
+  {
+    "display": "District to distribute SOPs or tools on Testing QA",
+    "code": "tuWAiJNmOKp"
+  },
+  {
+    "display": "District to ensure R&R/ILS forms are available at sites",
+    "code": "u3jmjNZavU4"
+  },
+  {
+    "display": "District to ensure sufficient supply of Unigold",
+    "code": "yfo8NXtO6vq"
+  },
+  {
+    "display": "District to provide mentorship/ OJT on proper documentation",
+    "code": "XQAcVW4Wezr"
+  },
+  {
+    "display": "District to provide mentorship on proper documentation",
+    "code": "R7dFXA23jR1"
+  },
+  {
+    "display": "District to provide mentorship/supervision of proper filling of the register",
+    "code": "ptIAyYvBmaT"
+  },
+  {
+    "display": "District to provide mentorship/supervision on proper filling of the cards",
+    "code": "x8tjKwlJjAP"
+  },
+  {
+    "display": "District to provide OJT and Mentorship to sites on commodity management",
+    "code": "kfxDeIPggaP"
+  },
+  {
+    "display": "District to provide SS to sites to assess staff competency on commodity management ",
+    "code": "l8JsCMfjjvj"
+  },
+  {
+    "display": "District to provide the registers. ",
+    "code": "s0xsJqrcgpT"
+  },
+  {
+    "display": "District to redistribute Unigold",
+    "code": "bDu3LRJUCRr"
+  },
+  {
+    "display": "District to supply R&R forms",
+    "code": "KALzFr2d9Gy"
+  },
+  {
+    "display": "Don't use expired test kits / Destroy expired test kits",
+    "code": "dcjE1XR7ufF"
+  },
+  {
+    "display": "Dose 0",
+    "code": "vycrB36Akzs"
+  },
+  {
+    "display": "Dose 1",
+    "code": "uCOUSgiyOlY"
+  },
+  {
+    "display": "Dose 2",
+    "code": "xC6xZ8LQHok"
+  },
+  {
+    "display": "Dose 3",
+    "code": "yJGjbc6TyRD"
+  },
+  {
+    "display": "Do stock count at end of every month, and determine MoS",
+    "code": "H0sITqE7TUk"
+  },
+  {
+    "display": "DRCHCo",
+    "code": "CzjbtaTjQzP"
+  },
+  {
+    "display": "DRCHCO to provide the facility with available TLE",
+    "code": "jw2UfJUkz77"
+  },
+  {
+    "display": "DRCHCO to review and verify information/data in summary forms received from LLHFs before being entered into DHIS",
+    "code": "JPIph9MjG6D"
+  },
+  {
+    "display": "ECD",
+    "code": "QfXfAbkg5Oj"
+  },
+  {
+    "display": "Ensure all LMIS tools are available at sites",
+    "code": "qnWvJ06NIo2"
+  },
+  {
+    "display": "Ensure data backed up twice (2x) per week",
+    "code": "Hlc3H0fb8E9"
+  },
+  {
+    "display": "Ensure R&R/ILS forms are available at sites",
+    "code": "UBUhMhKW6GD"
+  },
+  {
+    "display": "Execute proper forecasting",
+    "code": "plGCH8vPU4z"
+  },
+  {
+    "display": "Execute proper forecasting and quantification",
+    "code": "v4K4pKqJ8eZ"
+  },
+  {
+    "display": "Extremities",
+    "code": "bYiFr1E1rJz"
+  },
+  {
+    "display": "Eye pathology",
+    "code": "B3mJD8wqMXO"
+  },
+  {
+    "display": "Facility dispensing personnel",
+    "code": "OkSIkclNNFe"
+  },
+  {
+    "display": "Facility Lab Personnel",
+    "code": "OpUDC2VLvqi"
+  },
+  {
+    "display": "Facility Store",
+    "code": "PjlZRXDEBjl"
+  },
+  {
+    "display": "Failure",
+    "code": "nvyLMzyOGP9"
+  },
+  {
+    "display": "Follow testing algorithm ",
+    "code": "dhRbRGItKov"
+  },
+  {
+    "display": "Food and Nutrition",
+    "code": "atHMiGQ8IgP"
+  },
+  {
+    "display": "Forms available",
+    "code": "q9A4Y2vTcSd"
+  },
+  {
+    "display": "Forms not available",
+    "code": "vn13Y6tRuyT"
+  },
+  {
+    "display": "FP-Marudio",
+    "code": "OmTUeJq2BrR"
+  },
+  {
+    "display": "FSB",
+    "code": "ei5U1OJUieE"
+  },
+  {
+    "display": "Get the R&R/ILS forms from district",
+    "code": "kswH9hpidqS"
+  },
+  {
+    "display": "HBC Coordinator",
+    "code": "I7ab6AukSKP"
+  },
+  {
+    "display": "HBCT",
+    "code": "SsXwqGjceRG"
+  },
+  {
+    "display": "HBC Volunteer",
+    "code": "yANbw7PlQWl"
+  },
+  {
+    "display": "Health Attendants",
+    "code": "Kl1AvutdFve"
+  },
+  {
+    "display": "HES",
+    "code": "mMHJU8tqffv"
+  },
+  {
+    "display": "HIV Negative",
+    "code": "i9YSql3V0i6"
+  },
+  {
+    "display": "HIV Positive",
+    "code": "kph6NUNQRGc"
+  },
+  {
+    "display": "HIV Prevention",
+    "code": "cA3If9S9AGj"
+  },
+  {
+    "display": "Hollow needles/Cannuals(During Other Proceedures)",
+    "code": "XkBKTlFpRCu"
+  },
+  {
+    "display": "Hollow needles/Cannulas(During Phlebotomy Procedure)",
+    "code": "OxOXCtk0OR4"
+  },
+  {
+    "display": "Hospital Lab Personnel",
+    "code": "oFcURMCEvvz"
+  },
+  {
+    "display": "Hospital pharmacy personnel",
+    "code": "yxVx0oAWdXp"
+  },
+  {
+    "display": "Identify training needs and ask for SS/OJT/Mentorship/training",
+    "code": "LiZLEzZuxv8"
+  },
+  {
+    "display": "Improved",
+    "code": "Puf8SPQYBSl"
+  },
+  {
+    "display": "Improve management & supervision by In-Charge or focal person",
+    "code": "Zsj80REHREj"
+  },
+  {
+    "display": "Improve supervision from In-Charge or focal person",
+    "code": "Lz5JWFW0OXs"
+  },
+  {
+    "display": "Initial VIA completed",
+    "code": "pNqii9AFwlo"
+  },
+  {
+    "display": "In progress",
+    "code": "rE0CUdBs0mZ"
+  },
+  {
+    "display": "Inside Service Area",
+    "code": "Sp2etmxyrbe"
+  },
+  {
+    "display": "Interns",
+    "code": "pi5NSTz78NK"
+  },
+  {
+    "display": "IPD",
+    "code": "KM4ToXnjKoo"
+  },
+  {
+    "display": "Issued",
+    "code": "ZVjA2r2pr5B"
+  },
+  {
+    "display": "KE",
+    "code": "syxWmui9UMq"
+  },
+  {
+    "display": "Kituoni",
+    "code": "hXlxevzW5lM"
+  },
+  {
+    "display": "Kutoka Hospitalini",
+    "code": "fOkvCOHErQo"
+  },
+  {
+    "display": "Kutoka Kwingineko",
+    "code": "p2wnYkz7lhk"
+  },
+  {
+    "display": "LAB_Did not order logbooks",
+    "code": "TRHLVMUonOc"
+  },
+  {
+    "display": "LAB_Documentation not a priority not systematic",
+    "code": "H83rRfAP5l7"
+  },
+  {
+    "display": "LAB_Don't understand process to request logbook",
+    "code": "sjivTTYUli9"
+  },
+  {
+    "display": "LAB_ILS forms not comprehensive in estimating new clients",
+    "code": "YjDOFcYJ47Q"
+  },
+  {
+    "display": "LAB_Logbook not distributed",
+    "code": "UYj1MnmoqYx"
+  },
+  {
+    "display": "LAB_No reagents(buffer)",
+    "code": "jkOHKRbz9N9"
+  },
+  {
+    "display": "LAB_Not aware of testing algorithm",
+    "code": "L3QrngqW6Ar"
+  },
+  {
+    "display": "LAB_No test kits",
+    "code": "cihiGLd5MY9"
+  },
+  {
+    "display": "LAB_No trained staff to do testing & QA",
+    "code": "rfmdGGTIalG"
+  },
+  {
+    "display": "LAB_Poor data quality",
+    "code": "mRSw7aFm6AD"
+  },
+  {
+    "display": "LAB_Poor documentation",
+    "code": "QWMfsREQ8Ds"
+  },
+  {
+    "display": "LAB_Quality of test kits problematic, control not appearing",
+    "code": "VzWyWGyrDJr"
+  },
+  {
+    "display": "LAB_Quality of test kits problematic due to poor storage",
+    "code": "hZabwh0lsi5"
+  },
+  {
+    "display": "LAB_Quality of test kits problematic kits expired",
+    "code": "jPDmpUVyKt1"
+  },
+  {
+    "display": "LAB_R&R/ILS not available at site",
+    "code": "hb7JDOpWO5Z"
+  },
+  {
+    "display": "LAB_SOP not followed:insuffient time for reading results (leading to incomplete reaction)",
+    "code": "D8X6QeEitC9"
+  },
+  {
+    "display": "LAB_SOP not followed: new lot not tested",
+    "code": "v5YS9aNIZeN"
+  },
+  {
+    "display": "LAB_SOP not followed, use of wrong chase buffer vs washing solution w/test",
+    "code": "fSFMFSi4iZw"
+  },
+  {
+    "display": "LAB_SOP not followed: wrong interpretation of results",
+    "code": "HJWXimzxDN2"
+  },
+  {
+    "display": "LAB_Stockout of confirmatory test kits(Unigold)",
+    "code": "Y9NsjSRc2ui"
+  },
+  {
+    "display": "Lab Technologists",
+    "code": "SJUXQXOgmdO"
+  },
+  {
+    "display": "LAB_Tested during unigold stockout which is contrary to protocol",
+    "code": "EfnRYJGSAJK"
+  },
+  {
+    "display": "LAB_Untrained staff at facility",
+    "code": "hny5EiSdaUl"
+  },
+  {
+    "display": "L&D",
+    "code": "HEYKMis6BpX"
+  },
+  {
+    "display": "L&D/Maternity",
+    "code": "VmsoAMOFHBX"
+  },
+  {
+    "display": "Life Skills",
+    "code": "NuHOjKlEJKX"
+  },
+  {
+    "display": "Logbook 1",
+    "code": "S17trnOv2FC"
+  },
+  {
+    "display": "Logbook 2",
+    "code": "N92gp87mZJk"
+  },
+  {
+    "display": "Logbook 3",
+    "code": "qvVUeqFBj9p"
+  },
+  {
+    "display": "Logbook 4",
+    "code": "JKFcwa9OuRp"
+  },
+  {
+    "display": "Logbook 5",
+    "code": "CtUzDY92uB9"
+  },
+  {
+    "display": "Lost to Follow Up ",
+    "code": "NSbJbGLkJ9r"
+  },
+  {
+    "display": "LW in Charge",
+    "code": "aBA5vJMGTc4"
+  },
+  {
+    "display": "Marudio",
+    "code": "YNJO7RkF3wv"
+  },
+  {
+    "display": "Mashirika ya Dini",
+    "code": "x3IjEjGhEAW"
+  },
+  {
+    "display": "Mashirika ya Umma",
+    "code": "nwyBuOtDjv0"
+  },
+  {
+    "display": "MB[A]",
+    "code": "j1wOcLzlxPQ"
+  },
+  {
+    "display": "MB[C]",
+    "code": "xIpDwX5PffF"
+  },
+  {
+    "display": "Mbovu",
+    "code": "StPFUdz0rcT"
+  },
+  {
+    "display": "Mbovu Haitengenezeki",
+    "code": "H9TKJflXlaS"
+  },
+  {
+    "display": "Mbovu Inatengenezeka",
+    "code": "Ccgi4GivS2T"
+  },
+  {
+    "display": "ME",
+    "code": "mtUMlCLFTTz"
+  },
+  {
+    "display": "M&E",
+    "code": "BMxR9Et2xHR"
+  },
+  {
+    "display": "M&E_Absence of MC register",
+    "code": "BGS0bX4BqPe"
+  },
+  {
+    "display": "M&E_Alternative system has been used as a source of data than registers",
+    "code": "bnRpxCgTU1w"
+  },
+  {
+    "display": "M&E_Cards not requested",
+    "code": "LhieVqx7Dy4"
+  },
+  {
+    "display": "M&E_Cards requested but not supplied",
+    "code": "cRtrCHVWAan"
+  },
+  {
+    "display": "M&E_Daily",
+    "code": "hqld55Tlwu0"
+  },
+  {
+    "display": "M&E_Data entry error",
+    "code": "PXUvxxjQXZB"
+  },
+  {
+    "display": "M&E_Data entry person lacks enough capacity in proper data entry",
+    "code": "aoflHxkOgPe"
+  },
+  {
+    "display": "M&E_Don't have backup tool",
+    "code": "EBDbo8BVXsw"
+  },
+  {
+    "display": "M&E_Don't know MoHSW guidelines ",
+    "code": "ebOOl6Z1Y0K"
+  },
+  {
+    "display": "M&E_Every 2 weeks",
+    "code": "TU8Kb6Y8bzS"
+  },
+  {
+    "display": "M&E_Have backup tool but not using it",
+    "code": "en64fBG0zfK"
+  },
+  {
+    "display": "M&E_Inadequate supply of ARV from MSD/ District leading to rationing w/ clients   ",
+    "code": "CPc7y8Ng4Qp"
+  },
+  {
+    "display": "M&E_Lack of food   ",
+    "code": "mh74YKlq79k"
+  },
+  {
+    "display": "M&E_Lack of trained staff",
+    "code": "mR8RDbNfjvG"
+  },
+  {
+    "display": "M&E_Lack of transport or distance   ",
+    "code": "bC5dGfAFI0G"
+  },
+  {
+    "display": "M&E_Loss to follow-up of infants",
+    "code": "pAJxlam8MVm"
+  },
+  {
+    "display": "M&E_Low client load",
+    "code": "wR6M6O4w9W2"
+  },
+  {
+    "display": "M&E_Meets criteria but don't have database",
+    "code": "P8mQZonZXzc"
+  },
+  {
+    "display": "M&E_Monthly",
+    "code": "CJBK1hWScjC"
+  },
+  {
+    "display": "M&E_No clinician   ",
+    "code": "SQdwhk8cJdc"
+  },
+  {
+    "display": "M&E_Not provided with current version of cards",
+    "code": "qaQeF9D67MP"
+  },
+  {
+    "display": "M&E_Not requested",
+    "code": "JcKkwguWDsx"
+  },
+  {
+    "display": "M&E_Not requested/provided with current version of register",
+    "code": "sGevJn1BfxJ"
+  },
+  {
+    "display": "M&E_Not using appointment books",
+    "code": "hlDYKhrEtDi"
+  },
+  {
+    "display": "M&E_Not using register for reporting",
+    "code": "UTJIFO1qmWX"
+  },
+  {
+    "display": "M&E_Not using tally sheets causing descrepancies",
+    "code": "X2G4bgZZyYU"
+  },
+  {
+    "display": "Mentorship by District on R&R use ",
+    "code": "hmWIMhENui0"
+  },
+  {
+    "display": "Mentorship & OJT to site on R&R use ",
+    "code": "S7L6ru4m0wS"
+  },
+  {
+    "display": "M&E_Other",
+    "code": "LDr8MlUzInW"
+  },
+  {
+    "display": "M&E_Paper print-out of entries",
+    "code": "dkmMnfQQzix"
+  },
+  {
+    "display": "M&E_Poor adherence, counseling services   ",
+    "code": "b5RbfCDz5dD"
+  },
+  {
+    "display": "M&E_Poor documentation  ",
+    "code": "nSvHUo3oQqI"
+  },
+  {
+    "display": "M&E_Poor forecasting for HIV commodities (ARVs)   ",
+    "code": "TZuWyqGivCS"
+  },
+  {
+    "display": "M&E_Poor identification mechanism",
+    "code": "tQKsm1Yp62i"
+  },
+  {
+    "display": "M&E_Poor referral systems for DBS testing(not referred or mother didn't go)",
+    "code": "YC5hVGffV26"
+  },
+  {
+    "display": "M&E_Poor tracking mechanism(didn't look at RCH card)",
+    "code": "uwQU0jFACzX"
+  },
+  {
+    "display": "M&E_Program file copied to flash disk",
+    "code": "odDoHZPhxDC"
+  },
+  {
+    "display": "M&E_Program file emailed",
+    "code": "PL0MnXVXbNM"
+  },
+  {
+    "display": "M&E_Provider not trained on how to use the card",
+    "code": "X6PqluO0axK"
+  },
+  {
+    "display": "M&E_Register not updated",
+    "code": "xJt8ALatvRX"
+  },
+  {
+    "display": "M&E_Requested but not supplied",
+    "code": "KEHuGgSjVDV"
+  },
+  {
+    "display": "M&E_Services and staff attitude  ",
+    "code": "wfUi5px2C1U"
+  },
+  {
+    "display": "M&E_Side effect of ARV  ",
+    "code": "eu5whsbZK3q"
+  },
+  {
+    "display": "M&E_SPs lacks capacity to using register",
+    "code": "D1qkSNqDAHi"
+  },
+  {
+    "display": "M&E_SPs lacks technical capacity to compile report",
+    "code": "lMGh5euGaJl"
+  },
+  {
+    "display": "M&E_SPs not knowledgeable in proper documentation in the registers",
+    "code": "UQHlEgdjBAj"
+  },
+  {
+    "display": "M&E_SPs not knowledgeable to fill the card",
+    "code": "LshHAviD9K4"
+  },
+  {
+    "display": "M&E_Stigma (self and social stigma)  ",
+    "code": "xiDlB2nICeT"
+  },
+  {
+    "display": "M&E_Stock out of ARV at site (completely not available - 0 stock)   ",
+    "code": "T9rkq8AFfwa"
+  },
+  {
+    "display": "M&E_Stock out of DBS kits",
+    "code": "JLpVYt7bBBL"
+  },
+  {
+    "display": "M&E_Weekly",
+    "code": "gCoceBuJXIe"
+  },
+  {
+    "display": "M&E_Work overload to SPs",
+    "code": "MfqbTKWPnJk"
+  },
+  {
+    "display": "M&E_Wrong data from summary form",
+    "code": "AsWOhi2cjne"
+  },
+  {
+    "display": "Miaka 10-14",
+    "code": "Cj7A9pL85kh"
+  },
+  {
+    "display": "Miaka 10-14 Wapya",
+    "code": "s4tFWkUJ4Gu"
+  },
+  {
+    "display": "Miaka 15-17",
+    "code": "aqljINFY2cz"
+  },
+  {
+    "display": "Miaka 15-19 Wapya",
+    "code": "Ja26jPLkBNu"
+  },
+  {
+    "display": "Miaka 15-24",
+    "code": "JyiPllmbMQC"
+  },
+  {
+    "display": "Miaka 18-24",
+    "code": "HRqHVfpHqLa"
+  },
+  {
+    "display": "Miaka 20 -24 Wapya",
+    "code": "o3rNGC6sx6t"
+  },
+  {
+    "display": "Miaka 25-34",
+    "code": "ZU96LwhAhCJ"
+  },
+  {
+    "display": "Miaka 25 na zaidi",
+    "code": "WMMfE7oxE4f"
+  },
+  {
+    "display": "Miaka 25 na Zaidi Wapya",
+    "code": "SZvjzfivQPm"
+  },
+  {
+    "display": "Miaka 35-44",
+    "code": "RoXmsn3Hpf6"
+  },
+  {
+    "display": "Miaka 45-54",
+    "code": "YORevSEFzpw"
+  },
+  {
+    "display": "Miaka 55-64",
+    "code": "FVQzuYOHf9J"
+  },
+  {
+    "display": "Miaka 5-9",
+    "code": "c5LtGjbHKgf"
+  },
+  {
+    "display": "Miaka 65+",
+    "code": "ZDgLleTJKxV"
+  },
+  {
+    "display": "Miezi 0-59",
+    "code": "vWHb7OUHJDJ"
+  },
+  {
+    "display": "Miezi 12",
+    "code": "YjZx5fFDiYg"
+  },
+  {
+    "display": "Miezi 12 - Miezi 59",
+    "code": "XgtrYnkXcUK"
+  },
+  {
+    "display": "Miezi 18",
+    "code": "LuiA6dzICp5"
+  },
+  {
+    "display": "Miezi 24",
+    "code": "Kskd1pfiktT"
+  },
+  {
+    "display": "Miezi 3",
+    "code": "C33pzAh8cfV"
+  },
+  {
+    "display": "Miezi 36",
+    "code": "UqmCFE6gkBQ"
+  },
+  {
+    "display": "Miezi 48",
+    "code": "tqrKaYGD5Iq"
+  },
+  {
+    "display": "Miezi 59",
+    "code": "omTePvAC2L7"
+  },
+  {
+    "display": "Miezi 6",
+    "code": "qIN4J0Efwoh"
+  },
+  {
+    "display": "Miezi 9",
+    "code": "ZMdHFjf7xqz"
+  },
+  {
+    "display": "Moderate",
+    "code": "HewA3eR03nO"
+  },
+  {
+    "display": "Month 1",
+    "code": "Q0takCV6Vbg"
+  },
+  {
+    "display": "Month 2",
+    "code": "HikwFtP0rO9"
+  },
+  {
+    "display": "Month 3",
+    "code": "M068IAIP2vo"
+  },
+  {
+    "display": "MSB",
+    "code": "cBDunW08PgI"
+  },
+  {
+    "display": "MVCC Roles & Responsibilities",
+    "code": "eGNs6WmMO8t"
+  },
+  {
+    "display": "NACP cohort 12",
+    "code": "bu1R3SyIabZ"
+  },
+  {
+    "display": "NACP_cohort_12",
+    "code": "B4pPuFxn1nG"
+  },
+  {
+    "display": "NACP cohort 24",
+    "code": "GWuvcSkWlOu"
+  },
+  {
+    "display": "NACP_cohort_24",
+    "code": "QFaLGBBaGyz"
+  },
+  {
+    "display": "NACP cohort 36",
+    "code": "wGrfLOQeiod"
+  },
+  {
+    "display": "NACP_cohort_36",
+    "code": "S2gs2SFFiQw"
+  },
+  {
+    "display": "NACP cohort 48",
+    "code": "dxSodHBrIAd"
+  },
+  {
+    "display": "NACP_cohort_48",
+    "code": "xEgfn0vUXZG"
+  },
+  {
+    "display": "NACP cohort 6",
+    "code": "VLO6M36qZUW"
+  },
+  {
+    "display": "NACP_cohort_6",
+    "code": "JB30OaY8AGM"
+  },
+  {
+    "display": "NACP cohort 60",
+    "code": "atnD6H3xOm7"
+  },
+  {
+    "display": "NACP_cohort_60",
+    "code": "MNIbkMo9asL"
+  },
+  {
+    "display": "NACP cohort 72",
+    "code": "owlKudIEhVn"
+  },
+  {
+    "display": "NACP_cohort_72",
+    "code": "c56Dchz9pqp"
+  },
+  {
+    "display": "New Extra Pulmonary",
+    "code": "nTsRHHgTspa"
+  },
+  {
+    "display": "New MDR - TB",
+    "code": "Bf0Detzj7B3"
+  },
+  {
+    "display": "New Positive (smear, Xpert, Culture)",
+    "code": "s4usRQMU6go"
+  },
+  {
+    "display": "New Smear Negative",
+    "code": "ZCdSDR6pJDM"
+  },
+  {
+    "display": "NGOs",
+    "code": "RAmRodaEkX4"
+  },
+  {
+    "display": "NHIF",
+    "code": "DkbLfhEurvS"
+  },
+  {
+    "display": "No Change",
+    "code": "lXO0vvCeXWn"
+  },
+  {
+    "display": "Non-occupational: Other",
+    "code": "eeI3AGxEj35"
+  },
+  {
+    "display": "Non-occupational: Rape/Assault",
+    "code": "XSE16gHabI2"
+  },
+  {
+    "display": "No testing if only 1 type of is test available",
+    "code": "hb96rkqDayU"
+  },
+  {
+    "display": "Not Started",
+    "code": "NciqNwyDY3s"
+  },
+  {
+    "display": "Nurse/Nurse Assistant",
+    "code": "BK8m3eXTAOL"
+  },
+  {
+    "display": "Nzima",
+    "code": "xvAY7RjRC9H"
+  },
+  {
+    "display": "Obs",
+    "code": "w6020Sogsmt"
+  },
+  {
+    "display": "Occupational: Health care workers",
+    "code": "NKrBP0Yq9IN"
+  },
+  {
+    "display": "Occupational: Other Occupations",
+    "code": "YR1AUTVAjoA"
+  },
+  {
+    "display": "OJT and Mentorship to sites on commodity management",
+    "code": "neYM6KrL3yz"
+  },
+  {
+    "display": "on site produced shoes",
+    "code": "RTCNdMWoG4m"
+  },
+  {
+    "display": "OPD",
+    "code": "eP9pcI4ukz6"
+  },
+  {
+    "display": "Order LMIS tools from district/MSD",
+    "code": "PfyyviQMpi5"
+  },
+  {
+    "display": "Order test kits and associated reagents",
+    "code": "ReD2zvOArNr"
+  },
+  {
+    "display": "Other medical/ surgical services",
+    "code": "zw1KWkPpxyy"
+  },
+  {
+    "display": "Others",
+    "code": "dQHWRgHaxXE"
+  },
+  {
+    "display": "Other wards",
+    "code": "N1LC30e8p5J"
+  },
+  {
+    "display": "Out of control",
+    "code": "i401q5kODt4"
+  },
+  {
+    "display": "Outreach",
+    "code": "OpyllPQJhQ2"
+  },
+  {
+    "display": "Outside Service Area",
+    "code": "OvHXpnMl7gh"
+  },
+  {
+    "display": "Papo kwa Papo",
+    "code": "jlgEHG9UiX5"
+  },
+  {
+    "display": "PB[A]",
+    "code": "eEj1FPc200B"
+  },
+  {
+    "display": "PB[C]",
+    "code": "f3yhEMrH1Ia"
+  },
+  {
+    "display": "Pelvis",
+    "code": "uLdPpMLOjDQ"
+  },
+  {
+    "display": "Pharmacists, Pharmaceutical Assistant",
+    "code": "j7YncD73BcL"
+  },
+  {
+    "display": "PITC",
+    "code": "JC7dyr95rbM"
+  },
+  {
+    "display": "P I T C",
+    "code": "FJoF45Wmvh6"
+  },
+  {
+    "display": "Previously Treated MDR - TB",
+    "code": "FxcwMNin7SM"
+  },
+  {
+    "display": "Primary Health Care",
+    "code": "zWWsbzsG0Kt"
+  },
+  {
+    "display": "Provide TA on using backup tool",
+    "code": "KwWZUuRmuS1"
+  },
+  {
+    "display": "PSS",
+    "code": "WouONbTlV8m"
+  },
+  {
+    "display": "Psycho-social support services",
+    "code": "LP5yf6mYltD"
+  },
+  {
+    "display": "RCH in Charge",
+    "code": "IxzyHvAqB8j"
+  },
+  {
+    "display": "RCTC in Charge",
+    "code": "boBndKZs0Gl"
+  },
+  {
+    "display": "Reaction",
+    "code": "ycXW4U3pFPN"
+  },
+  {
+    "display": "ready made shoes",
+    "code": "l0LtJBITZHe"
+  },
+  {
+    "display": "Received",
+    "code": "i5DuobGL2Jw"
+  },
+  {
+    "display": "[Reconstructive]  Surgery",
+    "code": "r61jTsSHTwd"
+  },
+  {
+    "display": "Relapse",
+    "code": "zW1t6ASj381"
+  },
+  {
+    "display": "Reported",
+    "code": "i3Isk0pqxO9"
+  },
+  {
+    "display": "Report incidents to CHMT for advice/ further follow-up",
+    "code": "XSlc3KAjAYJ"
+  },
+  {
+    "display": "Reports to be approved after completion and before being submitted to next level/entered into DHIS",
+    "code": "rlafyDOJYAG"
+  },
+  {
+    "display": "Reports to be approved after completion before being submitted to next level/entered into DHIS",
+    "code": "IMLYnZJ6KOO"
+  },
+  {
+    "display": "Request cards from District",
+    "code": "Ow1Ys0dcqqR"
+  },
+  {
+    "display": "Request DBS kits from MSD, Request TA from district on proper documentation",
+    "code": "M4uU5ieY9cu"
+  },
+  {
+    "display": "Request DBS kits from nearby facility",
+    "code": "piZc1h22ea0"
+  },
+  {
+    "display": "Request district support on Mentorship/OJT on using LMIS tools",
+    "code": "MNd2TummXr4"
+  },
+  {
+    "display": "Request district support on Mentorship on commodity management",
+    "code": "vUVwjsiBPG1"
+  },
+  {
+    "display": "Request for appropriate backup tool from the district.  ",
+    "code": "lVnNlpJoYj3"
+  },
+  {
+    "display": "Request for database installation from district level ",
+    "code": "dUpd41jE2g2"
+  },
+  {
+    "display": "Request Mentorship/OJT on  forecasting, stock counts, proper documentation",
+    "code": "pKoc78BT732"
+  },
+  {
+    "display": "Request mentorship or OJT on commodities mgmt from Zonal MSD, District or IPs",
+    "code": "cREL864oyCe"
+  },
+  {
+    "display": "Request OJT on HIV Testing, QA, and documentation from CHMT",
+    "code": "DYPq4CGiNoB"
+  },
+  {
+    "display": "Request OJT on Testing QA and Documentation from CHMT",
+    "code": "pm2qyvJ5UzA"
+  },
+  {
+    "display": "Request QA logbook from District",
+    "code": "QkXBTGKSyGb"
+  },
+  {
+    "display": "Request R&R forms from District",
+    "code": "bPlpje8PUfc"
+  },
+  {
+    "display": "Request support from district on proper ordering",
+    "code": "woP5fOGJybH"
+  },
+  {
+    "display": "Request TA from district level on proper filling/documentation of cards",
+    "code": "ffeGisEQpya"
+  },
+  {
+    "display": "Request TA from district level on proper filling/documentation of register.",
+    "code": "EdQ1oCteMpR"
+  },
+  {
+    "display": "Request TA from district on documentation in ART register. Improve adherence counselling",
+    "code": "S4gvcoNQ8MC"
+  },
+  {
+    "display": "Request TA from district on proper filling/documentation in register",
+    "code": "eXJmgw6JTGX"
+  },
+  {
+    "display": "Request TA from district on proper filling/documentation of register",
+    "code": "yYF2rPZtx8Z"
+  },
+  {
+    "display": "Request TLE from nearby facility. Request TLE from MSD",
+    "code": "FRDjdXikrjj"
+  },
+  {
+    "display": "Request to district level for the most current version of cards",
+    "code": "h4TUiNNrxxz"
+  },
+  {
+    "display": "Request to district level for the most current version of register. ",
+    "code": "t0V7DqqReie"
+  },
+  {
+    "display": "Request Unigold from District if stockout",
+    "code": "IBdemVN4C6a"
+  },
+  {
+    "display": "Retreatment",
+    "code": "DcC9jgASUdE"
+  },
+  {
+    "display": "Return After Lost to Follow up",
+    "code": "Fr16RSCcb4O"
+  },
+  {
+    "display": "Rif Resistant (RR - TB)",
+    "code": "wkDzfvnuYII"
+  },
+  {
+    "display": "Robo ya kwanza ya mwaka",
+    "code": "STb4CN1kCfO"
+  },
+  {
+    "display": "Robo ya nne ya mwaka",
+    "code": "GaUaWoJKJca"
+  },
+  {
+    "display": "Robo ya pili ya mwaka",
+    "code": "H0vvq2gXSH4"
+  },
+  {
+    "display": "Robo ya tatu ya mwaka",
+    "code": "QKUFCI2o66m"
+  },
+  {
+    "display": "Routine VIA Screening (previously VIA-)",
+    "code": "M71USDyQxP9"
+  },
+  {
+    "display": "sehemu za kazi five",
+    "code": "H2TMQyBIcVd"
+  },
+  {
+    "display": "sehemu za kazi four",
+    "code": "fZNlvNPCNAu"
+  },
+  {
+    "display": "sehemu za kazi one",
+    "code": "uGukBcAgmSP"
+  },
+  {
+    "display": "sehemu za kazi three",
+    "code": "kLgHnGbJdE3"
+  },
+  {
+    "display": "sehemu za kazi two",
+    "code": "Tl9D4Bo97TO"
+  },
+  {
+    "display": "Self referral",
+    "code": "jSbRCTx3nOE"
+  },
+  {
+    "display": "Send blood sample to Nat'l level for ELISA test (for all inconclusives)",
+    "code": "wdnmRJr6D6E"
+  },
+  {
+    "display": "Separate soon-to-expire kits from usable stock (arrange kits according to FEFO)",
+    "code": "pYu1aoqZuIB"
+  },
+  {
+    "display": "Serikali",
+    "code": "m2XdI86agQt"
+  },
+  {
+    "display": "Severe",
+    "code": "HmitHPFwVrV"
+  },
+  {
+    "display": "Siku 28",
+    "code": "p2Uuu2wh8XW"
+  },
+  {
+    "display": "Siku 29 – Miezi 11",
+    "code": "AytzmsqCDHg"
+  },
+  {
+    "display": "Skull",
+    "code": "Y08wmEGcE3h"
+  },
+  {
+    "display": "Solid needles",
+    "code": "spPddlFjssE"
+  },
+  {
+    "display": "Spine",
+    "code": "IL7GboWA2zW"
+  },
+  {
+    "display": "Splash",
+    "code": "ZJi3BNy2V3z"
+  },
+  {
+    "display": "SPs to start updating registers regularly",
+    "code": "cwGJcrPhI4s"
+  },
+  {
+    "display": "SS to sites to assess staff competency on commodity management ",
+    "code": "OoR39XiWwzB"
+  },
+  {
+    "display": "STI Clinics",
+    "code": "npVNWiBTBCj"
+  },
+  {
+    "display": "Stopped ART",
+    "code": "JcpEpG8S5g2"
+  },
+  {
+    "display": "Students",
+    "code": "qi4TA1PSlfM"
+  },
+  {
+    "display": "Supervise completion of HIV testing QA documentation & activities",
+    "code": "reGC16P7WTs"
+  },
+  {
+    "display": "Target",
+    "code": "WbxHZCMZnby"
+  },
+  {
+    "display": "TA to DHIS data entry person on understanding PMTCT indicators",
+    "code": "Llco40XoYmW"
+  },
+  {
+    "display": "TB Patient",
+    "code": "brAWqGqQi9z"
+  },
+  {
+    "display": "TB Patient HIV +ve",
+    "code": "mP3suO3Wxdi"
+  },
+  {
+    "display": "TB Patient Referred from CTC",
+    "code": "JwirCWhi55w"
+  },
+  {
+    "display": "TB Patient Referred to CTC",
+    "code": "MqGaGyt2Wk4"
+  },
+  {
+    "display": "TB Patient Registered for HIV Care",
+    "code": "xz8uOJytqHi"
+  },
+  {
+    "display": "TB Patients Cured",
+    "code": "tnZbklBwh2P"
+  },
+  {
+    "display": "TB Patients Died",
+    "code": "TJ9O8JYQM1k"
+  },
+  {
+    "display": "TB Patients Lost to follow up",
+    "code": "ygmucyiFUJ5"
+  },
+  {
+    "display": "TB Patients Not Evaluated",
+    "code": "QCgfdIYcoTH"
+  },
+  {
+    "display": "TB Patients Notified",
+    "code": "rpAVti3mqIr"
+  },
+  {
+    "display": "TB Patient Started ART",
+    "code": "UI01lvLfNBh"
+  },
+  {
+    "display": "TB Patient Started CPT",
+    "code": "ACNawoAie9e"
+  },
+  {
+    "display": "TB Patients Treatment Completed",
+    "code": "FAC80GQlpgl"
+  },
+  {
+    "display": "TB Patients treatment failed",
+    "code": "DyAWDDFnbwI"
+  },
+  {
+    "display": "TB Patient Tested HIV",
+    "code": "ujlC2ZWb849"
+  },
+  {
+    "display": "tracer a",
+    "code": "d3lQgOjYjBW"
+  },
+  {
+    "display": "tracer b",
+    "code": "hj0gDvocUnd"
+  },
+  {
+    "display": "tracer c",
+    "code": "hb1haJiE0cF"
+  },
+  {
+    "display": "tracer d",
+    "code": "MezkiW1iPrz"
+  },
+  {
+    "display": "Tracking missed opportunities for HEI and use of networks of service clusters to improve referrals",
+    "code": "nMbSQRjxEO2"
+  },
+  {
+    "display": "Transferred Out",
+    "code": "tx59pwG4wmu"
+  },
+  {
+    "display": "Treatment not completed",
+    "code": "Pyu8Lg4sJHY"
+  },
+  {
+    "display": "Ulcer/wound treatment",
+    "code": "QUjSQjAIafF"
+  },
+  {
+    "display": "Umri chini ya miaka 5",
+    "code": "hoVB2LGE7kI"
+  },
+  {
+    "display": "Umri chini ya mwaka 1",
+    "code": "BX6v1gPZJcI"
+  },
+  {
+    "display": "Umri chini ya mwezi 1",
+    "code": "xLotqtMo0pI"
+  },
+  {
+    "display": "Umri miaka 5 au zaidi",
+    "code": "ZXUT4IAcxX5"
+  },
+  {
+    "display": "Umri miaka 5 hadi miaka 15",
+    "code": "jTYrvt8mSAK"
+  },
+  {
+    "display": "Umri miaka 5 hadi miaka chini ya 60",
+    "code": "dX6eNuAKuE5"
+  },
+  {
+    "display": "Umri miaka 5 hadi umri chini ya miaka 60",
+    "code": "GF4Nq9E8x6l"
+  },
+  {
+    "display": "Umri miaka 60 au zaidi",
+    "code": "UsRGaDRgUTs"
+  },
+  {
+    "display": "Umri mwaka 1 hadi  miaka 5",
+    "code": "zRHsZS8M6Vd"
+  },
+  {
+    "display": "Umri mwaka 1 hadi umri chini ya miaka 5",
+    "code": "Cw0V80VVLNX"
+  },
+  {
+    "display": "Umri mwezi 1 hadi umri chini ya mwaka 1",
+    "code": "i3RHRoyrkuO"
+  },
+  {
+    "display": "Umri wa miaka 15 au zaidi",
+    "code": "zemAa95OmOU"
+  },
+  {
+    "display": "Umri wa miaka 5 hadi umri chini ya miaka 15",
+    "code": "WQzILILnT7L"
+  },
+  {
+    "display": "Umri wa miaka chini ya 5",
+    "code": "euQIyBCoW5p"
+  },
+  {
+    "display": "Umri zaidi ya miaka 15",
+    "code": "MXlU3E1Osb5"
+  },
+  {
+    "display": "Under 1",
+    "code": "NUUhXEngiby"
+  },
+  {
+    "display": "Unknown",
+    "code": "b7ihFZL8rNf"
+  },
+  {
+    "display": "Unkown",
+    "code": "ghvABapydD6"
+  },
+  {
+    "display": "Update LMIS tools",
+    "code": "RUqHSzMD6TK"
+  },
+  {
+    "display": "Urology",
+    "code": "rA868SpGfbn"
+  },
+  {
+    "display": "Use clinician roster/ schedule for work at PMTCT clinic.  Link clients with Psychosocial and nutritional services",
+    "code": "g4tXQ9rxA4M"
+  },
+  {
+    "display": "Validate new lot with old lot using known sample",
+    "code": "yCFA2vOc7Jl"
+  },
+  {
+    "display": "VCT",
+    "code": "HYkvLHcTK3A"
+  },
+  {
+    "display": "V C T",
+    "code": "xSZ7e34QnPW"
+  },
+  {
+    "display": "Vinginevyo",
+    "code": "aoAl6rdArKb"
+  },
+  {
+    "display": "Wadau wa maendeleo ya Afya 1",
+    "code": "PLQNyzNyFub"
+  },
+  {
+    "display": "Wadau wa maendeleo ya Afya 2",
+    "code": "Vc8YQN8ZUol"
+  },
+  {
+    "display": "Wadau wa maendeleo ya Afya 3",
+    "code": "pySnq2iyW0V"
+  },
+  {
+    "display": "Wadau wa maendeleo ya Afya 4",
+    "code": "HUtKtTc0nqK"
+  },
+  {
+    "display": "Wadau wa maendeleo ya Afya 5",
+    "code": "Ikk2r8QuXgx"
+  },
+  {
+    "display": "Wageni",
+    "code": "dsEkdCgeaTi"
+  },
+  {
+    "display": "Wahisani",
+    "code": "vuePaANb3mS"
+  },
+  {
+    "display": "Wapya",
+    "code": "b3yP7dDp829"
+  },
+  {
+    "display": "Wasio na Mafunzo",
+    "code": "iU3MKQViWip"
+  },
+  {
+    "display": "Week 10",
+    "code": "mFoITfPNk1X"
+  },
+  {
+    "display": "Week 14",
+    "code": "PctuuN84wRD"
+  },
+  {
+    "display": "Week 6",
+    "code": "VHZkVs3JQih"
+  },
+  {
+    "display": "Wenye Mafunzo",
+    "code": "ljIX4mdkluH"
+  }
+]
+}

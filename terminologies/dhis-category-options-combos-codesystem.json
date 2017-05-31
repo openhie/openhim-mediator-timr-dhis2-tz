@@ -1,0 +1,4797 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "dhis2-category-option-combos",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/dhis2-category-option-combos"
+    ]
+  },
+  "url": "http://dhis.moh.go.tz/api/categoryOptionCombos",
+  "version": "1.0.0",
+  "name": "DHIS2 Category Option Combos",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2016-08-04",
+  "description": "This is a codesystem for DHIS2 category option combos.",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "Pf4YqJiI1c6",
+      "display": "NACP_cohort_36NACP_cohort_36"
+    },
+    {
+      "code": "j3uxeztFC6Q",
+      "display": "NACP_cohort_48"
+    },
+    {
+      "code": "Gu7JgCjLHPP",
+      "display": "NACP_cohort_12"
+    },
+    {
+      "code": "lpwiwNytTCx",
+      "display": "NACP_cohort_60"
+    },
+    {
+      "code": "KQeFRdO5sur",
+      "display": "NACP_cohort_72"
+    },
+    {
+      "code": "qk0T5Fnit18",
+      "display": "NACP_cohort_36"
+    },
+    {
+      "code": "phTd9YnkBj9",
+      "display": "NACP_cohort_48"
+    },
+    {
+      "code": "p510QTd5srR",
+      "display": "NACP_cohort_72"
+    },
+    {
+      "code": "vtgcQMhYqgv",
+      "display": "NACP_cohort_60"
+    },
+    {
+      "code": "QkrzmSIl5c5",
+      "display": "NACP_cohort_12"
+    },
+    {
+      "code": "DbPtrYR1mfP",
+      "display": "CTC in Charge"
+    },
+    {
+      "code": "ugHOtspdAV2",
+      "display": "commodities_Poor data quality"
+    },
+    {
+      "code": "Z4e3HhqTquU",
+      "display": "M&E_Other"
+    },
+    {
+      "code": "M5icXidHE8f",
+      "display": "DRCHCo"
+    },
+    {
+      "code": "u4RNGlQVDr5",
+      "display": "District Pharmacist"
+    },
+    {
+      "code": "qKsYh0eTq0b",
+      "display": "M&E_Register not updated"
+    },
+    {
+      "code": "fFNHoflhnNO",
+      "display": "DRCHCo"
+    },
+    {
+      "code": "ydfkDF9tp2U",
+      "display": "Target"
+    },
+    {
+      "code": "FSaFAD0nFjr",
+      "display": "Reported"
+    },
+    {
+      "code": "X1PI1NwfHxQ",
+      "display": "0-14, KEKE,0-14"
+    },
+    {
+      "code": "btODpwm3qHw",
+      "display": "0-14, MEME,0-14"
+    },
+    {
+      "code": "sfMSA9Ope9b",
+      "display": "1 month, HIV Negative, KE1 month,HIV Negative,KE"
+    },
+    {
+      "code": "MhrwCpp0Gn3",
+      "display": "1 month, HIV Negative, ME1 month,HIV Negative,ME"
+    },
+    {
+      "code": "LTDW16zbq5p",
+      "display": "1 month, HIV Positive, KE1 month,HIV Positive,KE"
+    },
+    {
+      "code": "jkNDycGBeyz",
+      "display": "1 month, HIV Positive, ME1 month,HIV Positive,ME"
+    },
+    {
+      "code": "BQrHxULahIt",
+      "display": "1-4 weeks1-4 weeks"
+    },
+    {
+      "code": "MEnWr4qPKRZ",
+      "display": "1-4, KEKE,1-4"
+    },
+    {
+      "code": "UhEC047ownP",
+      "display": "1-4, KEKE,1-4"
+    },
+    {
+      "code": "p8FcvwlSZls",
+      "display": "1-4, KEKE,1-4"
+    },
+    {
+      "code": "p6WUey2PJZs",
+      "display": "1-4, MEME,1-4"
+    },
+    {
+      "code": "JTszQIUtBhR",
+      "display": "1-4, MEME,1-4"
+    },
+    {
+      "code": "U6OlnY7OmLl",
+      "display": "1-4, MEME,1-4"
+    },
+    {
+      "code": "R0vtSj3dkk6",
+      "display": "10 -14, KEKE,10 -14"
+    },
+    {
+      "code": "ky6G1LXLxps",
+      "display": "10 -14, MEME,10 -14"
+    },
+    {
+      "code": "jainohj6gR5",
+      "display": "10-14, KEPITC,KE,10-14"
+    },
+    {
+      "code": "TKev069NaOP",
+      "display": "10-14, KEHBCT,KE,10-14"
+    },
+    {
+      "code": "D1MWaEHs6Wo",
+      "display": "10-14, KEKE,10-14,VCT"
+    },
+    {
+      "code": "pONaYKcSv6T",
+      "display": "10-14, KEKE,10-14"
+    },
+    {
+      "code": "Ucg9hBjUxZj",
+      "display": "10-14, KEKE,10-14"
+    },
+    {
+      "code": "RKaoMll6ztG",
+      "display": "10-14, MEPITC,ME,10-14"
+    },
+    {
+      "code": "RiqDjsUBhPO",
+      "display": "10-14, MEHBCT,ME,10-14"
+    },
+    {
+      "code": "A9avrq18zke",
+      "display": "10-14, MEME,10-14,VCT"
+    },
+    {
+      "code": "r2r7fVyuiP3",
+      "display": "10-14, MEME,10-14"
+    },
+    {
+      "code": "Y4vhChbk9ft",
+      "display": "10-14, MEME,10-14"
+    },
+    {
+      "code": "ocvsDe6siJl",
+      "display": "10–1410–14"
+    },
+    {
+      "code": "t02fjBsSJwR",
+      "display": "12 months12 months"
+    },
+    {
+      "code": "Y3MdTFaNINc",
+      "display": "15 - 19, KEKE,15 - 19,VCT"
+    },
+    {
+      "code": "wLQrHBt8kIx",
+      "display": "15 - 19, KEPITC,KE,15 - 19"
+    },
+    {
+      "code": "rLWOgWyxqUb",
+      "display": "15 - 19, KEHBCT,KE,15 - 19"
+    },
+    {
+      "code": "YWSpHWl1IB3",
+      "display": "15 - 19, KEKE,15 - 19"
+    },
+    {
+      "code": "n1bsXlGDqcr",
+      "display": "15 - 19, KEKE,15 - 19"
+    },
+    {
+      "code": "PEVPp6jbnuC",
+      "display": "15 - 19, KEKE,15 - 19"
+    },
+    {
+      "code": "Mx5Kig5hyEN",
+      "display": "15 - 19, MEHBCT,15 - 19,ME"
+    },
+    {
+      "code": "bObLjxAv1KT",
+      "display": "15 - 19, MEPITC,15 - 19,ME"
+    },
+    {
+      "code": "KpiKE0taBUR",
+      "display": "15 - 19, ME15 - 19,ME,VCT"
+    },
+    {
+      "code": "F15za2kWprl",
+      "display": "15 - 19, ME15 - 19,ME"
+    },
+    {
+      "code": "v5dzBTzgqf4",
+      "display": "15 - 19, ME15 - 19,ME"
+    },
+    {
+      "code": "ARntsRFqmFQ",
+      "display": "15 - 19, ME15 - 19,ME"
+    },
+    {
+      "code": "S2ySEvC4BDq",
+      "display": "15 Months, KEKE,15 Months"
+    },
+    {
+      "code": "NSuJWEFJ7ja",
+      "display": "15 Months, ME15 Months,ME"
+    },
+    {
+      "code": "uV2VZgwcBwl",
+      "display": "15-49, KEKE,15-49"
+    },
+    {
+      "code": "GU5Za7lqR8B",
+      "display": "15-49, ME15-49,ME"
+    },
+    {
+      "code": "mTIGHVsDWV3",
+      "display": "15–1915–19"
+    },
+    {
+      "code": "QXi1XYhc3Cq",
+      "display": "15–2515–25"
+    },
+    {
+      "code": "NO5Er9ksZkg",
+      "display": "1–141–14"
+    },
+    {
+      "code": "wrdPUMYwgM2",
+      "display": "1–91–9"
+    },
+    {
+      "code": "lUzsXYZqaIe",
+      "display": "2 months, HIV Negative, KEHIV Negative,KE,2 months"
+    },
+    {
+      "code": "mlQK1k4czmu",
+      "display": "2 months, HIV Negative, MEHIV Negative,2 months,ME"
+    },
+    {
+      "code": "zW1AKW58ZaF",
+      "display": "2 months, HIV Positive, KEHIV Positive,KE,2 months"
+    },
+    {
+      "code": "fgj3Gt1PGYp",
+      "display": "2 months, HIV Positive, MEHIV Positive,2 months,ME"
+    },
+    {
+      "code": "r4eMBgWj9sZ",
+      "display": "20 - 24, KEKE,20 - 24"
+    },
+    {
+      "code": "rEaPFAuHrHF",
+      "display": "20 - 24, KEKE,20 - 24"
+    },
+    {
+      "code": "aFvAHZLQ5XD",
+      "display": "20 - 24, ME20 - 24,ME"
+    },
+    {
+      "code": "B8F0IpXyMBL",
+      "display": "20 - 24, ME20 - 24,ME"
+    },
+    {
+      "code": "Di9QjAIVnzu",
+      "display": "20–2420–24"
+    },
+    {
+      "code": "tb2C6PGNVpA",
+      "display": "21 Months, KEKE,21 Months"
+    },
+    {
+      "code": "kJyDBem2Fnz",
+      "display": "21 Months, ME21 Months,ME"
+    },
+    {
+      "code": "lmxNooNZ6qH",
+      "display": "24 months24 months"
+    },
+    {
+      "code": "QtJbP8PVXaW",
+      "display": "25-34, KEKE,25-34"
+    },
+    {
+      "code": "wVyOjNW6onJ",
+      "display": "25-34, ME25-34,ME"
+    },
+    {
+      "code": "Ea5lH4S0JUD",
+      "display": "25-49, KEKE,25-49,VCT"
+    },
+    {
+      "code": "AsrOq4ItbLZ",
+      "display": "25-49, KEHBCT,KE,25-49"
+    },
+    {
+      "code": "U3QxuQUdWTD",
+      "display": "25-49, KEPITC,KE,25-49"
+    },
+    {
+      "code": "T34sQ3gdewR",
+      "display": "25-49, KEKE,25-49"
+    },
+    {
+      "code": "K3hcDUGOMlP",
+      "display": "25-49, KEKE,25-49"
+    },
+    {
+      "code": "DcZ2Gg65Flo",
+      "display": "25-49, ME25-49,ME,VCT"
+    },
+    {
+      "code": "xTnadWSdBN0",
+      "display": "25-49, MEPITC,25-49,ME"
+    },
+    {
+      "code": "bcyC2m1lkL5",
+      "display": "25-49, MEHBCT,25-49,ME"
+    },
+    {
+      "code": "psbitKGlmSe",
+      "display": "25-49, ME25-49,ME"
+    },
+    {
+      "code": "mnXZbC2aj8M",
+      "display": "25-49, ME25-49,ME"
+    },
+    {
+      "code": "mqHDXo3tdbH",
+      "display": "25–2925–29"
+    },
+    {
+      "code": "t1X5iVXZR1T",
+      "display": "26+26+"
+    },
+    {
+      "code": "y3VNWVBiQDw",
+      "display": "3 months3 months"
+    },
+    {
+      "code": "tJEqwH8JgbU",
+      "display": "3 months, HIV Negative, KE3 months,HIV Negative,KE"
+    },
+    {
+      "code": "nvADAmhnACs",
+      "display": "3 months, HIV Negative, ME3 months,HIV Negative,ME"
+    },
+    {
+      "code": "qmjrlS7kP2E",
+      "display": "3 months, HIV Positive, KE3 months,HIV Positive,KE"
+    },
+    {
+      "code": "oB3cE9XUHuw",
+      "display": "3 months, HIV Positive, ME3 months,HIV Positive,ME"
+    },
+    {
+      "code": "vnCxnax5ukG",
+      "display": "30–3430–34"
+    },
+    {
+      "code": "cADS9Fyx6Q2",
+      "display": "35-44, KE35-44,KE"
+    },
+    {
+      "code": "MTp365LfiR4",
+      "display": "35-44, ME35-44,ME"
+    },
+    {
+      "code": "chz0bnPNHF9",
+      "display": "35-49, KEKE,35-49"
+    },
+    {
+      "code": "tgm6l3NaxtH",
+      "display": "35-49, ME35-49,ME"
+    },
+    {
+      "code": "BqpYc2PHUl4",
+      "display": "35–4935–49"
+    },
+    {
+      "code": "v6oHp4rkMna",
+      "display": "4 months, HIV Negative, KEHIV Negative,KE,4 months"
+    },
+    {
+      "code": "CblW5MqD5nq",
+      "display": "4 months, HIV Negative, MEHIV Negative,4 months,ME"
+    },
+    {
+      "code": "HU3SJjxuOog",
+      "display": "4 months, HIV Positive, KEHIV Positive,KE,4 months"
+    },
+    {
+      "code": "LTaFpA9aQrI",
+      "display": "4 months, HIV Positive, MEHIV Positive,4 months,ME"
+    },
+    {
+      "code": "rC7XcJSCmQo",
+      "display": "45-54, KEKE,45-54"
+    },
+    {
+      "code": "LrfLbPMQ8lN",
+      "display": "45-54, MEME,45-54"
+    },
+    {
+      "code": "FEw7seKAAYJ",
+      "display": "5 months, HIV Negative, KEHIV Negative,KE,5 months"
+    },
+    {
+      "code": "VgAXAqiUquZ",
+      "display": "5 months, HIV Negative, MEHIV Negative,5 months,ME"
+    },
+    {
+      "code": "pgETmMiguKN",
+      "display": "5 months, HIV Positive, KEHIV Positive,KE,5 months"
+    },
+    {
+      "code": "qKs1dEfsBUz",
+      "display": "5 months, HIV Positive, MEHIV Positive,5 months,ME"
+    },
+    {
+      "code": "PvCDQOjeMDy",
+      "display": "50 - 60, KEKE,50 - 60"
+    },
+    {
+      "code": "cDJ9PFr9uzM",
+      "display": "50 - 60, ME50 - 60,ME"
+    },
+    {
+      "code": "hVKBdd54IFJ",
+      "display": "50+50+"
+    },
+    {
+      "code": "aplzyaRBGgY",
+      "display": "55-64, KE55-64,KE"
+    },
+    {
+      "code": "AHjJj5tRQuh",
+      "display": "55-64, ME55-64,ME"
+    },
+    {
+      "code": "CEpJellUpoM",
+      "display": "6 months6 months"
+    },
+    {
+      "code": "gMMzWSAFCf7",
+      "display": "6 months, HIV Negative, KEHIV Negative,KE,6 months"
+    },
+    {
+      "code": "Dmj9RgVzL9s",
+      "display": "6 months, HIV Negative, MEHIV Negative,ME,6 months"
+    },
+    {
+      "code": "SYubfd33vdj",
+      "display": "6 months, HIV Positive, KEHIV Positive,KE,6 months"
+    },
+    {
+      "code": "ZhfjM8SzoZY",
+      "display": "6 months, HIV Positive, MEHIV Positive,ME,6 months"
+    },
+    {
+      "code": "yNh3NP4foaz",
+      "display": "60% - 3SD, KE60% - 3SD,KE"
+    },
+    {
+      "code": "NumJmVngbvg",
+      "display": "60% - 3SD, ME60% - 3SD,ME"
+    },
+    {
+      "code": "PX89icH9IIA",
+      "display": "60%-80% - 2-3SD, KEKE,60%-80% - 2-3SD"
+    },
+    {
+      "code": "sVWjjJxcBWQ",
+      "display": "60%-80% - 2-3SD, ME60%-80% - 2-3SD,ME"
+    },
+    {
+      "code": "WuqXemlutom",
+      "display": "60+, KEKE,60+"
+    },
+    {
+      "code": "ZxQ1BYjm6eO",
+      "display": "60+, ME60+,ME"
+    },
+    {
+      "code": "YA9IolBADDv",
+      "display": "65+, KEKE,65+"
+    },
+    {
+      "code": "PAH31NgaXmt",
+      "display": "65+, ME65+,ME"
+    },
+    {
+      "code": "bkDHEWxFGAV",
+      "display": "80% - 2SD, KE80% - 2SD,KE"
+    },
+    {
+      "code": "xwPinlxYMhR",
+      "display": "80% - 2SD, ME80% - 2SD,ME"
+    },
+    {
+      "code": "bPrDtYLdOqj",
+      "display": "9 Monhts, KEKE,9 Monhts"
+    },
+    {
+      "code": "oE8Bbba5Pa4",
+      "display": "9 Monhts, ME9 Monhts,ME"
+    },
+    {
+      "code": "lxM1zKPHql2",
+      "display": "< 1 week< 1 week"
+    },
+    {
+      "code": "cSd5i1BGcxv",
+      "display": "< 1, KEKE,< 1"
+    },
+    {
+      "code": "jCDS9573aXj",
+      "display": "< 1, ME< 1,ME"
+    },
+    {
+      "code": "UVLU1Njotu4",
+      "display": "< 20< 20"
+    },
+    {
+      "code": "eaWiXrRQAI7",
+      "display": "< 5< 5"
+    },
+    {
+      "code": "ZFJCKq7Ailw",
+      "display": "<1<1"
+    },
+    {
+      "code": "cqpRSWeRybW",
+      "display": "<1, KE<1,KE"
+    },
+    {
+      "code": "Xcp84cDDdRK",
+      "display": "<1, KE<1,KE"
+    },
+    {
+      "code": "MoJiitNJ561",
+      "display": "<1, ME<1,ME"
+    },
+    {
+      "code": "E5yCz04KMnY",
+      "display": "<1, ME<1,ME"
+    },
+    {
+      "code": "cNj4uKoZso4",
+      "display": "<15, KEKE,<15"
+    },
+    {
+      "code": "t49htB51lUz",
+      "display": "<15, ME<15,ME"
+    },
+    {
+      "code": "sKPenIPoYwD",
+      "display": "<35 yrs<35 yrs"
+    },
+    {
+      "code": "TrmsDE6SUZI",
+      "display": "> 4 weeks> 4 weeks"
+    },
+    {
+      "code": "mV8XQthHodS",
+      "display": "> 5> 5"
+    },
+    {
+      "code": "lVnpcptMtAD",
+      "display": ">= 20>= 20"
+    },
+    {
+      "code": "LbL23z0xbnT",
+      "display": ">= 50, KEKE,>= 50"
+    },
+    {
+      "code": "JJFRVPK9PEU",
+      "display": ">= 50, MEME,>= 50"
+    },
+    {
+      "code": "i0MHNTk1fK8",
+      "display": ">=35 yrs>=35 yrs"
+    },
+    {
+      "code": "k4RyqxHyx1J",
+      "display": ">=50, KEHBCT,KE,>=50"
+    },
+    {
+      "code": "Janvq9TK6GJ",
+      "display": ">=50, KEPITC,KE,>=50"
+    },
+    {
+      "code": "UlPnoJP1W0A",
+      "display": ">=50, KEKE,>=50,VCT"
+    },
+    {
+      "code": "Ltmqwcmzn3e",
+      "display": ">=50, KEKE,>=50"
+    },
+    {
+      "code": "PSkXPIY9tJT",
+      "display": ">=50, KEKE,>=50"
+    },
+    {
+      "code": "PYDOCTI9u6Y",
+      "display": ">=50, MEHBCT,ME,>=50"
+    },
+    {
+      "code": "kTNOXs3NtNI",
+      "display": ">=50, MEME,>=50,VCT"
+    },
+    {
+      "code": "iukjG78IuIe",
+      "display": ">=50, MEPITC,ME,>=50"
+    },
+    {
+      "code": "szW8xVM7cqd",
+      "display": ">=50, MEME,>=50"
+    },
+    {
+      "code": "uhtalqET60R",
+      "display": ">=50, MEME,>=50"
+    },
+    {
+      "code": "wAAgPwesOpq",
+      "display": "[Reconstructive] Surgery[Reconstructive] Surgery"
+    },
+    {
+      "code": "DBawCmI5xNY",
+      "display": "AbdomenAbdomen"
+    },
+    {
+      "code": "wUPqvQCNzKz",
+      "display": "Above 1, KE, Inside Service AreaInside Service Area,Above 1,KE"
+    },
+    {
+      "code": "USFFdHPiMHX",
+      "display": "Above 1, KE, Inside Service Area, Dose 0Inside Service Area,Dose 0,Above 1,KE"
+    },
+    {
+      "code": "stQnTPC3sGY",
+      "display": "Above 1, KE, Inside Service Area, Dose 1Inside Service Area,Above 1,KE,Dose 1"
+    },
+    {
+      "code": "dLKzJyAjxEv",
+      "display": "Above 1, KE, Inside Service Area, Dose 2Inside Service Area,Above 1,KE,Dose 2"
+    },
+    {
+      "code": "blVnNX60cr2",
+      "display": "Above 1, KE, Inside Service Area, Dose 3Inside Service Area,Above 1,KE,Dose 3"
+    },
+    {
+      "code": "CgQ5oSieXJt",
+      "display": "Above 1, KE, Outside Service AreaOutside Service Area,Above 1,KE"
+    },
+    {
+      "code": "fJ0KkKDiOsT",
+      "display": "Above 1, KE, Outside Service Area, Dose 0Outside Service Area,Dose 0,Above 1,KE"
+    },
+    {
+      "code": "iAWOHdNXR78",
+      "display": "Above 1, KE, Outside Service Area, Dose 1Outside Service Area,Above 1,KE,Dose 1"
+    },
+    {
+      "code": "CaYd1chlDO2",
+      "display": "Above 1, KE, Outside Service Area, Dose 2Outside Service Area,Above 1,KE,Dose 2"
+    },
+    {
+      "code": "SEVVkVmtPmv",
+      "display": "Above 1, KE, Outside Service Area, Dose 3Outside Service Area,Above 1,KE,Dose 3"
+    },
+    {
+      "code": "ME0y46H6zro",
+      "display": "Above 1, ME, Inside Service AreaInside Service Area,Above 1,ME"
+    },
+    {
+      "code": "i9QljzU0oxs",
+      "display": "Above 1, ME, Inside Service Area, Dose 0Inside Service Area,Dose 0,Above 1,ME"
+    },
+    {
+      "code": "WC5421NUHK7",
+      "display": "Above 1, ME, Inside Service Area, Dose 1Inside Service Area,Above 1,Dose 1,ME"
+    },
+    {
+      "code": "cjJCwxzcdsX",
+      "display": "Above 1, ME, Inside Service Area, Dose 2Inside Service Area,Above 1,ME,Dose 2"
+    },
+    {
+      "code": "cSgsE8VZXrk",
+      "display": "Above 1, ME, Inside Service Area, Dose 3Inside Service Area,Above 1,Dose 3,ME"
+    },
+    {
+      "code": "LQdibyemWR9",
+      "display": "Above 1, ME, Outside Service AreaOutside Service Area,Above 1,ME"
+    },
+    {
+      "code": "xj9CGbZJkJg",
+      "display": "Above 1, ME, Outside Service Area, Dose 0Outside Service Area,Dose 0,Above 1,ME"
+    },
+    {
+      "code": "HIHeePiLndi",
+      "display": "Above 1, ME, Outside Service Area, Dose 1Outside Service Area,Above 1,Dose 1,ME"
+    },
+    {
+      "code": "iwKKqMuakds",
+      "display": "Above 1, ME, Outside Service Area, Dose 2Outside Service Area,Above 1,ME,Dose 2"
+    },
+    {
+      "code": "gxgrWHOgnPN",
+      "display": "Above 1, ME, Outside Service Area, Dose 3Outside Service Area,Above 1,Dose 3,ME"
+    },
+    {
+      "code": "XH6nUyWQHNt",
+      "display": "Adjustment/LostAdjustment/Lost"
+    },
+    {
+      "code": "DyQQU83bT7Q",
+      "display": "Agree on time frame of starting use of backup tool Agree on time frame of starting use of backup tool "
+    },
+    {
+      "code": "ahPwfYCB2Rv",
+      "display": "ANCANC"
+    },
+    {
+      "code": "COfKJyoiEar",
+      "display": "ANCANC"
+    },
+    {
+      "code": "DkFnaWLlSGR",
+      "display": "Appropriate storage and handling of test kitsAppropriate storage and handling of test kits"
+    },
+    {
+      "code": "EX84xvGJSGF",
+      "display": "Appropriate storage and handling of test kitsAppropriate storage and handling of test kits"
+    },
+    {
+      "code": "ii3h6XaFPxh",
+      "display": "Balance on handBalance on hand"
+    },
+    {
+      "code": "KxHTMLPuonn",
+      "display": "Barium MealBarium Meal"
+    },
+    {
+      "code": "BqWLYylJ2Ul",
+      "display": "BaselineBaseline"
+    },
+    {
+      "code": "HtqP39HVW2M",
+      "display": "Beginning BalanceBeginning Balance"
+    },
+    {
+      "code": "doNDg2rsT6a",
+      "display": "BinafsiBinafsi"
+    },
+    {
+      "code": "tdzP4MKnstX",
+      "display": "Case 1Case 1"
+    },
+    {
+      "code": "k7RFLqenGoC",
+      "display": "Case 2Case 2"
+    },
+    {
+      "code": "njiTTzgnpcR",
+      "display": "Case 3Case 3"
+    },
+    {
+      "code": "rphvCz1EY6I",
+      "display": "Case, < 5Case,< 5"
+    },
+    {
+      "code": "QInmZugn9JO",
+      "display": "Case, < 5, KEKE,Case,< 5"
+    },
+    {
+      "code": "AttDwO4xCIu",
+      "display": "Case, < 5, MECase,< 5,ME"
+    },
+    {
+      "code": "vPuWSFjehIm",
+      "display": "Case, > 5Case,> 5"
+    },
+    {
+      "code": "q3GdT7f6iw9",
+      "display": "Case, > 5, KEKE,Case,> 5"
+    },
+    {
+      "code": "FRzeEpefSK8",
+      "display": "Case, > 5, MECase,ME,> 5"
+    },
+    {
+      "code": "Vh2RzAjgRzB",
+      "display": "ChestChest"
+    },
+    {
+      "code": "ikzH42K4mew",
+      "display": "CHF/TIKACHF/TIKA"
+    },
+    {
+      "code": "kmq26Yuk3r5",
+      "display": "Child Protection, KEKE,Child Protection"
+    },
+    {
+      "code": "ftXZq8NZWRj",
+      "display": "Child Protection, MEChild Protection,ME"
+    },
+    {
+      "code": "CPSepJXxikO",
+      "display": "Chini ya Siku 7Chini ya Siku 7"
+    },
+    {
+      "code": "thVPVBFuFnH",
+      "display": "CliniciansClinicians"
+    },
+    {
+      "code": "BMxgoEn7U02",
+      "display": "commodities_ Ledger entries not updatedcommodities_ Ledger entries not updated"
+    },
+    {
+      "code": "YSwApBtDFdN",
+      "display": "commodities_ MSD repackaging kits leading to mixing of expiry datescommodities_ MSD repackaging kits leading to mixing of expiry dates"
+    },
+    {
+      "code": "JquW3NHqSFi",
+      "display": "commodities_ MSD repackaging kits leading to mixing of expiry datescommodities_ MSD repackaging kits leading to mixing of expiry dates"
+    },
+    {
+      "code": "J5Ge6Wmq6kW",
+      "display": "commodities_Consumption records not proper/ backlogscommodities_Consumption records not proper/ backlogs"
+    },
+    {
+      "code": "BhstbsYypfl",
+      "display": "commodities_DBS kitscommodities_DBS kits"
+    },
+    {
+      "code": "OpNhXEjfp0q",
+      "display": "commodities_Do not know how to do recording/ use LMIS toolscommodities_Do not know how to do recording/ use LMIS tools"
+    },
+    {
+      "code": "BgUMOTiWNT7",
+      "display": "commodities_Don't know consumption rate of the productcommodities_Don't know consumption rate of the product"
+    },
+    {
+      "code": "IrWTktuCSlf",
+      "display": "commodities_Don't know consumption rate of the productcommodities_Don't know consumption rate of the product"
+    },
+    {
+      "code": "x9cDsjcr8S8",
+      "display": "commodities_Don't know consumption rate of the productcommodities_Don't know consumption rate of the product"
+    },
+    {
+      "code": "Q7HSAjdCc39",
+      "display": "commodities_Expiration dates not clearly markedcommodities_Expiration dates not clearly marked"
+    },
+    {
+      "code": "C2EEtWWOXzk",
+      "display": "commodities_Expiration dates not clearly markedcommodities_Expiration dates not clearly marked"
+    },
+    {
+      "code": "fSbGv3N2D64",
+      "display": "commodities_Expiration dates not clearly markedcommodities_Expiration dates not clearly marked"
+    },
+    {
+      "code": "JRVVRx9Jx46",
+      "display": "commodities_Facility over-ordered TLE/ NVP syrup due to multiple reasonscommodities_Facility over-ordered TLE/ NVP syrup due to multiple reasons"
+    },
+    {
+      "code": "qXqKvab49S3",
+      "display": "commodities_Facility over-ordered TLE/ NVP syrup due to multiple reasonscommodities_Facility over-ordered TLE/ NVP syrup due to multiple reasons"
+    },
+    {
+      "code": "svwNP3252U7",
+      "display": "commodities_Facility under-ordered due to multiple reasonscommodities_Facility under-ordered due to multiple reasons"
+    },
+    {
+      "code": "waXXlxJNElA",
+      "display": "commodities_Facility under-ordered due to multiple reasonscommodities_Facility under-ordered due to multiple reasons"
+    },
+    {
+      "code": "s4sAwqJ7PtN",
+      "display": "commodities_Facility under-ordered TLE due to multiple reasons (overstated stock on handcommodities_Facility under-ordered TLE due to multiple reasons (overstated stock on hand"
+    },
+    {
+      "code": "Q6NB5TUQZPS",
+      "display": "commodities_Facility under-ordered TLE due to multiple reasons (overstated stock on handcommodities_Facility under-ordered TLE due to multiple reasons (overstated stock on hand"
+    },
+    {
+      "code": "hYk2gxjQ2zF",
+      "display": "commodities_Forecasting problems/ poor forecastingcommodities_Forecasting problems/ poor forecasting"
+    },
+    {
+      "code": "ogEHRLvLjgA",
+      "display": "commodities_Forecasting problems/ poor forecastingcommodities_Forecasting problems/ poor forecasting"
+    },
+    {
+      "code": "UncVNcrG1Nq",
+      "display": "commodities_ILS forms not comprehensive in estimating new clientscommodities_ILS forms not comprehensive in estimating new clients"
+    },
+    {
+      "code": "oIxWh9CkotR",
+      "display": "commodities_Inadequate stock at Zonal MSD: rationing by MSD levelcommodities_Inadequate stock at Zonal MSD: rationing by MSD level"
+    },
+    {
+      "code": "Drt6G6xeyvQ",
+      "display": "commodities_Inadequate stock at Zonal MSD: rationing by MSD levelcommodities_Inadequate stock at Zonal MSD: rationing by MSD level"
+    },
+    {
+      "code": "zYeccBWK1BI",
+      "display": "commodities_Inadequate stock at Zonal MSD: rationing by MSD levelcommodities_Inadequate stock at Zonal MSD: rationing by MSD level"
+    },
+    {
+      "code": "ZcRwvVWKmRQ",
+      "display": "commodities_Inadequate stock at Zonal MSD: rationing by MSD levelcommodities_Inadequate stock at Zonal MSD: rationing by MSD level"
+    },
+    {
+      "code": "eGAVgGWsc7j",
+      "display": "commodities_Kits expired or damaged commodities_Kits expired or damaged "
+    },
+    {
+      "code": "loG9LIkDGME",
+      "display": "commodities_Lack of R&R formcommodities_Lack of R&R form"
+    },
+    {
+      "code": "u5AgyBO3iLk",
+      "display": "commodities_Lack of R&R formcommodities_Lack of R&R form"
+    },
+    {
+      "code": "KAFtom1Kbd1",
+      "display": "commodities_Lack of R&R/ ILS formcommodities_Lack of R&R/ ILS form"
+    },
+    {
+      "code": "dH3iaNwDKtu",
+      "display": "commodities_Lack of R&R/ ILS formcommodities_Lack of R&R/ ILS form"
+    },
+    {
+      "code": "ZimhptgH7Zk",
+      "display": "commodities_Lack of R&R/ ILS formcommodities_Lack of R&R/ ILS form"
+    },
+    {
+      "code": "crAVhWJYO1h",
+      "display": "commodities_MSD delivered TLE/ NVP syrup with short shelf lifecommodities_MSD delivered TLE/ NVP syrup with short shelf life"
+    },
+    {
+      "code": "jo5EN932psu",
+      "display": "commodities_MSD delivered TLE/ NVP syrup with short shelf lifecommodities_MSD delivered TLE/ NVP syrup with short shelf life"
+    },
+    {
+      "code": "bNGbt2hvxtM",
+      "display": "commodities_MSD delivered TLE/ NVP syrup with short shelf lifecommodities_MSD delivered TLE/ NVP syrup with short shelf life"
+    },
+    {
+      "code": "t14YzXA60Sa",
+      "display": "commodities_MSD did not have transport to bring stock to facilitycommodities_MSD did not have transport to bring stock to facility"
+    },
+    {
+      "code": "QKGysP7Fzf0",
+      "display": "commodities_Not using FEFO (First Expiry First Out) due to failure to examine expiry date during physical inventorycommodities_Not using FEFO (First Expiry First Out) due to failure to examine expiry date during physical inventory"
+    },
+    {
+      "code": "jwa8dGgPG57",
+      "display": "commodities_Not using FEFO (First Expiry First Out) due to failure to examine expiry date during physical inventorycommodities_Not using FEFO (First Expiry First Out) due to failure to examine expiry date during physical inventory"
+    },
+    {
+      "code": "tsjT6KptNsh",
+      "display": "commodities_Not using FEFO (First Expiry First Out) due to failure to examine expiry date during physical inventorycommodities_Not using FEFO (First Expiry First Out) due to failure to examine expiry date during physical inventory"
+    },
+    {
+      "code": "ZvMjnh5ggfo",
+      "display": "commodities_NVPcommodities_NVP"
+    },
+    {
+      "code": "O5CRZwuYwUs",
+      "display": "commodities_Order submitted latecommodities_Order submitted late"
+    },
+    {
+      "code": "pjBxGyH8v6W",
+      "display": "commodities_Order submitted latecommodities_Order submitted late"
+    },
+    {
+      "code": "FOylKy1qPK2",
+      "display": "commodities_Poor data qualitycommodities_Poor data quality"
+    },
+    {
+      "code": "XF35zwX5CvY",
+      "display": "commodities_Poor data qualitycommodities_Poor data quality"
+    },
+    {
+      "code": "Jinmhotcvbl",
+      "display": "commodities_Poor data qualitycommodities_Poor data quality"
+    },
+    {
+      "code": "ygLFfVVm0Pb",
+      "display": "commodities_Poor data qualitycommodities_Poor data quality"
+    },
+    {
+      "code": "WkLk5Nj0wbm",
+      "display": "commodities_Poor data qualitycommodities_Poor data quality"
+    },
+    {
+      "code": "khALV34L9FJ",
+      "display": "commodities_Poor record keepingcommodities_Poor record keeping"
+    },
+    {
+      "code": "f7KvJOxJDIU",
+      "display": "commodities_Poor record keepingcommodities_Poor record keeping"
+    },
+    {
+      "code": "Vfi3Ou3MrZe",
+      "display": "commodities_R& R ILS not available at sitecommodities_R& R ILS not available at site"
+    },
+    {
+      "code": "PzRMEyfpwxa",
+      "display": "commodities_R&R not filled out properlycommodities_R&R not filled out properly"
+    },
+    {
+      "code": "DFN3ISnoiiI",
+      "display": "commodities_R&R not filled out properlycommodities_R&R not filled out properly"
+    },
+    {
+      "code": "H4ELR3bk3yL",
+      "display": "commodities_R&R/ILS not filled out properlycommodities_R&R/ILS not filled out properly"
+    },
+    {
+      "code": "fQj9SlSnmOG",
+      "display": "commodities_R&R/ILS not filled out properlycommodities_R&R/ILS not filled out properly"
+    },
+    {
+      "code": "lLgh76xFB8r",
+      "display": "commodities_R&R/ILS not filled out properlycommodities_R&R/ILS not filled out properly"
+    },
+    {
+      "code": "ZHU3dGMqiVo",
+      "display": "commodities_Received stock w/o sending request (pushed)commodities_Received stock w/o sending request (pushed)"
+    },
+    {
+      "code": "A3JwuCsMLXY",
+      "display": "commodities_Received stock w/o sending request (pushed)commodities_Received stock w/o sending request (pushed)"
+    },
+    {
+      "code": "QZsA6dtKGtQ",
+      "display": "commodities_Received stock w/o sending request (pushed)commodities_Received stock w/o sending request (pushed)"
+    },
+    {
+      "code": "SR2DJr04QbM",
+      "display": "commodities_Received stock w/o sending request (pushed)commodities_Received stock w/o sending request (pushed)"
+    },
+    {
+      "code": "h7E6ZQ0MxMv",
+      "display": "commodities_RTKcommodities_RTK"
+    },
+    {
+      "code": "eExj1zYB68H",
+      "display": "commodities_Site did not order commodities_Site did not order "
+    },
+    {
+      "code": "WJHjYDQYw9M",
+      "display": "commodities_Site did not order commodities_Site did not order "
+    },
+    {
+      "code": "A1FsbrOzq3a",
+      "display": "commodities_Site did not order commodities_Site did not order "
+    },
+    {
+      "code": "kmn7YC2KzJJ",
+      "display": "commodities_Site did not order commodities_Site did not order "
+    },
+    {
+      "code": "ciCoXKJ8xfe",
+      "display": "commodities_Stock expired or damagedcommodities_Stock expired or damaged"
+    },
+    {
+      "code": "eTjrBk2x001",
+      "display": "commodities_Stock expired or damagedcommodities_Stock expired or damaged"
+    },
+    {
+      "code": "otmVUX8CcFI",
+      "display": "commodities_Supply collection/ logistics barriers/problemscommodities_Supply collection/ logistics barriers/problems"
+    },
+    {
+      "code": "lUP491XDRgt",
+      "display": "commodities_TLEcommodities_TLE"
+    },
+    {
+      "code": "wOj0qG452ON",
+      "display": "commodities_TLE borrowed by other facilitiescommodities_TLE borrowed by other facilities"
+    },
+    {
+      "code": "Km552W3qrpK",
+      "display": "commodities_TLE expired/ damagedcommodities_TLE expired/ damaged"
+    },
+    {
+      "code": "JLyopl5a6EB",
+      "display": "commodities_Transferred (lent) to another facilitycommodities_Transferred (lent) to another facility"
+    },
+    {
+      "code": "JXqkPQdxwE3",
+      "display": "commodities_Transferred (lent) to another facilitycommodities_Transferred (lent) to another facility"
+    },
+    {
+      "code": "G47xbVcBt8F",
+      "display": "commodities_Transferred (lent) to another facilitycommodities_Transferred (lent) to another facility"
+    },
+    {
+      "code": "MkuYoYHdqVu",
+      "display": "commodities_Untrained staff at facilitycommodities_Untrained staff at facility"
+    },
+    {
+      "code": "TzzrqYGjy2z",
+      "display": "commodities_Untrained staff at facilitycommodities_Untrained staff at facility"
+    },
+    {
+      "code": "pg5fJm3FtEO",
+      "display": "commodities_Untrained staff at facilitycommodities_Untrained staff at facility"
+    },
+    {
+      "code": "gReSLrk7GGG",
+      "display": "commodities_Very long lead time taken by MSD/ DMO to deliver commoditiescommodities_Very long lead time taken by MSD/ DMO to deliver commodities"
+    },
+    {
+      "code": "nO4kyBJmWnC",
+      "display": "commodities_Very long lead time taken by MSD/ DMO to deliver commoditiescommodities_Very long lead time taken by MSD/ DMO to deliver commodities"
+    },
+    {
+      "code": "QPVCnnN8AL8",
+      "display": "commodities_Very long lead time taken by MSD/ DMO to deliver commoditiescommodities_Very long lead time taken by MSD/ DMO to deliver commodities"
+    },
+    {
+      "code": "yDfGFhuUUp2",
+      "display": "CompletedCompleted"
+    },
+    {
+      "code": "BYoQV2sRHok",
+      "display": "CTCCTC"
+    },
+    {
+      "code": "OTkX066WTDu",
+      "display": "CTCCTC"
+    },
+    {
+      "code": "MHtlgXtIMjV",
+      "display": "CTC in ChargeCTC in Charge"
+    },
+    {
+      "code": "OujTWg1alKA",
+      "display": "CTC in ChargeCTC in Charge"
+    },
+    {
+      "code": "qdT1qtPxedY",
+      "display": "CTC in ChargeCTC in Charge"
+    },
+    {
+      "code": "mxUHozZnvve",
+      "display": "CTC PharmacyCTC Pharmacy"
+    },
+    {
+      "code": "Igja90NSrhL",
+      "display": "CTC StoreCTC Store"
+    },
+    {
+      "code": "efLNchOCPji",
+      "display": "DACCDACC"
+    },
+    {
+      "code": "H8i8fd10mPV",
+      "display": "DACCDACC"
+    },
+    {
+      "code": "LhTk8blMpDa",
+      "display": "DACCDACC"
+    },
+    {
+      "code": "ckkgqeAHB6z",
+      "display": "DACCDACC"
+    },
+    {
+      "code": "m4nLinIxEB2",
+      "display": "DACCDACC"
+    },
+    {
+      "code": "uqisPgQd2p3",
+      "display": "DACCDACC"
+    },
+    {
+      "code": "pl4GBhC3hsM",
+      "display": "Data ClerkData Clerk"
+    },
+    {
+      "code": "Z0aMcTX10XU",
+      "display": "Data ClerkData Clerk"
+    },
+    {
+      "code": "YU0BUN6wuLb",
+      "display": "DeathDeath"
+    },
+    {
+      "code": "Pi3RsO8SsTK",
+      "display": "Death , < 5Death ,< 5"
+    },
+    {
+      "code": "ifRTBcyGzHU",
+      "display": "Death , < 5, KEDeath ,KE,< 5"
+    },
+    {
+      "code": "LZsl9VW71qr",
+      "display": "Death , < 5, MEDeath ,< 5,ME"
+    },
+    {
+      "code": "SonK6BZEWFU",
+      "display": "Death , > 5Death ,> 5"
+    },
+    {
+      "code": "Q8U3fXSfxY8",
+      "display": "Death , > 5, KEDeath ,KE,> 5"
+    },
+    {
+      "code": "lW9u3eKdMXH",
+      "display": "Death , > 5, MEDeath ,ME,> 5"
+    },
+    {
+      "code": "uGIJ6IdkP7Q",
+      "display": "defaultdefault"
+    },
+    {
+      "code": "xQW6SvTi07q",
+      "display": "DeterioratedDeteriorated"
+    },
+    {
+      "code": "PaybYiq76U5",
+      "display": "DeterioratedDeteriorated"
+    },
+    {
+      "code": "WMvedsuBrDQ",
+      "display": "DHIS Data Entry PersonDHIS Data Entry Person"
+    },
+    {
+      "code": "hxUkrMLfFen",
+      "display": "DHIS Data entry person to be closely supervisedDHIS Data entry person to be closely supervised"
+    },
+    {
+      "code": "xc1rOpIz27r",
+      "display": "DHIS Data entry person to be closely supervised DHIS Data entry person to be closely supervised "
+    },
+    {
+      "code": "aUjsfUs81hx",
+      "display": "Distribute SOPs (eg different job aids) and toolsDistribute SOPs (eg different job aids) and tools"
+    },
+    {
+      "code": "AL2RIqYQRPh",
+      "display": "Distribute SOPs (eg different job aids) and toolsDistribute SOPs (eg different job aids) and tools"
+    },
+    {
+      "code": "EkBjt69irBN",
+      "display": "Distribute SOPs (eg different job aids) and toolsDistribute SOPs (eg different job aids) and tools"
+    },
+    {
+      "code": "npqhfJCLhWF",
+      "display": "Distribute SOPs (eg different job aids) and toolsDistribute SOPs (eg different job aids) and tools"
+    },
+    {
+      "code": "bg9k8Gou83A",
+      "display": "District collects order and forwards request to appropriate Programme Officer @ MoHSW or with Implementing PartnerDistrict collects order and forwards request to appropriate Programme Officer @ MoHSW or with Implementing Partner"
+    },
+    {
+      "code": "QLVY0zwXN4A",
+      "display": "District ensures R&R/ILS forms are available at sitesDistrict ensures R&R/ILS forms are available at sites"
+    },
+    {
+      "code": "nGilT15MTnx",
+      "display": "District follow-up on site level incidents reported (including investigation of quality of specific lots)District follow-up on site level incidents reported (including investigation of quality of specific lots)"
+    },
+    {
+      "code": "JjLRLBxj1II",
+      "display": "District follow-up on site level incidents reported (including investigation of quality of specific lots)District follow-up on site level incidents reported (including investigation of quality of specific lots)"
+    },
+    {
+      "code": "NhewbxeAjt8",
+      "display": "District Lab TechnologistDistrict Lab Technologist"
+    },
+    {
+      "code": "Mo6MtN0P1Yd",
+      "display": "District Lab TechnologistDistrict Lab Technologist"
+    },
+    {
+      "code": "JhdP744kPCF",
+      "display": "District Lab TechnologistDistrict Lab Technologist"
+    },
+    {
+      "code": "VP1W3uKdsYq",
+      "display": "District Lab TechnologistDistrict Lab Technologist"
+    },
+    {
+      "code": "JDIFoz9i8AQ",
+      "display": "District Lab TechnologistDistrict Lab Technologist"
+    },
+    {
+      "code": "H52kCxvkwas",
+      "display": "District Lab Technologist provides mentorship/ supervision on Testing QA & OrderingDistrict Lab Technologist provides mentorship/ supervision on Testing QA & Ordering"
+    },
+    {
+      "code": "aqONZFEB9v5",
+      "display": "District level to provide cardsDistrict level to provide cards"
+    },
+    {
+      "code": "Qo4wE5IzWyf",
+      "display": "District level to provide cardsDistrict level to provide cards"
+    },
+    {
+      "code": "ikLYdNY9aRu",
+      "display": "District level to provide proper TA on documentationDistrict level to provide proper TA on documentation"
+    },
+    {
+      "code": "xdasLFj1H3D",
+      "display": "District OJT and mentorship to sites on commodity managementDistrict OJT and mentorship to sites on commodity management"
+    },
+    {
+      "code": "hrZ37leenKI",
+      "display": "District PharmacistDistrict Pharmacist"
+    },
+    {
+      "code": "q6RQCvrNVtE",
+      "display": "District PharmacistDistrict Pharmacist"
+    },
+    {
+      "code": "nMQOIz16IPw",
+      "display": "District PharmacistDistrict Pharmacist"
+    },
+    {
+      "code": "NJpGvPqP5Vf",
+      "display": "District PharmacistDistrict Pharmacist"
+    },
+    {
+      "code": "kdndb1sAdvY",
+      "display": "District PharmacistDistrict Pharmacist"
+    },
+    {
+      "code": "nAjMtKbjfDt",
+      "display": "District provides mentorship/ supervision on QA Testing District provides mentorship/ supervision on QA Testing "
+    },
+    {
+      "code": "UJq1G0yD1r3",
+      "display": "District provides mentorship/ supervision on QA Testing District provides mentorship/ supervision on QA Testing "
+    },
+    {
+      "code": "gszCev6GqRt",
+      "display": "District provides mentorship/ supervision on Testing QA and/or Commodities MgmtDistrict provides mentorship/ supervision on Testing QA and/or Commodities Mgmt"
+    },
+    {
+      "code": "O3QeMOCN1Op",
+      "display": "District provides mentorship/ supervision on Testing QA and/or Commodities MgmtDistrict provides mentorship/ supervision on Testing QA and/or Commodities Mgmt"
+    },
+    {
+      "code": "ox03n0F1h64",
+      "display": "District reports incidents to RHMT for advice/ further follow-upDistrict reports incidents to RHMT for advice/ further follow-up"
+    },
+    {
+      "code": "nPv7k7FFSaG",
+      "display": "District reports incidents to RHMT for advice/ further follow-upDistrict reports incidents to RHMT for advice/ further follow-up"
+    },
+    {
+      "code": "MleutMLrT3v",
+      "display": "District SS to sites to assess staff competency on test kits management (ordering, receiving, distributing and documenting) District SS to sites to assess staff competency on test kits management (ordering, receiving, distributing and documenting) "
+    },
+    {
+      "code": "LmbUs49X2bH",
+      "display": "District to assess competency and training needs concerning Testing QA and commodities mgmtDistrict to assess competency and training needs concerning Testing QA and commodities mgmt"
+    },
+    {
+      "code": "mqat6QarK6q",
+      "display": "District to distribute orders (logbooks)District to distribute orders (logbooks)"
+    },
+    {
+      "code": "hRjzDs1NTeK",
+      "display": "District to distribute SOPs (eg different job aids) and toolsDistrict to distribute SOPs (eg different job aids) and tools"
+    },
+    {
+      "code": "OIHQaf2S6XM",
+      "display": "District to distribute SOPs (eg different job aids) and toolsDistrict to distribute SOPs (eg different job aids) and tools"
+    },
+    {
+      "code": "LPStdvfv0hN",
+      "display": "District to distribute SOPs or tools on Testing QADistrict to distribute SOPs or tools on Testing QA"
+    },
+    {
+      "code": "EHHoFfOhWEm",
+      "display": "District to ensure R&R/ILS forms are available at sitesDistrict to ensure R&R/ILS forms are available at sites"
+    },
+    {
+      "code": "Dm4BPZ8sLQ1",
+      "display": "District to ensure sufficient supply of UnigoldDistrict to ensure sufficient supply of Unigold"
+    },
+    {
+      "code": "KbslLguGBgg",
+      "display": "District to provide mentorship on proper documentationDistrict to provide mentorship on proper documentation"
+    },
+    {
+      "code": "P67HVuHhhr5",
+      "display": "District to provide mentorship/ OJT on proper documentationDistrict to provide mentorship/ OJT on proper documentation"
+    },
+    {
+      "code": "gH0BzxrldAq",
+      "display": "District to provide mentorship/supervision of proper filling of the registerDistrict to provide mentorship/supervision of proper filling of the register"
+    },
+    {
+      "code": "Syb3hsP8NIK",
+      "display": "District to provide mentorship/supervision of proper filling of the registerDistrict to provide mentorship/supervision of proper filling of the register"
+    },
+    {
+      "code": "DR5YEYB3kHa",
+      "display": "District to provide mentorship/supervision on proper filling of the cardsDistrict to provide mentorship/supervision on proper filling of the cards"
+    },
+    {
+      "code": "abRhPC72r94",
+      "display": "District to provide OJT and Mentorship to sites on commodity managementDistrict to provide OJT and Mentorship to sites on commodity management"
+    },
+    {
+      "code": "ThJR4TRD88p",
+      "display": "District to provide SS to sites to assess staff competency on commodity management District to provide SS to sites to assess staff competency on commodity management "
+    },
+    {
+      "code": "TGeJfZKcGqm",
+      "display": "District to provide the registers. District to provide the registers. "
+    },
+    {
+      "code": "m6nb3XV1d3s",
+      "display": "District to provide the registers. District to provide the registers. "
+    },
+    {
+      "code": "YEH9uQ3fAk0",
+      "display": "District to redistribute UnigoldDistrict to redistribute Unigold"
+    },
+    {
+      "code": "tkbYW67LnX9",
+      "display": "District to supply R&R formsDistrict to supply R&R forms"
+    },
+    {
+      "code": "A4ZDONRIC7F",
+      "display": "Do stock count at end of every month, and determine MoSDo stock count at end of every month, and determine MoS"
+    },
+    {
+      "code": "t01YTdID8eE",
+      "display": "Do stock count at end of every month, and determine MoSDo stock count at end of every month, and determine MoS"
+    },
+    {
+      "code": "KucVzWIhmEI",
+      "display": "Don't use expired test kits / Destroy expired test kitsDon't use expired test kits / Destroy expired test kits"
+    },
+    {
+      "code": "rVmRr16JbLt",
+      "display": "Don't use expired test kits / Destroy expired test kitsDon't use expired test kits / Destroy expired test kits"
+    },
+    {
+      "code": "uX7o8K6iotU",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "FNhXpFv8s2x",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "epeRzXNpDtp",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "t8Y8K7GmKNJ",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "crV5mVBJ4h5",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "tZjEukE5KzK",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "VDiUCKNujoe",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "vLWFuUOrwQ5",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "sGNzbUtNNgy",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "GPswJ5feggn",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "rYhTzgTvvXd",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "dew707pwcn0",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "xXoXmfb1x1K",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "BzYVHFATsBV",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "dSWDp3X7Ym3",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "TlNk4aIayMI",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "INahZa61iQy",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "SpawgCqZhMY",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "wkyjrcFaOpJ",
+      "display": "DRCHCoDRCHCo"
+    },
+    {
+      "code": "d5hezg39jnq",
+      "display": "DRCHCO to provide the facility with available TLEDRCHCO to provide the facility with available TLE"
+    },
+    {
+      "code": "Z0ONlfszdHb",
+      "display": "DRCHCO to review and verify information/data in summary forms received from LLHFs before being entered into DHISDRCHCO to review and verify information/data in summary forms received from LLHFs before being entered into DHIS"
+    },
+    {
+      "code": "njothCVCx29",
+      "display": "ECD, KEKE,ECD"
+    },
+    {
+      "code": "lKGpNnh4gOs",
+      "display": "ECD, MEECD,ME"
+    },
+    {
+      "code": "qiFPjpBZAlU",
+      "display": "Ensure all LMIS tools are available at sitesEnsure all LMIS tools are available at sites"
+    },
+    {
+      "code": "BlPyq5wyocq",
+      "display": "Ensure data backed up twice (2x) per weekEnsure data backed up twice (2x) per week"
+    },
+    {
+      "code": "GWDBilSdLfn",
+      "display": "Ensure R&R/ILS forms are available at sitesEnsure R&R/ILS forms are available at sites"
+    },
+    {
+      "code": "ttHLl55hJET",
+      "display": "Ensure R&R/ILS forms are available at sitesEnsure R&R/ILS forms are available at sites"
+    },
+    {
+      "code": "Lcde5LvZa4a",
+      "display": "Ensure R&R/ILS forms are available at sitesEnsure R&R/ILS forms are available at sites"
+    },
+    {
+      "code": "B4EASLKoRoR",
+      "display": "Ensure R&R/ILS forms are available at sitesEnsure R&R/ILS forms are available at sites"
+    },
+    {
+      "code": "U01UM4qpLvY",
+      "display": "Execute proper forecastingExecute proper forecasting"
+    },
+    {
+      "code": "fjfl1TiLy0S",
+      "display": "Execute proper forecastingExecute proper forecasting"
+    },
+    {
+      "code": "IZVeYIDNXyj",
+      "display": "Execute proper forecastingExecute proper forecasting"
+    },
+    {
+      "code": "cPuLQkqojhX",
+      "display": "Execute proper forecasting and quantificationExecute proper forecasting and quantification"
+    },
+    {
+      "code": "uBBOxMExneN",
+      "display": "ExtremitiesExtremities"
+    },
+    {
+      "code": "EnKr5Bn2pP1",
+      "display": "Eye pathologyEye pathology"
+    },
+    {
+      "code": "VQi9mtr8IEJ",
+      "display": "Facility dispensing personnelFacility dispensing personnel"
+    },
+    {
+      "code": "Xj2JRLsxQOr",
+      "display": "Facility dispensing personnelFacility dispensing personnel"
+    },
+    {
+      "code": "VnQe6M9jHNx",
+      "display": "Facility dispensing personnelFacility dispensing personnel"
+    },
+    {
+      "code": "o5UPEhAu5jW",
+      "display": "Facility dispensing personnelFacility dispensing personnel"
+    },
+    {
+      "code": "OfjrFPUWcJg",
+      "display": "Facility dispensing personnelFacility dispensing personnel"
+    },
+    {
+      "code": "JYYhFx5cy4C",
+      "display": "Facility dispensing personnelFacility dispensing personnel"
+    },
+    {
+      "code": "h9xSOzqlp08",
+      "display": "Facility Lab PersonnelFacility Lab Personnel"
+    },
+    {
+      "code": "slQNN7We1O2",
+      "display": "Facility Lab PersonnelFacility Lab Personnel"
+    },
+    {
+      "code": "oeeMczuIK5p",
+      "display": "Facility Lab PersonnelFacility Lab Personnel"
+    },
+    {
+      "code": "CGLwgzVmuCH",
+      "display": "Facility Lab PersonnelFacility Lab Personnel"
+    },
+    {
+      "code": "Og4ss0hKdWW",
+      "display": "Facility Lab PersonnelFacility Lab Personnel"
+    },
+    {
+      "code": "X3cTMyiJkG8",
+      "display": "Facility StoreFacility Store"
+    },
+    {
+      "code": "wPmESQNHKt0",
+      "display": "Follow testing algorithm Follow testing algorithm "
+    },
+    {
+      "code": "ByB43DOMgv0",
+      "display": "Follow testing algorithm Follow testing algorithm "
+    },
+    {
+      "code": "VycWDxbSKDE",
+      "display": "Food and Nutrition, KEKE,Food and Nutrition"
+    },
+    {
+      "code": "uCRoR5RxyfQ",
+      "display": "Food and Nutrition, MEFood and Nutrition,ME"
+    },
+    {
+      "code": "yQVEnWek4ww",
+      "display": "Forms availableForms available"
+    },
+    {
+      "code": "ZlkgNTVamq9",
+      "display": "Forms not availableForms not available"
+    },
+    {
+      "code": "RcgnLQy1MxN",
+      "display": "FP-MarudioFP-Marudio"
+    },
+    {
+      "code": "HfY2TsIulZE",
+      "display": "FP-Marudio, KituoniFP-Marudio,Kituoni"
+    },
+    {
+      "code": "dRoV2lxWc3G",
+      "display": "FP-Marudio, OutreachOutreach,FP-Marudio"
+    },
+    {
+      "code": "rHY12WXCNMA",
+      "display": "FSBFSB"
+    },
+    {
+      "code": "u8FwMkfWgCw",
+      "display": "Get the R&R/ILS forms from districtGet the R&R/ILS forms from district"
+    },
+    {
+      "code": "kQycctCyoNY",
+      "display": "Get the R&R/ILS forms from districtGet the R&R/ILS forms from district"
+    },
+    {
+      "code": "vM5zJVSwWvo",
+      "display": "HBC CoordinatorHBC Coordinator"
+    },
+    {
+      "code": "lID7AxnrvUc",
+      "display": "HBC CoordinatorHBC Coordinator"
+    },
+    {
+      "code": "j3Aha65ggE9",
+      "display": "HBC VolunteerHBC Volunteer"
+    },
+    {
+      "code": "pAZyCWZRddp",
+      "display": "HBC VolunteerHBC Volunteer"
+    },
+    {
+      "code": "Eu51B8VCpFQ",
+      "display": "HBCTHBCT"
+    },
+    {
+      "code": "G7JgObxXc3Z",
+      "display": "HBCTHBCT"
+    },
+    {
+      "code": "zisDne41dGm",
+      "display": "Health AttendantsHealth Attendants"
+    },
+    {
+      "code": "j1ylgXNfmbo",
+      "display": "HES, KEKE,HES"
+    },
+    {
+      "code": "d7Pnj9AmxuM",
+      "display": "HES, MEHES,ME"
+    },
+    {
+      "code": "DEe3UJq0Fb8",
+      "display": "HIV NegativeHIV Negative"
+    },
+    {
+      "code": "Y4gYLg4hkx2",
+      "display": "HIV NegativeHIV Negative"
+    },
+    {
+      "code": "fR2tCvtn6G3",
+      "display": "HIV Negative, 1 YR Follow Up (VIA+ treated with cryo or LEEP)HIV Negative,1 YR Follow Up (VIA+ treated with cryo or LEEP)"
+    },
+    {
+      "code": "r2m728gPt0I",
+      "display": "HIV Negative, Initial VIA completedInitial VIA completed,HIV Negative"
+    },
+    {
+      "code": "WeUSezWchRr",
+      "display": "HIV Negative, KEHIV Negative,KE"
+    },
+    {
+      "code": "KCKiDr4FUi6",
+      "display": "HIV Negative, MEHIV Negative,ME"
+    },
+    {
+      "code": "Jp4Kiw56tZH",
+      "display": "HIV Negative, Routine VIA Screening (previously VIA-)HIV Negative,Routine VIA Screening (previously VIA-)"
+    },
+    {
+      "code": "nzZsUxGFdAe",
+      "display": "HIV PositiveHIV Positive"
+    },
+    {
+      "code": "SjJ0MZCyrnW",
+      "display": "HIV PositiveHIV Positive"
+    },
+    {
+      "code": "bqxXk6LG55Q",
+      "display": "HIV Positive, 1 YR Follow Up (VIA+ treated with cryo or LEEP)HIV Positive,1 YR Follow Up (VIA+ treated with cryo or LEEP)"
+    },
+    {
+      "code": "r3oy183minZ",
+      "display": "HIV Positive, Initial VIA completedInitial VIA completed,HIV Positive"
+    },
+    {
+      "code": "AU8kbt9PvGy",
+      "display": "HIV Positive, KEHIV Positive,KE"
+    },
+    {
+      "code": "jCw01ylHAv0",
+      "display": "HIV Positive, MEHIV Positive,ME"
+    },
+    {
+      "code": "LSBldrlfLsX",
+      "display": "HIV Positive, Routine VIA Screening (previously VIA-)HIV Positive,Routine VIA Screening (previously VIA-)"
+    },
+    {
+      "code": "msolY4jWp6K",
+      "display": "HIV Prevention, KEKE,HIV Prevention"
+    },
+    {
+      "code": "fokYpKdUakY",
+      "display": "HIV Prevention, MEME,HIV Prevention"
+    },
+    {
+      "code": "boliMzpzaJU",
+      "display": "Hollow needles/Cannuals(During Other Proceedures)Hollow needles/Cannuals(During Other Proceedures)"
+    },
+    {
+      "code": "x2ExA9p13cn",
+      "display": "Hollow needles/Cannulas(During Phlebotomy Procedure)Hollow needles/Cannulas(During Phlebotomy Procedure)"
+    },
+    {
+      "code": "bgUPhSjqSdF",
+      "display": "Hospital Lab PersonnelHospital Lab Personnel"
+    },
+    {
+      "code": "jAaYhE2afc9",
+      "display": "Hospital Lab PersonnelHospital Lab Personnel"
+    },
+    {
+      "code": "XbeKRR3Gf3o",
+      "display": "Hospital Lab PersonnelHospital Lab Personnel"
+    },
+    {
+      "code": "n82AFmEc6bx",
+      "display": "Hospital Lab PersonnelHospital Lab Personnel"
+    },
+    {
+      "code": "BqCOMN7des1",
+      "display": "Hospital Lab PersonnelHospital Lab Personnel"
+    },
+    {
+      "code": "H4UMg6iM1ZW",
+      "display": "Hospital pharmacy personnelHospital pharmacy personnel"
+    },
+    {
+      "code": "Q9TxLE8sDnv",
+      "display": "Hospital pharmacy personnelHospital pharmacy personnel"
+    },
+    {
+      "code": "MFzdrhCizTb",
+      "display": "Hospital pharmacy personnelHospital pharmacy personnel"
+    },
+    {
+      "code": "Bh62D08swKA",
+      "display": "Hospital pharmacy personnelHospital pharmacy personnel"
+    },
+    {
+      "code": "Pqqmp1iUnzY",
+      "display": "Hospital pharmacy personnelHospital pharmacy personnel"
+    },
+    {
+      "code": "HxVYHpXsDnz",
+      "display": "Hospital pharmacy personnelHospital pharmacy personnel"
+    },
+    {
+      "code": "PPF3h7KY0IU",
+      "display": "Identify training needs and ask for SS/OJT/Mentorship/trainingIdentify training needs and ask for SS/OJT/Mentorship/training"
+    },
+    {
+      "code": "LaPbzSj8CwD",
+      "display": "Improve management & supervision by In-Charge or focal personImprove management & supervision by In-Charge or focal person"
+    },
+    {
+      "code": "vu6vGEBkCRG",
+      "display": "Improve supervision from In-Charge or focal personImprove supervision from In-Charge or focal person"
+    },
+    {
+      "code": "hKpW9yWLR0S",
+      "display": "Improve supervision from In-Charge or focal personImprove supervision from In-Charge or focal person"
+    },
+    {
+      "code": "gyFJSSOx0uD",
+      "display": "ImprovedImproved"
+    },
+    {
+      "code": "c3WfqYhWl5q",
+      "display": "ImprovedImproved"
+    },
+    {
+      "code": "MmPfYI5dksy",
+      "display": "In progressIn progress"
+    },
+    {
+      "code": "A4RprdI7Isq",
+      "display": "InternsInterns"
+    },
+    {
+      "code": "Kdhqh50pj2p",
+      "display": "IssuedIssued"
+    },
+    {
+      "code": "MqMQnGOqLuY",
+      "display": "KEKE"
+    },
+    {
+      "code": "KmmKuXofUzA",
+      "display": "KEKE,15+"
+    },
+    {
+      "code": "YpFuX3wm6r8",
+      "display": "KE, 1-4KE,1-4"
+    },
+    {
+      "code": "cmlhcvPcdol",
+      "display": "KE, 10 -14KE,10 -14"
+    },
+    {
+      "code": "k3TqmSh7Iaw",
+      "display": "KE, 15 - 19KE,15 - 19"
+    },
+    {
+      "code": "f9DklwMby3F",
+      "display": "KE, 15+KE,15+"
+    },
+    {
+      "code": "IPlzO8n4mTM",
+      "display": "KE, 20 - 24KE,20 - 24"
+    },
+    {
+      "code": "RdYpP9qHk8Y",
+      "display": "KE, 25-49KE,25-49"
+    },
+    {
+      "code": "Wxh8aOJVrgt",
+      "display": "KE, 50+50+,KE"
+    },
+    {
+      "code": "IR5epaaFjxT",
+      "display": "KE, < 1KE,< 1"
+    },
+    {
+      "code": "NxoFy08E5ff",
+      "display": "KE, <15KE,<15"
+    },
+    {
+      "code": "OVPV2za8nOf",
+      "display": "KE, FP-MarudioKE,FP-Marudio"
+    },
+    {
+      "code": "T3nZJudaQ1A",
+      "display": "KE, Inside Service AreaInside Service Area,KE"
+    },
+    {
+      "code": "rPW6rts8KzE",
+      "display": "KE, Miaka 10-14 WapyaKE,Miaka 10-14 Wapya"
+    },
+    {
+      "code": "C0Il5oEc2D0",
+      "display": "KE, Miaka 15-19 WapyaKE,Miaka 15-19 Wapya"
+    },
+    {
+      "code": "nqh4umQXQ3I",
+      "display": "KE, Miaka 20 -24 WapyaKE,Miaka 20 -24 Wapya"
+    },
+    {
+      "code": "v6sGAnaiE8e",
+      "display": "KE, Miaka 25 na Zaidi WapyaMiaka 25 na Zaidi Wapya,KE"
+    },
+    {
+      "code": "pZgEhWO2R2W",
+      "display": "KE, Miaka 5-9KE,Miaka 5-9"
+    },
+    {
+      "code": "nxqFu1muFiN",
+      "display": "KE, Outside Service AreaOutside Service Area,KE"
+    },
+    {
+      "code": "c68iKrzX6jv",
+      "display": "KE, Week 10, Dose 1Week 10,KE,Dose 1"
+    },
+    {
+      "code": "Kt9aAFIV7Fh",
+      "display": "KE, Week 10, Dose 1Week 10,KE,Dose 1"
+    },
+    {
+      "code": "hMk661Y7e5X",
+      "display": "KE, Week 10, Dose 2Week 10,KE,Dose 2"
+    },
+    {
+      "code": "eX2HZhOJQQr",
+      "display": "KE, Week 10, Dose 2Week 10,KE,Dose 2"
+    },
+    {
+      "code": "OesqBAMLTSl",
+      "display": "KE, Week 10, Dose 3Week 10,KE,Dose 3"
+    },
+    {
+      "code": "ERIh50DFPrG",
+      "display": "KE, Week 14, Dose 1KE,Dose 1,Week 14"
+    },
+    {
+      "code": "YbnLjbut7oy",
+      "display": "KE, Week 14, Dose 2KE,Week 14,Dose 2"
+    },
+    {
+      "code": "vHHpDtcPrpo",
+      "display": "KE, Week 14, Dose 3KE,Dose 3,Week 14"
+    },
+    {
+      "code": "xRA088rfIRc",
+      "display": "KE, Week 6, Dose 1KE,Dose 1,Week 6"
+    },
+    {
+      "code": "AqEXa5M0TQK",
+      "display": "KE, Week 6, Dose 1KE,Dose 1,Week 6"
+    },
+    {
+      "code": "X0jBKjpqJFC",
+      "display": "KE, Week 6, Dose 2KE,Week 6,Dose 2"
+    },
+    {
+      "code": "kJh3MiPykE9",
+      "display": "KE, Week 6, Dose 2KE,Week 6,Dose 2"
+    },
+    {
+      "code": "T9n40DYLWTH",
+      "display": "KE, Week 6, Dose 3KE,Dose 3,Week 6"
+    },
+    {
+      "code": "enf2scEpPVB",
+      "display": "Kutoka HospitaliniKutoka Hospitalini"
+    },
+    {
+      "code": "njmjlMhmGfC",
+      "display": "Kutoka KwinginekoKutoka Kwingineko"
+    },
+    {
+      "code": "kx6Af7n7DIX",
+      "display": "L&DL&D"
+    },
+    {
+      "code": "NxYU3VsSjHD",
+      "display": "L&D/MaternityL&D/Maternity"
+    },
+    {
+      "code": "YvepH6jJj4R",
+      "display": "Lab TechnologistsLab Technologists"
+    },
+    {
+      "code": "SoBntIdFjM8",
+      "display": "LAB_Did not order logbooksLAB_Did not order logbooks"
+    },
+    {
+      "code": "uHegsth263A",
+      "display": "LAB_Documentation not a priority not systematicLAB_Documentation not a priority not systematic"
+    },
+    {
+      "code": "P0MfimgoBvw",
+      "display": "LAB_Don't understand process to request logbookLAB_Don't understand process to request logbook"
+    },
+    {
+      "code": "Xv9cbe1beIJ",
+      "display": "LAB_ILS forms not comprehensive in estimating new clientsLAB_ILS forms not comprehensive in estimating new clients"
+    },
+    {
+      "code": "lP5caHDvnyn",
+      "display": "LAB_ILS forms not comprehensive in estimating new clientsLAB_ILS forms not comprehensive in estimating new clients"
+    },
+    {
+      "code": "fX6x4lqd0WX",
+      "display": "LAB_Logbook not distributedLAB_Logbook not distributed"
+    },
+    {
+      "code": "UuZRy3VUJd3",
+      "display": "LAB_No reagents(buffer)LAB_No reagents(buffer)"
+    },
+    {
+      "code": "zr1g60ujUg7",
+      "display": "LAB_No test kitsLAB_No test kits"
+    },
+    {
+      "code": "r1veYBI5nkh",
+      "display": "LAB_No trained staff to do testing & QALAB_No trained staff to do testing & QA"
+    },
+    {
+      "code": "gaaYwk1yw8N",
+      "display": "LAB_Not aware of testing algorithmLAB_Not aware of testing algorithm"
+    },
+    {
+      "code": "d397q8MQsjp",
+      "display": "LAB_Poor data qualityLAB_Poor data quality"
+    },
+    {
+      "code": "Zq6pwCdMKCv",
+      "display": "LAB_Poor data qualityLAB_Poor data quality"
+    },
+    {
+      "code": "GJX2Py2UlqU",
+      "display": "LAB_Poor documentationLAB_Poor documentation"
+    },
+    {
+      "code": "SKBabtWWwae",
+      "display": "LAB_Poor documentationLAB_Poor documentation"
+    },
+    {
+      "code": "WoWbRsI8qjI",
+      "display": "LAB_Quality of test kits problematic due to poor storageLAB_Quality of test kits problematic due to poor storage"
+    },
+    {
+      "code": "Mq6nX756OMe",
+      "display": "LAB_Quality of test kits problematic due to poor storageLAB_Quality of test kits problematic due to poor storage"
+    },
+    {
+      "code": "ND2bv5soSaW",
+      "display": "LAB_Quality of test kits problematic kits expiredLAB_Quality of test kits problematic kits expired"
+    },
+    {
+      "code": "HcLmn4qkZWp",
+      "display": "LAB_Quality of test kits problematic kits expiredLAB_Quality of test kits problematic kits expired"
+    },
+    {
+      "code": "spKRnK2NkTv",
+      "display": "LAB_Quality of test kits problematic, control not appearingLAB_Quality of test kits problematic, control not appearing"
+    },
+    {
+      "code": "elqdmbNuWEE",
+      "display": "LAB_Quality of test kits problematic, control not appearingLAB_Quality of test kits problematic, control not appearing"
+    },
+    {
+      "code": "pc1aCPgBxuY",
+      "display": "LAB_R&R/ILS not available at siteLAB_R&R/ILS not available at site"
+    },
+    {
+      "code": "X0dszC5NqQ0",
+      "display": "LAB_R&R/ILS not available at siteLAB_R&R/ILS not available at site"
+    },
+    {
+      "code": "yFIdEgYHVVC",
+      "display": "LAB_SOP not followed, use of wrong chase buffer vs washing solution w/testLAB_SOP not followed, use of wrong chase buffer vs washing solution w/test"
+    },
+    {
+      "code": "cB9hbCM83Dw",
+      "display": "LAB_SOP not followed, use of wrong chase buffer vs washing solution w/testLAB_SOP not followed, use of wrong chase buffer vs washing solution w/test"
+    },
+    {
+      "code": "tH4SIyHax1U",
+      "display": "LAB_SOP not followed: new lot not testedLAB_SOP not followed: new lot not tested"
+    },
+    {
+      "code": "mlJttS8Ez4J",
+      "display": "LAB_SOP not followed: new lot not testedLAB_SOP not followed: new lot not tested"
+    },
+    {
+      "code": "tl8Qr9XDWZG",
+      "display": "LAB_SOP not followed: wrong interpretation of resultsLAB_SOP not followed: wrong interpretation of results"
+    },
+    {
+      "code": "HCuFDEUyFGK",
+      "display": "LAB_SOP not followed: wrong interpretation of resultsLAB_SOP not followed: wrong interpretation of results"
+    },
+    {
+      "code": "h7iSVmjfF8c",
+      "display": "LAB_SOP not followed:insuffient time for reading results (leading to incomplete reaction)LAB_SOP not followed:insuffient time for reading results (leading to incomplete reaction)"
+    },
+    {
+      "code": "J4WQzmmga6M",
+      "display": "LAB_SOP not followed:insuffient time for reading results (leading to incomplete reaction)LAB_SOP not followed:insuffient time for reading results (leading to incomplete reaction)"
+    },
+    {
+      "code": "tsh1GHqotRr",
+      "display": "LAB_Stockout of confirmatory test kits(Unigold)LAB_Stockout of confirmatory test kits(Unigold)"
+    },
+    {
+      "code": "H3TpsRpRWGA",
+      "display": "LAB_Tested during unigold stockout which is contrary to protocolLAB_Tested during unigold stockout which is contrary to protocol"
+    },
+    {
+      "code": "Bk4mZKho1zk",
+      "display": "LAB_Untrained staff at facilityLAB_Untrained staff at facility"
+    },
+    {
+      "code": "p7GNSbUbQj6",
+      "display": "LAB_Untrained staff at facilityLAB_Untrained staff at facility"
+    },
+    {
+      "code": "TGcrlSq1fyM",
+      "display": "Life Skills, KEKE,Life Skills"
+    },
+    {
+      "code": "PlSQREQozlM",
+      "display": "Life Skills, MELife Skills,ME"
+    },
+    {
+      "code": "LRkpKv5ZDOU",
+      "display": "Logbook 1Logbook 1"
+    },
+    {
+      "code": "qCSkMMQQ5JM",
+      "display": "Logbook 2Logbook 2"
+    },
+    {
+      "code": "DX3HKdV2b82",
+      "display": "Logbook 3Logbook 3"
+    },
+    {
+      "code": "f1El4lYYZTr",
+      "display": "Logbook 4Logbook 4"
+    },
+    {
+      "code": "T3d3e4WD3QT",
+      "display": "Logbook 5Logbook 5"
+    },
+    {
+      "code": "HrJxVioObPg",
+      "display": "Lost to Follow Up Lost to Follow Up "
+    },
+    {
+      "code": "yrbw1qF4Yb4",
+      "display": "Lost to Follow Up Lost to Follow Up "
+    },
+    {
+      "code": "Xk8cLi6hnLz",
+      "display": "LW in ChargeLW in Charge"
+    },
+    {
+      "code": "LyTaAkRLqmp",
+      "display": "M&E, KEKE,M&E"
+    },
+    {
+      "code": "qTUvQpR9Rlt",
+      "display": "M&E, MEME,M&E"
+    },
+    {
+      "code": "LnEhdYRqgkz",
+      "display": "M&E_Absence of MC registerM&E_Absence of MC register"
+    },
+    {
+      "code": "nwtkXUVjnX9",
+      "display": "M&E_Alternative system has been used as a source of data than registersM&E_Alternative system has been used as a source of data than registers"
+    },
+    {
+      "code": "fnRkCfypKy4",
+      "display": "M&E_Alternative system has been used as a source of data than registersM&E_Alternative system has been used as a source of data than registers"
+    },
+    {
+      "code": "qqpHaZseH3c",
+      "display": "M&E_Alternative system has been used as a source of data than registersM&E_Alternative system has been used as a source of data than registers"
+    },
+    {
+      "code": "CtvqVltAP3N",
+      "display": "M&E_Alternative system has been used as a source of data than registersM&E_Alternative system has been used as a source of data than registers"
+    },
+    {
+      "code": "GITlILpSuZM",
+      "display": "M&E_Cards not requestedM&E_Cards not requested"
+    },
+    {
+      "code": "e6UyNbgS7cy",
+      "display": "M&E_Cards requested but not suppliedM&E_Cards requested but not supplied"
+    },
+    {
+      "code": "kiYQ2NLrhId",
+      "display": "M&E_DailyM&E_Daily"
+    },
+    {
+      "code": "uPaQ3CeRGZY",
+      "display": "M&E_Data entry errorM&E_Data entry error"
+    },
+    {
+      "code": "dd28riOyBYs",
+      "display": "M&E_Data entry errorM&E_Data entry error"
+    },
+    {
+      "code": "GeUVzqskVRd",
+      "display": "M&E_Data entry errorM&E_Data entry error"
+    },
+    {
+      "code": "kNDsBHQZ0Zm",
+      "display": "M&E_Data entry errorM&E_Data entry error"
+    },
+    {
+      "code": "Wy13QbuZytx",
+      "display": "M&E_Data entry errorM&E_Data entry error"
+    },
+    {
+      "code": "MxV8gpy2tvN",
+      "display": "M&E_Data entry errorM&E_Data entry error"
+    },
+    {
+      "code": "dkEfrBEhpSg",
+      "display": "M&E_Data entry person lacks enough capacity in proper data entryM&E_Data entry person lacks enough capacity in proper data entry"
+    },
+    {
+      "code": "LtxiQkYHrDV",
+      "display": "M&E_Data entry person lacks enough capacity in proper data entryM&E_Data entry person lacks enough capacity in proper data entry"
+    },
+    {
+      "code": "WbHWpMi5p9g",
+      "display": "M&E_Data entry person lacks enough capacity in proper data entryM&E_Data entry person lacks enough capacity in proper data entry"
+    },
+    {
+      "code": "QYOKo3ur49Y",
+      "display": "M&E_Data entry person lacks enough capacity in proper data entryM&E_Data entry person lacks enough capacity in proper data entry"
+    },
+    {
+      "code": "QqfESogcyqA",
+      "display": "M&E_Don't have backup toolM&E_Don't have backup tool"
+    },
+    {
+      "code": "qTfPojF5ylv",
+      "display": "M&E_Don't have backup toolM&E_Don't have backup tool"
+    },
+    {
+      "code": "vZeJzxkBIdu",
+      "display": "M&E_Don't know MoHSW guidelines M&E_Don't know MoHSW guidelines "
+    },
+    {
+      "code": "K8peOIFZfUs",
+      "display": "M&E_Every 2 weeksM&E_Every 2 weeks"
+    },
+    {
+      "code": "gMXinfphs1L",
+      "display": "M&E_Have backup tool but not using itM&E_Have backup tool but not using it"
+    },
+    {
+      "code": "EwTQ3j83Prb",
+      "display": "M&E_Have backup tool but not using itM&E_Have backup tool but not using it"
+    },
+    {
+      "code": "o1wlMiqJVu1",
+      "display": "M&E_Inadequate supply of ARV from MSD/ District leading to rationing w/ clients M&E_Inadequate supply of ARV from MSD/ District leading to rationing w/ clients "
+    },
+    {
+      "code": "mYwNQafF0GH",
+      "display": "M&E_Lack of food M&E_Lack of food "
+    },
+    {
+      "code": "YQt1GGgv096",
+      "display": "M&E_Lack of trained staffM&E_Lack of trained staff"
+    },
+    {
+      "code": "wVl3EQZmbiG",
+      "display": "M&E_Lack of trained staffM&E_Lack of trained staff"
+    },
+    {
+      "code": "TNvtN64PTb3",
+      "display": "M&E_Lack of transport or distance M&E_Lack of transport or distance "
+    },
+    {
+      "code": "BYUQLuJIVEJ",
+      "display": "M&E_Loss to follow-up of infantsM&E_Loss to follow-up of infants"
+    },
+    {
+      "code": "WsvOXJDpgcM",
+      "display": "M&E_Low client loadM&E_Low client load"
+    },
+    {
+      "code": "kdvkZ1PJ3Ua",
+      "display": "M&E_Meets criteria but don't have databaseM&E_Meets criteria but don't have database"
+    },
+    {
+      "code": "ZD3G0ABnmzR",
+      "display": "M&E_MonthlyM&E_Monthly"
+    },
+    {
+      "code": "Tz1Kb5vEZT5",
+      "display": "M&E_No clinician M&E_No clinician "
+    },
+    {
+      "code": "Migqll169zQ",
+      "display": "M&E_Not provided with current version of cardsM&E_Not provided with current version of cards"
+    },
+    {
+      "code": "vs2bitlZ2M7",
+      "display": "M&E_Not requestedM&E_Not requested"
+    },
+    {
+      "code": "MfIgpIIoB52",
+      "display": "M&E_Not requestedM&E_Not requested"
+    },
+    {
+      "code": "VMj5OKV2Dfv",
+      "display": "M&E_Not requested/provided with current version of registerM&E_Not requested/provided with current version of register"
+    },
+    {
+      "code": "O7aYjQXLN2R",
+      "display": "M&E_Not requested/provided with current version of registerM&E_Not requested/provided with current version of register"
+    },
+    {
+      "code": "Nb7QXUlZC2V",
+      "display": "M&E_Not requested/provided with current version of registerM&E_Not requested/provided with current version of register"
+    },
+    {
+      "code": "SWMrA0FWmbj",
+      "display": "M&E_Not requested/provided with current version of registerM&E_Not requested/provided with current version of register"
+    },
+    {
+      "code": "UuyZORu4hBg",
+      "display": "M&E_Not using appointment booksM&E_Not using appointment books"
+    },
+    {
+      "code": "KGXKycrIM4T",
+      "display": "M&E_Not using register for reportingM&E_Not using register for reporting"
+    },
+    {
+      "code": "wM11gSsmz8h",
+      "display": "M&E_Not using tally sheets causing descrepanciesM&E_Not using tally sheets causing descrepancies"
+    },
+    {
+      "code": "yCp8H6JvxkF",
+      "display": "M&E_OtherM&E_Other"
+    },
+    {
+      "code": "Lsr2dTk4iqk",
+      "display": "M&E_OtherM&E_Other"
+    },
+    {
+      "code": "P18Bse9XzQw",
+      "display": "M&E_OtherM&E_Other"
+    },
+    {
+      "code": "A04UsS7U2Mn",
+      "display": "M&E_Paper print-out of entriesM&E_Paper print-out of entries"
+    },
+    {
+      "code": "WPHF5tQIj11",
+      "display": "M&E_Poor adherence, counseling services M&E_Poor adherence, counseling services "
+    },
+    {
+      "code": "rS8hgSJkW2P",
+      "display": "M&E_Poor documentation M&E_Poor documentation "
+    },
+    {
+      "code": "AITcyHxHYAN",
+      "display": "M&E_Poor documentation M&E_Poor documentation "
+    },
+    {
+      "code": "S4Z6t2efmFX",
+      "display": "M&E_Poor documentation M&E_Poor documentation "
+    },
+    {
+      "code": "t11yR01OJ9u",
+      "display": "M&E_Poor forecasting for HIV commodities (ARVs) M&E_Poor forecasting for HIV commodities (ARVs) "
+    },
+    {
+      "code": "XcniivEXpHL",
+      "display": "M&E_Poor identification mechanismM&E_Poor identification mechanism"
+    },
+    {
+      "code": "QXMW1JKixcO",
+      "display": "M&E_Poor referral systems for DBS testing(not referred or mother didn't go)M&E_Poor referral systems for DBS testing(not referred or mother didn't go)"
+    },
+    {
+      "code": "DtDkZVymR0Y",
+      "display": "M&E_Poor tracking mechanism(didn't look at RCH card)M&E_Poor tracking mechanism(didn't look at RCH card)"
+    },
+    {
+      "code": "tnP5NB9GPW1",
+      "display": "M&E_Program file copied to flash diskM&E_Program file copied to flash disk"
+    },
+    {
+      "code": "NehllZHGRHy",
+      "display": "M&E_Program file emailedM&E_Program file emailed"
+    },
+    {
+      "code": "lvicvHKsDsE",
+      "display": "M&E_Provider not trained on how to use the cardM&E_Provider not trained on how to use the card"
+    },
+    {
+      "code": "D9W7jAOLcuJ",
+      "display": "M&E_Provider not trained on how to use the cardM&E_Provider not trained on how to use the card"
+    },
+    {
+      "code": "ZIX4Aj7Bu17",
+      "display": "M&E_Register not updatedM&E_Register not updated"
+    },
+    {
+      "code": "BpTxpl7rvVh",
+      "display": "M&E_Requested but not suppliedM&E_Requested but not supplied"
+    },
+    {
+      "code": "PtMcNzV7JBl",
+      "display": "M&E_Requested but not suppliedM&E_Requested but not supplied"
+    },
+    {
+      "code": "qEk7WSnmfhs",
+      "display": "M&E_Services and staff attitude M&E_Services and staff attitude "
+    },
+    {
+      "code": "lidPGflTC6a",
+      "display": "M&E_Side effect of ARV M&E_Side effect of ARV "
+    },
+    {
+      "code": "EuYws0YWnEg",
+      "display": "M&E_SPs lacks capacity to using registerM&E_SPs lacks capacity to using register"
+    },
+    {
+      "code": "WS8OULe9D5l",
+      "display": "M&E_SPs lacks technical capacity to compile reportM&E_SPs lacks technical capacity to compile report"
+    },
+    {
+      "code": "Fa3Fw2u1p47",
+      "display": "M&E_SPs not knowledgeable in proper documentation in the registersM&E_SPs not knowledgeable in proper documentation in the registers"
+    },
+    {
+      "code": "PQ9VAwxetnz",
+      "display": "M&E_SPs not knowledgeable in proper documentation in the registersM&E_SPs not knowledgeable in proper documentation in the registers"
+    },
+    {
+      "code": "snXVzlemDWb",
+      "display": "M&E_SPs not knowledgeable in proper documentation in the registersM&E_SPs not knowledgeable in proper documentation in the registers"
+    },
+    {
+      "code": "mqdrsIpp4Gg",
+      "display": "M&E_SPs not knowledgeable in proper documentation in the registersM&E_SPs not knowledgeable in proper documentation in the registers"
+    },
+    {
+      "code": "aJ3bajjW4si",
+      "display": "M&E_SPs not knowledgeable to fill the cardM&E_SPs not knowledgeable to fill the card"
+    },
+    {
+      "code": "x48k5lToTKf",
+      "display": "M&E_SPs not knowledgeable to fill the cardM&E_SPs not knowledgeable to fill the card"
+    },
+    {
+      "code": "ci2iWxEPqj2",
+      "display": "M&E_Stigma (self and social stigma) M&E_Stigma (self and social stigma) "
+    },
+    {
+      "code": "rj98in4DYFD",
+      "display": "M&E_Stock out of ARV at site (completely not available - 0 stock) M&E_Stock out of ARV at site (completely not available - 0 stock) "
+    },
+    {
+      "code": "yPsDVDgYLH9",
+      "display": "M&E_Stock out of DBS kitsM&E_Stock out of DBS kits"
+    },
+    {
+      "code": "mkqA1mmXjip",
+      "display": "M&E_WeeklyM&E_Weekly"
+    },
+    {
+      "code": "k78e5VJmvka",
+      "display": "M&E_Work overload to SPsM&E_Work overload to SPs"
+    },
+    {
+      "code": "xEeRYOml8U1",
+      "display": "M&E_Wrong data from summary formM&E_Wrong data from summary form"
+    },
+    {
+      "code": "czhtSUaYV7b",
+      "display": "M&E_Wrong data from summary formM&E_Wrong data from summary form"
+    },
+    {
+      "code": "KjGdEBLzBJv",
+      "display": "M&E_Wrong data from summary formM&E_Wrong data from summary form"
+    },
+    {
+      "code": "gwxmUUiVzpX",
+      "display": "M&E_Wrong data from summary formM&E_Wrong data from summary form"
+    },
+    {
+      "code": "sdrMMHU7C97",
+      "display": "MarudioMarudio"
+    },
+    {
+      "code": "rUsjr6jmHAz",
+      "display": "Marudio, KEMarudio,KE"
+    },
+    {
+      "code": "aDznR5ghT8D",
+      "display": "Marudio, MEMarudio,ME"
+    },
+    {
+      "code": "gMuK29L763t",
+      "display": "Mashirika ya DiniMashirika ya Dini"
+    },
+    {
+      "code": "jFLXSdegV6e",
+      "display": "Mashirika ya UmmaMashirika ya Umma"
+    },
+    {
+      "code": "dH56zP3DSS5",
+      "display": "MB[A]MB[A]"
+    },
+    {
+      "code": "C2zFklEL1a7",
+      "display": "MB[C]MB[C]"
+    },
+    {
+      "code": "Pzhs23Q2jST",
+      "display": "MbovuMbovu"
+    },
+    {
+      "code": "Oc7VvBZhcve",
+      "display": "Mbovu HaitengenezekiMbovu Haitengenezeki"
+    },
+    {
+      "code": "uyn9s8ewcXB",
+      "display": "Mbovu InatengenezekaMbovu Inatengenezeka"
+    },
+    {
+      "code": "X0Me7ygpiUT",
+      "display": "MEME"
+    },
+    {
+      "code": "OKxxCNhyCrd",
+      "display": "ME15+,ME"
+    },
+    {
+      "code": "ttFf9vc6pnB",
+      "display": "ME, 1-4ME,1-4"
+    },
+    {
+      "code": "Xns0ysCNhcv",
+      "display": "ME, 10 -14ME,10 -14"
+    },
+    {
+      "code": "vWP9fZr7uhQ",
+      "display": "ME, 15 - 1915 - 19,ME"
+    },
+    {
+      "code": "seMcjuds97e",
+      "display": "ME, 15+15+,ME"
+    },
+    {
+      "code": "aGBeRPJK1sS",
+      "display": "ME, 20 - 2420 - 24,ME"
+    },
+    {
+      "code": "eRJteTfX3mD",
+      "display": "ME, 25-4925-49,ME"
+    },
+    {
+      "code": "Kosck5RqyTX",
+      "display": "ME, 50+50+,ME"
+    },
+    {
+      "code": "nehCW5s6Hx4",
+      "display": "ME, < 1< 1,ME"
+    },
+    {
+      "code": "ljoO8w2Dq7Y",
+      "display": "ME, <15<15,ME"
+    },
+    {
+      "code": "Zi6m8Bfd4YZ",
+      "display": "ME, FP-MarudioFP-Marudio,ME"
+    },
+    {
+      "code": "EAa6nW7rh4J",
+      "display": "ME, Inside Service AreaInside Service Area,ME"
+    },
+    {
+      "code": "usuaZDIR1dQ",
+      "display": "ME, Miaka 10-14 WapyaMiaka 10-14 Wapya,ME"
+    },
+    {
+      "code": "mzJ9hSFrrW8",
+      "display": "ME, Miaka 15-19 WapyaME,Miaka 15-19 Wapya"
+    },
+    {
+      "code": "e9cE5R8oIRF",
+      "display": "ME, Miaka 20 -24 WapyaMiaka 20 -24 Wapya,ME"
+    },
+    {
+      "code": "Wo7FRr6ZLrS",
+      "display": "ME, Miaka 25 na Zaidi WapyaMiaka 25 na Zaidi Wapya,ME"
+    },
+    {
+      "code": "hXe7HBGnRa9",
+      "display": "ME, Miaka 5-9ME,Miaka 5-9"
+    },
+    {
+      "code": "N1LrySKobyh",
+      "display": "ME, Outside Service AreaOutside Service Area,ME"
+    },
+    {
+      "code": "RW3V7lUCqra",
+      "display": "ME, Week 10, Dose 1Week 10,Dose 1,ME"
+    },
+    {
+      "code": "yNKBWvbS2e3",
+      "display": "ME, Week 10, Dose 1Week 10,Dose 1,ME"
+    },
+    {
+      "code": "I4EdUZl0G3Q",
+      "display": "ME, Week 10, Dose 2Week 10,ME,Dose 2"
+    },
+    {
+      "code": "gQlYB0EhkMd",
+      "display": "ME, Week 10, Dose 2Week 10,ME,Dose 2"
+    },
+    {
+      "code": "oZdooE38nE9",
+      "display": "ME, Week 10, Dose 3Week 10,Dose 3,ME"
+    },
+    {
+      "code": "C4c3wtwpvPN",
+      "display": "ME, Week 14, Dose 1Dose 1,Week 14,ME"
+    },
+    {
+      "code": "c5FXZeWepIe",
+      "display": "ME, Week 14, Dose 2Week 14,ME,Dose 2"
+    },
+    {
+      "code": "dPLwMpcqVR5",
+      "display": "ME, Week 14, Dose 3Dose 3,Week 14,ME"
+    },
+    {
+      "code": "VrqECSuWyRz",
+      "display": "ME, Week 6, Dose 1Dose 1,Week 6,ME"
+    },
+    {
+      "code": "IEaWou9PP2W",
+      "display": "ME, Week 6, Dose 1Dose 1,Week 6,ME"
+    },
+    {
+      "code": "GOVIoc3a3Yy",
+      "display": "ME, Week 6, Dose 2Week 6,ME,Dose 2"
+    },
+    {
+      "code": "r6NlSOo2N9r",
+      "display": "ME, Week 6, Dose 2Week 6,ME,Dose 2"
+    },
+    {
+      "code": "JzKWKm5py3U",
+      "display": "ME, Week 6, Dose 3Dose 3,Week 6,ME"
+    },
+    {
+      "code": "TOM77cFuj1Z",
+      "display": "Mentorship & OJT to site on R&R use Mentorship & OJT to site on R&R use "
+    },
+    {
+      "code": "q1KO1l0JiNt",
+      "display": "Mentorship by District on R&R use Mentorship by District on R&R use "
+    },
+    {
+      "code": "mqEq00QQzg1",
+      "display": "Miaka 10-14 WapyaMiaka 10-14 Wapya"
+    },
+    {
+      "code": "lU0IjhyEMoY",
+      "display": "Miaka 10-14 Wapya, KituoniMiaka 10-14 Wapya,Kituoni"
+    },
+    {
+      "code": "hFGMYv6sbQy",
+      "display": "Miaka 10-14 Wapya, OutreachOutreach,Miaka 10-14 Wapya"
+    },
+    {
+      "code": "aNYz4biB8Z2",
+      "display": "Miaka 10-14, KEKE,Miaka 10-14"
+    },
+    {
+      "code": "RPq2lGCZ0IJ",
+      "display": "Miaka 10-14, KEKE,Miaka 10-14"
+    },
+    {
+      "code": "tSSmhBGIpiS",
+      "display": "Miaka 10-14, MEMiaka 10-14,ME"
+    },
+    {
+      "code": "mFiGB2nbIta",
+      "display": "Miaka 10-14, MEMiaka 10-14,ME"
+    },
+    {
+      "code": "oVNh2dWNMus",
+      "display": "Miaka 15-17, KEKE,Miaka 15-17"
+    },
+    {
+      "code": "jtiVy9abvz1",
+      "display": "Miaka 15-17, MEMiaka 15-17,ME"
+    },
+    {
+      "code": "GXiGsCuYvyW",
+      "display": "Miaka 15-19 WapyaMiaka 15-19 Wapya"
+    },
+    {
+      "code": "Lybi1a4Ai6B",
+      "display": "Miaka 15-19 Wapya, KituoniKituoni,Miaka 15-19 Wapya"
+    },
+    {
+      "code": "wYxTQ8PJXKh",
+      "display": "Miaka 15-19 Wapya, OutreachOutreach,Miaka 15-19 Wapya"
+    },
+    {
+      "code": "McrD53230Cz",
+      "display": "Miaka 15-24, KEKE,Miaka 15-24"
+    },
+    {
+      "code": "a7JFM9hNiWo",
+      "display": "Miaka 15-24, KEKE,Miaka 15-24"
+    },
+    {
+      "code": "l0CAx2h45jx",
+      "display": "Miaka 15-24, MEMiaka 15-24,ME"
+    },
+    {
+      "code": "APfaYqBJzvj",
+      "display": "Miaka 15-24, MEMiaka 15-24,ME"
+    },
+    {
+      "code": "WsH6N1uBTmk",
+      "display": "Miaka 18-24, KEKE,Miaka 18-24"
+    },
+    {
+      "code": "VwgIFV3gvsE",
+      "display": "Miaka 18-24, MEME,Miaka 18-24"
+    },
+    {
+      "code": "l6gzEB6sxoO",
+      "display": "Miaka 20 -24 WapyaMiaka 20 -24 Wapya"
+    },
+    {
+      "code": "euQWpIYcafW",
+      "display": "Miaka 20 -24 Wapya, KituoniMiaka 20 -24 Wapya,Kituoni"
+    },
+    {
+      "code": "GVaUkXdnlKo",
+      "display": "Miaka 20 -24 Wapya, OutreachOutreach,Miaka 20 -24 Wapya"
+    },
+    {
+      "code": "sZr8F1RY8Zn",
+      "display": "Miaka 25 na Zaidi WapyaMiaka 25 na Zaidi Wapya"
+    },
+    {
+      "code": "e5WlFx7bUpY",
+      "display": "Miaka 25 na Zaidi Wapya, KituoniMiaka 25 na Zaidi Wapya,Kituoni"
+    },
+    {
+      "code": "XDgFVBMLzjX",
+      "display": "Miaka 25 na Zaidi Wapya, OutreachOutreach,Miaka 25 na Zaidi Wapya"
+    },
+    {
+      "code": "GvRx9tZpnjx",
+      "display": "Miaka 25 na zaidi, KEMiaka 25 na zaidi,KE"
+    },
+    {
+      "code": "FXwj1UrOR4g",
+      "display": "Miaka 25 na zaidi, MEMiaka 25 na zaidi,ME"
+    },
+    {
+      "code": "jDUMCu3xkCl",
+      "display": "Miaka 25-34, KEMiaka 25-34,KE"
+    },
+    {
+      "code": "fjcTzhQ5muV",
+      "display": "Miaka 25-34, KEMiaka 25-34,KE"
+    },
+    {
+      "code": "jw8UPkY4RQc",
+      "display": "Miaka 25-34, MEMiaka 25-34,ME"
+    },
+    {
+      "code": "pl98a9KhgNI",
+      "display": "Miaka 25-34, MEMiaka 25-34,ME"
+    },
+    {
+      "code": "SKezQ9IMyDS",
+      "display": "Miaka 35-44, KEKE,Miaka 35-44"
+    },
+    {
+      "code": "rwEdJAYFApA",
+      "display": "Miaka 35-44, MEME,Miaka 35-44"
+    },
+    {
+      "code": "PEwPGTJjyRG",
+      "display": "Miaka 45-54, KEKE,Miaka 45-54"
+    },
+    {
+      "code": "NUuNakB5Hhp",
+      "display": "Miaka 45-54, MEME,Miaka 45-54"
+    },
+    {
+      "code": "FrkpvLPzZLL",
+      "display": "Miaka 5-9, KEKE,Miaka 5-9"
+    },
+    {
+      "code": "VdHlyWzinyX",
+      "display": "Miaka 5-9, KEKE,Miaka 5-9"
+    },
+    {
+      "code": "QYPjjLOgW6L",
+      "display": "Miaka 5-9, KEKE,Miaka 5-9"
+    },
+    {
+      "code": "M6kbu6X08v6",
+      "display": "Miaka 5-9, KEKE,Miaka 5-9"
+    },
+    {
+      "code": "YIvH6Dy8Pvj",
+      "display": "Miaka 5-9, MEME,Miaka 5-9"
+    },
+    {
+      "code": "zDr3iSVSwRI",
+      "display": "Miaka 5-9, MEME,Miaka 5-9"
+    },
+    {
+      "code": "XVQzaPYn0dO",
+      "display": "Miaka 5-9, MEME,Miaka 5-9"
+    },
+    {
+      "code": "SLPqZtBUVL0",
+      "display": "Miaka 5-9, MEME,Miaka 5-9"
+    },
+    {
+      "code": "rRlDNfrmSlb",
+      "display": "Miaka 55-64, KEKE,Miaka 55-64"
+    },
+    {
+      "code": "FffLfJrlzLw",
+      "display": "Miaka 55-64, MEMiaka 55-64,ME"
+    },
+    {
+      "code": "ymbmxhcZXWN",
+      "display": "Miaka 65+, KEKE,Miaka 65+"
+    },
+    {
+      "code": "Euhn8tFOvcA",
+      "display": "Miaka 65+, MEMiaka 65+,ME"
+    },
+    {
+      "code": "WBecmiuOdR9",
+      "display": "Miezi 0-59, KEKE,Miezi 0-59"
+    },
+    {
+      "code": "hFyYTX80xz8",
+      "display": "Miezi 0-59, KEKE,Miezi 0-59"
+    },
+    {
+      "code": "s0DazUiLqVW",
+      "display": "Miezi 0-59, MEME,Miezi 0-59"
+    },
+    {
+      "code": "XBQRqkzf5jS",
+      "display": "Miezi 0-59, MEME,Miezi 0-59"
+    },
+    {
+      "code": "xV9HGhW6pzO",
+      "display": "Miezi 12 - Miezi 59Miezi 12 - Miezi 59"
+    },
+    {
+      "code": "Bph71VG5Pgz",
+      "display": "Miezi 12, 60% - 3SD, KEMiezi 12,60% - 3SD,KE"
+    },
+    {
+      "code": "YvgiQGnern3",
+      "display": "Miezi 12, 60% - 3SD, MEMiezi 12,60% - 3SD,ME"
+    },
+    {
+      "code": "SfhETKpfMTH",
+      "display": "Miezi 12, 60%-80% - 2-3SD, KEMiezi 12,KE,60%-80% - 2-3SD"
+    },
+    {
+      "code": "Q2dJiHUrRkl",
+      "display": "Miezi 12, 60%-80% - 2-3SD, MEMiezi 12,60%-80% - 2-3SD,ME"
+    },
+    {
+      "code": "raQ5T7GE76b",
+      "display": "Miezi 12, 80% - 2SD, KEMiezi 12,80% - 2SD,KE"
+    },
+    {
+      "code": "KRBhhNZYWaw",
+      "display": "Miezi 12, 80% - 2SD, MEMiezi 12,80% - 2SD,ME"
+    },
+    {
+      "code": "BLo790vlM5m",
+      "display": "Miezi 12, KEMiezi 12,KE"
+    },
+    {
+      "code": "eQwMpvvxeLX",
+      "display": "Miezi 12, MEMiezi 12,ME"
+    },
+    {
+      "code": "lryEiDuRyGI",
+      "display": "Miezi 18, 60% - 3SD, KE60% - 3SD,KE,Miezi 18"
+    },
+    {
+      "code": "g8hhzhSeWxp",
+      "display": "Miezi 18, 60% - 3SD, ME60% - 3SD,Miezi 18,ME"
+    },
+    {
+      "code": "UmLfhikTMFO",
+      "display": "Miezi 18, 60%-80% - 2-3SD, KEKE,Miezi 18,60%-80% - 2-3SD"
+    },
+    {
+      "code": "qbUg0opP5sb",
+      "display": "Miezi 18, 60%-80% - 2-3SD, MEMiezi 18,60%-80% - 2-3SD,ME"
+    },
+    {
+      "code": "RdyAtPH1vHh",
+      "display": "Miezi 18, 80% - 2SD, KE80% - 2SD,KE,Miezi 18"
+    },
+    {
+      "code": "VvSLeDvWxti",
+      "display": "Miezi 18, 80% - 2SD, ME80% - 2SD,Miezi 18,ME"
+    },
+    {
+      "code": "LyTudPKpLoO",
+      "display": "Miezi 18, KEKE,Miezi 18"
+    },
+    {
+      "code": "eg3MXlWp0Y8",
+      "display": "Miezi 18, MEMiezi 18,ME"
+    },
+    {
+      "code": "AarvJHArbyJ",
+      "display": "Miezi 24, 60% - 3SD, KE60% - 3SD,KE,Miezi 24"
+    },
+    {
+      "code": "eU6Bqj01MZP",
+      "display": "Miezi 24, 60% - 3SD, ME60% - 3SD,Miezi 24,ME"
+    },
+    {
+      "code": "YsISWYfzVfT",
+      "display": "Miezi 24, 60%-80% - 2-3SD, KEKE,60%-80% - 2-3SD,Miezi 24"
+    },
+    {
+      "code": "Z2evHne5NpI",
+      "display": "Miezi 24, 60%-80% - 2-3SD, ME60%-80% - 2-3SD,Miezi 24,ME"
+    },
+    {
+      "code": "jRil9Bn7wzl",
+      "display": "Miezi 24, 80% - 2SD, KE80% - 2SD,KE,Miezi 24"
+    },
+    {
+      "code": "RB3avZjJWD9",
+      "display": "Miezi 24, 80% - 2SD, ME80% - 2SD,Miezi 24,ME"
+    },
+    {
+      "code": "ZALMgiEz56J",
+      "display": "Miezi 24, KEKE,Miezi 24"
+    },
+    {
+      "code": "fwSs8U3z0gX",
+      "display": "Miezi 24, MEMiezi 24,ME"
+    },
+    {
+      "code": "KSLi3d9inY9",
+      "display": "Miezi 3, 60% - 3SD, KE60% - 3SD,KE,Miezi 3"
+    },
+    {
+      "code": "spiLuJrCTtT",
+      "display": "Miezi 3, 60% - 3SD, ME60% - 3SD,Miezi 3,ME"
+    },
+    {
+      "code": "AioDcTEVyqP",
+      "display": "Miezi 3, 60%-80% - 2-3SD, KEKE,Miezi 3,60%-80% - 2-3SD"
+    },
+    {
+      "code": "DVRJ5bvF3YQ",
+      "display": "Miezi 3, 60%-80% - 2-3SD, MEMiezi 3,60%-80% - 2-3SD,ME"
+    },
+    {
+      "code": "DLiTKDDQkO3",
+      "display": "Miezi 3, 80% - 2SD, KE80% - 2SD,KE,Miezi 3"
+    },
+    {
+      "code": "G0gVtaCtRSu",
+      "display": "Miezi 3, 80% - 2SD, ME80% - 2SD,Miezi 3,ME"
+    },
+    {
+      "code": "zNQe7eHbnZn",
+      "display": "Miezi 3, KEKE,Miezi 3"
+    },
+    {
+      "code": "W6bFzFh3XS9",
+      "display": "Miezi 3, MEMiezi 3,ME"
+    },
+    {
+      "code": "F3RVsF0ywMQ",
+      "display": "Miezi 36, 60% - 3SD, KE60% - 3SD,KE,Miezi 36"
+    },
+    {
+      "code": "nowSXN9G0y1",
+      "display": "Miezi 36, 60% - 3SD, ME60% - 3SD,Miezi 36,ME"
+    },
+    {
+      "code": "qH6jiDL0Vok",
+      "display": "Miezi 36, 60%-80% - 2-3SD, KEKE,60%-80% - 2-3SD,Miezi 36"
+    },
+    {
+      "code": "X8AGUbSp0nX",
+      "display": "Miezi 36, 60%-80% - 2-3SD, ME60%-80% - 2-3SD,Miezi 36,ME"
+    },
+    {
+      "code": "p84w8htnKSI",
+      "display": "Miezi 36, 80% - 2SD, KE80% - 2SD,KE,Miezi 36"
+    },
+    {
+      "code": "jgBxVeyIjrC",
+      "display": "Miezi 36, 80% - 2SD, ME80% - 2SD,Miezi 36,ME"
+    },
+    {
+      "code": "rDNxSJUzTU5",
+      "display": "Miezi 36, KEKE,Miezi 36"
+    },
+    {
+      "code": "tCPOSOW7Fjx",
+      "display": "Miezi 36, MEMiezi 36,ME"
+    },
+    {
+      "code": "p1rt52HQ6kA",
+      "display": "Miezi 48, 60% - 3SD, KE60% - 3SD,Miezi 48,KE"
+    },
+    {
+      "code": "GnG7Vm9QQqa",
+      "display": "Miezi 48, 60% - 3SD, ME60% - 3SD,Miezi 48,ME"
+    },
+    {
+      "code": "tWLmOGxwNxH",
+      "display": "Miezi 48, 60%-80% - 2-3SD, KEMiezi 48,KE,60%-80% - 2-3SD"
+    },
+    {
+      "code": "Sy9JYMEgZfk",
+      "display": "Miezi 48, 60%-80% - 2-3SD, MEMiezi 48,60%-80% - 2-3SD,ME"
+    },
+    {
+      "code": "jr3aT1T0j1m",
+      "display": "Miezi 48, 80% - 2SD, KE80% - 2SD,Miezi 48,KE"
+    },
+    {
+      "code": "Rp9mwa3u6Zb",
+      "display": "Miezi 48, 80% - 2SD, ME80% - 2SD,Miezi 48,ME"
+    },
+    {
+      "code": "kLKkzo9YqGc",
+      "display": "Miezi 48, KEMiezi 48,KE"
+    },
+    {
+      "code": "GZGDlOLlo81",
+      "display": "Miezi 48, MEMiezi 48,ME"
+    },
+    {
+      "code": "GTPagz5HHhe",
+      "display": "Miezi 59, 60% - 3SD, KE60% - 3SD,KE,Miezi 59"
+    },
+    {
+      "code": "jb4MS7RLiD0",
+      "display": "Miezi 59, 60% - 3SD, ME60% - 3SD,Miezi 59,ME"
+    },
+    {
+      "code": "v7vRK5IAxRk",
+      "display": "Miezi 59, 60%-80% - 2-3SD, KEKE,Miezi 59,60%-80% - 2-3SD"
+    },
+    {
+      "code": "WKxbVAVkJCq",
+      "display": "Miezi 59, 60%-80% - 2-3SD, MEMiezi 59,60%-80% - 2-3SD,ME"
+    },
+    {
+      "code": "NaZinYB3J6t",
+      "display": "Miezi 59, 80% - 2SD, KE80% - 2SD,KE,Miezi 59"
+    },
+    {
+      "code": "lz4J9S3wbEI",
+      "display": "Miezi 59, 80% - 2SD, ME80% - 2SD,Miezi 59,ME"
+    },
+    {
+      "code": "ErpzrSwdbMF",
+      "display": "Miezi 59, KEKE,Miezi 59"
+    },
+    {
+      "code": "hvfW1oZJ54G",
+      "display": "Miezi 59, MEMiezi 59,ME"
+    },
+    {
+      "code": "YePFA7Vm6dh",
+      "display": "Miezi 6, 60% - 3SD, KE60% - 3SD,KE,Miezi 6"
+    },
+    {
+      "code": "yy6okrzJ4FO",
+      "display": "Miezi 6, 60% - 3SD, ME60% - 3SD,Miezi 6,ME"
+    },
+    {
+      "code": "yzXF6HkHxPO",
+      "display": "Miezi 6, 60%-80% - 2-3SD, KEKE,60%-80% - 2-3SD,Miezi 6"
+    },
+    {
+      "code": "Id7AWDAQJoB",
+      "display": "Miezi 6, 60%-80% - 2-3SD, ME60%-80% - 2-3SD,Miezi 6,ME"
+    },
+    {
+      "code": "Wno7jHweZTj",
+      "display": "Miezi 6, 80% - 2SD, KE80% - 2SD,KE,Miezi 6"
+    },
+    {
+      "code": "xUSD4WakwAF",
+      "display": "Miezi 6, 80% - 2SD, ME80% - 2SD,Miezi 6,ME"
+    },
+    {
+      "code": "yuEvTeqfdOG",
+      "display": "Miezi 6, KEKE,Miezi 6"
+    },
+    {
+      "code": "z2ndYIg2OXj",
+      "display": "Miezi 6, MEMiezi 6,ME"
+    },
+    {
+      "code": "Bh2yI63P9xX",
+      "display": "Miezi 9, 60% - 3SD, KE60% - 3SD,KE,Miezi 9"
+    },
+    {
+      "code": "cpGl5tljcGy",
+      "display": "Miezi 9, 60% - 3SD, ME60% - 3SD,Miezi 9,ME"
+    },
+    {
+      "code": "oH6WQ2pGIkf",
+      "display": "Miezi 9, 60%-80% - 2-3SD, KEKE,Miezi 9,60%-80% - 2-3SD"
+    },
+    {
+      "code": "J4FvIxj3vio",
+      "display": "Miezi 9, 60%-80% - 2-3SD, MEMiezi 9,60%-80% - 2-3SD,ME"
+    },
+    {
+      "code": "c1M9KB43CzP",
+      "display": "Miezi 9, 80% - 2SD, KE80% - 2SD,KE,Miezi 9"
+    },
+    {
+      "code": "AYIWnCifJEu",
+      "display": "Miezi 9, 80% - 2SD, ME80% - 2SD,Miezi 9,ME"
+    },
+    {
+      "code": "KofgTzP8NtK",
+      "display": "Miezi 9, KEKE,Miezi 9"
+    },
+    {
+      "code": "YDXLbYqGxRP",
+      "display": "Miezi 9, MEMiezi 9,ME"
+    },
+    {
+      "code": "s9dpR9t2ESl",
+      "display": "ModerateModerate"
+    },
+    {
+      "code": "nacjnw8XEVX",
+      "display": "Month 1Month 1"
+    },
+    {
+      "code": "qeI1iCVq2Vi",
+      "display": "Month 2Month 2"
+    },
+    {
+      "code": "KMF59apR6ZY",
+      "display": "Month 3Month 3"
+    },
+    {
+      "code": "VIKgBLTgOD6",
+      "display": "MSBMSB"
+    },
+    {
+      "code": "EkJxkwrYoge",
+      "display": "MVCC Roles & Responsibilities, KEMVCC Roles & Responsibilities,KE"
+    },
+    {
+      "code": "Wu9i5ZNTc9r",
+      "display": "MVCC Roles & Responsibilities, MEMVCC Roles & Responsibilities,ME"
+    },
+    {
+      "code": "u3yOG3elvp7",
+      "display": "NACP cohort 12NACP cohort 12"
+    },
+    {
+      "code": "HXUdo9e6QdG",
+      "display": "NACP cohort 24NACP cohort 24"
+    },
+    {
+      "code": "CoSpkqreP14",
+      "display": "NACP cohort 36NACP cohort 36"
+    },
+    {
+      "code": "JRfRFfWwzci",
+      "display": "NACP cohort 48NACP cohort 48"
+    },
+    {
+      "code": "EJt4dFA68kG",
+      "display": "NACP cohort 6NACP cohort 6"
+    },
+    {
+      "code": "oFgewbBLTco",
+      "display": "NACP cohort 60NACP cohort 60"
+    },
+    {
+      "code": "s5ubadvn5oq",
+      "display": "NACP cohort 72NACP cohort 72"
+    },
+    {
+      "code": "jum1p8QitB7",
+      "display": "NACP_cohort_24NACP_cohort_24"
+    },
+    {
+      "code": "nwCxXxcmq37",
+      "display": "NACP_cohort_24NACP_cohort_24"
+    },
+    {
+      "code": "PBAkTLa9AEW",
+      "display": "NACP_cohort_6NACP_cohort_6"
+    },
+    {
+      "code": "gaio6h5He8q",
+      "display": "NACP_cohort_6NACP_cohort_6"
+    },
+    {
+      "code": "Xui60XwH1x4",
+      "display": "New Extra Pulmonary, Miaka 10-14, KEKE,Miaka 10-14,New Extra Pulmonary"
+    },
+    {
+      "code": "TOg9J31BnGu",
+      "display": "New Extra Pulmonary, Miaka 10-14, MEMiaka 10-14,ME,New Extra Pulmonary"
+    },
+    {
+      "code": "ON1o1FMXf0F",
+      "display": "New Extra Pulmonary, Miaka 15-24, KEKE,Miaka 15-24,New Extra Pulmonary"
+    },
+    {
+      "code": "HcaRCcSyTdi",
+      "display": "New Extra Pulmonary, Miaka 15-24, MEMiaka 15-24,ME,New Extra Pulmonary"
+    },
+    {
+      "code": "y12GAERveyz",
+      "display": "New Extra Pulmonary, Miaka 25-34, KEMiaka 25-34,KE,New Extra Pulmonary"
+    },
+    {
+      "code": "SvcTAt4zcuG",
+      "display": "New Extra Pulmonary, Miaka 25-34, MEMiaka 25-34,ME,New Extra Pulmonary"
+    },
+    {
+      "code": "MwJUCDIyx29",
+      "display": "New Extra Pulmonary, Miaka 35-44, KEKE,Miaka 35-44,New Extra Pulmonary"
+    },
+    {
+      "code": "sFGPmgEc1pV",
+      "display": "New Extra Pulmonary, Miaka 35-44, MEME,Miaka 35-44,New Extra Pulmonary"
+    },
+    {
+      "code": "Ve5HNFgNvK2",
+      "display": "New Extra Pulmonary, Miaka 45-54, KEKE,New Extra Pulmonary,Miaka 45-54"
+    },
+    {
+      "code": "nWDcdieTirz",
+      "display": "New Extra Pulmonary, Miaka 45-54, MEME,New Extra Pulmonary,Miaka 45-54"
+    },
+    {
+      "code": "m5UsMkJMsyi",
+      "display": "New Extra Pulmonary, Miaka 5-9, KEKE,Miaka 5-9,New Extra Pulmonary"
+    },
+    {
+      "code": "hWMQTGweEtg",
+      "display": "New Extra Pulmonary, Miaka 5-9, MEME,Miaka 5-9,New Extra Pulmonary"
+    },
+    {
+      "code": "cR04HDR084U",
+      "display": "New Extra Pulmonary, Miaka 55-64, KEKE,Miaka 55-64,New Extra Pulmonary"
+    },
+    {
+      "code": "RLusy3lBEX2",
+      "display": "New Extra Pulmonary, Miaka 55-64, MEMiaka 55-64,ME,New Extra Pulmonary"
+    },
+    {
+      "code": "FGVp7K5kUQj",
+      "display": "New Extra Pulmonary, Miaka 65+, KEKE,Miaka 65+,New Extra Pulmonary"
+    },
+    {
+      "code": "eP7GX1jGa1U",
+      "display": "New Extra Pulmonary, Miaka 65+, MEMiaka 65+,ME,New Extra Pulmonary"
+    },
+    {
+      "code": "NN3UX71Ayft",
+      "display": "New Extra Pulmonary, Miezi 0-59, KEKE,New Extra Pulmonary,Miezi 0-59"
+    },
+    {
+      "code": "rGCsqZY7TZo",
+      "display": "New Extra Pulmonary, Miezi 0-59, MEME,New Extra Pulmonary,Miezi 0-59"
+    },
+    {
+      "code": "kBGSUK1LRIy",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 10-14, KEKE,Miaka 10-14,New Positive (smear, Xpert, Culture)"
+    },
+    {
+      "code": "tDsmejtttBg",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 10-14, MEMiaka 10-14,New Positive (smear, Xpert, Culture),ME"
+    },
+    {
+      "code": "miwU6h3mQPF",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 15-24, KEKE,Miaka 15-24,New Positive (smear, Xpert, Culture)"
+    },
+    {
+      "code": "SggCM1paRCB",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 15-24, MEMiaka 15-24,New Positive (smear, Xpert, Culture),ME"
+    },
+    {
+      "code": "Q2IiekAvS2e",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 25-34, KEMiaka 25-34,KE,New Positive (smear, Xpert, Culture)"
+    },
+    {
+      "code": "cdkl9vozYhU",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 25-34, MEMiaka 25-34,New Positive (smear, Xpert, Culture),ME"
+    },
+    {
+      "code": "p1DzF0vK4Wt",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 35-44, KEKE,New Positive (smear, Xpert, Culture),Miaka 35-44"
+    },
+    {
+      "code": "NFmSZHWsL6n",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 35-44, MENew Positive (smear, Xpert, Culture),ME,Miaka 35-44"
+    },
+    {
+      "code": "buASVuTNnv1",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 45-54, KEKE,New Positive (smear, Xpert, Culture),Miaka 45-54"
+    },
+    {
+      "code": "r39hFvkcJb6",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 45-54, MENew Positive (smear, Xpert, Culture),ME,Miaka 45-54"
+    },
+    {
+      "code": "Ixcn0ubLpoU",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 5-9, KEKE,New Positive (smear, Xpert, Culture),Miaka 5-9"
+    },
+    {
+      "code": "FTnWqBC7Oal",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 5-9, MENew Positive (smear, Xpert, Culture),ME,Miaka 5-9"
+    },
+    {
+      "code": "zE2qLuAkPP2",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 55-64, KEKE,Miaka 55-64,New Positive (smear, Xpert, Culture)"
+    },
+    {
+      "code": "o8ZjgbAKEC9",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 55-64, MEMiaka 55-64,New Positive (smear, Xpert, Culture),ME"
+    },
+    {
+      "code": "M32V7zIQSig",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 65+, KEKE,Miaka 65+,New Positive (smear, Xpert, Culture)"
+    },
+    {
+      "code": "NcUaXD8DQw2",
+      "display": "New Positive (smear, Xpert, Culture), Miaka 65+, MEMiaka 65+,New Positive (smear, Xpert, Culture),ME"
+    },
+    {
+      "code": "fPfXmUzk7dR",
+      "display": "New Positive (smear, Xpert, Culture), Miezi 0-59, KEKE,New Positive (smear, Xpert, Culture),Miezi 0-59"
+    },
+    {
+      "code": "jHs9sgvyQd3",
+      "display": "New Positive (smear, Xpert, Culture), Miezi 0-59, MENew Positive (smear, Xpert, Culture),ME,Miezi 0-59"
+    },
+    {
+      "code": "z1uA8ET7XQo",
+      "display": "New Smear Negative, Miaka 10-14, KEKE,Miaka 10-14,New Smear Negative"
+    },
+    {
+      "code": "YHiWpNnQAX0",
+      "display": "New Smear Negative, Miaka 10-14, MEMiaka 10-14,ME,New Smear Negative"
+    },
+    {
+      "code": "Y7bzC5T1nj4",
+      "display": "New Smear Negative, Miaka 15-24, KEKE,Miaka 15-24,New Smear Negative"
+    },
+    {
+      "code": "siORGmxUZmH",
+      "display": "New Smear Negative, Miaka 15-24, MEMiaka 15-24,ME,New Smear Negative"
+    },
+    {
+      "code": "VNyp4Re5Cwv",
+      "display": "New Smear Negative, Miaka 25-34, KEMiaka 25-34,KE,New Smear Negative"
+    },
+    {
+      "code": "ea6WA8VLLDV",
+      "display": "New Smear Negative, Miaka 25-34, MEMiaka 25-34,ME,New Smear Negative"
+    },
+    {
+      "code": "XL62lw4AWm5",
+      "display": "New Smear Negative, Miaka 35-44, KEKE,Miaka 35-44,New Smear Negative"
+    },
+    {
+      "code": "xORDwkBDLWd",
+      "display": "New Smear Negative, Miaka 35-44, MEME,Miaka 35-44,New Smear Negative"
+    },
+    {
+      "code": "vLmGSo5QStL",
+      "display": "New Smear Negative, Miaka 45-54, KEKE,Miaka 45-54,New Smear Negative"
+    },
+    {
+      "code": "X6aAzTW4dPn",
+      "display": "New Smear Negative, Miaka 45-54, MEME,Miaka 45-54,New Smear Negative"
+    },
+    {
+      "code": "jJsLikf6IyP",
+      "display": "New Smear Negative, Miaka 5-9, KEKE,Miaka 5-9,New Smear Negative"
+    },
+    {
+      "code": "s9lyIuiDqXO",
+      "display": "New Smear Negative, Miaka 5-9, MEME,Miaka 5-9,New Smear Negative"
+    },
+    {
+      "code": "ul7LTrSWB7F",
+      "display": "New Smear Negative, Miaka 55-64, KEKE,Miaka 55-64,New Smear Negative"
+    },
+    {
+      "code": "IBzMbe0Ci2H",
+      "display": "New Smear Negative, Miaka 55-64, MEMiaka 55-64,ME,New Smear Negative"
+    },
+    {
+      "code": "BrFtcWblNBz",
+      "display": "New Smear Negative, Miaka 65+, KEKE,Miaka 65+,New Smear Negative"
+    },
+    {
+      "code": "cqJim2WvCre",
+      "display": "New Smear Negative, Miaka 65+, MEMiaka 65+,ME,New Smear Negative"
+    },
+    {
+      "code": "kOp2UFGP1wj",
+      "display": "New Smear Negative, Miezi 0-59, KEKE,Miezi 0-59,New Smear Negative"
+    },
+    {
+      "code": "x7DxrXSq7tC",
+      "display": "New Smear Negative, Miezi 0-59, MEME,Miezi 0-59,New Smear Negative"
+    },
+    {
+      "code": "QYPqKFVNbSt",
+      "display": "NGOsNGOs"
+    },
+    {
+      "code": "edRNt7zi8eB",
+      "display": "NHIFNHIF"
+    },
+    {
+      "code": "tzx8UJ0QFGH",
+      "display": "No ChangeNo Change"
+    },
+    {
+      "code": "wlbzMFvp5mX",
+      "display": "No ChangeNo Change"
+    },
+    {
+      "code": "T0uhl5nnihw",
+      "display": "No testing if only 1 type of is test availableNo testing if only 1 type of is test available"
+    },
+    {
+      "code": "vcqeQtmcti4",
+      "display": "Non-occupational: OtherNon-occupational: Other"
+    },
+    {
+      "code": "L7mTYFar9Xn",
+      "display": "Non-occupational: Other, KEKE,Non-occupational: Other"
+    },
+    {
+      "code": "f9s6fTJ5er8",
+      "display": "Non-occupational: Other, MENon-occupational: Other,ME"
+    },
+    {
+      "code": "ToQAtnk6Awf",
+      "display": "Non-occupational: Rape/AssaultNon-occupational: Rape/Assault"
+    },
+    {
+      "code": "tOCZ1zlZl6A",
+      "display": "Not StartedNot Started"
+    },
+    {
+      "code": "V9rTjWg5hDB",
+      "display": "Nurse/Nurse AssistantNurse/Nurse Assistant"
+    },
+    {
+      "code": "gZVZmtxuJ7Q",
+      "display": "NzimaNzima"
+    },
+    {
+      "code": "zagEF3s2L3d",
+      "display": "ObsObs"
+    },
+    {
+      "code": "OfxDZGn18qe",
+      "display": "Occupational: Health care workersOccupational: Health care workers"
+    },
+    {
+      "code": "k6TTfJ4Zpe8",
+      "display": "Occupational: Health care workers, KEOccupational: Health care workers,KE"
+    },
+    {
+      "code": "c4eSOvwKYuK",
+      "display": "Occupational: Health care workers, MEOccupational: Health care workers,ME"
+    },
+    {
+      "code": "WTpXN6q3K2u",
+      "display": "Occupational: Other OccupationsOccupational: Other Occupations"
+    },
+    {
+      "code": "N8uZfVv4gK2",
+      "display": "Occupational: Other Occupations, KEKE,Occupational: Other Occupations"
+    },
+    {
+      "code": "ObeLU5wK50y",
+      "display": "Occupational: Other Occupations, MEOccupational: Other Occupations,ME"
+    },
+    {
+      "code": "E3R44HJy806",
+      "display": "OJT and Mentorship to sites on commodity managementOJT and Mentorship to sites on commodity management"
+    },
+    {
+      "code": "rQpPmB0uzz7",
+      "display": "OJT and Mentorship to sites on commodity managementOJT and Mentorship to sites on commodity management"
+    },
+    {
+      "code": "TVSfludLWCf",
+      "display": "OJT and Mentorship to sites on commodity managementOJT and Mentorship to sites on commodity management"
+    },
+    {
+      "code": "HekVdo7okVK",
+      "display": "OJT and Mentorship to sites on commodity managementOJT and Mentorship to sites on commodity management"
+    },
+    {
+      "code": "PiSbROURyPn",
+      "display": "OJT and Mentorship to sites on commodity managementOJT and Mentorship to sites on commodity management"
+    },
+    {
+      "code": "Av0MGdLTuGo",
+      "display": "OJT and Mentorship to sites on commodity managementOJT and Mentorship to sites on commodity management"
+    },
+    {
+      "code": "YRCwcxB6OHH",
+      "display": "on site produced shoeson site produced shoes"
+    },
+    {
+      "code": "WKwmmJP76YF",
+      "display": "Order LMIS tools from district/MSDOrder LMIS tools from district/MSD"
+    },
+    {
+      "code": "tBqkr0FNO6d",
+      "display": "Order test kits and associated reagentsOrder test kits and associated reagents"
+    },
+    {
+      "code": "sreODndlCag",
+      "display": "Other medical/ surgical servicesOther medical/ surgical services"
+    },
+    {
+      "code": "Xw9b9jFBmms",
+      "display": "Other wardsOther wards"
+    },
+    {
+      "code": "tnh9CXSxuld",
+      "display": "OthersOthers"
+    },
+    {
+      "code": "HFByy5FwcI4",
+      "display": "OthersOthers"
+    },
+    {
+      "code": "kfljkmObyS6",
+      "display": "OthersOthers"
+    },
+    {
+      "code": "YY4bmXC55Zb",
+      "display": "OthersOthers"
+    },
+    {
+      "code": "XidlpD46DUp",
+      "display": "Out of controlOut of control"
+    },
+    {
+      "code": "SZAYVp2kqKs",
+      "display": "P I T CP I T C"
+    },
+    {
+      "code": "jRu7wu4RZsP",
+      "display": "Papo kwa PapoPapo kwa Papo"
+    },
+    {
+      "code": "TD08kW6x1JS",
+      "display": "PB[A]PB[A]"
+    },
+    {
+      "code": "Q9NxO0Wwc4w",
+      "display": "PB[C]PB[C]"
+    },
+    {
+      "code": "RTOzgbQ5aeu",
+      "display": "PelvisPelvis"
+    },
+    {
+      "code": "c4WX5ehOEQL",
+      "display": "Pharmacists, Pharmaceutical AssistantPharmacists, Pharmaceutical Assistant"
+    },
+    {
+      "code": "jYYUhtq2mKs",
+      "display": "PITCPITC"
+    },
+    {
+      "code": "ppfIZPD9AG1",
+      "display": "PITCPITC"
+    },
+    {
+      "code": "Stcn7wK9eo7",
+      "display": "Primary Health Care, KEKE,Primary Health Care"
+    },
+    {
+      "code": "vccU8UVJaG1",
+      "display": "Primary Health Care, MEME,Primary Health Care"
+    },
+    {
+      "code": "UDd4ysAwjxf",
+      "display": "Provide TA on using backup toolProvide TA on using backup tool"
+    },
+    {
+      "code": "UxOyaPEJ5cm",
+      "display": "PSS, KEKE,PSS"
+    },
+    {
+      "code": "Gj6Lv7dc33x",
+      "display": "PSS, MEPSS,ME"
+    },
+    {
+      "code": "XBEUKGgMzwQ",
+      "display": "Psycho-social support servicesPsycho-social support services"
+    },
+    {
+      "code": "Qi36eASCbhA",
+      "display": "RCH in ChargeRCH in Charge"
+    },
+    {
+      "code": "BXufRsdREc0",
+      "display": "RCH in ChargeRCH in Charge"
+    },
+    {
+      "code": "YQpdU1hH9zn",
+      "display": "RCH in ChargeRCH in Charge"
+    },
+    {
+      "code": "WaR4REx6KnP",
+      "display": "RCH in ChargeRCH in Charge"
+    },
+    {
+      "code": "gLhcnFWZLxp",
+      "display": "RCH in ChargeRCH in Charge"
+    },
+    {
+      "code": "esbIX0gMpNz",
+      "display": "RCH in ChargeRCH in Charge"
+    },
+    {
+      "code": "zMhI7B2Yxhm",
+      "display": "RCH in ChargeRCH in Charge"
+    },
+    {
+      "code": "v7GqWE7HOl4",
+      "display": "RCH in ChargeRCH in Charge"
+    },
+    {
+      "code": "lEUhbQaGPtD",
+      "display": "RCTC in ChargeRCTC in Charge"
+    },
+    {
+      "code": "VUqhp9NqEJ9",
+      "display": "RCTC in ChargeRCTC in Charge"
+    },
+    {
+      "code": "kM6A4ZDMbUg",
+      "display": "RCTC in ChargeRCTC in Charge"
+    },
+    {
+      "code": "wQy09crE0CR",
+      "display": "ReactionReaction"
+    },
+    {
+      "code": "wdfoQ2mXeTf",
+      "display": "ready made shoesready made shoes"
+    },
+    {
+      "code": "Sq6Lrufd7oE",
+      "display": "ReceivedReceived"
+    },
+    {
+      "code": "LclCiw3Hkl1",
+      "display": "Report incidents to CHMT for advice/ further follow-upReport incidents to CHMT for advice/ further follow-up"
+    },
+    {
+      "code": "kWCbbLPLbmI",
+      "display": "Report incidents to CHMT for advice/ further follow-upReport incidents to CHMT for advice/ further follow-up"
+    },
+    {
+      "code": "im6aYhNJqNT",
+      "display": "Reports to be approved after completion and before being submitted to next level/entered into DHISReports to be approved after completion and before being submitted to next level/entered into DHIS"
+    },
+    {
+      "code": "bSvJDSyYURK",
+      "display": "Reports to be approved after completion before being submitted to next level/entered into DHISReports to be approved after completion before being submitted to next level/entered into DHIS"
+    },
+    {
+      "code": "Z18FvWHUcCT",
+      "display": "Reports to be approved after completion before being submitted to next level/entered into DHISReports to be approved after completion before being submitted to next level/entered into DHIS"
+    },
+    {
+      "code": "EF2LfkSACtJ",
+      "display": "Request cards from DistrictRequest cards from District"
+    },
+    {
+      "code": "R5sIVWG2cbE",
+      "display": "Request DBS kits from MSD, Request TA from district on proper documentationRequest DBS kits from MSD, Request TA from district on proper documentation"
+    },
+    {
+      "code": "kCkMUq89Loj",
+      "display": "Request DBS kits from nearby facilityRequest DBS kits from nearby facility"
+    },
+    {
+      "code": "bZX36ANlv6Y",
+      "display": "Request district support on Mentorship on commodity managementRequest district support on Mentorship on commodity management"
+    },
+    {
+      "code": "szNJ5kVRSOR",
+      "display": "Request district support on Mentorship on commodity managementRequest district support on Mentorship on commodity management"
+    },
+    {
+      "code": "ziaJB7EszT3",
+      "display": "Request district support on Mentorship/OJT on using LMIS toolsRequest district support on Mentorship/OJT on using LMIS tools"
+    },
+    {
+      "code": "s7FOSRyT4mN",
+      "display": "Request for appropriate backup tool from the district. Request for appropriate backup tool from the district. "
+    },
+    {
+      "code": "hRUymSbObnm",
+      "display": "Request for database installation from district level Request for database installation from district level "
+    },
+    {
+      "code": "z24SQVDEWyw",
+      "display": "Request mentorship or OJT on commodities mgmt from Zonal MSD, District or IPsRequest mentorship or OJT on commodities mgmt from Zonal MSD, District or IPs"
+    },
+    {
+      "code": "m8KwwZHPQMy",
+      "display": "Request Mentorship/OJT on forecasting, stock counts, proper documentationRequest Mentorship/OJT on forecasting, stock counts, proper documentation"
+    },
+    {
+      "code": "Z8W93plN8sM",
+      "display": "Request OJT on HIV Testing, QA, and documentation from CHMTRequest OJT on HIV Testing, QA, and documentation from CHMT"
+    },
+    {
+      "code": "kNMW2R6mxup",
+      "display": "Request OJT on HIV Testing, QA, and documentation from CHMTRequest OJT on HIV Testing, QA, and documentation from CHMT"
+    },
+    {
+      "code": "llF3Kn1hDJk",
+      "display": "Request OJT on Testing QA and Documentation from CHMTRequest OJT on Testing QA and Documentation from CHMT"
+    },
+    {
+      "code": "wDrl9p2POhy",
+      "display": "Request QA logbook from DistrictRequest QA logbook from District"
+    },
+    {
+      "code": "ADk6SYwovkv",
+      "display": "Request R&R forms from DistrictRequest R&R forms from District"
+    },
+    {
+      "code": "ufqZy2j8bv4",
+      "display": "Request R&R forms from DistrictRequest R&R forms from District"
+    },
+    {
+      "code": "w9ckTmlUWeh",
+      "display": "Request support from district on proper orderingRequest support from district on proper ordering"
+    },
+    {
+      "code": "kOkMw3avVQM",
+      "display": "Request support from district on proper orderingRequest support from district on proper ordering"
+    },
+    {
+      "code": "eNvs1jBMEMy",
+      "display": "Request TA from district level on proper filling/documentation of cardsRequest TA from district level on proper filling/documentation of cards"
+    },
+    {
+      "code": "kScIAGBhxvG",
+      "display": "Request TA from district level on proper filling/documentation of register.Request TA from district level on proper filling/documentation of register."
+    },
+    {
+      "code": "tRKk3ApYj30",
+      "display": "Request TA from district level on proper filling/documentation of register.Request TA from district level on proper filling/documentation of register."
+    },
+    {
+      "code": "BSrBtg2wfKQ",
+      "display": "Request TA from district on documentation in ART register. Improve adherence counsellingRequest TA from district on documentation in ART register. Improve adherence counselling"
+    },
+    {
+      "code": "oibgMmJiNjI",
+      "display": "Request TA from district on proper filling/documentation in registerRequest TA from district on proper filling/documentation in register"
+    },
+    {
+      "code": "zUjet0zdfT9",
+      "display": "Request TA from district on proper filling/documentation of registerRequest TA from district on proper filling/documentation of register"
+    },
+    {
+      "code": "v1tmObLqVjH",
+      "display": "Request TLE from nearby facility. Request TLE from MSDRequest TLE from nearby facility. Request TLE from MSD"
+    },
+    {
+      "code": "eYk5Qv7qn6a",
+      "display": "Request to district level for the most current version of cardsRequest to district level for the most current version of cards"
+    },
+    {
+      "code": "vssMEzM4HWr",
+      "display": "Request to district level for the most current version of register. Request to district level for the most current version of register. "
+    },
+    {
+      "code": "VnCxkjjBj9S",
+      "display": "Request to district level for the most current version of register. Request to district level for the most current version of register. "
+    },
+    {
+      "code": "AWb172ZF5Vq",
+      "display": "Request Unigold from District if stockoutRequest Unigold from District if stockout"
+    },
+    {
+      "code": "YyK8KfOzUJ6",
+      "display": "Robo ya kwanza ya mwakaRobo ya kwanza ya mwaka"
+    },
+    {
+      "code": "N4P9oRcngTC",
+      "display": "Robo ya nne ya mwakaRobo ya nne ya mwaka"
+    },
+    {
+      "code": "JxtkPBC8GHZ",
+      "display": "Robo ya pili ya mwakaRobo ya pili ya mwaka"
+    },
+    {
+      "code": "DFwumtIzfK3",
+      "display": "Robo ya tatu ya mwakaRobo ya tatu ya mwaka"
+    },
+    {
+      "code": "Czsa0WTmfYE",
+      "display": "sehemu za kazi fivesehemu za kazi five"
+    },
+    {
+      "code": "KkukOvy6yxr",
+      "display": "sehemu za kazi foursehemu za kazi four"
+    },
+    {
+      "code": "vYkcqoEIaMR",
+      "display": "sehemu za kazi onesehemu za kazi one"
+    },
+    {
+      "code": "WUwd9Wrq3IN",
+      "display": "sehemu za kazi threesehemu za kazi three"
+    },
+    {
+      "code": "ffVdZwMXovO",
+      "display": "sehemu za kazi twosehemu za kazi two"
+    },
+    {
+      "code": "MoENa7HJZLm",
+      "display": "Self referralSelf referral"
+    },
+    {
+      "code": "JHIIgeFeH8t",
+      "display": "Send blood sample to Nat'l level for ELISA test (for all inconclusives)Send blood sample to Nat'l level for ELISA test (for all inconclusives)"
+    },
+    {
+      "code": "OC3V0OHMdzc",
+      "display": "Separate soon-to-expire kits from usable stock (arrange kits according to FEFO)Separate soon-to-expire kits from usable stock (arrange kits according to FEFO)"
+    },
+    {
+      "code": "hiurup8Mj7O",
+      "display": "SerikaliSerikali"
+    },
+    {
+      "code": "IauOCKQQpni",
+      "display": "SerikaliSerikali"
+    },
+    {
+      "code": "JjneiaLMJXD",
+      "display": "SevereSevere"
+    },
+    {
+      "code": "AmxtXXQzxyV",
+      "display": "Siku 28Siku 28"
+    },
+    {
+      "code": "OPiJUYYH28D",
+      "display": "Siku 29 – Miezi 11Siku 29 – Miezi 11"
+    },
+    {
+      "code": "X3nBRkONLM2",
+      "display": "SkullSkull"
+    },
+    {
+      "code": "TQ1nlFSqz8D",
+      "display": "Solid needlesSolid needles"
+    },
+    {
+      "code": "U4u5EOz80m1",
+      "display": "SpineSpine"
+    },
+    {
+      "code": "HZSdRdJtX1S",
+      "display": "SplashSplash"
+    },
+    {
+      "code": "EA4eUsDCqm7",
+      "display": "SPs to start updating registers regularlySPs to start updating registers regularly"
+    },
+    {
+      "code": "sSTKLfjpFFK",
+      "display": "SPs to start updating registers regularlySPs to start updating registers regularly"
+    },
+    {
+      "code": "h4GhWQaqUYu",
+      "display": "SS to sites to assess staff competency on commodity management SS to sites to assess staff competency on commodity management "
+    },
+    {
+      "code": "ocpoHm5E7PD",
+      "display": "SS to sites to assess staff competency on commodity management SS to sites to assess staff competency on commodity management "
+    },
+    {
+      "code": "N3wc4BbB3NS",
+      "display": "SS to sites to assess staff competency on commodity management SS to sites to assess staff competency on commodity management "
+    },
+    {
+      "code": "lxzgepdRLKw",
+      "display": "SS to sites to assess staff competency on commodity management SS to sites to assess staff competency on commodity management "
+    },
+    {
+      "code": "zhJMjdTOJyN",
+      "display": "SS to sites to assess staff competency on commodity management SS to sites to assess staff competency on commodity management "
+    },
+    {
+      "code": "rROZr6Dv0cK",
+      "display": "SS to sites to assess staff competency on commodity management SS to sites to assess staff competency on commodity management "
+    },
+    {
+      "code": "Q4vyjwe0fxh",
+      "display": "STI ClinicsSTI Clinics"
+    },
+    {
+      "code": "LMVOVQPQyh9",
+      "display": "Stopped ARTStopped ART"
+    },
+    {
+      "code": "y4yqaZIJaUw",
+      "display": "StudentsStudents"
+    },
+    {
+      "code": "o6XnpsatG3R",
+      "display": "Supervise completion of HIV testing QA documentation & activitiesSupervise completion of HIV testing QA documentation & activities"
+    },
+    {
+      "code": "AAxZd5k2Vl4",
+      "display": "TA to DHIS data entry person on understanding PMTCT indicatorsTA to DHIS data entry person on understanding PMTCT indicators"
+    },
+    {
+      "code": "lXCB8hGz5kc",
+      "display": "TA to DHIS data entry person on understanding PMTCT indicatorsTA to DHIS data entry person on understanding PMTCT indicators"
+    },
+    {
+      "code": "nQCVnGJH7qO",
+      "display": "TB Patient HIV +ve, KEKE,TB Patient HIV +ve"
+    },
+    {
+      "code": "GnWfLHobAf5",
+      "display": "TB Patient HIV +ve, MEME,TB Patient HIV +ve"
+    },
+    {
+      "code": "k54EYKaTgZA",
+      "display": "TB Patient Referred from CTC, KEKE,TB Patient Referred from CTC"
+    },
+    {
+      "code": "niYEajs7oZC",
+      "display": "TB Patient Referred from CTC, METB Patient Referred from CTC,ME"
+    },
+    {
+      "code": "fnBwHagYaj5",
+      "display": "TB Patient Referred to CTC, KEKE,TB Patient Referred to CTC"
+    },
+    {
+      "code": "P3oUSHtBAUa",
+      "display": "TB Patient Referred to CTC, MEME,TB Patient Referred to CTC"
+    },
+    {
+      "code": "W1PMMcPHjfJ",
+      "display": "TB Patient Registered for HIV Care, KETB Patient Registered for HIV Care,KE"
+    },
+    {
+      "code": "RyZe5fzrFX4",
+      "display": "TB Patient Registered for HIV Care, METB Patient Registered for HIV Care,ME"
+    },
+    {
+      "code": "S1q5vHjxS9o",
+      "display": "TB Patient Started ART, KEKE,TB Patient Started ART"
+    },
+    {
+      "code": "jsumZpWntgY",
+      "display": "TB Patient Started ART, MEME,TB Patient Started ART"
+    },
+    {
+      "code": "EcSUjUKhila",
+      "display": "TB Patient Started CPT, KEKE,TB Patient Started CPT"
+    },
+    {
+      "code": "fxB0MqT5zDB",
+      "display": "TB Patient Started CPT, MEME,TB Patient Started CPT"
+    },
+    {
+      "code": "HfcxJUau0ky",
+      "display": "TB Patient Tested HIV, KEKE,TB Patient Tested HIV"
+    },
+    {
+      "code": "IgdtfnWl82r",
+      "display": "TB Patient Tested HIV, MEME,TB Patient Tested HIV"
+    },
+    {
+      "code": "ih4rZ498mkn",
+      "display": "TB Patient, KEKE,TB Patient"
+    },
+    {
+      "code": "gMl5EGC3dIn",
+      "display": "TB Patient, METB Patient,ME"
+    },
+    {
+      "code": "lCk4GnVt5pv",
+      "display": "TB Patients Cured, KEKE,TB Patients Cured"
+    },
+    {
+      "code": "ERV7YEJZ4jT",
+      "display": "TB Patients Cured, METB Patients Cured,ME"
+    },
+    {
+      "code": "YtDQuDcTl34",
+      "display": "TB Patients DiedTB Patients Died"
+    },
+    {
+      "code": "z1vBudIbSjR",
+      "display": "TB Patients Died, KEKE,TB Patients Died"
+    },
+    {
+      "code": "hEj6HKCQ6qB",
+      "display": "TB Patients Died, MEME,TB Patients Died"
+    },
+    {
+      "code": "hRXsM7JW0h4",
+      "display": "TB Patients Lost to follow up, KEKE,TB Patients Lost to follow up"
+    },
+    {
+      "code": "KPC9A32PqtS",
+      "display": "TB Patients Lost to follow up, MEME,TB Patients Lost to follow up"
+    },
+    {
+      "code": "aj52IB102mg",
+      "display": "TB Patients Not Evaluated, KEKE,TB Patients Not Evaluated"
+    },
+    {
+      "code": "zVyeHICTPiI",
+      "display": "TB Patients Not Evaluated, MEME,TB Patients Not Evaluated"
+    },
+    {
+      "code": "kYzmbdrL6YQ",
+      "display": "TB Patients NotifiedTB Patients Notified"
+    },
+    {
+      "code": "anXI8rQwp7L",
+      "display": "TB Patients Notified, KEKE,TB Patients Notified"
+    },
+    {
+      "code": "cWgYgYTX7Rl",
+      "display": "TB Patients Notified, METB Patients Notified,ME"
+    },
+    {
+      "code": "o0DgQZa4COn",
+      "display": "TB Patients Treatment CompletedTB Patients Treatment Completed"
+    },
+    {
+      "code": "BPsVQ7ENO8W",
+      "display": "TB Patients Treatment Completed, KEKE,TB Patients Treatment Completed"
+    },
+    {
+      "code": "Ap14OcM35D7",
+      "display": "TB Patients Treatment Completed, METB Patients Treatment Completed,ME"
+    },
+    {
+      "code": "MpjlK8NPE33",
+      "display": "TB Patients treatment failed, KEKE,TB Patients treatment failed"
+    },
+    {
+      "code": "H0NuFCzKEkC",
+      "display": "TB Patients treatment failed, METB Patients treatment failed,ME"
+    },
+    {
+      "code": "l0cLJioCLMn",
+      "display": "tracer atracer a"
+    },
+    {
+      "code": "ICd7ISoJ6d1",
+      "display": "tracer btracer b"
+    },
+    {
+      "code": "y5qyPrduTap",
+      "display": "tracer ctracer c"
+    },
+    {
+      "code": "fDDbnJ4LlXT",
+      "display": "tracer dtracer d"
+    },
+    {
+      "code": "nRvtYRHZi6p",
+      "display": "Tracking missed opportunities for HEI and use of networks of service clusters to improve referralsTracking missed opportunities for HEI and use of networks of service clusters to improve referrals"
+    },
+    {
+      "code": "ZiBRfbuS6KN",
+      "display": "Transferred OutTransferred Out"
+    },
+    {
+      "code": "qicaGp8K7gu",
+      "display": "Transferred OutTransferred Out"
+    },
+    {
+      "code": "URnGme9q9r3",
+      "display": "Ulcer/wound treatmentUlcer/wound treatment"
+    },
+    {
+      "code": "sHG6yoGFLsP",
+      "display": "Umri chini ya miaka 5Umri chini ya miaka 5"
+    },
+    {
+      "code": "j7ajchztZUh",
+      "display": "Umri chini ya miaka 5Umri chini ya miaka 5"
+    },
+    {
+      "code": "KMjUuTiVGo7",
+      "display": "Umri chini ya mwaka 1, 60% - 3SD, KE60% - 3SD,KE,Umri chini ya mwaka 1"
+    },
+    {
+      "code": "JU3ViRMTuuZ",
+      "display": "Umri chini ya mwaka 1, 60% - 3SD, ME60% - 3SD,Umri chini ya mwaka 1,ME"
+    },
+    {
+      "code": "aMooVCHV1KD",
+      "display": "Umri chini ya mwaka 1, 60%-80% - 2-3SD, KEKE,Umri chini ya mwaka 1,60%-80% - 2-3SD"
+    },
+    {
+      "code": "l9DoAxm7Ryn",
+      "display": "Umri chini ya mwaka 1, 60%-80% - 2-3SD, MEUmri chini ya mwaka 1,60%-80% - 2-3SD,ME"
+    },
+    {
+      "code": "Cb19PWGpoyX",
+      "display": "Umri chini ya mwaka 1, 80% - 2SD, KE80% - 2SD,KE,Umri chini ya mwaka 1"
+    },
+    {
+      "code": "ye0B3Iz58wL",
+      "display": "Umri chini ya mwaka 1, 80% - 2SD, ME80% - 2SD,Umri chini ya mwaka 1,ME"
+    },
+    {
+      "code": "W4HB6Z89DOJ",
+      "display": "Umri chini ya mwezi 1Umri chini ya mwezi 1"
+    },
+    {
+      "code": "Vmb6Ebvnai0",
+      "display": "Umri chini ya mwezi 1, AdmittedAdmitted,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "l8XlRY2zH8u",
+      "display": "Umri chini ya mwezi 1, DeathDeath,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "BkCsslyhIGP",
+      "display": "Umri chini ya mwezi 1, KEKE,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "Q9UZcX9OP1t",
+      "display": "Umri chini ya mwezi 1, KEKE,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "mnZxRv5VRBe",
+      "display": "Umri chini ya mwezi 1, KEKE,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "uuidY4WdJml",
+      "display": "Umri chini ya mwezi 1, KE, IPDIPD,KE,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "Ak7SvGtlnWp",
+      "display": "Umri chini ya mwezi 1, KE, OPDOPD,KE,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "XxnkJ6llKw1",
+      "display": "Umri chini ya mwezi 1, MEME,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "nDz6HrtlZeG",
+      "display": "Umri chini ya mwezi 1, MEME,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "aKZHqMqowxE",
+      "display": "Umri chini ya mwezi 1, MEME,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "oliDewHdUdd",
+      "display": "Umri chini ya mwezi 1, ME, IPDIPD,ME,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "xo7RVsgBkpT",
+      "display": "Umri chini ya mwezi 1, ME, OPDOPD,ME,Umri chini ya mwezi 1"
+    },
+    {
+      "code": "eqKNx6Dsiil",
+      "display": "Umri miaka 5 au zaidiUmri miaka 5 au zaidi"
+    },
+    {
+      "code": "hJPgvKbv4xM",
+      "display": "Umri miaka 5 au zaidi, KEKE,Umri miaka 5 au zaidi"
+    },
+    {
+      "code": "Fx7ApyIS3oe",
+      "display": "Umri miaka 5 au zaidi, MEUmri miaka 5 au zaidi,ME"
+    },
+    {
+      "code": "ryheLozEfqq",
+      "display": "Umri miaka 5 hadi miaka 15, KEKE,Umri miaka 5 hadi miaka 15"
+    },
+    {
+      "code": "IjH31gyFc3v",
+      "display": "Umri miaka 5 hadi miaka 15, MEME,Umri miaka 5 hadi miaka 15"
+    },
+    {
+      "code": "Gbpd8XyoUwJ",
+      "display": "Umri miaka 5 hadi miaka chini ya 60, KEUmri miaka 5 hadi miaka chini ya 60,KE"
+    },
+    {
+      "code": "WfIgNL9bZZy",
+      "display": "Umri miaka 5 hadi miaka chini ya 60, MEUmri miaka 5 hadi miaka chini ya 60,ME"
+    },
+    {
+      "code": "ABKFKjd5yj3",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60Umri miaka 5 hadi umri chini ya miaka 60"
+    },
+    {
+      "code": "EPygfSOOCuy",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60Umri miaka 5 hadi umri chini ya miaka 60"
+    },
+    {
+      "code": "H48YOxMCpJE",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60Umri miaka 5 hadi umri chini ya miaka 60"
+    },
+    {
+      "code": "T96qn51dZGI",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60, AdmittedUmri miaka 5 hadi umri chini ya miaka 60,Admitted"
+    },
+    {
+      "code": "nPYrGZRbkMX",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60, DeathDeath,Umri miaka 5 hadi umri chini ya miaka 60"
+    },
+    {
+      "code": "wGvxdkuPC9I",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60, KEKE,Umri miaka 5 hadi umri chini ya miaka 60"
+    },
+    {
+      "code": "awkJLkKHr7a",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60, KE, IPDIPD,KE,Umri miaka 5 hadi umri chini ya miaka 60"
+    },
+    {
+      "code": "sgG28zSclZm",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60, KE, OPDOPD,KE,Umri miaka 5 hadi umri chini ya miaka 60"
+    },
+    {
+      "code": "aFgt9MN3kI2",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60, MEUmri miaka 5 hadi umri chini ya miaka 60,ME"
+    },
+    {
+      "code": "MQKsgFxCtJ7",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60, ME, IPDIPD,Umri miaka 5 hadi umri chini ya miaka 60,ME"
+    },
+    {
+      "code": "ddmrU8qJa7L",
+      "display": "Umri miaka 5 hadi umri chini ya miaka 60, ME, OPDOPD,Umri miaka 5 hadi umri chini ya miaka 60,ME"
+    },
+    {
+      "code": "dTPmRaxi5L4",
+      "display": "Umri miaka 60 au zaidiUmri miaka 60 au zaidi"
+    },
+    {
+      "code": "GYyOMo47usN",
+      "display": "Umri miaka 60 au zaidiUmri miaka 60 au zaidi"
+    },
+    {
+      "code": "MP5R9R3KCfH",
+      "display": "Umri miaka 60 au zaidiUmri miaka 60 au zaidi"
+    },
+    {
+      "code": "mrBaumJVGdC",
+      "display": "Umri miaka 60 au zaidi, AdmittedUmri miaka 60 au zaidi,Admitted"
+    },
+    {
+      "code": "Ixz6Fzr1N8h",
+      "display": "Umri miaka 60 au zaidi, DeathDeath,Umri miaka 60 au zaidi"
+    },
+    {
+      "code": "vNkVxDxdUZH",
+      "display": "Umri miaka 60 au zaidi, KEKE,Umri miaka 60 au zaidi"
+    },
+    {
+      "code": "folz1LLdrFN",
+      "display": "Umri miaka 60 au zaidi, KEKE,Umri miaka 60 au zaidi"
+    },
+    {
+      "code": "ZU3sKDB9i2o",
+      "display": "Umri miaka 60 au zaidi, KE, IPDIPD,KE,Umri miaka 60 au zaidi"
+    },
+    {
+      "code": "ayVLc9to6xY",
+      "display": "Umri miaka 60 au zaidi, KE, OPDOPD,KE,Umri miaka 60 au zaidi"
+    },
+    {
+      "code": "YftXJ9iiGfv",
+      "display": "Umri miaka 60 au zaidi, MEUmri miaka 60 au zaidi,ME"
+    },
+    {
+      "code": "EfQ7kSFQNoP",
+      "display": "Umri miaka 60 au zaidi, MEUmri miaka 60 au zaidi,ME"
+    },
+    {
+      "code": "o9Oj5Cjekej",
+      "display": "Umri miaka 60 au zaidi, ME, IPDIPD,Umri miaka 60 au zaidi,ME"
+    },
+    {
+      "code": "aYgz5mh2cbx",
+      "display": "Umri miaka 60 au zaidi, ME, OPDOPD,Umri miaka 60 au zaidi,ME"
+    },
+    {
+      "code": "N1lkyzsi0ys",
+      "display": "Umri mwaka 1 hadi miaka 5, 60% - 3SD, KE60% - 3SD,KE,Umri mwaka 1 hadi miaka 5"
+    },
+    {
+      "code": "ytxVvEBKooi",
+      "display": "Umri mwaka 1 hadi miaka 5, 60% - 3SD, ME60% - 3SD,ME,Umri mwaka 1 hadi miaka 5"
+    },
+    {
+      "code": "S4hR8QW0mpB",
+      "display": "Umri mwaka 1 hadi miaka 5, 60%-80% - 2-3SD, KEKE,60%-80% - 2-3SD,Umri mwaka 1 hadi miaka 5"
+    },
+    {
+      "code": "zrNwMdhE6u5",
+      "display": "Umri mwaka 1 hadi miaka 5, 60%-80% - 2-3SD, ME60%-80% - 2-3SD,ME,Umri mwaka 1 hadi miaka 5"
+    },
+    {
+      "code": "ZNfqkLUpd8N",
+      "display": "Umri mwaka 1 hadi miaka 5, 80% - 2SD, KE80% - 2SD,KE,Umri mwaka 1 hadi miaka 5"
+    },
+    {
+      "code": "yAK0WowNwdQ",
+      "display": "Umri mwaka 1 hadi miaka 5, 80% - 2SD, ME80% - 2SD,ME,Umri mwaka 1 hadi miaka 5"
+    },
+    {
+      "code": "oQIEFMM4nl9",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5Umri mwaka 1 hadi umri chini ya miaka 5"
+    },
+    {
+      "code": "YRiIk5l75Sm",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, AdmittedUmri mwaka 1 hadi umri chini ya miaka 5,Admitted"
+    },
+    {
+      "code": "ARS2ismtNPz",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, DeathDeath,Umri mwaka 1 hadi umri chini ya miaka 5"
+    },
+    {
+      "code": "hSu00g8Crdf",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, KEKE,Umri mwaka 1 hadi umri chini ya miaka 5"
+    },
+    {
+      "code": "KyZE5OQB1XE",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, KEKE,Umri mwaka 1 hadi umri chini ya miaka 5"
+    },
+    {
+      "code": "qHWUKtukjAU",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, KEKE,Umri mwaka 1 hadi umri chini ya miaka 5"
+    },
+    {
+      "code": "dtdut9EncYH",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, KE, IPDIPD,KE,Umri mwaka 1 hadi umri chini ya miaka 5"
+    },
+    {
+      "code": "kSxbMW8Lmsd",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, KE, OPDOPD,KE,Umri mwaka 1 hadi umri chini ya miaka 5"
+    },
+    {
+      "code": "TEsRdQV61Ms",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, MEUmri mwaka 1 hadi umri chini ya miaka 5,ME"
+    },
+    {
+      "code": "ocswkKNqzfz",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, MEUmri mwaka 1 hadi umri chini ya miaka 5,ME"
+    },
+    {
+      "code": "VO7jXQW0pHo",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, MEUmri mwaka 1 hadi umri chini ya miaka 5,ME"
+    },
+    {
+      "code": "R33m4bJ5OcC",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, ME, IPDIPD,Umri mwaka 1 hadi umri chini ya miaka 5,ME"
+    },
+    {
+      "code": "PSQ2DsGun8c",
+      "display": "Umri mwaka 1 hadi umri chini ya miaka 5, ME, OPDOPD,Umri mwaka 1 hadi umri chini ya miaka 5,ME"
+    },
+    {
+      "code": "hk5OdV6lN3E",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "cDhBl9hUFXv",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, AdmittedAdmitted,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "vc92jm8MJD1",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, DeathDeath,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "iObmmghq1JR",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, KEKE,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "Md7n0lmIi0S",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, KEKE,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "g72fFJHnOBC",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, KEKE,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "e0RdqwlP1Xj",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, KE, IPDIPD,KE,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "R9Ka4Hd70Wh",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, KE, OPDOPD,KE,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "uyT47B1c9a6",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, MEME,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "RhBDwn1yo7d",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, MEME,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "CRTwqxK8aMA",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, MEME,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "iaPGviZZIky",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, ME, IPDIPD,ME,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "n15V8E7ZLT9",
+      "display": "Umri mwezi 1 hadi umri chini ya mwaka 1, ME, OPDOPD,ME,Umri mwezi 1 hadi umri chini ya mwaka 1"
+    },
+    {
+      "code": "P84AB6QO7n6",
+      "display": "Umri wa miaka 15 au zaidi, KEUmri wa miaka 15 au zaidi,KE"
+    },
+    {
+      "code": "SncTF5y7F4K",
+      "display": "Umri wa miaka 15 au zaidi, MEUmri wa miaka 15 au zaidi,ME"
+    },
+    {
+      "code": "M8xPREGQ218",
+      "display": "Umri wa miaka 5 hadi umri chini ya miaka 15, KEKE,Umri wa miaka 5 hadi umri chini ya miaka 15"
+    },
+    {
+      "code": "QKhnOTIX8Q9",
+      "display": "Umri wa miaka 5 hadi umri chini ya miaka 15, MEUmri wa miaka 5 hadi umri chini ya miaka 15,ME"
+    },
+    {
+      "code": "bva8CgDLg1e",
+      "display": "Umri wa miaka chini ya 5, KEUmri wa miaka chini ya 5,KE"
+    },
+    {
+      "code": "xuPzHnD8sxB",
+      "display": "Umri wa miaka chini ya 5, KEUmri wa miaka chini ya 5,KE"
+    },
+    {
+      "code": "qZbTMjk9Mul",
+      "display": "Umri wa miaka chini ya 5, MEUmri wa miaka chini ya 5,ME"
+    },
+    {
+      "code": "tgiTzocq8JF",
+      "display": "Umri wa miaka chini ya 5, MEUmri wa miaka chini ya 5,ME"
+    },
+    {
+      "code": "RaAhEmWjlA8",
+      "display": "Umri zaidi ya miaka 15, KEKE,Umri zaidi ya miaka 15"
+    },
+    {
+      "code": "nnkiEB5JwSP",
+      "display": "Umri zaidi ya miaka 15, MEUmri zaidi ya miaka 15,ME"
+    },
+    {
+      "code": "R0FvvvlaHlI",
+      "display": "Under 1, KE, Inside Service AreaInside Service Area,KE,Under 1"
+    },
+    {
+      "code": "BY8xK7uTPEr",
+      "display": "Under 1, KE, Inside Service Area, Dose 0Inside Service Area,Dose 0,KE,Under 1"
+    },
+    {
+      "code": "wO7Dim0ZDpa",
+      "display": "Under 1, KE, Inside Service Area, Dose 1Inside Service Area,KE,Dose 1,Under 1"
+    },
+    {
+      "code": "aG7HTixUr97",
+      "display": "Under 1, KE, Inside Service Area, Dose 2Inside Service Area,KE,Under 1,Dose 2"
+    },
+    {
+      "code": "m744Z2mKjbB",
+      "display": "Under 1, KE, Inside Service Area, Dose 3Inside Service Area,KE,Dose 3,Under 1"
+    },
+    {
+      "code": "HdwIgsY6gWF",
+      "display": "Under 1, KE, Outside Service AreaOutside Service Area,KE,Under 1"
+    },
+    {
+      "code": "N8QXDXR8hYj",
+      "display": "Under 1, KE, Outside Service Area, Dose 0Outside Service Area,Dose 0,KE,Under 1"
+    },
+    {
+      "code": "CXvTJFWe8Pd",
+      "display": "Under 1, KE, Outside Service Area, Dose 1Outside Service Area,KE,Dose 1,Under 1"
+    },
+    {
+      "code": "OU9GynkMCcw",
+      "display": "Under 1, KE, Outside Service Area, Dose 2Outside Service Area,KE,Under 1,Dose 2"
+    },
+    {
+      "code": "PrQ89ZQyNdN",
+      "display": "Under 1, KE, Outside Service Area, Dose 3Outside Service Area,KE,Dose 3,Under 1"
+    },
+    {
+      "code": "LFYRzJIktV6",
+      "display": "Under 1, ME, Inside Service AreaInside Service Area,Under 1,ME"
+    },
+    {
+      "code": "loi8Cth8lY3",
+      "display": "Under 1, ME, Inside Service Area, Dose 0Inside Service Area,Dose 0,Under 1,ME"
+    },
+    {
+      "code": "VHDAmCmomtX",
+      "display": "Under 1, ME, Inside Service Area, Dose 1Inside Service Area,Dose 1,Under 1,ME"
+    },
+    {
+      "code": "M25t8zwJwpx",
+      "display": "Under 1, ME, Inside Service Area, Dose 2Inside Service Area,Under 1,ME,Dose 2"
+    },
+    {
+      "code": "l0rjUkA87wd",
+      "display": "Under 1, ME, Inside Service Area, Dose 3Inside Service Area,Dose 3,Under 1,ME"
+    },
+    {
+      "code": "btMDsNKZcug",
+      "display": "Under 1, ME, Outside Service AreaOutside Service Area,Under 1,ME"
+    },
+    {
+      "code": "BB2nWnoZZvG",
+      "display": "Under 1, ME, Outside Service Area, Dose 0Outside Service Area,Dose 0,Under 1,ME"
+    },
+    {
+      "code": "s4R2q5UaAtn",
+      "display": "Under 1, ME, Outside Service Area, Dose 1Outside Service Area,Dose 1,Under 1,ME"
+    },
+    {
+      "code": "WhEKXqGQCt7",
+      "display": "Under 1, ME, Outside Service Area, Dose 2Outside Service Area,Under 1,ME,Dose 2"
+    },
+    {
+      "code": "s8796E20RH2",
+      "display": "Under 1, ME, Outside Service Area, Dose 3Outside Service Area,Dose 3,Under 1,ME"
+    },
+    {
+      "code": "gjNZ4WQlEEm",
+      "display": "UnknownUnknown"
+    },
+    {
+      "code": "w3w8l2HYBL1",
+      "display": "UnkownUnkown"
+    },
+    {
+      "code": "G7UHKsyAisM",
+      "display": "Unkown, 1 YR Follow Up (VIA+ treated with cryo or LEEP)1 YR Follow Up (VIA+ treated with cryo or LEEP),Unkown"
+    },
+    {
+      "code": "YYg1hcfOWOh",
+      "display": "Unkown, Initial VIA completedInitial VIA completed,Unkown"
+    },
+    {
+      "code": "tTqee2Q6tcI",
+      "display": "Unkown, Routine VIA Screening (previously VIA-)Routine VIA Screening (previously VIA-),Unkown"
+    },
+    {
+      "code": "RL4RR3AGudc",
+      "display": "Update LMIS toolsUpdate LMIS tools"
+    },
+    {
+      "code": "ki9EtOOcIoK",
+      "display": "UrologyUrology"
+    },
+    {
+      "code": "cUmXKzZIxv3",
+      "display": "Use clinician roster/ schedule for work at PMTCT clinic. Link clients with Psychosocial and nutritional servicesUse clinician roster/ schedule for work at PMTCT clinic. Link clients with Psychosocial and nutritional services"
+    },
+    {
+      "code": "oOefLlZSUaz",
+      "display": "V C TV C T"
+    },
+    {
+      "code": "RXKxqRmI8oC",
+      "display": "Validate new lot with old lot using known sampleValidate new lot with old lot using known sample"
+    },
+    {
+      "code": "tJoVdqJWWEZ",
+      "display": "Validate new lot with old lot using known sampleValidate new lot with old lot using known sample"
+    },
+    {
+      "code": "vupu2WBgBtx",
+      "display": "VCTVCT"
+    },
+    {
+      "code": "YOeKr2lLvlk",
+      "display": "VCTVCT"
+    },
+    {
+      "code": "gxTNOV647iO",
+      "display": "VinginevyoVinginevyo"
+    },
+    {
+      "code": "kVo6UDv4FZO",
+      "display": "Wadau wa maendeleo ya Afya 1Wadau wa maendeleo ya Afya 1"
+    },
+    {
+      "code": "zEoEsT8jrvq",
+      "display": "Wadau wa maendeleo ya Afya 2Wadau wa maendeleo ya Afya 2"
+    },
+    {
+      "code": "tg437jaea5R",
+      "display": "Wadau wa maendeleo ya Afya 3Wadau wa maendeleo ya Afya 3"
+    },
+    {
+      "code": "bI2w0CX4tPm",
+      "display": "Wadau wa maendeleo ya Afya 4Wadau wa maendeleo ya Afya 4"
+    },
+    {
+      "code": "kd40J9iqRkV",
+      "display": "Wadau wa maendeleo ya Afya 5Wadau wa maendeleo ya Afya 5"
+    },
+    {
+      "code": "qf0LmYL99yG",
+      "display": "WageniWageni"
+    },
+    {
+      "code": "u2h8O1qz1w2",
+      "display": "WahisaniWahisani"
+    },
+    {
+      "code": "AcnsnUv0Ofk",
+      "display": "WapyaWapya"
+    },
+    {
+      "code": "odG3CbMrNbe",
+      "display": "Wapya, KEWapya,KE"
+    },
+    {
+      "code": "V3vxwXayV9p",
+      "display": "Wapya, MEWapya,ME"
+    },
+    {
+      "code": "OnfalkJ8HUH",
+      "display": "Wasio na MafunzoWasio na Mafunzo"
+    },
+    {
+      "code": "otCFqOriWOX",
+      "display": "Wenye MafunzoWenye Mafunzo"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "openhim-mediator-mhero",
+  "version": "0.6.0",
+  "description": "This mediator synchronises data between the mHero systems.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "npm -s run test:code && npm -s run test:style",
+    "test:code": "tap --cov --reporter=spec tests/unit.js tests/integration.js tests/openinfoman-integration.js tests/rapidpro.js tests/rapidproCSDAdapter.js tests/openhim.js",
+    "test:style": "standard -v | snazzy",
+    "cov": "npm run test:code -- --coverage-report=lcov",
+    "test:watch": "onchange '**/*.js' -- npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jembi/openhim-mediator-mhero.git"
+  },
+  "keywords": [
+    "mhero",
+    "openhim",
+    "mediator"
+  ],
+  "author": "Jembi",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/jembi/openhim-mediator-mhero/issues"
+  },
+  "homepage": "https://github.com/jembi/openhim-mediator-mhero#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "lodash": "^4.11.1",
+    "openhim-mediator-utils": "^0.2.2",
+    "request": "^2.71.0",
+    "urijs": "^1.17.1",
+    "winston": "^2.2.0",
+    "xmldom": "^0.1.22",
+    "xpath": "0.0.23"
+  },
+  "devDependencies": {
+    "onchange": "^2.3.0",
+    "rewire": "^2.5.1",
+    "snazzy": "^3.0.1",
+    "standard": "^6.0.8",
+    "tap": "^5.7.1"
+  }
+}
