@@ -35,7 +35,7 @@ module.exports = function (timrcnf,oauthcnf) {
             catOptOper.operations.forEach((oper,catoptoperindex) => {
               if(_.contains(["years","months","weeks"],catOptOper.dimension[catoptoperindex]))
                 callback(true)
-              if(dhisdataindex === dhisData.catopts.length-1 & catOptOper.operations.length-1 === catoptoperindex)
+              if(dhisdataindex === dhisData.catopts.length-1 && catOptOper.operations.length-1 === catoptoperindex)
                 callback(false)
             })
           }
@@ -49,7 +49,6 @@ module.exports = function (timrcnf,oauthcnf) {
       var queries = []
       var ages = []
       dhisData.catopts.forEach((catOpt,dhisdataindex) => {
-        //if(dhisData.catoptcomb == 'wGvxdkuPC9I')
         catOptOpers.forEach((catOptOper) => {
           if(catOptOper.code == catOpt.id) {
             catOptOper.operations.forEach((oper,catoptoperindex) => {
@@ -61,11 +60,11 @@ module.exports = function (timrcnf,oauthcnf) {
                 var dimension = catOptOper.dimension[catoptoperindex]
                 var value = oper.value
               }
-              if(query & value)
+              if(query && value)
               query = query +"&" + dimension + oper.operation + value
               else if(value)
               query = dimension + oper.operation + value
-              if(dhisdataindex === dhisData.catopts.length-1 & catOptOper.operations.length-1 === catoptoperindex) {
+              if(dhisdataindex === dhisData.catopts.length-1 && catOptOper.operations.length-1 === catoptoperindex) {
                 //make sure patient.gender is the first parameter
                 if(query.includes('&patient.gender')) {
                   var genderPar = ""
@@ -114,12 +113,12 @@ module.exports = function (timrcnf,oauthcnf) {
 
           if(ages.length-1 == index) {
             if(query)
-            var newQuery = query + '&date=eq' + vaccineDate + birthDatePar
+            var newQuery = query + '&date=ge' + vaccineDate + 'T00:00'+ '&date=le' + vaccineDate + 'T23:59' + birthDatePar
             else
-            var newQuery = 'date=eq' + vaccineDate + birthDatePar
+            var newQuery = '&date=ge' + vaccineDate + 'T00:00'+ '&date=le' + vaccineDate + 'T23:59' + birthDatePar
             queries.push({'query':newQuery})
           }
-          if(day == endDay & ages.length-1 == index) {
+          if(day == endDay && ages.length-1 == index) {
             callback (queries)
           }
         })
@@ -143,16 +142,18 @@ module.exports = function (timrcnf,oauthcnf) {
       var catOptComb = dhisData.catoptcomb
       this.getVaccineCode(dataelement,(vaccinecode)=> {
         if(vaccinecode == "") {
+          winston.error("Missing Vaccine Code")
           return
         }
+
         this.getQueryParameters(dhisData,(queries) => {
           var totalValues = 0
           queries.forEach((qry,index)=> {
             let url = URI(timrconfig.url)
+            .segment('fhir')
             .segment('Immunization')
-            +'?'+qry.query+'&vaccine-code='+vaccinecode+'&_format=json&_count=0'
+            +'?'+qry.query+'&vaccine-code='+vaccinecode+'&location.identifier=HIE_FRID|'+facilityid+'&_format=json&_count=0'
             .toString()
-
             var options = {
               url: url.toString(),
               headers: {

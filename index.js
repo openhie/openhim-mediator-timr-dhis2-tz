@@ -59,16 +59,22 @@ function setupApp () {
       })
       res.end(response)
     }
-    var LAST_MONTH = moment().format('YYYY')+'0'+(moment().format('MM')-1)
+    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
     dhis2.getDhisDataMapping((err, dhisDataMapping) => {
       timr.getAccessToken((err, res, body) => {
         winston.info(`Fetching Immunization Data From ${config.timr.url}`)
+        winston.error(dhisDataMapping.length + " CatOptComb Found")
         dhisDataMapping.forEach((dhisData,index) => {
-          var facilityid = ""//need to loop through all facilities
+          var facilityid = "urn:uuid:494F187E-8CA4-39C8-B306-7C23993594BF"//(This ID is for Valeska) need to loop through all facilities
           timr.getImmunizationData(JSON.parse(body).access_token,dhisData,facilityid, (err,value,url) => {
-            dhis2.saveImmunizationData(dhisData.dataelement,dhisData.catoptcomb,LAST_MONTH,'brYtvXITla3',value,(err,res,body) => {
-              winston.error("Total===>"+value+" "+ JSON.stringify(body))
-            })
+            if(value > 0) {
+              dhis2.saveImmunizationData(dhisData.dataelement,dhisData.catoptcomb,LAST_MONTH,'g3koZoUC5D3',value,(err,res,body,catOptComb,dataElement) => {
+                winston.error("Total===>"+value+" CatOptComb===>"+ catOptComb+" "+ "Data Element===>"+dataElement+ " "+JSON.stringify(body))
+              })
+            }
+            winston.error("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
+            if(index == dhisDataMapping.length-1)
+            winston.error('DONE')
           })
         })
       })

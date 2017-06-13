@@ -20,12 +20,12 @@
     "openhim",
     "mediator"
   ],
-  "author": "Jembi",
+  "author": "Intrahealth integration",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/jembi/openhim-mediator-mhero/issues"
+    "url": "https://github.com/openhie/openhim-mediator-timr-vims-tz/issues"
   },
-  "homepage": "https://github.com/jembi/openhim-mediator-mhero#readme",
+  "homepage": "https://github.com/openhie/openhim-mediator-timr-vims-tz#readme",
   "dependencies": {
     "express": "^4.13.4",
     "lodash": "^4.11.1",
@@ -33,8 +33,8 @@
     "request": "^2.71.0",
     "urijs": "^1.17.1",
     "winston": "^2.2.0",
-    "xmldom": "^0.1.22",
-    "xpath": "0.0.23"
+    "moment": "^2.18.1",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "onchange": "^2.3.0",

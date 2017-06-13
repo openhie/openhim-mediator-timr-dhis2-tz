@@ -21,7 +21,7 @@ module.exports = function (cnf) {
               var catOptCombCode = catOptComb.id
               this.getCategoryOptions(catOptCombCode,(err,catOpt) => {
                 dhisDataMapping.push({"dataelement":dataelement,"catoptcomb":catOptCombCode,"catopts":catOpt})
-                if(dataelementindex===concept.length-1 & catoptcombindex===catOptCombs.length-1) {
+                if(dataelementindex===concept.length-1 && catoptcombindex===catOptCombs.length-1) {
                   callback("",dhisDataMapping)
                 }
               })
@@ -106,7 +106,7 @@ module.exports = function (cnf) {
         if (err) {
           return callback(err)
         }
-        callback(null,res,body)
+        callback(null,res,body,catOptCombo,dataElement)
       })
     }
   }

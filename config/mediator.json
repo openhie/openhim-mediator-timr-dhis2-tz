@@ -127,7 +127,7 @@
       "password": "@MediatorSource123"
     },
     "timr": {
-      "url": "http://timr.marc-hi.ca:8080/fhir/"
+      "url": "http://timr.marc-hi.ca:8080/"
     },
     "dhis2": {
       "url": "http://41.217.202.50:8080/dhis",
