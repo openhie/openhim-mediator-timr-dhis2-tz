@@ -142,7 +142,6 @@ module.exports = function (timrcnf,oauthcnf) {
       var catOptComb = dhisData.catoptcomb
       this.getVaccineCode(dataelement,(vaccinecode)=> {
         if(vaccinecode == "") {
-          winston.error("Missing Vaccine Code")
           return
         }
 

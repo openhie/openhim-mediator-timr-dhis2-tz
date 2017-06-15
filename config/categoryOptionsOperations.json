@@ -175,7 +175,7 @@
         "operations": [
             {
                 "operation": "=",
-                "value": "True"
+                "value": "False"
             }
         ],
         "dimension": [
@@ -187,7 +187,7 @@
         "operations": [
             {
                 "operation": "=",
-                "value": "False"
+                "value": "True"
             }
         ],
         "dimension": [

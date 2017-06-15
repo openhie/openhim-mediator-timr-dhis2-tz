@@ -16,8 +16,8 @@ const mediatorConfig = require('./config/mediator')
 const https = require('https')
 const http = require('http')
 
-https.globalAgent.maxSockets = 5
-http.globalAgent.maxSockets = 5
+https.globalAgent.maxSockets = 10
+http.globalAgent.maxSockets = 10
 
 // Logging setup
 winston.remove(winston.transports.Console)
@@ -65,10 +65,10 @@ function setupApp () {
         winston.info(`Fetching Immunization Data From ${config.timr.url}`)
         winston.error(dhisDataMapping.length + " CatOptComb Found")
         dhisDataMapping.forEach((dhisData,index) => {
-          var facilityid = "urn:uuid:494F187E-8CA4-39C8-B306-7C23993594BF"//(This ID is for Valeska) need to loop through all facilities
+          var facilityid = "urn:uuid:121DF9A7-3C9E-371A-89FF-CE0C0F1B9F4F"//(This ID is for Valeska) need to loop through all facilities
           timr.getImmunizationData(JSON.parse(body).access_token,dhisData,facilityid, (err,value,url) => {
             if(value > 0) {
-              dhis2.saveImmunizationData(dhisData.dataelement,dhisData.catoptcomb,LAST_MONTH,'g3koZoUC5D3',value,(err,res,body,catOptComb,dataElement) => {
+              dhis2.saveImmunizationData(dhisData.dataelement,dhisData.catoptcomb,LAST_MONTH,'lu8jx9fCLp8',value,(err,res,body,catOptComb,dataElement) => {
                 winston.error("Total===>"+value+" CatOptComb===>"+ catOptComb+" "+ "Data Element===>"+dataElement+ " "+JSON.stringify(body))
               })
             }
