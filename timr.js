@@ -28,31 +28,21 @@ module.exports = function (timrcnf,oauthcnf) {
         callback(err, res, body)
       })
     },
-    hasAge: function (dhisData,callback) {
-      dhisData.catopts.forEach((catOpt,dhisdataindex) => {
-        catOptOpers.forEach((catOptOper) => {
-          if(catOptOper.code == catOpt.id) {
-            catOptOper.operations.forEach((oper,catoptoperindex) => {
-              if(_.contains(["years","months","weeks"],catOptOper.dimension[catoptoperindex]))
-                callback(true)
-              if(dhisdataindex === dhisData.catopts.length-1 && catOptOper.operations.length-1 === catoptoperindex)
-                callback(false)
-            })
-          }
-        })
-      })
-    },
 
     getQueryParameters: function (dhisData,callback) {
       var age = ["years","months","weeks"]
       var query = ""
       var queries = []
       var ages = []
+      var catOptOperLen = []
+      var counter1 = dhisData.catopts.length
       dhisData.catopts.forEach((catOpt,dhisdataindex) => {
-        catOptOpers.forEach((catOptOper) => {
+        catOptOpers.forEach((catOptOper,catOptOperIndex) => {
           if(catOptOper.code == catOpt.id) {
+            var counter = 0
             catOptOper.operations.forEach((oper,catoptoperindex) => {
               var birthDate = ""
+              value = null
               if(_.contains(age,catOptOper.dimension[catoptoperindex])) {
                 ages.push({"value":oper.value,"dimension":catOptOper.dimension[catoptoperindex],'operation':oper.operation})
               }
@@ -60,11 +50,16 @@ module.exports = function (timrcnf,oauthcnf) {
                 var dimension = catOptOper.dimension[catoptoperindex]
                 var value = oper.value
               }
-              if(query && value)
-              query = query +"&" + dimension + oper.operation + value
-              else if(value)
-              query = dimension + oper.operation + value
-              if(dhisdataindex === dhisData.catopts.length-1 && catOptOper.operations.length-1 === catoptoperindex) {
+              if(query != null && value != null) {
+                query = query +"&" + dimension + oper.operation + value
+              }
+              else if(value != null) {
+                query = dimension + oper.operation + value
+              }
+              if(counter == 0)
+              counter1--
+              counter++
+              if(counter1 == 0 && catOptOper.operations.length-1 == catoptoperindex) {
                 //make sure patient.gender is the first parameter
                 if(query.includes('&patient.gender')) {
                   var genderPar = ""
@@ -100,8 +95,10 @@ module.exports = function (timrcnf,oauthcnf) {
       var endDay = moment().subtract(1,'month').endOf('month').format('D') //getting the last day of last month
       var startDay = 1;
       var queries = []
+      var countDay = endDay
       for(var day=startDay;day<=endDay;day++) {
         var birthDatePar = ''
+        var countAges = 0
         ages.forEach((age,index) => {
           if(day<10)
           var dateDay = '0' + day
@@ -110,7 +107,6 @@ module.exports = function (timrcnf,oauthcnf) {
           var vaccineDate = moment().subtract(1,'month').format('YYYY-MM') + '-' + dateDay
           var birthDate = moment(vaccineDate).subtract(age.value,age.dimension).format('YYYY-MM-DDTHH:mm:ss')
           birthDatePar = birthDatePar + '&patient.birthDate' + age.operation + birthDate
-
           if(ages.length-1 == index) {
             if(query)
             var newQuery = query + '&date=ge' + vaccineDate + 'T00:00'+ '&date=le' + vaccineDate + 'T23:59' + birthDatePar
@@ -118,7 +114,10 @@ module.exports = function (timrcnf,oauthcnf) {
             var newQuery = '&date=ge' + vaccineDate + 'T00:00'+ '&date=le' + vaccineDate + 'T23:59' + birthDatePar
             queries.push({'query':newQuery})
           }
-          if(day == endDay && ages.length-1 == index) {
+          if(countAges == 0)
+          countDay--
+          countAges++
+          if(countDay == 0 && ages.length-1 == index) {
             callback (queries)
           }
         })
@@ -147,6 +146,7 @@ module.exports = function (timrcnf,oauthcnf) {
 
         this.getQueryParameters(dhisData,(queries) => {
           var totalValues = 0
+          var processed = queries.length
           queries.forEach((qry,index)=> {
             let url = URI(timrconfig.url)
             .segment('fhir')
@@ -163,8 +163,9 @@ module.exports = function (timrcnf,oauthcnf) {
               if (err) {
                 return callback(err)
               }
+              processed--
               totalValues = totalValues + JSON.parse(body).total
-              if(queries.length-1 == index) {
+              if(processed == 0) {
                 callback(err,totalValues,url)
               }
             })

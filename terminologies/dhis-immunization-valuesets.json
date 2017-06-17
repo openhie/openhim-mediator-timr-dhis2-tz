@@ -18,7 +18,7 @@
         "system": "http://dhis.moh.go.tz/api/ValueSet",
         "concept": [
           {
-            "code": "Q2fFmlGkxRN"
+            "code": "KTXcMFWnbrP"
           },
           {
             "code": "JXJ6K85BwHb"
@@ -27,19 +27,10 @@
             "code": "communit009"
           },
           {
-            "code":"O9HZJ5frgiJ"
-          },
-          {
-            "code":"hO9LkFt8n2p"
-          },
-          {
             "code":"D34hFrwiUpq"
           },
           {
-            "code":"dhZIhHwaWUX"
-          },
-          {
-            "code":"KTXcMFWnbrP"
+            "code":"Q2fFmlGkxRN"
           },
           {
             "code":"V2ZzQl7dgVF"

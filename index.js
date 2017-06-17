@@ -16,8 +16,8 @@ const mediatorConfig = require('./config/mediator')
 const https = require('https')
 const http = require('http')
 
-https.globalAgent.maxSockets = 10
-http.globalAgent.maxSockets = 10
+https.globalAgent.maxSockets = 32
+http.globalAgent.maxSockets = 32
 
 // Logging setup
 winston.remove(winston.transports.Console)
@@ -60,21 +60,31 @@ function setupApp () {
       res.end(response)
     }
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
+    var indexes = []
     dhis2.getDhisDataMapping((err, dhisDataMapping) => {
+      var processed = dhisDataMapping.length
+      winston.error(dhisDataMapping.length + " CatOptComb Found")
+      winston.info('Getting Token From TImR')
       timr.getAccessToken((err, res, body) => {
         winston.info(`Fetching Immunization Data From ${config.timr.url}`)
-        winston.error(dhisDataMapping.length + " CatOptComb Found")
         dhisDataMapping.forEach((dhisData,index) => {
           var facilityid = "urn:uuid:121DF9A7-3C9E-371A-89FF-CE0C0F1B9F4F"//(This ID is for Valeska) need to loop through all facilities
           timr.getImmunizationData(JSON.parse(body).access_token,dhisData,facilityid, (err,value,url) => {
+            if(err)
+            winston.error(err)
             if(value > 0) {
-              dhis2.saveImmunizationData(dhisData.dataelement,dhisData.catoptcomb,LAST_MONTH,'lu8jx9fCLp8',value,(err,res,body,catOptComb,dataElement) => {
-                winston.error("Total===>"+value+" CatOptComb===>"+ catOptComb+" "+ "Data Element===>"+dataElement+ " "+JSON.stringify(body))
+              dhis2.saveImmunizationData(dhisData.dataelement,dhisData.catoptcomb,LAST_MONTH,'lu8jx9fCLp8',value,(err,res,body) => {
+                processed--
+                winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
               })
             }
-            winston.error("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-            if(index == dhisDataMapping.length-1)
-            winston.error('DONE')
+            else {
+              processed--
+              winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
+            }
+            if(processed == 0) {
+              winston.info('DONE')
+            }
           })
         })
       })
