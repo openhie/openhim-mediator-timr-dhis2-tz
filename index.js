@@ -68,12 +68,12 @@ function setupApp () {
       timr.getAccessToken((err, res, body) => {
         winston.info(`Fetching Immunization Data From ${config.timr.url}`)
         dhisDataMapping.forEach((dhisData,index) => {
-          var facilityid = "urn:uuid:121DF9A7-3C9E-371A-89FF-CE0C0F1B9F4F"//(This ID is for Valeska) need to loop through all facilities
+          var facilityid = "urn:uuid:EFC948D0-3290-35DE-AE4C-1773C93B987C"//(This ID is for Valeska) need to loop through all facilities
           timr.getImmunizationData(JSON.parse(body).access_token,dhisData,facilityid, (err,value,url) => {
             if(err)
             winston.error(err)
             if(value > 0) {
-              dhis2.saveImmunizationData(dhisData.dataelement,dhisData.catoptcomb,LAST_MONTH,'lu8jx9fCLp8',value,(err,res,body) => {
+              dhis2.saveImmunizationData(dhisData.dataelement,dhisData.catoptcomb,LAST_MONTH,'EwiQb3Ro0K8',value,(err,res,body) => {
                 processed--
                 winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
               })
