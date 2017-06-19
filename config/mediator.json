@@ -1,7 +1,7 @@
 {
   "urn": "urn:uuid:7078b8b7-16b9-48cd-b8ad-38be64733d74",
   "version": "0.0.1",
-  "name": "DHIS2-TImR Trigger",
+  "name": "TImR-DHIS2 Trigger",
   "description": "This mediator synchronises data between DHIS2 and TImR",
   "defaultChannelConfig": [
     {
@@ -33,7 +33,7 @@
       "name": "Activate DHIS2 and iHRIS Sync",
       "host": "localhost",
       "path": "/sync",
-      "port": "8545",
+      "port": "8544",
       "primary": true,
       "type": "http"
     }
