@@ -1,5 +1,70 @@
 [
     {
+        "code": "pQn6MrxxRrX",
+        "operations": [
+            {
+                "operation": "=",
+                "value": "N"
+            }
+        ],
+        "dimension": [
+            "interpretation"
+        ]
+    },
+    {
+        "code": "USOndmQvhK9",
+        "operations": [
+            {
+                "operation": "=",
+                "value": "H"
+            }
+        ],
+        "dimension": [
+            "interpretation"
+        ]
+    },
+    {
+        "code": "fz6jtM42TRB",
+        "operations": [
+            {
+                "operation": "=",
+                "value": "L"
+            }
+        ],
+        "dimension": [
+            "interpretation"
+        ]
+    },
+    {
+        "code": "zRHsZS8M6Vd",
+        "operations": [
+            {
+                "operation": "=le",
+                "value": 1
+            },
+            {
+                "operation": "=ge",
+                "value": 5
+            }
+        ],
+        "dimension": [
+            "years",
+            "years"
+        ]
+    },
+    {
+        "code": "BX6v1gPZJcI",
+        "operations": [
+            {
+                "operation": "=gt",
+                "value": 1
+            }
+        ],
+        "dimension": [
+            "years"
+        ]
+    },
+    {
         "code": "syxWmui9UMq",
         "operations": [
             {

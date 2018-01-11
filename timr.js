@@ -13,6 +13,7 @@ const immunizationConcMap = require('./terminologies/timr-DHIS2-immunization-con
 const supplementsConcMap = require('./terminologies/timr-DHIS2-supplements-conceptmap.json')
 const breastFeedConcMap = require('./terminologies/timr-DHIS2-breastfeeding-conceptmap.json')
 const PMTCTConcMap = require('./terminologies/timr-DHIS2-pmtct-conceptmap.json')
+const WeightAgeRatioConcMap = require('./terminologies/timr-DHIS2-weight_age_ratio-conceptmap.json')
 
 module.exports = function (timrcnf,oauthcnf) {
   const timrconfig = timrcnf
@@ -379,16 +380,56 @@ module.exports = function (timrcnf,oauthcnf) {
     getMosquitoNetData: function (access_token,dhisData,facilityid,orchestrations,callback) {
       var dataelement = dhisData.dataelement
       var catOptComb = dhisData.catoptcomb
+      this.createQueryOnCatOpts(dhisData,(queries) => {
+        var totalValues = 0
+        var processed = queries.length
+        queries.forEach((qry,index)=> {
+          //because this is the patient resource then queries dont need to have patient. eg patient.gender should be gender
+          qry.query = qry.query.replace("patient.","")
+          let url = URI(timrconfig.url)
+          .segment('fhir')
+          .segment('Patient')
+          +'?'+qry.query + '&mosquito-net=True&location.identifier=HIE_FRID|' + facilityid + '&_format=json&_count=0'
+          .toString()
+          var options = {
+            url: url.toString(),
+            headers: {
+              Authorization: `BEARER ${access_token}`
+            }
+          }
+          let before = new Date()
+          request.get(options, (err, res, body) => {
+            if (err) {
+              return callback(err)
+            }
+            processed--
+            var total = parseInt(JSON.parse(body).total)
+            if(total > 0)
+            orchestrations.push(utils.buildOrchestration('Fetching Mosquito Net Data From TImR', before, 'GET', url.toString(), JSON.stringify(options), res, JSON.stringify(body)))
+            totalValues = parseInt(totalValues) + total
+            if(processed == 0) {
+              callback(err,totalValues,url)
+            }
+          })
+        })
+      })
+    },
+
+    getWeightAgeRatioData: function (access_token,dhisData,facilityid,orchestrations,callback) {
+      var dataelement = dhisData.dataelement
+      var catOptComb = dhisData.catoptcomb
+      this.getTimrCode(dataelement,WeightAgeRatioConcMap,(weightageratiocode)=> {
+        if(weightageratiocode == "") {
+          return callback()
+        }
         this.createQueryOnCatOpts(dhisData,(queries) => {
           var totalValues = 0
           var processed = queries.length
           queries.forEach((qry,index)=> {
-            //because this is the patient resource then queries dont need to have patient. eg patient.gender should be gender
-            qry.query = qry.query.replace("patient.","")
             let url = URI(timrconfig.url)
             .segment('fhir')
-            .segment('Patient')
-            +'?'+qry.query + '&mosquito-net=True&location.identifier=HIE_FRID|' + facilityid + '&_format=json&_count=0'
+            .segment('Observation')
+            +'?'+qry.query + '&code=' + weightageratiocode + '&location.identifier=HIE_FRID|' + facilityid + '&_format=json&_count=0'
             .toString()
             var options = {
               url: url.toString(),
@@ -404,7 +445,7 @@ module.exports = function (timrcnf,oauthcnf) {
               processed--
               var total = parseInt(JSON.parse(body).total)
               if(total > 0)
-              orchestrations.push(utils.buildOrchestration('Fetching Mosquito Net Data From TImR', before, 'GET', url.toString(), JSON.stringify(options), res, JSON.stringify(body)))
+              orchestrations.push(utils.buildOrchestration('Fetching Weight-Age Ratio Data From TImR', before, 'GET', url.toString(), JSON.stringify(options), res, JSON.stringify(body)))
               totalValues = parseInt(totalValues) + total
               if(processed == 0) {
                 callback(err,totalValues,url)
@@ -412,6 +453,45 @@ module.exports = function (timrcnf,oauthcnf) {
             })
           })
         })
+      })
+    },
+
+    getChildVisitData: function (access_token,dhisData,facilityid,orchestrations,callback) {
+      var dataelement = dhisData.dataelement
+      var catOptComb = dhisData.catoptcomb
+      this.createQueryOnCatOpts(dhisData,(queries) => {
+        var totalValues = 0
+        var processed = queries.length
+        queries.forEach((qry,index)=> {
+          //because this is the patient resource then queries dont need to have patient. eg patient.gender should be gender
+          let url = URI(timrconfig.url)
+          .segment('fhir')
+          .segment('Encounter')
+          +'?'+qry.query + '&location.identifier=HIE_FRID|' + facilityid + '&_format=json&_count=0'
+          .toString()
+          var options = {
+            url: url.toString(),
+            headers: {
+              Authorization: `BEARER ${access_token}`
+            }
+          }
+          let before = new Date()
+          winston.error(url.toString())
+          request.get(options, (err, res, body) => {
+            if (err) {
+              return callback(err)
+            }
+            processed--
+            var total = parseInt(JSON.parse(body).total)
+            if(total > 0)
+            orchestrations.push(utils.buildOrchestration('Fetching Mosquito Net Data From TImR', before, 'GET', url.toString(), JSON.stringify(options), res, JSON.stringify(body)))
+            totalValues = parseInt(totalValues) + total
+            if(processed == 0) {
+              callback(err,totalValues,url)
+            }
+          })
+        })
+      })
     }
 
   }
