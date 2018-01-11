@@ -6,7 +6,7 @@
   },
   "url": "http://hl7.org/fhir/ValueSet/dhis2-immunization",
   "version": "1.0.0",
-  "name": "DHIS2 Immunization Codes",
+  "name": "DHIS2 immunization Codes",
   "status": "draft",
   "experimental": true,
   "publisher": "TZ CAT team",

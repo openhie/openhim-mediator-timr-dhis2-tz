@@ -28,14 +28,15 @@
   "homepage": "https://github.com/openhie/openhim-mediator-timr-vims-tz#readme",
   "dependencies": {
     "express": "^4.13.4",
+    "is-json": "^2.0.1",
     "lodash": "^4.11.1",
+    "moment": "^2.18.1",
     "openhim-mediator-utils": "^0.2.2",
     "request": "^2.71.0",
-    "urijs": "^1.17.1",
-    "winston": "^2.2.0",
-    "moment": "^2.18.1",
+    "sleep": "^5.1.1",
     "underscore": "^1.8.3",
-    "sleep": "^5.1.1"
+    "urijs": "^1.17.1",
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "onchange": "^2.3.0",

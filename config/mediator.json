@@ -1,5 +1,5 @@
 {
-  "urn": "urn:uuid:7078b8b7-16b9-48cd-b8ad-38be64733d74",
+  "urn": "urn:uuid:7078b8b7-16b9-48cd-b8ad-38be64733d77",
   "version": "0.0.1",
   "name": "TImR-DHIS2 Trigger",
   "description": "This mediator synchronises data between DHIS2 and TImR",
@@ -101,6 +101,38 @@
           "param": "url",
           "displayName": "URL",
           "description": "The base URL (e.g. http://41.217.202.50:8080/dhis)",
+          "type": "string"
+        },
+        {
+          "param": "username",
+          "displayName": "Username",
+          "description": "Username required to send data to DHIS2",
+          "type": "string"
+        },
+        {
+          "param": "password",
+          "displayName": "Password",
+          "description": "Password required to send data to DHIS2",
+          "type": "password"
+        }
+      ]
+    },
+    {
+      "param": "openinfoman",
+      "displayName": "InterLinked Registry - Openinfoman",
+      "description": "Server holding facility mappings between DHIS2,VIMS,TImR and HFR",
+      "type": "struct",
+      "template": [
+        {
+          "param": "url",
+          "displayName": "URL",
+          "description": "The base URL (e.g. http://52.32.67.173:8984/CSD)",
+          "type": "string"
+        },
+        {
+          "param": "document",
+          "displayName": "Facility Document",
+          "description": "Document holding facilities",
           "type": "string"
         },
         {
