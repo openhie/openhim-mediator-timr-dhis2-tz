@@ -1,0 +1,30 @@
+{
+  "resourceType": "ValueSet",
+  "id": "timr-immunization-valuesets-tz",
+  "meta": {
+    "lastUpdated": "2016-08-03T11:59:03.495+03:00"
+  },
+  "url": "http://localhost/ValueSet/timr",
+  "version": "1.0.0",
+  "name": "TImR Immunization valuesets",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2017-10-24T07:41:03+11:00",
+  "description": "This value set defines the set of values that are used in TImR for Immunization.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://timr.marc-hi.ca:8080/fhir/ValueSets",
+        "concept": [
+          {
+            "code": "Substance/7D80E518-6E04-4091-8D19-7265BB09BC1F"
+          },
+          {
+            "code": "Substance/7D80E518-6E04-4091-8D19-7A3BB2B32C1F"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "resourceType": "ValueSet",
+  "id": "dhis2-supplements-tz",
+  "meta": {
+    "lastUpdated": "2018-01-11T14:00:00.495+03:00"
+  },
+  "url": "http://hl7.org/fhir/ValueSet/dhis2-pmtct",
+  "version": "1.0.0",
+  "name": "DHIS2 PMTCT",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "BID",
+  "date": "2018-01-11T14:00:00.495+03:00",
+  "description": "This value set defines the set of codes that are used in DHIS2 for PMTCT.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://dhis.moh.go.tz/api/ValueSet",
+        "concept": [
+          {
+            "code": "yKypqIROIO9"
+          }
+        ]
+      }
+    ]
+  }
+}

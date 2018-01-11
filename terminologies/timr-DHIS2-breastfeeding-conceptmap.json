@@ -1,0 +1,44 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "timr-supplements-to-DHIS2-supplements-conceptmap",
+  "url": "http://localhost/fhir/ConceptMap/timr-supplements-to-DHIS2-supplements-conceptmap",
+  "version": "1.0.0",
+  "name": "timr-supplements-to-DHIS2-supplements-conceptmap",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2016-08-03",
+  "description": "A mapping between the timr supplements dataelements and DHIS2 supplements Data Elements",
+  "sourceReference": {
+    "reference": "ValueSet/dhis-supplements-valuesets.json"
+  },
+  "targetReference": {
+    "reference": "ValueSet/timr-supplements-valuesets.json"
+  },
+  "group": [
+    {
+      "source": "http://dhis.moh.go.tz/api/ValueSet",
+      "target": "http://timr.marc-hi.ca:8080/fhir/api/ValueSets",
+      "element": [
+        {
+          "code": "zOhZ2g9cs9R",
+          "target": [
+            {
+              "code": "1",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "wxbR9u08fRU",
+          "target": [
+            {
+              "code": "2",
+              "equivalence":"wider"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

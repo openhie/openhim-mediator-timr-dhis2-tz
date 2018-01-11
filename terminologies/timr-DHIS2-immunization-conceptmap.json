@@ -1,0 +1,98 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "timr-immunization-to-DHIS2-immunization-conceptmap",
+  "url": "http://localhost/fhir/ConceptMap/timr-immunization-to-DHIS2-immunization-conceptmap",
+  "version": "1.0.0",
+  "name": "timr-immunization-to-DHIS2-immunization-conceptmap",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2016-08-03",
+  "description": "A mapping between the timr immunization dataelements and DHIS2 Immunization Data Elements",
+  "sourceReference": {
+    "reference": "ValueSet/dhis-immunization-valuesets.json"
+  },
+  "targetReference": {
+    "reference": "ValueSet/timr-immunization-valuesets.json"
+  },
+  "group": [
+    {
+      "source": "http://dhis.moh.go.tz/api/ValueSet",
+      "target": "http://timr.marc-hi.ca:8080/fhir/api/ValueSets",
+      "element": [
+        {
+          "code": "Q2fFmlGkxRN",
+          "target": [
+            {
+              "code": "19",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "fMzRNxplkxA",
+          "target": [
+            {
+              "code": "122",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "IneV6eRU9fu",
+          "target": [
+            {
+              "code": "122",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "JXJ6K85BwHb",
+          "target": [
+            {
+              "code": "04",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "communit009",
+          "target": [
+            {
+              "code": "112",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "V2ZzQl7dgVF",
+          "target": [
+            {
+              "code": "102",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "KTXcMFWnbrP",
+          "target": [
+            {
+              "code": "02",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "D34hFrwiUpq",
+          "target": [
+            {
+              "code": "133",
+              "equivalence":"wider"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "resourceType": "ValueSet",
+  "id": "dhis2-supplements-tz",
+  "meta": {
+    "lastUpdated": "2018-01-11T12:48:00.495+03:00"
+  },
+  "url": "http://hl7.org/fhir/ValueSet/dhis2-breastfeeding",
+  "version": "1.0.0",
+  "name": "DHIS2 Breast Feeding",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "BID",
+  "date": "2018-01-11T12:48:00.495+03:00",
+  "description": "This value set defines the set of codes that are used in DHIS2 for breast Feeding.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://dhis.moh.go.tz/api/ValueSet",
+        "concept": [
+          {
+            "code": "zOhZ2g9cs9R"
+          },
+          {
+            "code": "wxbR9u08fRU"
+          }
+        ]
+      }
+    ]
+  }
+}

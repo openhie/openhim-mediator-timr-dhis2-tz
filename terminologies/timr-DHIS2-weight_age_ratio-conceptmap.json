@@ -1,0 +1,35 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "timr-weight_age_ratio-to-DHIS2-weight_age_ratio-conceptmap",
+  "url": "http://localhost/fhir/ConceptMap/timr-weight_age_ratio-to-DHIS2-weight_age_ratio-conceptmap",
+  "version": "1.0.0",
+  "name": "timr-weight_age_ratio-to-DHIS2-weight_age_ratio-conceptmap",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2016-08-03",
+  "description": "A mapping between the timr weight_age_ratio dataelements and DHIS2 weight_age_ratio Data Elements",
+  "sourceReference": {
+    "reference": "ValueSet/dhis-weight_age_ratio-valuesets.json"
+  },
+  "targetReference": {
+    "reference": "ValueSet/timr-weight_age_ratio-valuesets.json"
+  },
+  "group": [
+    {
+      "source": "http://dhis.moh.go.tz/api/ValueSet",
+      "target": "http://timr.marc-hi.ca:8080/fhir/api/ValueSets",
+      "element": [
+        {
+          "code": "yJ3D6kGkz7E",
+          "target": [
+            {
+              "code": "http://hl7.org/fhir/sid/loinc|3141-9",
+              "equivalence":"wider"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
