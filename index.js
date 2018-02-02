@@ -18,6 +18,7 @@ const pmtct_valuesets = require('./terminologies/dhis-pmtct-valuesets.json')
 const mosquitonet_valuesets = require('./terminologies/dhis-mosquitonet-valuesets.json')
 const weightAgeRatio_valuesets = require('./terminologies/dhis-weight_age_ratio-valuesets.json')
 const childvisit_valuesets = require('./terminologies/dhis-childvisit-valuesets.json')
+
 // Config
 var config = {} // this will vary depending on whats set in openhim-core
 const apiConf = require('./config/config')
@@ -96,6 +97,7 @@ function setupApp () {
           var timrFacilityId = facility.timrFacilityId
           var facilityName = facility.facilityName
           var processed = dhisDataMapping.length
+          winston.info("Processing Immunization Data for " + facilityName)
           winston.info(dhisDataMapping.length + " CatOptComb Found")
           winston.info('Getting Access Token From TImR')
           timr.getAccessToken(orchestrations,(err, res, body) => {
@@ -106,7 +108,6 @@ function setupApp () {
             var access_token = JSON.parse(body).access_token
             winston.info(`Fetching Immunization Data From ${config.timr.url}`)
             async.eachOfSeries(dhisDataMapping,(dhisData,index,nextDataMapping)=>{
-              winston.error(dhisData)
               timr.getImmunizationData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
                 if(err)
                 winston.error(err)
@@ -153,6 +154,7 @@ function setupApp () {
           var timrFacilityId = facility.timrFacilityId
           var facilityName = facility.facilityName
           var processed = dhisDataMapping.length
+          winston.info("Processing Supplements Data for " + facilityName)
           winston.info(dhisDataMapping.length + " CatOptComb Found")
           winston.info('Getting Access Token From TImR')
           timr.getAccessToken(orchestrations,(err, res, body) => {
@@ -165,8 +167,8 @@ function setupApp () {
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
                 if(value > 0) {
+                  processed--
                   dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    processed--
                     winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
                   })
                 }
@@ -206,6 +208,7 @@ function setupApp () {
           var timrFacilityId = facility.timrFacilityId
           var facilityName = facility.facilityName
           var processed = dhisDataMapping.length
+          winston.info("Processing Breastfeeding Data for " + facilityName)
           winston.info(dhisDataMapping.length + " CatOptComb Found")
           winston.info('Getting Access Token From TImR')
           timr.getAccessToken(orchestrations,(err, res, body) => {
@@ -216,10 +219,9 @@ function setupApp () {
                 winston.error(err)
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
-                if(value > 0) {
+                if(value >= 0) {
+                  processed--
                   dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.error(dataelement)
-                    processed--
                     winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
                   })
                 }
@@ -259,6 +261,7 @@ function setupApp () {
           var timrFacilityId = facility.timrFacilityId
           var facilityName = facility.facilityName
           var processed = dhisDataMapping.length
+          winston.info("Processing PMTCT Data for " + facilityName)
           winston.info(dhisDataMapping.length + " CatOptComb Found")
           winston.info('Getting Access Token From TImR')
           timr.getAccessToken(orchestrations,(err, res, body) => {
@@ -270,8 +273,8 @@ function setupApp () {
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
                 if(value > 0) {
+                  processed--
                   dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    processed--
                     winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
                   })
                 }
@@ -311,6 +314,7 @@ function setupApp () {
           var timrFacilityId = facility.timrFacilityId
           var facilityName = facility.facilityName
           var processed = dhisDataMapping.length
+          winston.info("Processing Mosquito Net Data for " + facilityName)
           winston.info(dhisDataMapping.length + " CatOptComb Found")
           winston.info('Getting Access Token From TImR')
           timr.getAccessToken(orchestrations,(err, res, body) => {
@@ -322,8 +326,8 @@ function setupApp () {
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
                 if(value > 0) {
+                  processed--
                   dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    processed--
                     winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
                   })
                 }
@@ -363,6 +367,7 @@ function setupApp () {
           var timrFacilityId = facility.timrFacilityId
           var facilityName = facility.facilityName
           var processed = dhisDataMapping.length
+          winston.info("Processing Weight Age Ratio Data for " + facilityName)
           winston.info(dhisDataMapping.length + " CatOptComb Found")
           winston.info('Getting Access Token From TImR')
           timr.getAccessToken(orchestrations,(err, res, body) => {
@@ -374,8 +379,8 @@ function setupApp () {
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
                 if(value > 0) {
+                  processed--
                   dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    processed--
                     winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
                   })
                 }
@@ -415,6 +420,7 @@ function setupApp () {
           var timrFacilityId = facility.timrFacilityId
           var facilityName = facility.facilityName
           var processed = dhisDataMapping.length
+          winston.info("Processing Child Visit Data for " + facilityName)
           winston.info(dhisDataMapping.length + " CatOptComb Found")
           winston.info('Getting Access Token From TImR')
           timr.getAccessToken(orchestrations,(err, res, body) => {
@@ -426,8 +432,8 @@ function setupApp () {
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
                 if(value > 0) {
+                  processed--
                   dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    processed--
                     winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
                   })
                 }
@@ -443,7 +449,60 @@ function setupApp () {
             })
           })
         },function(){
-          winston.info('Done Synchronizing PMTCT Data!!!')
+          winston.info('Done Synchronizing Child Visit Data Data!!!')
+          updateTransaction(req,"","Successful","200",orchestrations)
+        })
+      })
+    })
+  })
+
+  app.get('/syncTT', (req, res) => {
+    const timr = TImR(config.timr,config.timrOauth2)
+    const dhis2 = DHIS2(config.dhis2)
+    const oim = OIM(config.openinfoman)
+    req.timestamp = new Date()
+    let orchestrations = []
+    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
+    winston.info("Translating DHIS2 Weight Age Ratio Data Elements")
+    dhis2.getDhisDataMapping(TT_valuesets,(err,dhisDataMapping) => {
+      winston.info("Done Translating DHIS2 Data Elements")
+      winston.info("Get DHIS2 Facilities From Openinfoman")
+      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
+        async.eachSeries(facilities,(facility,nextFacility)=>{
+          var dhis2FacilityId = facility.dhis2FacilityId
+          var timrFacilityId = facility.timrFacilityId
+          var facilityName = facility.facilityName
+          var processed = dhisDataMapping.length
+          winston.info("Processing TT Data for " + facilityName)
+          winston.info(dhisDataMapping.length + " CatOptComb Found")
+          winston.info('Getting Access Token From TImR')
+          timr.getAccessToken(orchestrations,(err, res, body) => {
+            var access_token = JSON.parse(body).access_token
+            dhisDataMapping.forEach((dhisData,index) => {
+              timr.getTTData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
+                if(err)
+                winston.error(err)
+                var dataelement = dhisData.dataelement
+                var catoptcomb = dhisData.catoptcomb
+                if(value > 0) {
+                  processed--
+                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
+                    winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
+                  })
+                }
+                else {
+                  processed--
+                  winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
+                }
+                if(processed == 0) {
+                  winston.info('Done Processing ' + facilityName)
+                  return nextFacility()
+                }
+              })
+            })
+          })
+        },function(){
+          winston.info('Done Synchronizing Child Visit Data Data!!!')
           updateTransaction(req,"","Successful","200",orchestrations)
         })
       })
