@@ -18,6 +18,7 @@ const pmtct_valuesets = require('./terminologies/dhis-pmtct-valuesets.json')
 const mosquitonet_valuesets = require('./terminologies/dhis-mosquitonet-valuesets.json')
 const weightAgeRatio_valuesets = require('./terminologies/dhis-weight_age_ratio-valuesets.json')
 const childvisit_valuesets = require('./terminologies/dhis-childvisit-valuesets.json')
+const TT_valuesets = require('./terminologies/dhis-TT-valuesets.json')
 
 // Config
 var config = {} // this will vary depending on whats set in openhim-core
@@ -84,6 +85,8 @@ function setupApp () {
     const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction (req,"Still Processing","Processing","200","")
     req.timestamp = new Date()
     let orchestrations = []
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
@@ -109,8 +112,10 @@ function setupApp () {
             winston.info(`Fetching Immunization Data From ${config.timr.url}`)
             async.eachOfSeries(dhisDataMapping,(dhisData,index,nextDataMapping)=>{
               timr.getImmunizationData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err)
-                winston.error(err)
+                if(err) {
+                  winston.error(err)
+                  return nextDataMapping()
+                }
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
                 if(value > 0) {
@@ -141,6 +146,8 @@ function setupApp () {
     const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction (req,"Still Processing","Processing","200","")
     req.timestamp = new Date()
     let orchestrations = []
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
@@ -195,6 +202,8 @@ function setupApp () {
     const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction (req,"Still Processing","Processing","200","")
     req.timestamp = new Date()
     let orchestrations = []
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
@@ -248,6 +257,8 @@ function setupApp () {
     const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction (req,"Still Processing","Processing","200","")
     req.timestamp = new Date()
     let orchestrations = []
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
@@ -301,6 +312,8 @@ function setupApp () {
     const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction (req,"Still Processing","Processing","200","")
     req.timestamp = new Date()
     let orchestrations = []
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
@@ -354,6 +367,8 @@ function setupApp () {
     const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction (req,"Still Processing","Processing","200","")
     req.timestamp = new Date()
     let orchestrations = []
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
@@ -407,6 +422,8 @@ function setupApp () {
     const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction (req,"Still Processing","Processing","200","")
     req.timestamp = new Date()
     let orchestrations = []
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
@@ -460,10 +477,12 @@ function setupApp () {
     const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction (req,"Still Processing","Processing","200","")
     req.timestamp = new Date()
     let orchestrations = []
     var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 Weight Age Ratio Data Elements")
+    winston.info("Translating DHIS2 TT Data Elements")
     dhis2.getDhisDataMapping(TT_valuesets,(err,dhisDataMapping) => {
       winston.info("Done Translating DHIS2 Data Elements")
       winston.info("Get DHIS2 Facilities From Openinfoman")
@@ -480,8 +499,9 @@ function setupApp () {
             var access_token = JSON.parse(body).access_token
             dhisDataMapping.forEach((dhisData,index) => {
               timr.getTTData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err)
-                winston.error(err)
+                if(err) {
+                  winston.error(err)
+                }
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
                 if(value > 0) {
@@ -502,7 +522,7 @@ function setupApp () {
             })
           })
         },function(){
-          winston.info('Done Synchronizing Child Visit Data Data!!!')
+          winston.info('Done Synchronizing TT Data Data!!!')
           updateTransaction(req,"","Successful","200",orchestrations)
         })
       })

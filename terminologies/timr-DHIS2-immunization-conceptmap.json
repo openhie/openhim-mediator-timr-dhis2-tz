@@ -91,6 +91,15 @@
               "equivalence":"wider"
             }
           ]
+        },
+        {
+          "code": "ghmoZOxobsy",
+          "target": [
+            {
+              "code": "112",
+              "equivalence":"wider"
+            }
+          ]
         }
       ]
     }

@@ -13,6 +13,7 @@ const immunizationConcMap = require('./terminologies/timr-DHIS2-immunization-con
 const supplementsConcMap = require('./terminologies/timr-DHIS2-supplements-conceptmap.json')
 const breastFeedConcMap = require('./terminologies/timr-DHIS2-breastfeeding-conceptmap.json')
 const PMTCTConcMap = require('./terminologies/timr-DHIS2-pmtct-conceptmap.json')
+const TTConcMap = require('./terminologies/timr-DHIS2-TT-conceptmap.json')
 const WeightAgeRatioConcMap = require('./terminologies/timr-DHIS2-weight_age_ratio-conceptmap.json')
 
 module.exports = function (timrcnf,oauthcnf) {
@@ -215,7 +216,7 @@ module.exports = function (timrcnf,oauthcnf) {
       var catOptComb = dhisData.catoptcomb
       this.getTimrCode(dataelement,immunizationConcMap,(vaccinecode)=> {
         if(vaccinecode == "") {
-          return
+          return callback(true)
         }
         this.createQueryOnCatOpts(dhisData,(queries) => {
           var totalValues = 0
@@ -353,6 +354,49 @@ module.exports = function (timrcnf,oauthcnf) {
             .segment('fhir')
             .segment('Patient')
             +'?'+qry.query + '&pmtct=' + pmtctcode + '&location.identifier=HIE_FRID|' + facilityid + '&_format=json&_count=0'
+            .toString()
+            var options = {
+              url: url.toString(),
+              headers: {
+                Authorization: `BEARER ${access_token}`
+              }
+            }
+            let before = new Date()
+            request.get(options, (err, res, body) => {
+              if (err) {
+                return callback(err)
+              }
+              processed--
+              var total = parseInt(JSON.parse(body).total)
+              if(total > 0)
+              orchestrations.push(utils.buildOrchestration('Fetching PMTCT Data From TImR', before, 'GET', url.toString(), JSON.stringify(options), res, JSON.stringify(body)))
+              totalValues = parseInt(totalValues) + total
+              if(processed == 0) {
+                callback(err,totalValues,url)
+              }
+            })
+          })
+        })
+      })
+    },
+
+    getTTData: function (access_token,dhisData,facilityid,orchestrations,callback) {
+      var dataelement = dhisData.dataelement
+      var catOptComb = dhisData.catoptcomb
+      this.getTimrCode(dataelement,TTConcMap,(ttcode)=> {
+        if(ttcode == "") {
+          winston.error("No corresponding TImR Code for " + dataelement)
+          return callback(true)
+        }
+        this.createQueryOnCatOpts(dhisData,(queries) => {
+          var totalValues = 0
+          var processed = queries.length
+          queries.forEach((qry,index)=> {
+            qry.query = qry.query.replace("patient.","")
+            let url = URI(timrconfig.url)
+            .segment('fhir')
+            .segment('Patient')
+            +'?'+qry.query + '&tt-status=' + ttcode + '&location.identifier=HIE_FRID|' + facilityid + '&_format=json&_count=0'
             .toString()
             var options = {
               url: url.toString(),

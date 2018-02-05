@@ -71,6 +71,7 @@ module.exports = function (cnf) {
           err = true
           return callback(err)
         }
+        
         callback(err,JSON.parse(body).categoryCombo.id)
       })
     },

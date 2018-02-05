@@ -1,0 +1,53 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "timr-pmtct-to-DHIS2-pmtct-conceptmap",
+  "url": "http://localhost/fhir/ConceptMap/timr-pmtct-to-DHIS2-pmtct-conceptmap",
+  "version": "1.0.0",
+  "name": "timr-pmtct-to-DHIS2-pmtct-conceptmap",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "TZ CAT team",
+  "date": "2016-08-03",
+  "description": "A mapping between the timr pmtct dataelements and DHIS2 pmtct Data Elements",
+  "sourceReference": {
+    "reference": "ValueSet/dhis-pmtct-valuesets.json"
+  },
+  "targetReference": {
+    "reference": "ValueSet/timr-pmtct-valuesets.json"
+  },
+  "group": [
+    {
+      "source": "http://dhis.moh.go.tz/api/ValueSet",
+      "target": "http://timr.marc-hi.ca:8080/fhir/api/ValueSets",
+      "element": [
+        {
+          "code": "ghmoZOxobsy",
+          "target": [
+            {
+              "code": "2",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "iADoAof241E",
+          "target": [
+            {
+              "code": "1",
+              "equivalence":"wider"
+            }
+          ]
+        },
+        {
+          "code": "L2tpXJNvkC8",
+          "target": [
+            {
+              "code": "0",
+              "equivalence":"wider"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
