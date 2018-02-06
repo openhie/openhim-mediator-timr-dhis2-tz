@@ -109,7 +109,7 @@ module.exports = function (timrcnf,oauthcnf) {
           else {
             var vaccineStartDate = moment().subtract(1,'month').startOf('month').format('YYYY-MM-DD')
             var vaccineEndDate = moment().subtract(1,'month').endOf('month').format('YYYY-MM-DD')
-            query = query + '&date=ge' + vaccineStartDate + '&date=le' + vaccineEndDate
+            query = query + '&date=ge' + vaccineStartDate + 'T00:00&date=le' + vaccineEndDate + 'T23:59'
             queries.push({'query':query})
             return callback(queries)
           }

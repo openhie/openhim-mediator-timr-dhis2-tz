@@ -504,7 +504,7 @@ function setupApp () {
                 }
                 var dataelement = dhisData.dataelement
                 var catoptcomb = dhisData.catoptcomb
-                if(value > 0) {
+                if(value >= 0) {
                   processed--
                   dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
                     winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
