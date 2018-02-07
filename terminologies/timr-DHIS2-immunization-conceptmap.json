@@ -57,15 +57,6 @@
           ]
         },
         {
-          "code": "communit009",
-          "target": [
-            {
-              "code": "112",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
           "code": "V2ZzQl7dgVF",
           "target": [
             {
@@ -88,15 +79,6 @@
           "target": [
             {
               "code": "133",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "ghmoZOxobsy",
-          "target": [
-            {
-              "code": "112",
               "equivalence":"wider"
             }
           ]
