@@ -25,7 +25,7 @@ module.exports = function (cnf) {
       var testLen = []
       async.eachSeries(concept,(dataelement,nextConcept)=>{
         this.getCategoryCombo (dataelement.code,(err,catComb) => {
-          if(err){
+          if(err || catComb == ""){
             return nextConcept()
           }
           this.getCategoryOptionCombo(catComb,(err,catOptCombs) => {
@@ -66,13 +66,20 @@ module.exports = function (cnf) {
           winston.error(err)
           return callback(err)
         }
-        if(!isJSON(body)) {
-          winston.error("DHIS2 has retrned non json data")
-          err = true
-          return callback(err)
+        if(isJSON(body)) {
+          var dataElemDet = JSON.parse(body)
+          if(!dataElemDet.hasOwnProperty("categoryCombo")) {
+            winston.warn("Data Element " + dataelement + " Not found on DHIS2")
+            callback(err,"")
+          }
+          else
+            callback(err,dataElemDet.categoryCombo.id)
         }
-        
-        callback(err,JSON.parse(body).categoryCombo.id)
+        else {
+          winston.error(err)
+          winston.warn("Received a non JSON data from DHIS2 while getting Details for data element " + dataelement)
+          callback(err,"")
+        }
       })
     },
 
