@@ -396,7 +396,7 @@ module.exports = function (timrcnf,oauthcnf) {
             let url = URI(timrconfig.url)
             .segment('fhir')
             .segment('Patient')
-            +'?'+qry.query + '&tt-status=' + ttcode + '&location.identifier=HIE_FRID|' + facilityid + '&_format=json&_count=0'
+            +'?'+qry.query + '&tt-status=' + ttcode + '&status=ACTIVE&location.identifier=HIE_FRID|' + facilityid + '&_format=json&_count=0'
             .toString()
             var options = {
               url: url.toString(),
