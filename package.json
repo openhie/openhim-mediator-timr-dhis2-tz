@@ -23,7 +23,8 @@
     "xml-query": "^1.4.0",
     "xml-reader": "^2.4.3",
     "xmldom": "^0.1.22",
-    "xpath": "^0.0.23"
+    "xpath": "^0.0.23",
+    "forever-monitor": "^1.7.1"
   },
   "devDependencies": {
     "tap": "^5.8.0"
