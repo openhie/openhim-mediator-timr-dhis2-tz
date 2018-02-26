@@ -403,6 +403,51 @@
       ]
     },
     {
+      "param": "email_notification",
+      "displayName": "Email Notification",
+      "description": "Email Notification",
+      "type": "struct",
+      "template": [
+        {
+          "param": "emails",
+          "displayName": "Emails",
+          "description": "Emails to send notifications as events happens inside the mediator like restart etc",
+          "type": "map"
+        },
+        {
+          "param": "smtp_host",
+          "displayName": "SMTP Host",
+          "description": "SMTP Host like like smtp.gmail.com",
+          "type": "string"
+        },
+        {
+          "param": "smtp_port",
+          "displayName": "SMTP Port",
+          "description": "SMTP Port like 587 (non secured) or 465 (secured)",
+          "type": "string"
+        },
+        {
+          "param": "smtp_secured",
+          "displayName": "SMTP Secured?",
+          "description": "SMTP Secured",
+          "type": "option",
+          "values": ["Yes","No"]
+        },
+        {
+          "param": "username",
+          "displayName": "Authentication User",
+          "description": "Authentication User",
+          "type": "string"
+        },
+        {
+          "param": "password",
+          "displayName": "Authentication Password",
+          "description": "Authentication Password",
+          "type": "password"
+        }
+      ]
+    },
+    {
       "param": "openinfoman",
       "displayName": "InterLinked Registry - Openinfoman",
       "description": "Server holding facility mappings between DHIS2,VIMS,TImR and HFR",
@@ -437,19 +482,34 @@
   ],
   "config": {
     "timrOauth2": {
-      "url": "http://timr.marc-hi.ca:8080/auth/oauth2_token",
-      "scope": "http://timr.marc-hi.ca:8080/fhir",
+      "url": "http://34.212.232.56:8080/auth/oauth2_token",
+      "scope": "http://34.212.232.56:8080/fhir",
       "token": "aWxfbWVkaWF0b3I6QE1lZGlhdG9yU291cmNlMTIz",
       "username": "il_mediator",
       "password": "@MediatorSource123"
     },
     "timr": {
-      "url": "http://timr.marc-hi.ca:8080/"
+      "url": "http://34.212.232.56:8080/"
+    },
+    "openinfoman": {
+      "url": "http://localhost:8984",
+      "document": "BID",
+      "username": "",
+      "password": ""
     },
     "dhis2": {
       "url": "http://41.217.202.50:8080/dhis",
       "username": "immunization",
       "password": "Dhis2017"
+    },
+    "email_notification": {
+      "emails": {
+        "1":"allyshaban5@gmail.com",
+        "2":"ashaban@intrahealth.org"
+      },
+      "smtp_host":"smtp.gmail.com",
+      "smtp_port":"587",
+      "smtp_secured":"No"
     }
   }
 }
