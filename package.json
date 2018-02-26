@@ -1,48 +1,49 @@
 {
-  "name": "openhim-mediator-mhero",
-  "version": "0.6.0",
-  "description": "This mediator synchronises data between the mHero systems.",
-  "main": "index.js",
+  "name": "openhim-mediator-timr-dhis2-tz",
+  "version": "1.0.0",
+  "description": "Synchronization between Tanzania Immunization Registry and DHIS2",
+  "main": "start.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "humanize-age": "^1.0.0",
+    "is-json": "^2.0.1",
+    "moment": "^2.18.1",
+    "onchange": "^2.5.0",
+    "openhim-mediator-utils": "^0.2.2",
+    "lodash": "^4.16.3",
+    "request": "^2.75.0",
+    "rewire": "^2.5.2",
+    "sleep": "^5.1.1",
+    "snazzy": "^3.0.1",
+    "standard": "^6.0.8",
+    "strtotime": "^1.0.0",
+    "underscore": "^1.8.3",
+    "urijs": "^1.18.2",
+    "winston": "^2.2.0",
+    "xml-query": "^1.4.0",
+    "xml-reader": "^2.4.3",
+    "xmldom": "^0.1.22",
+    "xpath": "^0.0.23"
+  },
+  "devDependencies": {
+    "tap": "^5.8.0"
+  },
   "scripts": {
-    "start": "node index.js",
-    "test": "npm -s run test:code && npm -s run test:style",
-    "test:code": "tap --cov --reporter=spec tests/unit.js tests/integration.js tests/openinfoman-integration.js tests/rapidpro.js tests/rapidproCSDAdapter.js tests/openhim.js",
-    "test:style": "standard -v | snazzy",
-    "cov": "npm run test:code -- --coverage-report=lcov",
-    "test:watch": "onchange '**/*.js' -- npm test"
+    "test": "tap test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jembi/openhim-mediator-mhero.git"
+    "url": "git+https://github.com/openhie/openhim-mediator-timr-dhis2-tz.git"
   },
   "keywords": [
-    "mhero",
+    "mediator",
     "openhim",
-    "mediator"
+    "timr"
   ],
-  "author": "Intrahealth integration",
-  "license": "MPL-2.0",
+  "author": "Ally Shaban",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/openhie/openhim-mediator-timr-vims-tz/issues"
+    "url": "https://github.com/openhie/openhim-mediator-timr-dhis2-tz/issues"
   },
-  "homepage": "https://github.com/openhie/openhim-mediator-timr-vims-tz#readme",
-  "dependencies": {
-    "express": "^4.13.4",
-    "is-json": "^2.0.1",
-    "lodash": "^4.11.1",
-    "moment": "^2.18.1",
-    "openhim-mediator-utils": "^0.2.2",
-    "request": "^2.71.0",
-    "sleep": "^5.1.1",
-    "underscore": "^1.8.3",
-    "urijs": "^1.17.1",
-    "winston": "^2.2.0"
-  },
-  "devDependencies": {
-    "onchange": "^2.3.0",
-    "rewire": "^2.5.1",
-    "snazzy": "^3.0.1",
-    "standard": "^6.0.8",
-    "tap": "^5.7.1"
-  }
+  "homepage": "https://github.com/openhie/openhim-mediator-timr-dhis2-tz#readme"
 }
