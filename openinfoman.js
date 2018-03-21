@@ -19,7 +19,7 @@ module.exports = function (oimconf) {
       var password = config.password
       var auth = "Basic " + new Buffer(username + ":" + password).toString("base64")
       var csd_msg = `<csd:requestParams xmlns:csd="urn:ihe:iti:csd:2013">
-                      <csd:otherID assigningAuthorityName="tanzania-hmis" code="id"/>
+                      <csd:otherID assigningAuthorityName="https://dhis.moh.go.tz" code="id"/>
                      </csd:requestParams>`
       var options = {
         url: url.toString(),
@@ -48,7 +48,7 @@ module.exports = function (oimconf) {
           var dhis2FacilityId = 0
           var DVS = false
           for(var detailsCount = 0;detailsCount<totalDetails;detailsCount++) {
-            if( facilityDetails.eq(detailsCount).attr("assigningAuthorityName") == "tanzania-hmis" &&
+            if( facilityDetails.eq(detailsCount).attr("assigningAuthorityName") == "https://dhis.moh.go.tz" &&
                 facilityDetails.eq(detailsCount).attr("code") == "id"
               )
               dhis2FacilityId = facilityDetails.eq(detailsCount).text()
@@ -107,7 +107,7 @@ module.exports = function (oimconf) {
         var loopCntr = facLength
         var facFound = false
         for(var counter=0;counter<facLength;counter++){
-          if(facility.eq(counter).find("csd:otherID").attr("assigningAuthorityName") == "tanzania-hmis" && facility.eq(counter).find("csd:otherID").attr("code") == "id") {
+          if(facility.eq(counter).find("csd:otherID").attr("assigningAuthorityName") == "https://dhis.moh.go.tz" && facility.eq(counter).find("csd:otherID").attr("code") == "id") {
             facFound = true
             callback (facility.eq(counter).find("csd:otherID").text())
           }
@@ -128,7 +128,7 @@ module.exports = function (oimconf) {
       var password = config.password
       var auth = "Basic " + new Buffer(username + ":" + password).toString("base64")
       var csd_msg = `<csd:requestParams xmlns:csd="urn:ihe:iti:csd:2013">
-                      <csd:otherID assigningAuthorityName="tanzania-hmis" code="id">${dhisFacId}</csd:otherID>
+                      <csd:otherID assigningAuthorityName="https://dhis.moh.go.tz" code="id">${dhisFacId}</csd:otherID>
                      </csd:requestParams>`
       var options = {
         url: url.toString(),
@@ -160,7 +160,7 @@ module.exports = function (oimconf) {
       var password = config.password
       var auth = "Basic " + new Buffer(username + ":" + password).toString("base64")
       var csd_msg = `<csd:requestParams xmlns:csd="urn:ihe:iti:csd:2013">
-                      <csd:otherID assigningAuthorityName="tanzania-hmis" code="id">${dhisOrgId}</csd:otherID>
+                      <csd:otherID assigningAuthorityName="https://dhis.moh.go.tz" code="id">${dhisOrgId}</csd:otherID>
                      </csd:requestParams>`
       var options = {
         url: url.toString(),
