@@ -20,6 +20,7 @@ const weightAgeRatio_valuesets = require('./terminologies/dhis-weight_age_ratio-
 const childvisit_valuesets = require('./terminologies/dhis-childvisit-valuesets.json')
 const TT_valuesets = require('./terminologies/dhis-TT-valuesets.json')
 
+const port = 9001
 // Config
 var config = {} // this will vary depending on whats set in openhim-core
 const apiConf = require('./config/config')
@@ -110,10 +111,12 @@ function setupApp () {
             }
             var access_token = JSON.parse(body).access_token
             winston.info(`Fetching Immunization Data From ${config.timr.url}`)
-            async.eachOfSeries(dhisDataMapping,(dhisData,index,nextDataMapping)=>{
+            var index = 0
+            async.eachSeries(dhisDataMapping,(dhisData,nextDataMapping)=>{
               timr.getImmunizationData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
                 if(err) {
                   winston.error(err)
+                  index++
                   return nextDataMapping()
                 }
                 var dataelement = dhisData.dataelement
@@ -121,11 +124,13 @@ function setupApp () {
                 if(value > 0) {
                   dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
                     winston.info("CatOptComb " + (Number(index) + 1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
+                    index++
                     return nextDataMapping()
                   })
                 }
                 else {
                   winston.info("CatOptComb " + (Number(index) + 1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
+                  index++
                   return nextDataMapping()
                 }
               })
@@ -557,7 +562,7 @@ function start (callback) {
         } else {
           winston.info('Successfully registered mediator!')
           let app = setupApp()
-          const server = app.listen(9001, () => {
+          const server = app.listen(port, () => {
             let configEmitter = medUtils.activateHeartbeat(apiConf.api)
             configEmitter.on('config', (newConfig) => {
               winston.info('Received updated config:', newConfig)
@@ -573,12 +578,12 @@ function start (callback) {
     // default to config from mediator registration
     config = mediatorConfig.config
     let app = setupApp()
-    const server = app.listen(9001, () => callback(server))
+    const server = app.listen(port, () => callback(server))
   }
 }
 exports.start = start
 
 if (!module.parent) {
   // if this script is run directly, start the server
-  start(() => winston.info('Listening on 9001...'))
+  start(() => winston.info('Listening on ' + port + '...'))
 }

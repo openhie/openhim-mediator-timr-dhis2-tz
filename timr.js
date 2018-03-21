@@ -61,7 +61,8 @@ module.exports = function (timrcnf,oauthcnf) {
         async.eachSeries(catOptOpers,(catOptOper,nextcatOptOper)=>{
           if(catOptOper.code == catOpt.id) {
             var counter = 0
-            async.eachOfSeries(catOptOper.operations,(oper,catoptoperindex,nextOper)=>{
+            var catoptoperindex = 0
+            async.eachSeries(catOptOper.operations,(oper,nextOper)=>{
               var birthDate = ""
               value = null
               if(_.contains(age,catOptOper.dimension[catoptoperindex])) {
@@ -77,6 +78,7 @@ module.exports = function (timrcnf,oauthcnf) {
               else if(value != null) {
                 query = dimension + oper.operation + value
               }
+              catoptoperindex++
               return nextOper()
             },function(){
               return nextcatOptOper()
@@ -132,7 +134,9 @@ module.exports = function (timrcnf,oauthcnf) {
         async.eachSeries(dataElementsOpers,(dataElOper,nextDataOper)=>{
           if(dataElOper.code == dataelement) {
             var counter = 0
-            async.eachOfSeries(dataElOper.operations,(oper,dataelemntoperindex,nextOper)=>{
+            var dataelemntoperindex = 0
+            async.eachSeries(dataElOper.operations,(oper,nextOper)=>{
+              dataelemntoperindex++
               var birthDate = ""
               value = null
               if(_.contains(age,dataElOper.dimension[dataelemntoperindex])) {
