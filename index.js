@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 'use strict'
 
 const express = require('express')
@@ -10,11 +11,13 @@ const async = require('async')
 const TImR = require('./timr')
 const DHIS2 = require('./dhis2')
 const OIM = require('./openinfoman')
-const utils = require('./utils')
+const mixin = require('./mixin');
+const middleware = require('./middleware');
 const imm_valuesets = require('./terminologies/dhis-immunization-valuesets.json')
 const suppl_valuesets = require('./terminologies/dhis-supplements-valuesets.json')
 const breastfeed_valuesets = require('./terminologies/dhis-breastfeeding-valuesets.json')
 const pmtct_valuesets = require('./terminologies/dhis-pmtct-valuesets.json')
+const ctc_valuesets = require('./terminologies/dhis-ctc-valuesets.json')
 const mosquitonet_valuesets = require('./terminologies/dhis-mosquitonet-valuesets.json')
 const weightAgeRatio_valuesets = require('./terminologies/dhis-weight_age_ratio-valuesets.json')
 const childvisit_valuesets = require('./terminologies/dhis-childvisit-valuesets.json')
@@ -37,17 +40,21 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 // Logging setup
 winston.remove(winston.transports.Console)
-winston.add(winston.transports.Console, {level: 'info', timestamp: true, colorize: true})
+winston.add(winston.transports.Console, {
+  level: 'info',
+  timestamp: true,
+  colorize: true
+})
 
 /**
  * setupApp - configures the http server for this mediator
  *
  * @return {express.App}  the configured http server
  */
-function setupApp () {
+function setupApp() {
   const app = express()
 
-  function updateTransaction (req,body,statatusText,statusCode,orchestrations) {
+  function updateTransaction(req, body, statatusText, statusCode, orchestrations) {
     const transactionId = req.headers['x-openhim-transactionid']
     var update = {
       'x-mediator-urn': mediatorConfig.urn,
@@ -67,10 +74,10 @@ function setupApp () {
       var options = {
         url: apiConf.api.apiURL + '/transactions/' + transactionId,
         headers: headers,
-        json:update
+        json: update
       }
 
-      request.put(options, function(err, apiRes, body) {
+      request.put(options, function (err, apiRes, body) {
         if (err) {
           return winston.error(err);
         }
@@ -83,452 +90,443 @@ function setupApp () {
   }
 
   app.get('/syncImmunizationCoverage', (req, res) => {
-    const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
     res.end()
-    updateTransaction (req,"Still Processing","Processing","200","")
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 Data Elements")
-    dhis2.getDhisDataMapping(imm_valuesets,(err,dhisDataMapping) => {
-      winston.info("Done Translating DHIS2 Data Elements")
-      winston.info("Get DHIS2 Facilities From Openinfoman")
-      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
-        async.eachSeries(facilities,(facility,nextFacility)=>{
-          var dhis2FacilityId = facility.dhis2FacilityId
-          var timrFacilityId = facility.timrFacilityId
-          var facilityName = facility.facilityName
-          var processed = dhisDataMapping.length
-          winston.info("Processing Immunization Data for " + facilityName)
-          winston.info(dhisDataMapping.length + " CatOptComb Found")
-          winston.info('Getting Access Token From TImR')
-          timr.getAccessToken(orchestrations,(err, res, body) => {
-            if(err) {
-              winston.error("An error occured while getting access token from TImR")
-              return nextFacility()
-            }
-            var access_token = JSON.parse(body).access_token
-            winston.info(`Fetching Immunization Data From ${config.timr.url}`)
-            var index = 0
-            async.eachSeries(dhisDataMapping,(dhisData,nextDataMapping)=>{
-              timr.getImmunizationData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err) {
-                  winston.error(err)
-                  index++
-                  return nextDataMapping()
-                }
-                var dataelement = dhisData.dataelement
-                var catoptcomb = dhisData.catoptcomb
-                if(value > 0) {
-                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.info("CatOptComb " + (Number(index) + 1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
-                    index++
-                    return nextDataMapping()
+    let dataValues = []
+    oim.getDHIS2Facilities(orchestrations, (facilities) => {
+      winston.info("Translating DHIS2 Data Elements")
+      dhis2.getDhisDataMapping(imm_valuesets, (err, dhisDataMapping, ageGroups) => {
+        winston.info("Done Translating DHIS2 Data Elements")
+        async.each(ageGroups, (ageGrp, nxtAgegrp) => {
+          mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
+            winston.info('Getting Immunization Data From Warehouse')
+            middleware.getImmunizationCoverageData(timrAgeGroup, rows => {
+              winston.info("Get DHIS2 Facilities From Openinfoman")
+              async.eachSeries(facilities, (facility, nextFacility) => {
+                var dhis2FacilityId = facility.dhis2FacilityId
+                var timrFacilityId = facility.timrFacilityId
+                var facilityName = facility.facilityName
+                winston.info("Processing Immunization Data for " + facilityName)
+                mixin.extractFacilityData(timrFacilityId, rows, facData => {
+                  dhis2.populateImmunizationValues({
+                    facData,
+                    dataValues,
+                    ageGrpCode: ageGrp.code,
+                    dhisDataMapping,
+                    dhis2FacilityId
+                  }, (err, res, body) => {
+                    return nextFacility()
                   })
-                }
-                else {
-                  winston.info("CatOptComb " + (Number(index) + 1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-                  index++
-                  return nextDataMapping()
-                }
+                })
+              }, function () {
+                winston.info("Done processing immunization coverage for age group " + JSON.stringify(ageGrp))
+                return nxtAgegrp()
               })
-            },function(){
-              winston.info('Done Processing ' + facilityName)
-              nextFacility()
             })
           })
-        },function(){
+        }, () => {
+          if (dataValues.length > 0) {
+            dhis2.saveBulkData(dataValues, orchestrations)
+          }
           winston.info('Done Synchronizing Immunization Coverage!!!')
-          updateTransaction(req,"","Successful","200",orchestrations)
-        })
-      })
-    })
-  }),
-
-  app.get('/syncSupplements', (req, res) => {
-    const timr = TImR(config.timr,config.timrOauth2)
-    const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
-    res.end()
-    updateTransaction (req,"Still Processing","Processing","200","")
-    req.timestamp = new Date()
-    let orchestrations = []
-    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 Data Elements")
-    dhis2.getDhisDataMapping(suppl_valuesets,(err,dhisDataMapping) => {
-      winston.info("Done Translating DHIS2 Data Elements")
-      winston.info("Get DHIS2 Facilities From Openinfoman")
-      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
-        async.eachSeries(facilities,(facility,nextFacility)=>{
-          var dhis2FacilityId = facility.dhis2FacilityId
-          var timrFacilityId = facility.timrFacilityId
-          var facilityName = facility.facilityName
-          var processed = dhisDataMapping.length
-          winston.info("Processing Supplements Data for " + facilityName)
-          winston.info(dhisDataMapping.length + " CatOptComb Found")
-          winston.info('Getting Access Token From TImR')
-          timr.getAccessToken(orchestrations,(err, res, body) => {
-            var access_token = JSON.parse(body).access_token
-            winston.info(`Fetching Supplements Data From ${config.timr.url}`)
-            dhisDataMapping.forEach((dhisData,index) => {
-              timr.getSupplementsData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err)
-                winston.error(err)
-                var dataelement = dhisData.dataelement
-                var catoptcomb = dhisData.catoptcomb
-                if(value > 0) {
-                  processed--
-                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
-                  })
-                }
-                else {
-                  processed--
-                  winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-                }
-                if(processed == 0) {
-                  winston.info('Done Processing ' + facilityName)
-                  nextFacility()
-                }
-              })
-            })
-          })
-        },function(){
-          winston.info('Done Synchronizing Supplements Data!!!')
-          updateTransaction(req,"","Successful","200",orchestrations)
+          updateTransaction(req, "", "Successful", "200", orchestrations)
         })
       })
     })
   })
 
-  app.get('/syncBreastFeeding', (req, res) => {
-    const timr = TImR(config.timr,config.timrOauth2)
+  app.get('/syncSupplements', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
     res.end()
-    updateTransaction (req,"Still Processing","Processing","200","")
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 Breast Feeding Data Elements")
-    dhis2.getDhisDataMapping(breastfeed_valuesets,(err,dhisDataMapping) => {
+    let dataValues = []
+    winston.info("Translating DHIS2 Data Elements")
+    dhis2.getDhisDataMapping(suppl_valuesets, (err, dhisDataMapping, ageGroups) => {
       winston.info("Done Translating DHIS2 Data Elements")
-      winston.info("Get DHIS2 Facilities From Openinfoman")
-      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
-        async.eachSeries(facilities,(facility,nextFacility)=>{
-          var dhis2FacilityId = facility.dhis2FacilityId
-          var timrFacilityId = facility.timrFacilityId
-          var facilityName = facility.facilityName
-          var processed = dhisDataMapping.length
-          winston.info("Processing Breastfeeding Data for " + facilityName)
-          winston.info(dhisDataMapping.length + " CatOptComb Found")
-          winston.info('Getting Access Token From TImR')
-          timr.getAccessToken(orchestrations,(err, res, body) => {
-            var access_token = JSON.parse(body).access_token
-            dhisDataMapping.forEach((dhisData,index) => {
-              timr.getBreastFeedData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err)
-                winston.error(err)
-                var dataelement = dhisData.dataelement
-                var catoptcomb = dhisData.catoptcomb
-                if(value >= 0) {
-                  processed--
-                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
+      async.each(ageGroups, (ageGrp, nxtAgegrp) => {
+        mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
+          winston.info('Getting Supplements Data From Warehouse')
+          middleware.getSupplementsData(timrAgeGroup, rows => {
+            winston.info("Get DHIS2 Facilities From Openinfoman")
+            oim.getDHIS2Facilities(orchestrations, (facilities) => {
+              async.eachSeries(facilities, (facility, nextFacility) => {
+                var dhis2FacilityId = facility.dhis2FacilityId
+                var timrFacilityId = facility.timrFacilityId
+                var facilityName = facility.facilityName
+                winston.info("Processing Supplements Data for " + facilityName)
+                mixin.extractFacilityData(timrFacilityId, rows, facData => {
+                  dhis2.populateSupplementsValues({
+                    facData,
+                    dataValues,
+                    ageGrpCode: ageGrp.code,
+                    dhisDataMapping,
+                    dhis2FacilityId
+                  }, (err, res, body) => {
+                    return nextFacility()
                   })
-                }
-                else {
-                  processed--
-                  winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-                }
-                if(processed == 0) {
-                  winston.info('Done Processing ' + facilityName)
-                  return nextFacility()
-                }
+                })
+              }, function () {
+                winston.info("Done processing immunization coverage for age group " + JSON.stringify(ageGrp))
+                return nxtAgegrp()
               })
             })
           })
-        },function(){
-          winston.info('Done Synchronizing Breast Feeding Data!!!')
-          updateTransaction(req,"","Successful","200",orchestrations)
+        })
+      }, () => {
+        if (dataValues.length > 0) {
+          dhis2.saveBulkData(dataValues, orchestrations)
+        }
+        winston.info('Done Synchronizing Supplements Data!!!')
+        updateTransaction(req, "", "Successful", "200", orchestrations)
+      })
+    })
+  })
+
+  app.get('/syncBreastFeeding', (req, res) => {
+    const dhis2 = DHIS2(config.dhis2)
+    const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    req.timestamp = new Date()
+    let orchestrations = []
+    let dataValues = []
+    winston.info("Translating DHIS2 Data Elements")
+    dhis2.getDhisDataMapping(breastfeed_valuesets, (err, dhisDataMapping, ageGroups) => {
+      winston.info("Done Translating DHIS2 Data Elements")
+      async.series({
+        EBF: (callback) => {
+          let ageOper = [{
+            operator: '<',
+            age: '6 MONTH'
+          }]
+          middleware.getBreastFeedingData(ageOper, 1, (rows) => {
+            return callback(false, rows)
+          })
+        },
+        RF: (callback) => {
+          let ageOper = []
+          middleware.getBreastFeedingData(ageOper, 2, (rows) => {
+            return callback(false, rows)
+          })
+        }
+      }, (err, results) => {
+        winston.info("Get DHIS2 Facilities From Openinfoman")
+        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+          async.eachSeries(facilities, (facility, nextFacility) => {
+            var dhis2FacilityId = facility.dhis2FacilityId
+            var timrFacilityId = facility.timrFacilityId
+            var facilityName = facility.facilityName
+            winston.info("Processing Breast Feeding Data for " + facilityName)
+            async.parallel({
+              processEBF: (callback) => {
+                mixin.extractFacilityData(timrFacilityId, results.EBF, facData => {
+                  dhis2.populateBreastFeedingValues({
+                    facData,
+                    dataValues,
+                    dhisDataMapping,
+                    dhis2FacilityId
+                  }, (err, res, body) => {
+                    return callback(false)
+                  })
+                })
+              },
+              processRF: (callback) => {
+                mixin.extractFacilityData(timrFacilityId, results.RF, facData => {
+                  dhis2.populateBreastFeedingValues({
+                    facData,
+                    dataValues,
+                    dhisDataMapping,
+                    dhis2FacilityId
+                  }, (err, res, body) => {
+                    return callback(false)
+                  })
+                })
+              }
+            }, () => {
+              return nextFacility()
+            })
+          }, () => {
+            if (dataValues.length > 0) {
+              dhis2.saveBulkData(dataValues, orchestrations)
+            }
+            winston.info("Done synchronizing Breastfeeding data")
+          })
         })
       })
     })
   })
 
   app.get('/syncPMTCT', (req, res) => {
-    const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
     res.end()
-    updateTransaction (req,"Still Processing","Processing","200","")
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 PMTCT Data Elements")
-    dhis2.getDhisDataMapping(pmtct_valuesets,(err,dhisDataMapping) => {
+    let dataValues = []
+    winston.info("Translating DHIS2 Data Elements")
+    dhis2.getDhisDataMapping(pmtct_valuesets, (err, dhisDataMapping, ageGroups) => {
       winston.info("Done Translating DHIS2 Data Elements")
-      winston.info("Get DHIS2 Facilities From Openinfoman")
-      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
-        async.eachSeries(facilities,(facility,nextFacility)=>{
-          var dhis2FacilityId = facility.dhis2FacilityId
-          var timrFacilityId = facility.timrFacilityId
-          var facilityName = facility.facilityName
-          var processed = dhisDataMapping.length
-          winston.info("Processing PMTCT Data for " + facilityName)
-          winston.info(dhisDataMapping.length + " CatOptComb Found")
-          winston.info('Getting Access Token From TImR')
-          timr.getAccessToken(orchestrations,(err, res, body) => {
-            var access_token = JSON.parse(body).access_token
-            dhisDataMapping.forEach((dhisData,index) => {
-              timr.getPMTCTData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err)
-                winston.error(err)
-                var dataelement = dhisData.dataelement
-                var catoptcomb = dhisData.catoptcomb
-                if(value > 0) {
-                  processed--
-                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
-                  })
-                }
-                else {
-                  processed--
-                  winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-                }
-                if(processed == 0) {
-                  winston.info('Done Processing ' + facilityName)
-                  return nextFacility()
-                }
+      winston.info('Getting PMTCT Data From Warehouse')
+      middleware.getPMTCTData(rows => {
+        winston.info("Get DHIS2 Facilities From Openinfoman")
+        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+          async.eachSeries(facilities, (facility, nextFacility) => {
+            var dhis2FacilityId = facility.dhis2FacilityId
+            var timrFacilityId = facility.timrFacilityId
+            var facilityName = facility.facilityName
+            winston.info("Processing PMTCT Data for " + facilityName)
+            mixin.extractFacilityData(timrFacilityId, rows, facData => {
+              dhis2.populatePMTCTValues({
+                facData,
+                dataValues,
+                dhisDataMapping,
+                dhis2FacilityId
+              }, (err, res, body) => {
+                return nextFacility()
               })
             })
+          }, function () {
+            if (dataValues.length > 0) {
+              dhis2.saveBulkData(dataValues, orchestrations)
+            }
+            winston.info('Done Synchronizing PMTCT Data!!!')
+            updateTransaction(req, "", "Successful", "200", orchestrations)
           })
-        },function(){
-          winston.info('Done Synchronizing PMTCT Data!!!')
-          updateTransaction(req,"","Successful","200",orchestrations)
+        })
+      })
+    })
+  })
+
+  app.get('/syncCTC', (req, res) => {
+    const dhis2 = DHIS2(config.dhis2)
+    const oim = OIM(config.openinfoman)
+    res.end()
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    req.timestamp = new Date()
+    let orchestrations = []
+    let dataValues = []
+    winston.info("Translating DHIS2 Data Elements")
+    dhis2.getDhisDataMapping(ctc_valuesets, (err, dhisDataMapping, ageGroups) => {
+      winston.info("Done Translating DHIS2 Data Elements")
+      winston.info('Getting CTC Data From Warehouse')
+      middleware.getCTCReferal(rows => {
+        winston.info("Get DHIS2 Facilities From Openinfoman")
+        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+          async.eachSeries(facilities, (facility, nextFacility) => {
+            var dhis2FacilityId = facility.dhis2FacilityId
+            var timrFacilityId = facility.timrFacilityId
+            var facilityName = facility.facilityName
+            winston.info("Processing CTC Data for " + facilityName)
+            mixin.extractFacilityData(timrFacilityId, rows, facData => {
+              dhis2.populateCTCValues({
+                facData,
+                dataValues,
+                dhisDataMapping,
+                dhis2FacilityId
+              }, (err, res, body) => {
+                return nextFacility()
+              })
+            })
+          }, function () {
+            if (dataValues.length > 0) {
+              dhis2.saveBulkData(dataValues, orchestrations)
+            }
+            winston.info('Done Synchronizing CTC Data!!!')
+            updateTransaction(req, "", "Successful", "200", orchestrations)
+          })
         })
       })
     })
   })
 
   app.get('/syncMosquitoNet', (req, res) => {
-    const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
     res.end()
-    updateTransaction (req,"Still Processing","Processing","200","")
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 Mosquito Net Data Elements")
-    dhis2.getDhisDataMapping(mosquitonet_valuesets,(err,dhisDataMapping) => {
+    let dataValues = []
+    winston.info("Translating DHIS2 Data Elements")
+    dhis2.getDhisDataMapping(mosquitonet_valuesets, (err, dhisDataMapping, ageGroups) => {
       winston.info("Done Translating DHIS2 Data Elements")
-      winston.info("Get DHIS2 Facilities From Openinfoman")
-      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
-        async.eachSeries(facilities,(facility,nextFacility)=>{
-          var dhis2FacilityId = facility.dhis2FacilityId
-          var timrFacilityId = facility.timrFacilityId
-          var facilityName = facility.facilityName
-          var processed = dhisDataMapping.length
-          winston.info("Processing Mosquito Net Data for " + facilityName)
-          winston.info(dhisDataMapping.length + " CatOptComb Found")
-          winston.info('Getting Access Token From TImR')
-          timr.getAccessToken(orchestrations,(err, res, body) => {
-            var access_token = JSON.parse(body).access_token
-            dhisDataMapping.forEach((dhisData,index) => {
-              timr.getMosquitoNetData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err)
-                winston.error(err)
-                var dataelement = dhisData.dataelement
-                var catoptcomb = dhisData.catoptcomb
-                if(value > 0) {
-                  processed--
-                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
-                  })
-                }
-                else {
-                  processed--
-                  winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-                }
-                if(processed == 0) {
-                  winston.info('Done Processing ' + facilityName)
-                  return nextFacility()
-                }
+      winston.info('Getting Mosquito Net Data From Warehouse')
+      middleware.getDispLLINMosqNet(rows => {
+        winston.info("Get DHIS2 Facilities From Openinfoman")
+        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+          async.eachSeries(facilities, (facility, nextFacility) => {
+            var dhis2FacilityId = facility.dhis2FacilityId
+            var timrFacilityId = facility.timrFacilityId
+            var facilityName = facility.facilityName
+            winston.info("Processing Mosquito Net Data for " + facilityName)
+            mixin.extractFacilityData(timrFacilityId, rows, facData => {
+              dhis2.populateLLINMosqNetValues({
+                facData,
+                dataValues,
+                dhisDataMapping,
+                dhis2FacilityId
+              }, (err, res, body) => {
+                return nextFacility()
               })
             })
+          }, function () {
+            if (dataValues.length > 0) {
+              dhis2.saveBulkData(dataValues, orchestrations)
+            }
+            winston.info('Done Synchronizing Mosquito Net Data!!!')
+            updateTransaction(req, "", "Successful", "200", orchestrations)
           })
-        },function(){
-          winston.info('Done Synchronizing PMTCT Data!!!')
-          updateTransaction(req,"","Successful","200",orchestrations)
         })
       })
     })
   })
 
   app.get('/syncWeightAgeRatio', (req, res) => {
-    const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
     res.end()
-    updateTransaction (req,"Still Processing","Processing","200","")
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 Weight Age Ratio Data Elements")
-    dhis2.getDhisDataMapping(weightAgeRatio_valuesets,(err,dhisDataMapping) => {
-      winston.info("Done Translating DHIS2 Data Elements")
-      winston.info("Get DHIS2 Facilities From Openinfoman")
-      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
-        async.eachSeries(facilities,(facility,nextFacility)=>{
-          var dhis2FacilityId = facility.dhis2FacilityId
-          var timrFacilityId = facility.timrFacilityId
-          var facilityName = facility.facilityName
-          var processed = dhisDataMapping.length
-          winston.info("Processing Weight Age Ratio Data for " + facilityName)
-          winston.info(dhisDataMapping.length + " CatOptComb Found")
-          winston.info('Getting Access Token From TImR')
-          timr.getAccessToken(orchestrations,(err, res, body) => {
-            var access_token = JSON.parse(body).access_token
-            dhisDataMapping.forEach((dhisData,index) => {
-              timr.getWeightAgeRatioData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err)
-                winston.error(err)
-                var dataelement = dhisData.dataelement
-                var catoptcomb = dhisData.catoptcomb
-                if(value > 0) {
-                  processed--
-                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
+    let dataValues = []
+    oim.getDHIS2Facilities(orchestrations, (facilities) => {
+      winston.info("Translating DHIS2 Data Elements")
+      dhis2.getDhisDataMapping(weightAgeRatio_valuesets, (err, dhisDataMapping, ageGroups) => {
+        winston.info("Done Translating DHIS2 Data Elements")
+        async.each(ageGroups, (ageGrp, nxtAgegrp) => {
+          mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
+            winston.info('Getting Weight Age Ratio Data From Warehouse')
+            middleware.getWeightAgeRatio(timrAgeGroup, rows => {
+              winston.info("Get DHIS2 Facilities From Openinfoman")
+              async.eachSeries(facilities, (facility, nextFacility) => {
+                var dhis2FacilityId = facility.dhis2FacilityId
+                var timrFacilityId = facility.timrFacilityId
+                var facilityName = facility.facilityName
+                winston.info("Processing Weight Age Ratio Data for " + facilityName)
+                mixin.extractFacilityData(timrFacilityId, rows, facData => {
+                  dhis2.populateWeightAgeRatioValues({
+                    facData,
+                    dataValues,
+                    ageGrpCode: ageGrp.code,
+                    dhisDataMapping,
+                    dhis2FacilityId
+                  }, (err, res, body) => {
+                    return nextFacility()
                   })
-                }
-                else {
-                  processed--
-                  winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-                }
-                if(processed == 0) {
-                  winston.info('Done Processing ' + facilityName)
-                  return nextFacility()
-                }
+                })
+              }, function () {
+                winston.info("Done processing Weight Age Ratio for age group " + JSON.stringify(ageGrp))
+                return nxtAgegrp()
               })
             })
           })
-        },function(){
-          winston.info('Done Synchronizing Weight Age Ratio Data!!!')
-          updateTransaction(req,"","Successful","200",orchestrations)
+        }, () => {
+          if (dataValues.length > 0) {
+            dhis2.saveBulkData(dataValues, orchestrations)
+          }
+          winston.info('Done Synchronizing Weight Age Ratio!!!')
+          updateTransaction(req, "", "Successful", "200", orchestrations)
         })
       })
     })
   })
 
   app.get('/syncChildVisit', (req, res) => {
-    const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
     res.end()
-    updateTransaction (req,"Still Processing","Processing","200","")
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 Weight Age Ratio Data Elements")
-    dhis2.getDhisDataMapping(childvisit_valuesets,(err,dhisDataMapping) => {
-      winston.info("Done Translating DHIS2 Data Elements")
-      winston.info("Get DHIS2 Facilities From Openinfoman")
-      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
-        async.eachSeries(facilities,(facility,nextFacility)=>{
-          var dhis2FacilityId = facility.dhis2FacilityId
-          var timrFacilityId = facility.timrFacilityId
-          var facilityName = facility.facilityName
-          var processed = dhisDataMapping.length
-          winston.info("Processing Child Visit Data for " + facilityName)
-          winston.info(dhisDataMapping.length + " CatOptComb Found")
-          winston.info('Getting Access Token From TImR')
-          timr.getAccessToken(orchestrations,(err, res, body) => {
-            var access_token = JSON.parse(body).access_token
-            dhisDataMapping.forEach((dhisData,index) => {
-              timr.getChildVisitData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err)
-                winston.error(err)
-                var dataelement = dhisData.dataelement
-                var catoptcomb = dhisData.catoptcomb
-                if(value > 0) {
-                  processed--
-                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
+    let dataValues = []
+    oim.getDHIS2Facilities(orchestrations, (facilities) => {
+      winston.info("Translating DHIS2 Data Elements")
+      dhis2.getDhisDataMapping(childvisit_valuesets, (err, dhisDataMapping, ageGroups) => {
+        winston.error(JSON.stringify(dhisDataMapping))
+        winston.info("Done Translating DHIS2 Data Elements")
+        async.each(ageGroups, (ageGrp, nxtAgegrp) => {
+          mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
+            winston.info('Getting Child Visit Data From Warehouse')
+            middleware.getChildVisitData(timrAgeGroup, rows => {
+              winston.info("Get DHIS2 Facilities From Openinfoman")
+              async.eachSeries(facilities, (facility, nextFacility) => {
+                var dhis2FacilityId = facility.dhis2FacilityId
+                var timrFacilityId = facility.timrFacilityId
+                var facilityName = facility.facilityName
+                winston.info("Processing Child Visit Data for " + facilityName)
+                mixin.extractFacilityData(timrFacilityId, rows, facData => {
+                  dhis2.populateChildVisitValues({
+                    facData,
+                    dataValues,
+                    ageGrpCode: ageGrp.code,
+                    dhisDataMapping,
+                    dhis2FacilityId
+                  }, (err, res, body) => {
+                    return nextFacility()
                   })
-                }
-                else {
-                  processed--
-                  winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-                }
-                if(processed == 0) {
-                  winston.info('Done Processing ' + facilityName)
-                  return nextFacility()
-                }
+                })
+              }, function () {
+                winston.info("Done processing Child Visit for age group " + JSON.stringify(ageGrp))
+                return nxtAgegrp()
               })
             })
           })
-        },function(){
-          winston.info('Done Synchronizing Child Visit Data Data!!!')
-          updateTransaction(req,"","Successful","200",orchestrations)
+        }, () => {
+          if (dataValues.length > 0) {
+            dhis2.saveBulkData(dataValues, orchestrations)
+          }
+          winston.info('Done Synchronizing Child Visit!!!')
+          updateTransaction(req, "", "Successful", "200", orchestrations)
         })
       })
     })
   })
 
   app.get('/syncTT', (req, res) => {
-    const timr = TImR(config.timr,config.timrOauth2)
     const dhis2 = DHIS2(config.dhis2)
     const oim = OIM(config.openinfoman)
     res.end()
-    updateTransaction (req,"Still Processing","Processing","200","")
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    var LAST_MONTH = moment().subtract(1,'months').format('YYYYMM')
-    winston.info("Translating DHIS2 TT Data Elements")
-    dhis2.getDhisDataMapping(TT_valuesets,(err,dhisDataMapping) => {
+    let dataValues = []
+    winston.info("Translating DHIS2 Data Elements")
+    dhis2.getDhisDataMapping(TT_valuesets, (err, dhisDataMapping, ageGroups) => {
       winston.info("Done Translating DHIS2 Data Elements")
-      winston.info("Get DHIS2 Facilities From Openinfoman")
-      oim.getDHIS2Facilities(orchestrations,(facilities)=>{
-        async.eachSeries(facilities,(facility,nextFacility)=>{
-          var dhis2FacilityId = facility.dhis2FacilityId
-          var timrFacilityId = facility.timrFacilityId
-          var facilityName = facility.facilityName
-          var processed = dhisDataMapping.length
-          winston.info("Processing TT Data for " + facilityName)
-          winston.info(dhisDataMapping.length + " CatOptComb Found")
-          winston.info('Getting Access Token From TImR')
-          timr.getAccessToken(orchestrations,(err, res, body) => {
-            var access_token = JSON.parse(body).access_token
-            dhisDataMapping.forEach((dhisData,index) => {
-              timr.getTTData(access_token,dhisData,timrFacilityId,orchestrations,(err,value,url) => {
-                if(err) {
-                  winston.error(err)
-                }
-                var dataelement = dhisData.dataelement
-                var catoptcomb = dhisData.catoptcomb
-                if(value >= 0) {
-                  processed--
-                  dhis2.saveDHISData(dataelement,catoptcomb,LAST_MONTH,dhis2FacilityId,value,orchestrations,(err,res,body) => {
-                    winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Total===>"+value+" CatOptComb===>" + " "+JSON.stringify(body))
-                  })
-                }
-                else {
-                  processed--
-                  winston.info("CatOptComb " + (index+1) + "/" + dhisDataMapping.length + " Processed With " + value + " Records")
-                }
-                if(processed == 0) {
-                  winston.info('Done Processing ' + facilityName)
-                  return nextFacility()
-                }
+      winston.info('Getting TT Data From Warehouse')
+      middleware.getTTData(rows => {
+        winston.info("Get DHIS2 Facilities From Openinfoman")
+        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+          async.eachSeries(facilities, (facility, nextFacility) => {
+            var dhis2FacilityId = facility.dhis2FacilityId
+            var timrFacilityId = facility.timrFacilityId
+            var facilityName = facility.facilityName
+            winston.info("Processing TT Data for " + facilityName)
+            mixin.extractFacilityData(timrFacilityId, rows, facData => {
+              dhis2.populateTTValues({
+                facData,
+                dataValues,
+                dhisDataMapping,
+                dhis2FacilityId
+              }, (err, res, body) => {
+                return nextFacility()
               })
             })
+          }, function () {
+            if (dataValues.length > 0) {
+              dhis2.saveBulkData(dataValues, orchestrations)
+            }
+            winston.info('Done Synchronizing TT Data!!!')
+            updateTransaction(req, "", "Successful", "200", orchestrations)
           })
-        },function(){
-          winston.info('Done Synchronizing TT Data Data!!!')
-          updateTransaction(req,"","Successful","200",orchestrations)
         })
       })
     })
@@ -543,7 +541,7 @@ function setupApp () {
  * @param  {Function} callback a node style callback that is called once the
  * server is started
  */
-function start (callback) {
+function start(callback) {
   if (apiConf.register) {
     medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
       if (err) {

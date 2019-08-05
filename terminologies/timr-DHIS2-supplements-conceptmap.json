@@ -15,48 +15,37 @@
   "targetReference": {
     "reference": "ValueSet/timr-supplements-valuesets.json"
   },
-  "group": [
-    {
-      "source": "http://dhis.moh.go.tz/api/ValueSet",
-      "target": "http://timr.marc-hi.ca:8080/fhir/api/ValueSets",
-      "element": [
-        {
-          "code": "aphpcNcBNWk",
-          "target": [
-            {
-              "code": "Substance/7D80E518-6E04-4091-8D19-7265BB09BC1F",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "Nd5BDnxVEP0",
-          "target": [
-            {
-              "code": "Substance/7D80E518-6E04-4091-8D19-7265BB09BC1F",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "Zn1VXPl11BD",
-          "target": [
-            {
-              "code": "Substance/7D80E518-6E04-4091-8D19-7265BB09BC1F",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "e7jUPPjXtx8",
-          "target": [
-            {
-              "code": "Substance/7D80E518-6E04-4091-8D19-7A3BB2B32C1F",
-              "equivalence":"wider"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "group": [{
+    "source": "http://dhis.moh.go.tz/api/ValueSet",
+    "target": "http://timr.marc-hi.ca:8080/fhir/api/ValueSets",
+    "element": [{
+        "code": "aphpcNcBNWk",
+        "target": [{
+          "code": "Supplement-VitaminA",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "Nd5BDnxVEP0",
+        "target": [{
+          "code": "Supplement-VitaminA",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "Zn1VXPl11BD",
+        "target": [{
+          "code": "Supplement-VitaminA",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "e7jUPPjXtx8",
+        "target": [{
+          "code": "Supplement-Mebendazole",
+          "equivalence": "wider"
+        }]
+      }
+    ]
+  }]
 }

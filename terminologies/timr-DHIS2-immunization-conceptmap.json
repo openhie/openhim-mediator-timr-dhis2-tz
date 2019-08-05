@@ -15,75 +15,58 @@
   "targetReference": {
     "reference": "ValueSet/timr-immunization-valuesets.json"
   },
-  "group": [
-    {
-      "source": "http://dhis.moh.go.tz/api/ValueSet",
-      "target": "http://timr.marc-hi.ca:8080/fhir/api/ValueSets",
-      "element": [
-        {
-          "code": "Q2fFmlGkxRN",
-          "target": [
-            {
-              "code": "19",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "fMzRNxplkxA",
-          "target": [
-            {
-              "code": "122",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "IneV6eRU9fu",
-          "target": [
-            {
-              "code": "122",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "JXJ6K85BwHb",
-          "target": [
-            {
-              "code": "04",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "V2ZzQl7dgVF",
-          "target": [
-            {
-              "code": "102",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "KTXcMFWnbrP",
-          "target": [
-            {
-              "code": "02",
-              "equivalence":"wider"
-            }
-          ]
-        },
-        {
-          "code": "D34hFrwiUpq",
-          "target": [
-            {
-              "code": "133",
-              "equivalence":"wider"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "group": [{
+    "source": "http://dhis.moh.go.tz/api/ValueSet",
+    "target": "http://timr.marc-hi.ca:8080/fhir/api/ValueSets",
+    "element": [{
+        "code": "Q2fFmlGkxRN",
+        "target": [{
+          "code": "VaccineType-BCG",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "fMzRNxplkxA",
+        "target": [{
+          "code": "VaccineType-rotavirus",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "IneV6eRU9fu",
+        "target": [{
+          "code": "VaccineType-rotavirus",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "JXJ6K85BwHb",
+        "target": [{
+          "code": "VaccineType-MR",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "V2ZzQl7dgVF",
+        "target": [{
+          "code": "VaccineType-DTP-Hib-HepB",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "KTXcMFWnbrP",
+        "target": [{
+          "code": "VaccineType-OPV",
+          "equivalence": "wider"
+        }]
+      },
+      {
+        "code": "D34hFrwiUpq",
+        "target": [{
+          "code": "VaccineType-PCV13",
+          "equivalence": "wider"
+        }]
+      }
+    ]
+  }]
 }

@@ -1,310 +1,265 @@
-[
-    {
-        "code": "pQn6MrxxRrX",
-        "operations": [
-            {
-                "operation": "=",
-                "value": "N"
-            }
-        ],
-        "dimension": [
-            "interpretation"
-        ]
-    },
-    {
-        "code": "USOndmQvhK9",
-        "operations": [
-            {
-                "operation": "=",
-                "value": "H"
-            }
-        ],
-        "dimension": [
-            "interpretation"
-        ]
-    },
-    {
-        "code": "fz6jtM42TRB",
-        "operations": [
-            {
-                "operation": "=",
-                "value": "L"
-            }
-        ],
-        "dimension": [
-            "interpretation"
-        ]
-    },
-    {
-        "code": "zRHsZS8M6Vd",
-        "operations": [
-            {
-                "operation": "=le",
-                "value": 1
-            },
-            {
-                "operation": "=ge",
-                "value": 5
-            }
-        ],
-        "dimension": [
-            "years",
-            "years"
-        ]
-    },
-    {
-        "code": "BX6v1gPZJcI",
-        "operations": [
-            {
-                "operation": "=gt",
-                "value": 1
-            }
-        ],
-        "dimension": [
-            "years"
-        ]
-    },
-    {
-        "code": "syxWmui9UMq",
-        "operations": [
-            {
-                "operation": "=",
-                "value": "female"
-            }
-        ],
-        "dimension": [
-            "patient.gender"
-        ]
-    },
-    {
-        "code": "mtUMlCLFTTz",
-        "operations": [
-            {
-                "operation": "=",
-                "value": "male"
-            }
-        ],
-        "dimension": [
-            "patient.gender"
-        ]
-    },
-    {
-        "code": "GF4Nq9E8x6l",
-        "operations": [
-            {
-                "operation": "=le",
-                "value": 5
-            },
-            {
-                "operation": "=gt",
-                "value": 60
-            }
-        ],
-        "dimension": [
-            "years",
-            "years"
-        ]
-    },
-    {
-        "code": "UsRGaDRgUTs",
-        "operations": [
-            {
-                "operation": "=le",
-                "value": 60
-            }
-        ],
-        "dimension": [
-            "years"
-        ]
-    },
-    {
-        "code": "Cw0V80VVLNX",
-        "operations": [
-            {
-                "operation": "=le",
-                "value": 1
-            },
-            {
-                "operation": "=gt",
-                "value": 5
-            }
-        ],
-        "dimension": [
-            "years",
-            "years"
-        ]
-    },
-    {
-        "code": "GmtTdRJ9Dih",
-        "operations": [
-            {
-                "operation": "=lt",
-                "value": 5
-            }
-        ],
-        "dimension": [
-            "years"
-        ]
-    },
-    {
-        "code": "umPv9rcFjMF",
-        "operations": [
-            {
-                "operation": "=gt",
-                "value": 5
-            }
-        ],
-        "dimension": [
-            "years"
-        ]
-    },
-    {
-        "code": "xLotqtMo0pI",
-        "operations": [
-            {
-                "operation": "=gt",
-                "value": 1
-            }
-        ],
-        "dimension": [
-            "months"
-        ]
-    },
-    {
-        "code": "mFoITfPNk1X",
-        "operations": [
-            {
-                "operation": "=eq",
-                "value": 10
-            }
-        ],
-        "dimension": [
-            "weeks"
-        ]
-    },
-    {
-        "code": "VHZkVs3JQih",
-        "operations": [
-            {
-                "operation": "=eq",
-                "value": 6
-            }
-        ],
-        "dimension": [
-            "weeks"
-        ]
-    },
-    {
-        "code": "i3RHRoyrkuO",
-        "operations": [
-            {
-                "operation": "=le",
-                "value": 1
-            },
-            {
-                "operation": "=gt",
-                "value": 1
-            }
-        ],
-        "dimension": [
-            "months",
-            "years"
-        ]
-    },
-    {
-        "code": "NUUhXEngiby",
-        "operations": [
-            {
-                "operation": "=ge",
-                "value": 1
-            }
-        ],
-        "dimension": [
-            "years"
-        ]
-    },
-    {
-        "code": "uRyYLXG9XA0",
-        "operations": [
-            {
-                "operation": "=lt",
-                "value": 1
-            }
-        ],
-        "dimension": [
-            "years"
-        ]
-    },
-    {
-        "code": "OvHXpnMl7gh",
-        "operations": [
-            {
-                "operation": "=",
-                "value": "False"
-            }
-        ],
-        "dimension": [
-            "in-catchment"
-        ]
-    },
-    {
-        "code": "Sp2etmxyrbe",
-        "operations": [
-            {
-                "operation": "=",
-                "value": "True"
-            }
-        ],
-        "dimension": [
-            "in-catchment"
-        ]
-    },
-    {
-        "code": "vycrB36Akzs",
-        "operations": [
-            {
-                "operation": "=",
-                "value": 0
-            }
-        ],
-        "dimension": [
-            "dose-sequence"
-        ]
-    },
-    {
-        "code": "uCOUSgiyOlY",
-        "operations": [
-            {
-                "operation": "=",
-                "value": 1
-            }
-        ],
-        "dimension": [
-            "dose-sequence"
-        ]
-    },
-    {
-        "code": "xC6xZ8LQHok",
-        "operations": [
-            {
-                "operation": "=",
-                "value": 2
-            }
-        ],
-        "dimension": [
-            "dose-sequence"
-        ]
-    },
-    {
-        "code": "yJGjbc6TyRD",
-        "operations": [
-            {
-                "operation": "=",
-                "value": 3
-            }
-        ],
-        "dimension": [
-            "dose-sequence"
-        ]
-    }
+[{
+    "code": "pQn6MrxxRrX",
+    "operations": [{
+      "operation": "=",
+      "value": "N"
+    }],
+    "dimension": [
+      "interpretation"
+    ]
+  },
+  {
+    "code": "USOndmQvhK9",
+    "operations": [{
+      "operation": "=",
+      "value": "H"
+    }],
+    "dimension": [
+      "interpretation"
+    ]
+  },
+  {
+    "code": "fz6jtM42TRB",
+    "operations": [{
+      "operation": "=",
+      "value": "L"
+    }],
+    "dimension": [
+      "interpretation"
+    ]
+  },
+  {
+    "code": "zRHsZS8M6Vd",
+    "operations": [{
+        "operation": ">=",
+        "value": 1
+      },
+      {
+        "operation": "<=",
+        "value": 5
+      }
+    ],
+    "dimension": [
+      "years",
+      "years"
+    ]
+  },
+  {
+    "code": "BX6v1gPZJcI",
+    "operations": [{
+      "operation": "<",
+      "value": 1
+    }],
+    "dimension": [
+      "years"
+    ]
+  },
+  {
+    "code": "syxWmui9UMq",
+    "operations": [{
+      "operation": "=",
+      "value": "female"
+    }],
+    "dimension": [
+      "gender"
+    ]
+  },
+  {
+    "code": "mtUMlCLFTTz",
+    "operations": [{
+      "operation": "=",
+      "value": "male"
+    }],
+    "dimension": [
+      "gender"
+    ]
+  },
+  {
+    "code": "GF4Nq9E8x6l",
+    "operations": [{
+        "operation": ">=",
+        "value": 5
+      },
+      {
+        "operation": "<",
+        "value": 60
+      }
+    ],
+    "dimension": [
+      "years",
+      "years"
+    ]
+  },
+  {
+    "code": "UsRGaDRgUTs",
+    "operations": [{
+      "operation": ">=",
+      "value": 60
+    }],
+    "dimension": [
+      "years"
+    ]
+  },
+  {
+    "code": "Cw0V80VVLNX",
+    "operations": [{
+        "operation": ">=",
+        "value": 1
+      },
+      {
+        "operation": "<",
+        "value": 5
+      }
+    ],
+    "dimension": [
+      "years",
+      "years"
+    ]
+  },
+  {
+    "code": "GmtTdRJ9Dih",
+    "operations": [{
+      "operation": ">",
+      "value": 5
+    }],
+    "dimension": [
+      "years"
+    ]
+  },
+  {
+    "code": "umPv9rcFjMF",
+    "operations": [{
+      "operation": "<",
+      "value": 5
+    }],
+    "dimension": [
+      "years"
+    ]
+  },
+  {
+    "code": "xLotqtMo0pI",
+    "operations": [{
+      "operation": "<",
+      "value": 1
+    }],
+    "dimension": [
+      "months"
+    ]
+  },
+  {
+    "code": "mFoITfPNk1X",
+    "operations": [{
+      "operation": "=",
+      "value": 10
+    }],
+    "dimension": [
+      "weeks"
+    ]
+  },
+  {
+    "code": "VHZkVs3JQih",
+    "operations": [{
+      "operation": "=",
+      "value": 6
+    }],
+    "dimension": [
+      "weeks"
+    ]
+  },
+  {
+    "code": "i3RHRoyrkuO",
+    "operations": [{
+        "operation": ">=",
+        "value": 1
+      },
+      {
+        "operation": "<",
+        "value": 1
+      }
+    ],
+    "dimension": [
+      "months",
+      "years"
+    ]
+  },
+  {
+    "code": "NUUhXEngiby",
+    "operations": [{
+      "operation": "<=",
+      "value": 1
+    }],
+    "dimension": [
+      "years"
+    ]
+  },
+  {
+    "code": "uRyYLXG9XA0",
+    "operations": [{
+      "operation": ">",
+      "value": 1
+    }],
+    "dimension": [
+      "years"
+    ]
+  },
+  {
+    "code": "OvHXpnMl7gh",
+    "operations": [{
+      "operation": "=",
+      "value": "False"
+    }],
+    "dimension": [
+      "in-catchment"
+    ]
+  },
+  {
+    "code": "Sp2etmxyrbe",
+    "operations": [{
+      "operation": "=",
+      "value": "True"
+    }],
+    "dimension": [
+      "in-catchment"
+    ]
+  },
+  {
+    "code": "vycrB36Akzs",
+    "operations": [{
+      "operation": "=",
+      "value": 0
+    }],
+    "dimension": [
+      "dose-sequence"
+    ]
+  },
+  {
+    "code": "uCOUSgiyOlY",
+    "operations": [{
+      "operation": "=",
+      "value": 1
+    }],
+    "dimension": [
+      "dose-sequence"
+    ]
+  },
+  {
+    "code": "xC6xZ8LQHok",
+    "operations": [{
+      "operation": "=",
+      "value": 2
+    }],
+    "dimension": [
+      "dose-sequence"
+    ]
+  },
+  {
+    "code": "yJGjbc6TyRD",
+    "operations": [{
+      "operation": "=",
+      "value": 3
+    }],
+    "dimension": [
+      "dose-sequence"
+    ]
+  }
 ]

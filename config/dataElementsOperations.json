@@ -1,101 +1,89 @@
-[
-    {
-        "code": "aphpcNcBNWk",
-        "operations": [
-            {
-                "operation": "=eq",
-                "value": 6
-            }
-        ],
-        "dimension": [
-            "months"
-        ]
-    },
-    {
-        "code": "zOhZ2g9cs9R",
-        "operations": [
-            {
-                "operation": "=gt",
-                "value": 6
-            }
-        ],
-        "dimension": [
-            "months"
-        ]
-    },
-    {
-        "code": "Nd5BDnxVEP0",
-        "operations": [
-            {
-                "operation": "=lt",
-                "value": 1
-            },
-            {
-                "operation": "=ge",
-                "value": 5
-            }
-        ],
-        "dimension": [
-            "years",
-            "years"
-        ]
-    },
-    {
-        "code": "KEqNxmFdjgQ",
-        "operations": [
-            {
-                "operation": "=le",
-                "value": 1
-            },
-            {
-                "operation": "=ge",
-                "value": 5
-            }
-        ],
-        "dimension": [
-            "years",
-            "years"
-        ]
-    },
-    {
-        "code": "SQKyMg60Pi9",
-        "operations": [
-            {
-                "operation": "=gt",
-                "value": 1
-            }
-        ],
-        "dimension": [
-            "years"
-        ]
-    },
-    {
-        "code": "Zn1VXPl11BD",
-        "operations": [
-            {
-                "operation": "=gt",
-                "value": 1
-            }
-        ],
-        "dimension": [
-            "years"
-        ]
-    },
-    {
-        "code": "e7jUPPjXtx8",
-        "operations": [
-            {
-                "operation": "=le",
-                "value": 1
-            },
-            {
-                "operation": "=ge",
-                "value": 5
-            }
-        ],
-        "dimension": [
-            "years",
-            "years"
-        ]
-    }
-  ]
+[{
+    "code": "aphpcNcBNWk",
+    "operations": [{
+      "operation": "=",
+      "value": 6
+    }],
+    "dimension": [
+      "months"
+    ]
+  },
+  {
+    "code": "zOhZ2g9cs9R",
+    "operations": [{
+      "operation": "<",
+      "value": 6
+    }],
+    "dimension": [
+      "months"
+    ]
+  },
+  {
+    "code": "Nd5BDnxVEP0",
+    "operations": [{
+        "operation": ">",
+        "value": 1
+      },
+      {
+        "operation": "<=",
+        "value": 5
+      }
+    ],
+    "dimension": [
+      "years",
+      "years"
+    ]
+  },
+  {
+    "code": "KEqNxmFdjgQ",
+    "operations": [{
+        "operation": ">=",
+        "value": 1
+      },
+      {
+        "operation": "<=",
+        "value": 5
+      }
+    ],
+    "dimension": [
+      "years",
+      "years"
+    ]
+  },
+  {
+    "code": "SQKyMg60Pi9",
+    "operations": [{
+      "operation": "<",
+      "value": 1
+    }],
+    "dimension": [
+      "years"
+    ]
+  },
+  {
+    "code": "Zn1VXPl11BD",
+    "operations": [{
+      "operation": "<",
+      "value": 1
+    }],
+    "dimension": [
+      "years"
+    ]
+  },
+  {
+    "code": "e7jUPPjXtx8",
+    "operations": [{
+        "operation": ">=",
+        "value": 1
+      },
+      {
+        "operation": "<=",
+        "value": 5
+      }
+    ],
+    "dimension": [
+      "years",
+      "years"
+    ]
+  }
+]
