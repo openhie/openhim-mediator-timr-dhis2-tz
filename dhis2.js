@@ -485,6 +485,7 @@ module.exports = function (cnf) {
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
+      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let ageGrpExist = mapping.catopts.find((catOpt) => {
           return catOpt.id === ageGrpCode
@@ -541,6 +542,7 @@ module.exports = function (cnf) {
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
+      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let ageGrpExist = mapping.catopts.find((catOpt) => {
           return catOpt.id === ageGrpCode
@@ -648,6 +650,7 @@ module.exports = function (cnf) {
       }
       let before = new Date()
       request.post(options, function (err, res, body) {
+        winston.error(JSON.stringify(body))
         orchestrations.push(utils.buildOrchestration('Saving Immunization Data To DHIS2', before, 'POST', url.toString(), JSON.stringify(reqBody), res, JSON.stringify(body)))
       })
     },

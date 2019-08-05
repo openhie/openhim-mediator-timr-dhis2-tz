@@ -450,7 +450,6 @@ function setupApp() {
     oim.getDHIS2Facilities(orchestrations, (facilities) => {
       winston.info("Translating DHIS2 Data Elements")
       dhis2.getDhisDataMapping(childvisit_valuesets, (err, dhisDataMapping, ageGroups) => {
-        winston.error(JSON.stringify(dhisDataMapping))
         winston.info("Done Translating DHIS2 Data Elements")
         async.each(ageGroups, (ageGrp, nxtAgegrp) => {
           mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
