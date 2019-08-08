@@ -38,7 +38,9 @@ module.exports = function (cnf) {
       var dhisDataMapping = []
       let ages = ["years", "months", "weeks"]
       let ageGroups = []
+      //return callback("", require("./delete.json"), require("./delete1.json"))
       async.eachSeries(concept, (dataelement, nextConcept) => {
+        winston.info('Translating dataelement ' + dataelement.code)
         this.getCategoryCombo(dataelement.code, (err, catComb) => {
           if (err || catComb == "") {
             return nextConcept()
@@ -48,7 +50,7 @@ module.exports = function (cnf) {
               return nextConcept()
             }
             let ageGrpFound = false
-            async.eachSeries(catOptCombs, (catOptComb, nextCatComb) => {
+            async.each(catOptCombs, (catOptComb, nextCatComb) => {
               var catOptCombCode = catOptComb.id
               this.getCategoryOptions(catOptCombCode, (err, catOpt) => {
                 if (err) {
@@ -64,15 +66,20 @@ module.exports = function (cnf) {
                     let ageGrp
                     for (let dimInd in oper.dimension) {
                       if (ageGrp) {
-                        ageGrp += '&& ' + oper.operations[dimInd].operation + " " + oper.operations[dimInd].value + " " + oper.dimension[dimInd]
+                        ageGrp += ' && ' + oper.operations[dimInd].operation + " " + oper.operations[dimInd].value + " " + oper.dimension[dimInd]
                       } else {
                         ageGrp = oper.operations[dimInd].operation + " " + oper.operations[dimInd].value + " " + oper.dimension[dimInd]
                       }
                     }
-                    ageGroups.push({
-                      code: opt.id,
-                      ageGrp
+                    let exists = ageGroups.find((ageGrp) => {
+                      return ageGrp.code === opt.id
                     })
+                    if (!exists) {
+                      ageGroups.push({
+                        code: opt.id,
+                        ageGrp
+                      })
+                    }
                   }
                 });
                 dhisDataMapping.push({
@@ -93,15 +100,20 @@ module.exports = function (cnf) {
                   let ageGrp
                   for (let dimInd in oper.dimension) {
                     if (ageGrp) {
-                      ageGrp += '&& ' + oper.operations[dimInd].operation + " " + oper.operations[dimInd].value + " " + oper.dimension[dimInd]
+                      ageGrp += ' && ' + oper.operations[dimInd].operation + " " + oper.operations[dimInd].value + " " + oper.dimension[dimInd]
                     } else {
                       ageGrp = oper.operations[dimInd].operation + " " + oper.operations[dimInd].value + " " + oper.dimension[dimInd]
                     }
                   }
-                  ageGroups.push({
-                    code: dataelement.code,
-                    ageGrp
+                  let exists = ageGroups.find((ageGrp) => {
+                    return ageGrp.code === dataelement.code
                   })
+                  if (!exists) {
+                    ageGroups.push({
+                      code: dataelement.code,
+                      ageGrp
+                    })
+                  }
                 }
               }
               return nextConcept()
@@ -232,26 +244,39 @@ module.exports = function (cnf) {
             }
           }
 
-          let values = facData.find((data) => {
-            // BDG has no dose
-            if (mapping.dataelement === 'Q2fFmlGkxRN') {
-              dose = data.seq_id
-            }
-            return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == dose && data.type_mnemonic == timrVaccineCode
-          })
-          let value
-          if (values && incatchment == 'True') {
-            value = values.in_service_area
-          } else if (values && incatchment == 'False') {
-            value = values.in_catchment
+          let values
+          // BCG has no dose
+          if (mapping.dataelement === 'Q2fFmlGkxRN') {
+            values = facData.filter((data) => {
+              return data.gender_mnemonic.toLowerCase() == gender && data.type_mnemonic == timrVaccineCode
+            })
+          } // IPV and ROTA has dose 1 only
+          if (mapping.dataelement === 'w3flvyXod5d' || mapping.dataelement === 'fMzRNxplkxA' || mapping.dataelement === 'IneV6eRU9fu') {
+            values = facData.filter((data) => {
+              return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == 1 && data.type_mnemonic == timrVaccineCode
+            })
+          } else {
+            values = facData.filter((data) => {
+              return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == dose && data.type_mnemonic == timrVaccineCode
+            })
           }
-          if (value) {
+          let total = 0
+          if (values && incatchment == 'True') {
+            for (let value of values) {
+              total += parseInt(value.in_service_area)
+            }
+          } else if (values && incatchment == 'False') {
+            for (let value of values) {
+              total += parseInt(value.in_catchment)
+            }
+          }
+          if (total) {
             dataValues.push({
               'dataElement': mapping.dataelement,
               'categoryOptionCombo': mapping.catoptcomb,
               'period': period,
               'orgUnit': dhis2FacilityId,
-              'value': value.total
+              'value': total
             })
           }
           return nxtMapping()
@@ -424,6 +449,7 @@ module.exports = function (cnf) {
         let values = facData.find((data) => {
           return data.gender_mnemonic.toLowerCase() == gender
         })
+        winston.error(JSON.stringify(values))
         if (values) {
           dataValues.push({
             'dataElement': mapping.dataelement,
@@ -639,7 +665,7 @@ module.exports = function (cnf) {
       var reqBody = {
         "dataValues": dataValues
       }
-      winston.info("Saving " + JSON.stringify(reqBody))
+      winston.info("Saving " + reqBody.dataValues.length + " Data Values")
       var options = {
         url: url.toString(),
         headers: {

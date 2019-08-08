@@ -9,6 +9,44 @@
     ]
   },
   {
+    "code": "w3flvyXod5d",
+    "operations": [{
+      "operation": "=",
+      "value": 18
+    }],
+    "dimension": [
+      "months"
+    ]
+  },
+  {
+    "code": "fMzRNxplkxA",
+    "operations": [{
+      "operation": ">=",
+      "value": 10
+    }, {
+      "operation": "<=",
+      "value": 32
+    }],
+    "dimension": [
+      "weeks",
+      "weeks"
+    ]
+  },
+  {
+    "code": "IneV6eRU9fu",
+    "operations": [{
+      "operation": ">=",
+      "value": 6
+    }, {
+      "operation": "<=",
+      "value": 15
+    }],
+    "dimension": [
+      "weeks",
+      "weeks"
+    ]
+  },
+  {
     "code": "zOhZ2g9cs9R",
     "operations": [{
       "operation": "<",

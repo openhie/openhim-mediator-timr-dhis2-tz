@@ -50,7 +50,7 @@ module.exports = {
         -- action occurred during month
         and sbadm_tbl.act_utc::DATE between '${startDate}' and '${endDate}'
         ${ageQuery}
-      group by ext_id, mat_tbl.type_mnemonic, pat_vw.gender_mnemonic, sbadm_tbl.seq_id limit 30`
+      group by ext_id, mat_tbl.type_mnemonic, pat_vw.gender_mnemonic, sbadm_tbl.seq_id`
     pool.query(query, (err, response) => {
       if (err) {
         winston.error(err)

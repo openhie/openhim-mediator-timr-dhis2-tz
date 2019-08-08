@@ -33,9 +33,6 @@ const mediatorConfig = require('./config/mediator')
 const https = require('https')
 const http = require('http')
 
-https.globalAgent.maxSockets = 32
-http.globalAgent.maxSockets = 32
-
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 // Logging setup
@@ -96,42 +93,46 @@ function setupApp() {
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    let dataValues = []
     oim.getDHIS2Facilities(orchestrations, (facilities) => {
       winston.info("Translating DHIS2 Data Elements")
       dhis2.getDhisDataMapping(imm_valuesets, (err, dhisDataMapping, ageGroups) => {
         winston.info("Done Translating DHIS2 Data Elements")
-        async.each(ageGroups, (ageGrp, nxtAgegrp) => {
+        async.eachSeries(ageGroups, (ageGrp, nxtAgegrp) => {
+          let dataValues = []
           mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
             winston.info('Getting Immunization Data From Warehouse')
             middleware.getImmunizationCoverageData(timrAgeGroup, rows => {
               winston.info("Get DHIS2 Facilities From Openinfoman")
-              async.eachSeries(facilities, (facility, nextFacility) => {
+              async.each(facilities, (facility, nextFacility) => {
                 var dhis2FacilityId = facility.dhis2FacilityId
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
-                winston.info("Processing Immunization Data for " + facilityName)
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
-                  dhis2.populateImmunizationValues({
-                    facData,
-                    dataValues,
-                    ageGrpCode: ageGrp.code,
-                    dhisDataMapping,
-                    dhis2FacilityId
-                  }, (err, res, body) => {
+                  if (facData.length > 0) {
+                    winston.info("Processing Immunization Data for " + facilityName)
+                    dhis2.populateImmunizationValues({
+                      facData,
+                      dataValues,
+                      ageGrpCode: ageGrp.code,
+                      dhisDataMapping,
+                      dhis2FacilityId
+                    }, (err, res, body) => {
+                      return nextFacility()
+                    })
+                  } else {
                     return nextFacility()
-                  })
+                  }
                 })
               }, function () {
                 winston.info("Done processing immunization coverage for age group " + JSON.stringify(ageGrp))
+                if (dataValues.length > 0) {
+                  dhis2.saveBulkData(dataValues, orchestrations)
+                }
                 return nxtAgegrp()
               })
             })
           })
         }, () => {
-          if (dataValues.length > 0) {
-            dhis2.saveBulkData(dataValues, orchestrations)
-          }
           winston.info('Done Synchronizing Immunization Coverage!!!')
           updateTransaction(req, "", "Successful", "200", orchestrations)
         })
@@ -156,21 +157,25 @@ function setupApp() {
           middleware.getSupplementsData(timrAgeGroup, rows => {
             winston.info("Get DHIS2 Facilities From Openinfoman")
             oim.getDHIS2Facilities(orchestrations, (facilities) => {
-              async.eachSeries(facilities, (facility, nextFacility) => {
+              async.each(facilities, (facility, nextFacility) => {
                 var dhis2FacilityId = facility.dhis2FacilityId
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
-                winston.info("Processing Supplements Data for " + facilityName)
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
-                  dhis2.populateSupplementsValues({
-                    facData,
-                    dataValues,
-                    ageGrpCode: ageGrp.code,
-                    dhisDataMapping,
-                    dhis2FacilityId
-                  }, (err, res, body) => {
+                  if (facData.length > 0) {
+                    winston.info("Processing Supplements Data for " + facilityName)
+                    dhis2.populateSupplementsValues({
+                      facData,
+                      dataValues,
+                      ageGrpCode: ageGrp.code,
+                      dhisDataMapping,
+                      dhis2FacilityId
+                    }, (err, res, body) => {
+                      return nextFacility()
+                    })
+                  } else {
                     return nextFacility()
-                  })
+                  }
                 })
               }, function () {
                 winston.info("Done processing immunization coverage for age group " + JSON.stringify(ageGrp))
@@ -207,13 +212,13 @@ function setupApp() {
             age: '6 MONTH'
           }]
           middleware.getBreastFeedingData(ageOper, 1, (rows) => {
-            return callback(false, rows)
+            return callback(null, rows)
           })
         },
         RF: (callback) => {
           let ageOper = []
           middleware.getBreastFeedingData(ageOper, 2, (rows) => {
-            return callback(false, rows)
+            return callback(null, rows)
           })
         }
       }, (err, results) => {
@@ -223,30 +228,39 @@ function setupApp() {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
-            winston.info("Processing Breast Feeding Data for " + facilityName)
             async.parallel({
               processEBF: (callback) => {
                 mixin.extractFacilityData(timrFacilityId, results.EBF, facData => {
-                  dhis2.populateBreastFeedingValues({
-                    facData,
-                    dataValues,
-                    dhisDataMapping,
-                    dhis2FacilityId
-                  }, (err, res, body) => {
-                    return callback(false)
-                  })
+                  if (facData.length > 0) {
+                    winston.info("Processing EBF Breast Feeding Data for " + facilityName)
+                    dhis2.populateBreastFeedingValues({
+                      facData,
+                      dataValues,
+                      dhisDataMapping,
+                      dhis2FacilityId
+                    }, (err, res, body) => {
+                      return callback(null)
+                    })
+                  } else {
+                    return callback(null)
+                  }
                 })
               },
               processRF: (callback) => {
                 mixin.extractFacilityData(timrFacilityId, results.RF, facData => {
-                  dhis2.populateBreastFeedingValues({
-                    facData,
-                    dataValues,
-                    dhisDataMapping,
-                    dhis2FacilityId
-                  }, (err, res, body) => {
-                    return callback(false)
-                  })
+                  if (facData.length > 0) {
+                    winston.info("Processing RF Breast Feeding Data for " + facilityName)
+                    dhis2.populateBreastFeedingValues({
+                      facData,
+                      dataValues,
+                      dhisDataMapping,
+                      dhis2FacilityId
+                    }, (err, res, body) => {
+                      return callback(null)
+                    })
+                  } else {
+                    return callback(null)
+                  }
                 })
               }
             }, () => {
@@ -257,6 +271,7 @@ function setupApp() {
               dhis2.saveBulkData(dataValues, orchestrations)
             }
             winston.info("Done synchronizing Breastfeeding data")
+            updateTransaction(req, "", "Successful", "200", orchestrations)
           })
         })
       })
@@ -282,16 +297,20 @@ function setupApp() {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
-            winston.info("Processing PMTCT Data for " + facilityName)
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
-              dhis2.populatePMTCTValues({
-                facData,
-                dataValues,
-                dhisDataMapping,
-                dhis2FacilityId
-              }, (err, res, body) => {
+              if (facData.length > 0) {
+                winston.info("Processing PMTCT Data for " + facilityName)
+                dhis2.populatePMTCTValues({
+                  facData,
+                  dataValues,
+                  dhisDataMapping,
+                  dhis2FacilityId
+                }, (err, res, body) => {
+                  return nextFacility()
+                })
+              } else {
                 return nextFacility()
-              })
+              }
             })
           }, function () {
             if (dataValues.length > 0) {
@@ -324,20 +343,26 @@ function setupApp() {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
-            winston.info("Processing CTC Data for " + facilityName)
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
-              dhis2.populateCTCValues({
-                facData,
-                dataValues,
-                dhisDataMapping,
-                dhis2FacilityId
-              }, (err, res, body) => {
+              if (facData.length > 0) {
+                winston.info("Processing CTC Data for " + facilityName)
+                dhis2.populateCTCValues({
+                  facData,
+                  dataValues,
+                  dhisDataMapping,
+                  dhis2FacilityId
+                }, (err, res, body) => {
+                  return nextFacility()
+                })
+              } else {
                 return nextFacility()
-              })
+              }
             })
           }, function () {
             if (dataValues.length > 0) {
               dhis2.saveBulkData(dataValues, orchestrations)
+            } else {
+              winston.info("No CTC Data to save")
             }
             winston.info('Done Synchronizing CTC Data!!!')
             updateTransaction(req, "", "Successful", "200", orchestrations)
@@ -366,16 +391,20 @@ function setupApp() {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
-            winston.info("Processing Mosquito Net Data for " + facilityName)
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
-              dhis2.populateLLINMosqNetValues({
-                facData,
-                dataValues,
-                dhisDataMapping,
-                dhis2FacilityId
-              }, (err, res, body) => {
+              if (facData.length > 0) {
+                winston.info("Processing Mosquito Net Data for " + facilityName)
+                dhis2.populateLLINMosqNetValues({
+                  facData,
+                  dataValues,
+                  dhisDataMapping,
+                  dhis2FacilityId
+                }, (err, res, body) => {
+                  return nextFacility()
+                })
+              } else {
                 return nextFacility()
-              })
+              }
             })
           }, function () {
             if (dataValues.length > 0) {
@@ -410,17 +439,21 @@ function setupApp() {
                 var dhis2FacilityId = facility.dhis2FacilityId
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
-                winston.info("Processing Weight Age Ratio Data for " + facilityName)
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
-                  dhis2.populateWeightAgeRatioValues({
-                    facData,
-                    dataValues,
-                    ageGrpCode: ageGrp.code,
-                    dhisDataMapping,
-                    dhis2FacilityId
-                  }, (err, res, body) => {
+                  if (facData.length > 0) {
+                    winston.info("Processing Weight Age Ratio Data for " + facilityName)
+                    dhis2.populateWeightAgeRatioValues({
+                      facData,
+                      dataValues,
+                      ageGrpCode: ageGrp.code,
+                      dhisDataMapping,
+                      dhis2FacilityId
+                    }, (err, res, body) => {
+                      return nextFacility()
+                    })
+                  } else {
                     return nextFacility()
-                  })
+                  }
                 })
               }, function () {
                 winston.info("Done processing Weight Age Ratio for age group " + JSON.stringify(ageGrp))
@@ -460,17 +493,21 @@ function setupApp() {
                 var dhis2FacilityId = facility.dhis2FacilityId
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
-                winston.info("Processing Child Visit Data for " + facilityName)
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
-                  dhis2.populateChildVisitValues({
-                    facData,
-                    dataValues,
-                    ageGrpCode: ageGrp.code,
-                    dhisDataMapping,
-                    dhis2FacilityId
-                  }, (err, res, body) => {
+                  if (facData.length > 0) {
+                    winston.info("Processing Child Visit Data for " + facilityName)
+                    dhis2.populateChildVisitValues({
+                      facData,
+                      dataValues,
+                      ageGrpCode: ageGrp.code,
+                      dhisDataMapping,
+                      dhis2FacilityId
+                    }, (err, res, body) => {
+                      return nextFacility()
+                    })
+                  } else {
                     return nextFacility()
-                  })
+                  }
                 })
               }, function () {
                 winston.info("Done processing Child Visit for age group " + JSON.stringify(ageGrp))
@@ -504,20 +541,24 @@ function setupApp() {
       middleware.getTTData(rows => {
         winston.info("Get DHIS2 Facilities From Openinfoman")
         oim.getDHIS2Facilities(orchestrations, (facilities) => {
-          async.eachSeries(facilities, (facility, nextFacility) => {
+          async.each(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
-            winston.info("Processing TT Data for " + facilityName)
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
-              dhis2.populateTTValues({
-                facData,
-                dataValues,
-                dhisDataMapping,
-                dhis2FacilityId
-              }, (err, res, body) => {
+              if (facData.length > 0) {
+                winston.info("Processing TT Data for " + facilityName)
+                dhis2.populateTTValues({
+                  facData,
+                  dataValues,
+                  dhisDataMapping,
+                  dhis2FacilityId
+                }, (err, res, body) => {
+                  return nextFacility()
+                })
+              } else {
                 return nextFacility()
-              })
+              }
             })
           }, function () {
             if (dataValues.length > 0) {

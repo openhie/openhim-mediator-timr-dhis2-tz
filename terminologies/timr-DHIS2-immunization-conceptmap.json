@@ -26,6 +26,13 @@
         }]
       },
       {
+        "code": "w3flvyXod5d",
+        "target": [{
+          "code": "VaccineType-IPV",
+          "equivalence": "wider"
+        }]
+      },
+      {
         "code": "fMzRNxplkxA",
         "target": [{
           "code": "VaccineType-rotavirus",

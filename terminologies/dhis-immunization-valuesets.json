@@ -13,33 +13,33 @@
   "date": "2015-10-24T07:41:03+11:00",
   "description": "This value set defines the set of codes that are used in DHIS2 for Immunization.",
   "compose": {
-    "include": [
-      {
-        "system": "http://dhis.moh.go.tz/api/ValueSet",
-        "concept": [
-          {
-            "code": "KTXcMFWnbrP"
-          },
-          {
-            "code": "JXJ6K85BwHb"
-          },
-          {
-            "code":"D34hFrwiUpq"
-          },
-          {
-            "code":"Q2fFmlGkxRN"
-          },
-          {
-            "code":"V2ZzQl7dgVF"
-          },
-          {
-            "code":"fMzRNxplkxA"
-          },
-          {
-            "code":"IneV6eRU9fu"
-          }
-        ]
-      }
-    ]
+    "include": [{
+      "system": "http://dhis.moh.go.tz/api/ValueSet",
+      "concept": [{
+          "code": "KTXcMFWnbrP"
+        },
+        {
+          "code": "w3flvyXod5d"
+        },
+        {
+          "code": "JXJ6K85BwHb"
+        },
+        {
+          "code": "D34hFrwiUpq"
+        },
+        {
+          "code": "Q2fFmlGkxRN"
+        },
+        {
+          "code": "V2ZzQl7dgVF"
+        },
+        {
+          "code": "fMzRNxplkxA"
+        },
+        {
+          "code": "IneV6eRU9fu"
+        }
+      ]
+    }]
   }
 }
