@@ -449,7 +449,6 @@ module.exports = function (cnf) {
         let values = facData.find((data) => {
           return data.gender_mnemonic.toLowerCase() == gender
         })
-        winston.error(JSON.stringify(values))
         if (values) {
           dataValues.push({
             'dataElement': mapping.dataelement,

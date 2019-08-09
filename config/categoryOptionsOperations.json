@@ -2,7 +2,7 @@
     "code": "pQn6MrxxRrX",
     "operations": [{
       "operation": "=",
-      "value": "N"
+      "value": "Normal"
     }],
     "dimension": [
       "interpretation"
@@ -12,7 +12,7 @@
     "code": "USOndmQvhK9",
     "operations": [{
       "operation": "=",
-      "value": "H"
+      "value": "AbnormalHigh"
     }],
     "dimension": [
       "interpretation"
@@ -22,7 +22,7 @@
     "code": "fz6jtM42TRB",
     "operations": [{
       "operation": "=",
-      "value": "L"
+      "value": "AbnormalLow"
     }],
     "dimension": [
       "interpretation"

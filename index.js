@@ -93,6 +93,7 @@ function setupApp() {
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
+    winston.info("Get DHIS2 Facilities From Openinfoman")
     oim.getDHIS2Facilities(orchestrations, (facilities) => {
       winston.info("Translating DHIS2 Data Elements")
       dhis2.getDhisDataMapping(imm_valuesets, (err, dhisDataMapping, ageGroups) => {
@@ -102,7 +103,6 @@ function setupApp() {
           mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
             winston.info('Getting Immunization Data From Warehouse')
             middleware.getImmunizationCoverageData(timrAgeGroup, rows => {
-              winston.info("Get DHIS2 Facilities From Openinfoman")
               async.each(facilities, (facility, nextFacility) => {
                 var dhis2FacilityId = facility.dhis2FacilityId
                 var timrFacilityId = facility.timrFacilityId

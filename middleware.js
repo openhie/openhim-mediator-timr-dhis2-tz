@@ -349,17 +349,18 @@ module.exports = {
     let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
     let query = `select
       ext_id as facility_id,
-      pat_vw.gender_mnemonic,
+      pat_tbl.gender_mnemonic,
       ebf.ext_value,
       count(*) as total
     from
-      pat_vw
-      inner join ent_ext_tbl as ebf on (pat_vw.pat_id = ebf.ent_id and ebf.ext_typ = 'http://openiz.org/extensions/patient/contrib/timr/tetanusStatus')
-      inner join fac_id_tbl on (fac_id_tbl.fac_id = pat_vw.fac_id and nsid = 'TZ_HFR_ID')
+      pat_tbl
+      inner join psn_tbl using (psn_id)
+      inner join ent_ext_tbl as ebf on (pat_tbl.pat_id = ebf.ent_id and ebf.ext_typ = 'http://openiz.org/extensions/patient/contrib/timr/tetanusStatus')
+      inner join fac_id_tbl on (fac_id_tbl.fac_id = pat_tbl.reg_fac_id and nsid = 'TZ_HFR_ID')
     where
       crt_utc::DATE between '${startDate}' and '${endDate}' and (ext_value='0' or ext_value='1' or ext_value='2')
     group by
-      ext_id, ebf.ext_value, pat_vw.gender_mnemonic order by ext_id`
+      ext_id, ebf.ext_value, pat_tbl.gender_mnemonic order by ext_id`
     pool.query(query, (err, response) => {
       if (err) {
         winston.error(err)
