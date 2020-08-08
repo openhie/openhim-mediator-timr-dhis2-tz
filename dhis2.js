@@ -149,6 +149,7 @@ module.exports = function (cnf) {
             callback(err, dataElemDet.categoryCombo.id)
         } else {
           winston.error(err)
+          winston.error(body)
           winston.warn("Received a non JSON data from DHIS2 while getting Details for data element " + dataelement)
           callback(err, "")
         }
@@ -203,13 +204,13 @@ module.exports = function (cnf) {
       })
     },
     populateImmunizationValues: function ({
+      period,
       facData,
       dataValues,
       ageGrpCode,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, immunizationConcMap, (timrVaccineCode) => {
           let ageGrpExist = mapping.catopts.find((catOpt) => {
@@ -251,7 +252,7 @@ module.exports = function (cnf) {
               return data.gender_mnemonic.toLowerCase() == gender && data.type_mnemonic == timrVaccineCode
             })
           } // IPV and ROTA has dose 1 only
-          if (mapping.dataelement === 'w3flvyXod5d' || mapping.dataelement === 'fMzRNxplkxA' || mapping.dataelement === 'IneV6eRU9fu') {
+          else if (mapping.dataelement === 'w3flvyXod5d' || mapping.dataelement === 'fMzRNxplkxA' || mapping.dataelement === 'IneV6eRU9fu') {
             values = facData.filter((data) => {
               return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == 1 && data.type_mnemonic == timrVaccineCode
             })
@@ -272,11 +273,12 @@ module.exports = function (cnf) {
           }
           if (total) {
             dataValues.push({
+              'attributeOptionCombo': 'uGIJ6IdkP7Q',
               'dataElement': mapping.dataelement,
               'categoryOptionCombo': mapping.catoptcomb,
               'period': period,
               'orgUnit': dhis2FacilityId,
-              'value': total
+              'value': `${total}`
             })
           }
           return nxtMapping()
@@ -287,13 +289,13 @@ module.exports = function (cnf) {
     },
 
     populateSupplementsValues: function ({
+      period,
       facData,
       dataValues,
       ageGrpCode,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, supplementsConcMap, (timrVaccineCode) => {
           let ageGrpExist = mapping.catopts.find((catOpt) => {
@@ -323,12 +325,12 @@ module.exports = function (cnf) {
               }
             }
           }
-
           let values = facData.find((data) => {
             return data.gender_mnemonic.toLowerCase() == gender && data.code == timrVaccineCode
           })
           if (values) {
             dataValues.push({
+              'attributeOptionCombo': 'uGIJ6IdkP7Q',
               'dataElement': mapping.dataelement,
               'categoryOptionCombo': mapping.catoptcomb,
               'period': period,
@@ -344,12 +346,12 @@ module.exports = function (cnf) {
     },
 
     populateBreastFeedingValues: function ({
+      period,
       facData,
       dataValues,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, breastFeedConcMap, (timrVaccineCode) => {
           let gender
@@ -370,6 +372,7 @@ module.exports = function (cnf) {
           })
           if (values) {
             dataValues.push({
+              'attributeOptionCombo': 'uGIJ6IdkP7Q',
               'dataElement': mapping.dataelement,
               'categoryOptionCombo': mapping.catoptcomb,
               'period': period,
@@ -385,12 +388,12 @@ module.exports = function (cnf) {
     },
 
     populatePMTCTValues: function ({
+      period,
       facData,
       dataValues,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let gender
         for (let catopt of mapping.catopts) {
@@ -411,6 +414,7 @@ module.exports = function (cnf) {
         })
         if (values) {
           dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
@@ -425,12 +429,12 @@ module.exports = function (cnf) {
     },
 
     populateCTCValues: function ({
+      period,
       facData,
       dataValues,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let gender
         for (let catopt of mapping.catopts) {
@@ -451,6 +455,7 @@ module.exports = function (cnf) {
         })
         if (values) {
           dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
@@ -464,12 +469,12 @@ module.exports = function (cnf) {
       })
     },
     populateLLINMosqNetValues: function ({
+      period,
       facData,
       dataValues,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let gender
         for (let catopt of mapping.catopts) {
@@ -490,6 +495,7 @@ module.exports = function (cnf) {
         })
         if (values) {
           dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
@@ -504,13 +510,13 @@ module.exports = function (cnf) {
     },
 
     populateWeightAgeRatioValues: function ({
+      period,
       facData,
       dataValues,
       ageGrpCode,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let ageGrpExist = mapping.catopts.find((catOpt) => {
           return catOpt.id === ageGrpCode
@@ -547,6 +553,7 @@ module.exports = function (cnf) {
         })
         if (values) {
           dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
@@ -561,13 +568,13 @@ module.exports = function (cnf) {
     },
 
     populateChildVisitValues: function ({
+      period,
       facData,
       dataValues,
       ageGrpCode,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let ageGrpExist = mapping.catopts.find((catOpt) => {
           return catOpt.id === ageGrpCode
@@ -598,6 +605,7 @@ module.exports = function (cnf) {
         })
         if (values) {
           dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
@@ -612,12 +620,12 @@ module.exports = function (cnf) {
     },
 
     populateTTValues: function ({
+      period,
       facData,
       dataValues,
       dhisDataMapping,
       dhis2FacilityId
     }, callback) {
-      var period = moment().subtract(1, 'months').format('YYYYMM')
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, TTConcMap, (timrItemCode) => {
           let gender
@@ -639,6 +647,7 @@ module.exports = function (cnf) {
           })
           if (values) {
             dataValues.push({
+              'attributeOptionCombo': 'uGIJ6IdkP7Q',
               'dataElement': mapping.dataelement,
               'categoryOptionCombo': mapping.catoptcomb,
               'period': period,
@@ -675,7 +684,10 @@ module.exports = function (cnf) {
       }
       let before = new Date()
       request.post(options, function (err, res, body) {
-        winston.error(JSON.stringify(body))
+        winston.error(JSON.stringify(body, 0, 2))
+        if (err) {
+          winston.error(err)
+        }
         orchestrations.push(utils.buildOrchestration('Saving Immunization Data To DHIS2', before, 'POST', url.toString(), JSON.stringify(reqBody), res, JSON.stringify(body)))
       })
     },

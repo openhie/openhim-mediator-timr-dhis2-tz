@@ -43,6 +43,7 @@ module.exports = function (oimconf) {
         for (var counter = 0; counter < totalFac; counter++) {
           var timrFacilityUUID = facilityDirectory.eq(counter).attr("entityID")
           let timrFacilityId
+          let DVSID
           var facilityDetails = facilityDirectory.eq(counter).children()
           var totalDetails = facilityDirectory.eq(counter).children().size()
           var detailsLoopControl = totalDetails
@@ -59,17 +60,41 @@ module.exports = function (oimconf) {
             ) {
               timrFacilityId = facilityDetails.eq(detailsCount).text()
             }
-
+            if (facilityDetails.eq(detailsCount).has("csd:extension") && facilityDetails.eq(detailsCount).attr("type") == "DistrictVaccineStore") {
+              DVSID = facilityDetails.eq(detailsCount).children().find("DistrictVaccineStore").attr("entityId")
+            }
             if (facilityDetails.eq(detailsCount).has("csd:primaryName"))
               var facilityName = facilityDetails.eq(detailsCount).find("csd:primaryName").text()
             if (facilityDetails.eq(detailsCount).has("csd:extension") &&
               facilityDetails.eq(detailsCount).attr("type") == "facilityType" &&
               facilityDetails.eq(detailsCount).attr("urn") == "urn:openhie.org:openinfoman-tz" &&
               facilityDetails.eq(detailsCount).children().find("facilityType").text() == "DVS"
-            )
+            ) {
               DVS = true
+            }
           }
-          if (DVS === false && dhis2FacilityId) {
+          let limitDVS = [
+            "urn:uuid:f2fafb9a-9250-3d53-952b-87abb0e096a4",
+            "urn:uuid:d8db6389-286c-337a-afbc-fddc93a68198",
+            "urn:uuid:17e28a2f-cbba-3b12-9c07-f575ae61eb70",
+            "urn:uuid:e65ac576-0efd-39c6-8229-17c37e599fb1",
+            "urn:uuid:3cbdccf3-3ed1-33bb-aa3b-36bb1337e295",
+            "urn:uuid:c8c9aa95-d307-379f-ae4f-06076c89b77f",
+            "urn:uuid:a8ffa45b-c7d3-3446-a9ba-ea59e5ad0e37",
+            "urn:uuid:125a3ff1-26a7-3afa-8ed3-1af098fa3afb",
+            "urn:uuid:a4b1c4f4-8750-372e-9b6a-73e9cd301dc8",
+            "urn:uuid:fd95f0c5-6d7d-3bf9-9382-234169c0562b",
+            "urn:uuid:e38a0c1b-28ea-363a-ac1a-c1dda9b44536"
+          ]
+          // if (DVS === false && limitDVS.includes(DVSID)) {
+          //   winston.error({
+          //     "timrFacilityId": timrFacilityId,
+          //     "timrFacilityUUID": timrFacilityUUID,
+          //     "dhis2FacilityId": dhis2FacilityId,
+          //     "facilityName": facilityName
+          //   })
+          // }
+          if (DVS === false && dhis2FacilityId && limitDVS.includes(DVSID)) {
             facilities.push({
               "timrFacilityId": timrFacilityId,
               "timrFacilityUUID": timrFacilityUUID,

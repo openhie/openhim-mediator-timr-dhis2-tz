@@ -3,24 +3,21 @@ const {
 } = require('pg')
 const async = require('async')
 const winston = require('winston')
-const moment = require('moment');
 
 const pool = new Pool({
-  user: 'timr_user',
+  user: 'gofr',
+  password: 'gofr',
   host: 'localhost',
-  database: 'timrdwh_latest',
-  password: 'timr_user',
+  database: 'timr',
   port: 5432,
 })
 module.exports = {
-  getImmunizationCoverageData: (ages, callback) => {
+  getImmunizationCoverageData: (startDate, endDate, ages, callback) => {
     let ageQuery = ''
     async.eachSeries(ages, (age, nxtAge) => {
       ageQuery += ` and sbadm_tbl.act_utc - pat_vw.dob ${age.operator} '${age.age}'::INTERVAL`
       return nxtAge()
     })
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
     let query = `select
         ext_id as facility_id,
         mat_tbl.type_mnemonic,
@@ -42,7 +39,7 @@ module.exports = {
         left join act_tag_tbl catchment on (catchment.act_id = sbadm_tbl.act_id and catchment.tag_name = 'catchmentIndicator')
       where
         -- we don't want back-entered data
-        sbadm_tbl.act_id not in (select act_id from act_tag_tbl where tag_name = 'backEntry' and lower(tag_value) = 'true')
+        sbadm_tbl.enc_id is not null
         -- we dont want supplements
         and sbadm_tbl.type_mnemonic != 'DrugTherapy'
         -- we don't want those vaccinations not done
@@ -66,7 +63,7 @@ module.exports = {
     })
   },
 
-  getSupplementsData: (ages, callback) => {
+  getSupplementsData: (startDate, endDate, ages, callback) => {
     let ageQuery = ''
     if (ages.length == 2) {
       let age1 = ages[0]
@@ -85,8 +82,6 @@ module.exports = {
       })
     }
 
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
     let query = `select
           ext_id as facility_id,
           mat_tbl.type_mnemonic as code,
@@ -119,9 +114,7 @@ module.exports = {
     })
   },
 
-  getPMTCTData: (callback) => {
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
+  getPMTCTData: (startDate, endDate, callback) => {
     let query = `select
         ext_id as facility_id,
         pat_vw.gender_mnemonic,
@@ -151,10 +144,8 @@ module.exports = {
     })
   },
 
-  getCTCReferal: (callback) => {
+  getCTCReferal: (startDate, endDate, callback) => {
     //add pat_vw.dob - pat_vw.crt_utc < '12 MONTH'::INTERVAL to filter by age
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
     let query = `select
         ext_id as facility_id,
         pat_vw.gender_mnemonic,
@@ -184,9 +175,7 @@ module.exports = {
     })
   },
 
-  getDispLLINMosqNet: (callback) => {
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
+  getDispLLINMosqNet: (startDate, endDate, callback) => {
     let query = `select
         ext_id as facility_id,
         gender_mnemonic,
@@ -222,7 +211,7 @@ module.exports = {
     })
   },
 
-  getBreastFeedingData: (ages, code, callback) => {
+  getBreastFeedingData: (startDate, endDate, ages, code, callback) => {
     let ageQuery = ''
     async.eachSeries(ages, (age, nxtAge) => {
       if (ageQuery) {
@@ -236,8 +225,6 @@ module.exports = {
         ageQuery += ' and'
       }
     })
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
     let query = `select
         ext_id as facility_id,
         pat_vw.gender_mnemonic,
@@ -267,14 +254,12 @@ module.exports = {
     })
   },
 
-  getWeightAgeRatio: (ages, callback) => {
+  getWeightAgeRatio: (startDate, endDate, ages, callback) => {
     let ageQuery = ''
     async.eachSeries(ages, (age, nxtAge) => {
       ageQuery += ' and ' + `act_utc - dob ${age.operator} '${age.age}'::INTERVAL`
       return nxtAge()
     })
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
     let query = `select
         ext_id as facility_id,
         gender_mnemonic,
@@ -306,14 +291,12 @@ module.exports = {
     })
   },
 
-  getChildVisitData: (ages, callback) => {
+  getChildVisitData: (startDate, endDate, ages, callback) => {
     let ageQuery = ''
     async.eachSeries(ages, (age, nxtAge) => {
       ageQuery += ' and ' + `act_utc - dob ${age.operator} '${age.age}'::INTERVAL`
       return nxtAge()
     })
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
     let query = `select
           ext_id as facility_id,
           gender_mnemonic,
@@ -344,9 +327,7 @@ module.exports = {
     })
   },
 
-  getTTData: (callback) => {
-    let startDate = moment().subtract(1, 'month').startOf('month').format('YYYY-MM-DD')
-    let endDate = moment().subtract(1, 'month').endOf('month').format('YYYY-MM-DD')
+  getTTData: (startDate, endDate, callback) => {
     let query = `select
       ext_id as facility_id,
       pat_tbl.gender_mnemonic,
