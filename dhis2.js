@@ -252,9 +252,14 @@ module.exports = function (cnf) {
               return data.gender_mnemonic.toLowerCase() == gender && data.type_mnemonic == timrVaccineCode
             })
           } // IPV and ROTA has dose 1 only
-          else if (mapping.dataelement === 'w3flvyXod5d' || mapping.dataelement === 'fMzRNxplkxA' || mapping.dataelement === 'IneV6eRU9fu') {
+          else if (mapping.dataelement === 'w3flvyXod5d' || mapping.dataelement === 'IneV6eRU9fu') {
             values = facData.filter((data) => {
               return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == 1 && data.type_mnemonic == timrVaccineCode
+            })
+          } //ROTA 10-32 weeks of age is fixed to dose 2
+          else if(mapping.dataelement === 'fMzRNxplkxA') {
+            values = facData.filter((data) => {
+              return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == 2 && data.type_mnemonic == timrVaccineCode
             })
           } else {
             values = facData.filter((data) => {
