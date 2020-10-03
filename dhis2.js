@@ -261,6 +261,20 @@ module.exports = function (cnf) {
             values = facData.filter((data) => {
               return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == 2 && data.type_mnemonic == timrVaccineCode
             })
+          }
+          // Category option combos for MR has no deses, needs to handle it separately
+          else if(mapping.dataelement === "JXJ6K85BwHb") {
+            if(mapping.catoptcomb === "R0FvvvlaHlI" || mapping.catoptcomb === "LFYRzJIktV6" || mapping.catoptcomb === "HdwIgsY6gWF" || mapping.catoptcomb === "btMDsNKZcug") {
+              //below 1 year, dose 1
+              values = facData.filter((data) => {
+                return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == 1 && data.type_mnemonic == timrVaccineCode
+              })
+            } else if(mapping.catoptcomb === "LQdibyemWR9" || mapping.catoptcomb === "wUPqvQCNzKz" || mapping.catoptcomb === "ME0y46H6zro" || mapping.catoptcomb === "CgQ5oSieXJt") {
+              //above 1 year, dose2
+              values = facData.filter((data) => {
+                return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == 2 && data.type_mnemonic == timrVaccineCode
+              })
+            }
           } else {
             values = facData.filter((data) => {
               return data.gender_mnemonic.toLowerCase() == gender && data.seq_id == dose && data.type_mnemonic == timrVaccineCode

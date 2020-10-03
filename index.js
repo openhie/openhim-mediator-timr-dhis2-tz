@@ -8,9 +8,8 @@ const winston = require('winston')
 const moment = require("moment")
 const request = require('request')
 const async = require('async')
-const TImR = require('./timr')
 const DHIS2 = require('./dhis2')
-const OIM = require('./openinfoman')
+const FHIR = require('./fhir');
 const mixin = require('./mixin');
 const middleware = require('./middleware');
 const imm_valuesets = require('./terminologies/dhis-immunization-valuesets.json')
@@ -89,16 +88,24 @@ function setupApp() {
   const startDate = moment().subtract(2, 'month').startOf('month').format('YYYY-MM-DD')
   const endDate = moment().subtract(2, 'month').endOf('month').format('YYYY-MM-DD')
   const period = moment().subtract(2, 'months').format('YYYYMM')
-
+  app.get('/test', (req, res) => {
+    const fhir = FHIR(config.fhir)
+    let orchestrations = []
+    let uuid = 'urn:uuid:2ab07dde-fd2e-3704-9b7f-8329ff5549f3'
+    fhir.getdhis2FacilityId(uuid, orchestrations, (err, respo) => {
+      console.log(JSON.stringify(orchestrations,0,2));
+      winston.error(JSON.stringify(respo,0,2))
+    })
+  })
   app.get('/syncImmunizationCoverage', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
     winston.info("Get DHIS2 Facilities From Openinfoman")
-    oim.getDHIS2Facilities(orchestrations, (facilities) => {
+    fhir.getDHIS2Facilities(orchestrations, (facilities) => {
       winston.info("Translating DHIS2 Data Elements")
       dhis2.getDhisDataMapping(imm_valuesets, (err, dhisDataMapping, ageGroups) => {
         winston.info("Done Translating DHIS2 Data Elements")
@@ -147,7 +154,7 @@ function setupApp() {
 
   app.get('/syncSupplements', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
@@ -161,7 +168,7 @@ function setupApp() {
           winston.info('Getting Supplements Data From Warehouse')
           middleware.getSupplementsData(startDate, endDate, timrAgeGroup, rows => {
             winston.info("Get DHIS2 Facilities From Openinfoman")
-            oim.getDHIS2Facilities(orchestrations, (facilities) => {
+            fhir.getDHIS2Facilities(orchestrations, (facilities) => {
               async.each(facilities, (facility, nextFacility) => {
                 var dhis2FacilityId = facility.dhis2FacilityId
                 var timrFacilityId = facility.timrFacilityId
@@ -202,7 +209,7 @@ function setupApp() {
 
   app.get('/syncBreastFeeding', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
@@ -229,7 +236,7 @@ function setupApp() {
         }
       }, (err, results) => {
         winston.info("Get DHIS2 Facilities From Openinfoman")
-        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+        fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
@@ -289,7 +296,7 @@ function setupApp() {
 
   app.get('/syncPMTCT', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
@@ -301,7 +308,7 @@ function setupApp() {
       winston.info('Getting PMTCT Data From Warehouse')
       middleware.getPMTCTData(startDate, endDate, (rows) => {
         winston.info("Get DHIS2 Facilities From Openinfoman")
-        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+        fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
@@ -336,7 +343,7 @@ function setupApp() {
 
   app.get('/syncCTC', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
@@ -348,7 +355,7 @@ function setupApp() {
       winston.info('Getting CTC Data From Warehouse')
       middleware.getCTCReferal(startDate, endDate, (rows) => {
         winston.info("Get DHIS2 Facilities From Openinfoman")
-        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+        fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
@@ -385,7 +392,7 @@ function setupApp() {
 
   app.get('/syncMosquitoNet', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
@@ -397,7 +404,7 @@ function setupApp() {
       winston.info('Getting Mosquito Net Data From Warehouse')
       middleware.getDispLLINMosqNet(startDate, endDate, (rows) => {
         winston.info("Get DHIS2 Facilities From Openinfoman")
-        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+        fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId
@@ -432,13 +439,13 @@ function setupApp() {
 
   app.get('/syncWeightAgeRatio', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
-    oim.getDHIS2Facilities(orchestrations, (facilities) => {
+    fhir.getDHIS2Facilities(orchestrations, (facilities) => {
       winston.info("Translating DHIS2 Data Elements")
       dhis2.getDhisDataMapping(weightAgeRatio_valuesets, (err, dhisDataMapping, ageGroups) => {
         winston.info("Done Translating DHIS2 Data Elements")
@@ -487,13 +494,13 @@ function setupApp() {
 
   app.get('/syncChildVisit', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
-    oim.getDHIS2Facilities(orchestrations, (facilities) => {
+    fhir.getDHIS2Facilities(orchestrations, (facilities) => {
       winston.info("Translating DHIS2 Data Elements")
       dhis2.getDhisDataMapping(childvisit_valuesets, (err, dhisDataMapping, ageGroups) => {
         winston.info("Done Translating DHIS2 Data Elements")
@@ -542,7 +549,7 @@ function setupApp() {
 
   app.get('/syncTT', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
-    const oim = OIM(config.openinfoman)
+    const fhir = FHIR(config.fhir)
     res.end()
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
@@ -554,7 +561,7 @@ function setupApp() {
       winston.info('Getting TT Data From Warehouse')
       middleware.getTTData(startDate, endDate, rows => {
         winston.info("Get DHIS2 Facilities From Openinfoman")
-        oim.getDHIS2Facilities(orchestrations, (facilities) => {
+        fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.each(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
             var timrFacilityId = facility.timrFacilityId

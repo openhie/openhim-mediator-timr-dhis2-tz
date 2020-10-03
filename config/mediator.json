@@ -377,6 +377,32 @@
       ]
     },
     {
+      "param": "fhir",
+      "displayName": "FHIR Server",
+      "description": "FHIR Server",
+      "type": "struct",
+      "template": [
+        {
+          "param": "baseURL",
+          "displayName": "URL",
+          "description": "The base URL (e.g. http://52.32.67.173:8081/fhir)",
+          "type": "string"
+        },
+        {
+          "param": "username",
+          "displayName": "Username",
+          "description": "Username required to send data to DHIS2",
+          "type": "string"
+        },
+        {
+          "param": "password",
+          "displayName": "Password",
+          "description": "Password required to send data to DHIS2",
+          "type": "password"
+        }
+      ]
+    },
+    {
       "param": "dhis2",
       "displayName": "DHIS2",
       "description": "The DHIS2 server to send data to",
@@ -490,6 +516,11 @@
     },
     "timr": {
       "url": "http://34.212.232.56:8080/"
+    },
+    "fhir": {
+      "baseURL": "http://localhost:8081/hapi/fhir",
+      "username": "",
+      "password": ""
     },
     "openinfoman": {
       "url": "http://localhost:8984",

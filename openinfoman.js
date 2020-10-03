@@ -146,12 +146,12 @@ module.exports = function (oimconf) {
         for (var counter = 0; counter < facLength; counter++) {
           if (facility.eq(counter).find("csd:otherID").attr("assigningAuthorityName") == "tanzania-hmis" && facility.eq(counter).find("csd:otherID").attr("code") == "id") {
             facFound = true
-            callback(facility.eq(counter).find("csd:otherID").text())
+            callback(false, facility.eq(counter).find("csd:otherID").text())
           }
           loopCntr--
         }
         if (loopCntr === 0 && facFound === false)
-          callback("")
+          callback(false, "")
       })
     },
 
