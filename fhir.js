@@ -73,7 +73,7 @@ module.exports = function (fhirconf) {
             }
             for(let ext of entry.resource.extension) {
               if(ext.url === 'DistrictVaccineStore') {
-                DVSID = ext.valueString
+                DVSID = ext.valueReference.reference.split("/")[1]
               }
             }
             if (dhis2FacilityId && limitDVS.includes(DVSID)) {

@@ -35,15 +35,21 @@ module.exports = {
         inner join fac_id_tbl on (fac_vw.fac_id = fac_id_tbl.fac_id and nsid = 'TZ_HFR_ID')
             -- Fetch patient information for gender
         inner join pat_vw on (pat_vw.pat_id = sbadm_tbl.pat_id)
+        inner join enc_tbl using (enc_id)
+        left join act_list_act_rel_tbl on (enc_tbl.enc_id = sbadm_act_id)
+        left join act_list_tbl on (act_list_tbl.act_id = act_list_act_rel_Tbl.act_id)
             -- fetch catchment indicator extension
         left join act_tag_tbl catchment on (catchment.act_id = sbadm_tbl.act_id and catchment.tag_name = 'catchmentIndicator')
+        left join (SELECT act_id, CASE WHEN tag_value = '1' THEN 'ActType-TimrOutreachSession' END AS typ_mnemonic FROM act_tag_tbl WHERE tag_name = 'outreach') enc_or ON (enc_or.act_id = sbadm_tbl.enc_id )
+        left join act_ext_tbl population ON (population.act_id = sbadm_tbl.act_id and population.ext_typ = 'http://openiz.org/extensions/contrib/timr/batchPopulationType')
       where
         -- we don't want back-entered data
         sbadm_tbl.enc_id is not null
         -- we dont want supplements
         and sbadm_tbl.type_mnemonic != 'DrugTherapy'
+        and sbadm_tbl.type_mnemonic NOT IN ('DrugTherapy','BoosterImmunization')
         -- we don't want those vaccinations not done
-        and not sbadm_tbl.neg_ind
+        -- and not sbadm_tbl.neg_ind
         -- action occurred during month
         and sbadm_tbl.act_utc::DATE between '${startDate}' and '${endDate}'
         ${ageQuery}

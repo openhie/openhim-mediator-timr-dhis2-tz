@@ -88,15 +88,7 @@ function setupApp() {
   const startDate = moment().subtract(2, 'month').startOf('month').format('YYYY-MM-DD')
   const endDate = moment().subtract(2, 'month').endOf('month').format('YYYY-MM-DD')
   const period = moment().subtract(2, 'months').format('YYYYMM')
-  app.get('/test', (req, res) => {
-    const fhir = FHIR(config.fhir)
-    let orchestrations = []
-    let uuid = 'urn:uuid:2ab07dde-fd2e-3704-9b7f-8329ff5549f3'
-    fhir.getdhis2FacilityId(uuid, orchestrations, (err, respo) => {
-      console.log(JSON.stringify(orchestrations,0,2));
-      winston.error(JSON.stringify(respo,0,2))
-    })
-  })
+
   app.get('/syncImmunizationCoverage', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
@@ -119,7 +111,7 @@ function setupApp() {
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
-                  if (facData.length > 0) {
+                  if (facData.length >= 0) {
                     winston.info("Processing Immunization Data for " + facilityName)
                     dhis2.populateImmunizationValues({
                       period,
@@ -174,7 +166,7 @@ function setupApp() {
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
-                  if (facData.length > 0) {
+                  if (facData.length >= 0) {
                     winston.info("Processing Supplements Data for " + facilityName)
                     dhis2.populateSupplementsValues({
                       period,
@@ -244,7 +236,7 @@ function setupApp() {
             async.parallel({
                 processEBF: (callback) => {
                   mixin.extractFacilityData(timrFacilityId, results.EBF, facData => {
-                    if (facData.length > 0) {
+                    if (facData.length >= 0) {
                       winston.info("Processing EBF Breast Feeding Data for " + facilityName)
                       dhis2.populateBreastFeedingValues({
                         period,
@@ -262,7 +254,7 @@ function setupApp() {
                 },
                 processRF: (callback) => {
                   mixin.extractFacilityData(timrFacilityId, results.RF, facData => {
-                    if (facData.length > 0) {
+                    if (facData.length >= 0) {
                       winston.info("Processing RF Breast Feeding Data for " + facilityName)
                       dhis2.populateBreastFeedingValues({
                         period,
@@ -314,7 +306,7 @@ function setupApp() {
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
-              if (facData.length > 0) {
+              if (facData.length >= 0) {
                 winston.info("Processing PMTCT Data for " + facilityName)
                 dhis2.populatePMTCTValues({
                   period,
@@ -361,7 +353,7 @@ function setupApp() {
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
-              if (facData.length > 0) {
+              if (facData.length >= 0) {
                 winston.info("Processing CTC Data for " + facilityName)
                 dhis2.populateCTCValues({
                   period,
@@ -410,7 +402,7 @@ function setupApp() {
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
-              if (facData.length > 0) {
+              if (facData.length >= 0) {
                 winston.info("Processing Mosquito Net Data for " + facilityName)
                 dhis2.populateLLINMosqNetValues({
                   period,
@@ -459,7 +451,7 @@ function setupApp() {
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
-                  if (facData.length > 0) {
+                  if (facData.length >= 0) {
                     winston.info("Processing Weight Age Ratio Data for " + facilityName)
                     dhis2.populateWeightAgeRatioValues({
                       period,
@@ -514,7 +506,7 @@ function setupApp() {
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
-                  if (facData.length > 0) {
+                  if (facData.length >= 0) {
                     winston.info("Processing Child Visit Data for " + facilityName)
                     dhis2.populateChildVisitValues({
                       period,
@@ -567,7 +559,7 @@ function setupApp() {
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
-              if (facData.length > 0) {
+              if (facData.length >= 0) {
                 winston.info("Processing TT Data for " + facilityName)
                 dhis2.populateTTValues({
                   period,

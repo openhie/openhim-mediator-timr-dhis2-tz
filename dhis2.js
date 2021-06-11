@@ -38,7 +38,6 @@ module.exports = function (cnf) {
       var dhisDataMapping = []
       let ages = ["years", "months", "weeks"]
       let ageGroups = []
-      //return callback("", require("./delete.json"), require("./delete1.json"))
       async.eachSeries(concept, (dataelement, nextConcept) => {
         winston.info('Translating dataelement ' + dataelement.code)
         this.getCategoryCombo(dataelement.code, (err, catComb) => {
@@ -75,10 +74,23 @@ module.exports = function (cnf) {
                       return ageGrp.code === opt.id
                     })
                     if (!exists) {
-                      ageGroups.push({
-                        code: opt.id,
-                        ageGrp
-                      })
+                      //MR should pull data for all ages
+                      if(dataelement.code === "JXJ6K85BwHb") {
+                        let exists = ageGroups.find((ageGrp) => {
+                          return ageGrp.code === 'all'
+                        })
+                        if(!exists) {
+                          ageGroups.push({
+                            code: 'all',
+                            ageGrp: 'all'
+                          })
+                        }
+                      } else {
+                        ageGroups.push({
+                          code: opt.id,
+                          ageGrp
+                        })
+                      }
                     }
                   }
                 });
@@ -109,10 +121,26 @@ module.exports = function (cnf) {
                     return ageGrp.code === dataelement.code
                   })
                   if (!exists) {
-                    ageGroups.push({
-                      code: dataelement.code,
-                      ageGrp
-                    })
+                    //for IPV and ROTA get data for all ages
+                    if(dataelement.code === "w3flvyXod5d" ||
+                       dataelement.code === "IneV6eRU9fu" ||
+                       dataelement.code === "fMzRNxplkxA"
+                    ) {
+                      let exists = ageGroups.find((ageGrp) => {
+                        return ageGrp.code === 'all'
+                      })
+                      if(!exists) {
+                        ageGroups.push({
+                          code: 'all',
+                          ageGrp: 'all'
+                        })
+                      }
+                    } else {
+                      ageGroups.push({
+                        code: dataelement.code,
+                        ageGrp
+                      })
+                    }
                   }
                 }
               }
@@ -214,7 +242,15 @@ module.exports = function (cnf) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, immunizationConcMap, (timrVaccineCode) => {
           let ageGrpExist = mapping.catopts.find((catOpt) => {
-            return catOpt.id === ageGrpCode
+            return catOpt.id === ageGrpCode || (
+              //for IPV, MR and ROTA get data for all ages
+              ageGrpCode === 'all' && (
+                mapping.dataelement === 'w3flvyXod5d' ||
+                mapping.dataelement === 'IneV6eRU9fu' ||
+                mapping.dataelement === 'fMzRNxplkxA' ||
+                mapping.dataelement === 'JXJ6K85BwHb'
+              )
+            )
           })
           // if age grp is not defined under cat opts then check if its defined in dataelement
           if (!ageGrpExist && mapping.dataelement === ageGrpCode) {
@@ -290,16 +326,14 @@ module.exports = function (cnf) {
               total += parseInt(value.in_catchment)
             }
           }
-          if (total) {
-            dataValues.push({
-              'attributeOptionCombo': 'uGIJ6IdkP7Q',
-              'dataElement': mapping.dataelement,
-              'categoryOptionCombo': mapping.catoptcomb,
-              'period': period,
-              'orgUnit': dhis2FacilityId,
-              'value': `${total}`
-            })
-          }
+          dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
+            'dataElement': mapping.dataelement,
+            'categoryOptionCombo': mapping.catoptcomb,
+            'period': period,
+            'orgUnit': dhis2FacilityId,
+            'value': total
+          })
           return nxtMapping()
         })
       }, () => {
@@ -347,16 +381,18 @@ module.exports = function (cnf) {
           let values = facData.find((data) => {
             return data.gender_mnemonic.toLowerCase() == gender && data.code == timrVaccineCode
           })
-          if (values) {
-            dataValues.push({
-              'attributeOptionCombo': 'uGIJ6IdkP7Q',
-              'dataElement': mapping.dataelement,
-              'categoryOptionCombo': mapping.catoptcomb,
-              'period': period,
-              'orgUnit': dhis2FacilityId,
-              'value': values.total
-            })
+          let total = 0
+          if(values) {
+            total = values.total
           }
+          dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
+            'dataElement': mapping.dataelement,
+            'categoryOptionCombo': mapping.catoptcomb,
+            'period': period,
+            'orgUnit': dhis2FacilityId,
+            'value': total
+          })
           return nxtMapping()
         })
       }, () => {
@@ -389,16 +425,18 @@ module.exports = function (cnf) {
           let values = facData.find((data) => {
             return data.gender_mnemonic.toLowerCase() == gender && data.ext_value == timrVaccineCode
           })
-          if (values) {
-            dataValues.push({
-              'attributeOptionCombo': 'uGIJ6IdkP7Q',
-              'dataElement': mapping.dataelement,
-              'categoryOptionCombo': mapping.catoptcomb,
-              'period': period,
-              'orgUnit': dhis2FacilityId,
-              'value': values.total
-            })
+          let total = 0
+          if(values) {
+            total = values.total
           }
+          dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
+            'dataElement': mapping.dataelement,
+            'categoryOptionCombo': mapping.catoptcomb,
+            'period': period,
+            'orgUnit': dhis2FacilityId,
+            'value': total
+          })
           return nxtMapping()
         })
       }, () => {
@@ -431,16 +469,18 @@ module.exports = function (cnf) {
         let values = facData.find((data) => {
           return data.gender_mnemonic.toLowerCase() == gender
         })
-        if (values) {
-          dataValues.push({
-            'attributeOptionCombo': 'uGIJ6IdkP7Q',
-            'dataElement': mapping.dataelement,
-            'categoryOptionCombo': mapping.catoptcomb,
-            'period': period,
-            'orgUnit': dhis2FacilityId,
-            'value': values.total
-          })
+        let total = 0
+        if(values) {
+          total = values.total
         }
+        dataValues.push({
+          'attributeOptionCombo': 'uGIJ6IdkP7Q',
+          'dataElement': mapping.dataelement,
+          'categoryOptionCombo': mapping.catoptcomb,
+          'period': period,
+          'orgUnit': dhis2FacilityId,
+          'value': total
+        })
         return nxtMapping()
       }, () => {
         return callback()
@@ -472,16 +512,18 @@ module.exports = function (cnf) {
         let values = facData.find((data) => {
           return data.gender_mnemonic.toLowerCase() == gender
         })
-        if (values) {
-          dataValues.push({
-            'attributeOptionCombo': 'uGIJ6IdkP7Q',
-            'dataElement': mapping.dataelement,
-            'categoryOptionCombo': mapping.catoptcomb,
-            'period': period,
-            'orgUnit': dhis2FacilityId,
-            'value': values.total
-          })
+        let total = 0
+        if(values) {
+          total = values.total
         }
+        dataValues.push({
+          'attributeOptionCombo': 'uGIJ6IdkP7Q',
+          'dataElement': mapping.dataelement,
+          'categoryOptionCombo': mapping.catoptcomb,
+          'period': period,
+          'orgUnit': dhis2FacilityId,
+          'value': total
+        })
         return nxtMapping()
       }, () => {
         return callback()
@@ -512,16 +554,18 @@ module.exports = function (cnf) {
         let values = facData.find((data) => {
           return data.gender_mnemonic.toLowerCase() == gender
         })
-        if (values) {
-          dataValues.push({
-            'attributeOptionCombo': 'uGIJ6IdkP7Q',
-            'dataElement': mapping.dataelement,
-            'categoryOptionCombo': mapping.catoptcomb,
-            'period': period,
-            'orgUnit': dhis2FacilityId,
-            'value': values.total
-          })
+        let total = 0
+        if(values) {
+          total = values.total
         }
+        dataValues.push({
+          'attributeOptionCombo': 'uGIJ6IdkP7Q',
+          'dataElement': mapping.dataelement,
+          'categoryOptionCombo': mapping.catoptcomb,
+          'period': period,
+          'orgUnit': dhis2FacilityId,
+          'value': total
+        })
         return nxtMapping()
       }, () => {
         return callback()
@@ -570,16 +614,18 @@ module.exports = function (cnf) {
         let values = facData.find((data) => {
           return data.gender_mnemonic.toLowerCase() == gender && data.code == ratio
         })
-        if (values) {
-          dataValues.push({
-            'attributeOptionCombo': 'uGIJ6IdkP7Q',
-            'dataElement': mapping.dataelement,
-            'categoryOptionCombo': mapping.catoptcomb,
-            'period': period,
-            'orgUnit': dhis2FacilityId,
-            'value': values.total
-          })
+        let total = 0
+        if(values) {
+          total = values.total
         }
+        dataValues.push({
+          'attributeOptionCombo': 'uGIJ6IdkP7Q',
+          'dataElement': mapping.dataelement,
+          'categoryOptionCombo': mapping.catoptcomb,
+          'period': period,
+          'orgUnit': dhis2FacilityId,
+          'value': total
+        })
         return nxtMapping()
       }, () => {
         return callback()
@@ -622,16 +668,18 @@ module.exports = function (cnf) {
         let values = facData.find((data) => {
           return data.gender_mnemonic.toLowerCase() == gender
         })
-        if (values) {
-          dataValues.push({
-            'attributeOptionCombo': 'uGIJ6IdkP7Q',
-            'dataElement': mapping.dataelement,
-            'categoryOptionCombo': mapping.catoptcomb,
-            'period': period,
-            'orgUnit': dhis2FacilityId,
-            'value': values.total
-          })
+        let total = 0
+        if(values) {
+          total = values.total
         }
+        dataValues.push({
+          'attributeOptionCombo': 'uGIJ6IdkP7Q',
+          'dataElement': mapping.dataelement,
+          'categoryOptionCombo': mapping.catoptcomb,
+          'period': period,
+          'orgUnit': dhis2FacilityId,
+          'value': total
+        })
         return nxtMapping()
       }, () => {
         return callback()
@@ -664,16 +712,18 @@ module.exports = function (cnf) {
           let values = facData.find((data) => {
             return data.gender_mnemonic.toLowerCase() == gender && data.ext_value == timrItemCode
           })
-          if (values) {
-            dataValues.push({
-              'attributeOptionCombo': 'uGIJ6IdkP7Q',
-              'dataElement': mapping.dataelement,
-              'categoryOptionCombo': mapping.catoptcomb,
-              'period': period,
-              'orgUnit': dhis2FacilityId,
-              'value': values.total
-            })
+          let total = 0
+          if(values) {
+            total = values.total
           }
+          dataValues.push({
+            'attributeOptionCombo': 'uGIJ6IdkP7Q',
+            'dataElement': mapping.dataelement,
+            'categoryOptionCombo': mapping.catoptcomb,
+            'period': period,
+            'orgUnit': dhis2FacilityId,
+            'value': total
+          })
           return nxtMapping()
         })
       }, () => {
@@ -689,26 +739,40 @@ module.exports = function (cnf) {
       var username = config.username
       var password = config.password
       var auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
-      var reqBody = {
-        "dataValues": dataValues
-      }
-      winston.info("Saving " + reqBody.dataValues.length + " Data Values")
+      winston.info("Saving " + dataValues.length + " Data Values")
       var options = {
         url: url.toString(),
         headers: {
           'Content-Type': 'application/json',
           Authorization: auth
-        },
-        json: reqBody
+        }
       }
       let before = new Date()
-      request.post(options, function (err, res, body) {
-        winston.error(JSON.stringify(body, 0, 2))
-        if (err) {
-          winston.error(err)
+      async.doWhilst(
+        (callback) => {
+          let submitDataValues = dataValues.splice(0, 2000)
+          if(submitDataValues.length > 0) {
+            winston.info("Submitting " + submitDataValues.length + " Data Values")
+            options.json = {
+              dataValues: submitDataValues
+            }
+            request.post(options, function (err, res, body) {
+              winston.info(JSON.stringify(body, 0, 2))
+              if (err) {
+                winston.error(err)
+              }
+              orchestrations.push(utils.buildOrchestration('Saving Immunization Data To DHIS2', before, 'POST', url.toString(), JSON.stringify(options.json), res, JSON.stringify(body)))
+              return callback(null)
+            })
+          }
+        },
+        (callback) => {
+          return callback(null, dataValues.length > 0)
+        },
+        () => {
+          winston.info('Done')
         }
-        orchestrations.push(utils.buildOrchestration('Saving Immunization Data To DHIS2', before, 'POST', url.toString(), JSON.stringify(reqBody), res, JSON.stringify(body)))
-      })
+      )
     },
 
     saveDHISData: function (dataElement, catOptCombo, orgCode, value, orchestrations, callback) {
