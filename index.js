@@ -21,6 +21,7 @@ const mosquitonet_valuesets = require('./terminologies/dhis-mosquitonet-valueset
 const weightAgeRatio_valuesets = require('./terminologies/dhis-weight_age_ratio-valuesets.json')
 const childvisit_valuesets = require('./terminologies/dhis-childvisit-valuesets.json')
 const TT_valuesets = require('./terminologies/dhis-TT-valuesets.json')
+const BirthCert_valuesets = require('./terminologies/dhis-BirthCert-valuesets.json')
 
 const port = 9001
 // Config
@@ -96,7 +97,7 @@ function setupApp() {
     updateTransaction(req, "Still Processing", "Processing", "200", "")
     req.timestamp = new Date()
     let orchestrations = []
-    winston.info("Get DHIS2 Facilities From Openinfoman")
+    winston.info("Get DHIS2 Facilities From FHIR")
     fhir.getDHIS2Facilities(orchestrations, (facilities) => {
       winston.info("Translating DHIS2 Data Elements")
       dhis2.getDhisDataMapping(imm_valuesets, (err, dhisDataMapping, ageGroups) => {
@@ -159,7 +160,7 @@ function setupApp() {
         mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
           winston.info('Getting Supplements Data From Warehouse')
           middleware.getSupplementsData(startDate, endDate, timrAgeGroup, rows => {
-            winston.info("Get DHIS2 Facilities From Openinfoman")
+            winston.info("Get DHIS2 Facilities From FHIR")
             fhir.getDHIS2Facilities(orchestrations, (facilities) => {
               async.each(facilities, (facility, nextFacility) => {
                 var dhis2FacilityId = facility.dhis2FacilityId
@@ -227,7 +228,7 @@ function setupApp() {
           })
         }
       }, (err, results) => {
-        winston.info("Get DHIS2 Facilities From Openinfoman")
+        winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
@@ -286,6 +287,53 @@ function setupApp() {
     })
   })
 
+  app.get('/syncChildWithBirthCert', (req, res) => {
+    const dhis2 = DHIS2(config.dhis2)
+    const fhir = FHIR(config.fhir)
+    res.end()
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    req.timestamp = new Date()
+    let orchestrations = []
+    let dataValues = []
+    winston.info("Translating DHIS2 Data Elements")
+    dhis2.getDhisDataMapping(BirthCert_valuesets, (err, dhisDataMapping) => {
+      winston.info("Done Translating DHIS2 Data Elements")
+      winston.info('Getting Children With Birth Certificate Data From Warehouse')
+      middleware.getChildWithBirthCertData(startDate, endDate, (rows) => {
+        winston.info("Get DHIS2 Facilities From FHIR")
+        fhir.getDHIS2Facilities(orchestrations, (facilities) => {
+          async.eachSeries(facilities, (facility, nextFacility) => {
+            var dhis2FacilityId = facility.dhis2FacilityId
+            var timrFacilityId = facility.timrFacilityId
+            var facilityName = facility.facilityName
+            mixin.extractFacilityData(timrFacilityId, rows, facData => {
+              if (facData.length >= 0) {
+                winston.info("Processing Children With Birth Certificate Data for " + facilityName)
+                dhis2.populateChildWithBirthCertValues({
+                  period,
+                  facData,
+                  dataValues,
+                  dhisDataMapping,
+                  dhis2FacilityId
+                }, (err, res, body) => {
+                  return nextFacility()
+                })
+              } else {
+                return nextFacility()
+              }
+            })
+          }, function () {
+            if (dataValues.length > 0) {
+              dhis2.saveBulkData(dataValues, orchestrations)
+            }
+            winston.info('Done Synchronizing Children With Birth Certificate Data!!!')
+            updateTransaction(req, "", "Successful", "200", orchestrations)
+          })
+        })
+      })
+    })
+  })
+
   app.get('/syncPMTCT', (req, res) => {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
@@ -299,7 +347,7 @@ function setupApp() {
       winston.info("Done Translating DHIS2 Data Elements")
       winston.info('Getting PMTCT Data From Warehouse')
       middleware.getPMTCTData(startDate, endDate, (rows) => {
-        winston.info("Get DHIS2 Facilities From Openinfoman")
+        winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
@@ -346,7 +394,7 @@ function setupApp() {
       winston.info("Done Translating DHIS2 Data Elements")
       winston.info('Getting CTC Data From Warehouse')
       middleware.getCTCReferal(startDate, endDate, (rows) => {
-        winston.info("Get DHIS2 Facilities From Openinfoman")
+        winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
@@ -395,7 +443,7 @@ function setupApp() {
       winston.info("Done Translating DHIS2 Data Elements")
       winston.info('Getting Mosquito Net Data From Warehouse')
       middleware.getDispLLINMosqNet(startDate, endDate, (rows) => {
-        winston.info("Get DHIS2 Facilities From Openinfoman")
+        winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId
@@ -445,7 +493,7 @@ function setupApp() {
           mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
             winston.info('Getting Weight Age Ratio Data From Warehouse')
             middleware.getWeightAgeRatio(startDate, endDate, timrAgeGroup, rows => {
-              winston.info("Get DHIS2 Facilities From Openinfoman")
+              winston.info("Get DHIS2 Facilities From FHIR")
               async.eachSeries(facilities, (facility, nextFacility) => {
                 var dhis2FacilityId = facility.dhis2FacilityId
                 var timrFacilityId = facility.timrFacilityId
@@ -500,7 +548,7 @@ function setupApp() {
           mixin.translateAgeGroup(ageGrp.ageGrp, timrAgeGroup => {
             winston.info('Getting Child Visit Data From Warehouse')
             middleware.getChildVisitData(startDate, endDate, timrAgeGroup, rows => {
-              winston.info("Get DHIS2 Facilities From Openinfoman")
+              winston.info("Get DHIS2 Facilities From FHIR")
               async.eachSeries(facilities, (facility, nextFacility) => {
                 var dhis2FacilityId = facility.dhis2FacilityId
                 var timrFacilityId = facility.timrFacilityId
@@ -552,7 +600,7 @@ function setupApp() {
       winston.info("Done Translating DHIS2 Data Elements")
       winston.info('Getting TT Data From Warehouse')
       middleware.getTTData(startDate, endDate, rows => {
-        winston.info("Get DHIS2 Facilities From Openinfoman")
+        winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.each(facilities, (facility, nextFacility) => {
             var dhis2FacilityId = facility.dhis2FacilityId

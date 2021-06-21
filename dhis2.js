@@ -487,6 +487,49 @@ module.exports = function (cnf) {
       })
     },
 
+    populateChildWithBirthCertValues: function ({
+      period,
+      facData,
+      dataValues,
+      dhisDataMapping,
+      dhis2FacilityId
+    }, callback) {
+      async.each(dhisDataMapping, (mapping, nxtMapping) => {
+        let gender
+        for (let catopt of mapping.catopts) {
+          let catOptOper = catOptOpers.find((oper) => {
+            return oper.code === catopt.id
+          })
+
+          for (let dimInd in catOptOper.dimension) {
+            let dimension = catOptOper.dimension[dimInd]
+            if (dimension === 'gender') {
+              gender = catOptOper.operations[dimInd].value.toLowerCase()
+            }
+          }
+        }
+
+        let values = facData.find((data) => {
+          return data.gender_mnemonic.toLowerCase() == gender
+        })
+        let total = 0
+        if(values) {
+          total = values.total
+        }
+        dataValues.push({
+          'attributeOptionCombo': 'uGIJ6IdkP7Q',
+          'dataElement': mapping.dataelement,
+          'categoryOptionCombo': mapping.catoptcomb,
+          'period': period,
+          'orgUnit': dhis2FacilityId,
+          'value': total
+        })
+        return nxtMapping()
+      }, () => {
+        return callback()
+      })
+    },
+
     populateCTCValues: function ({
       period,
       facData,

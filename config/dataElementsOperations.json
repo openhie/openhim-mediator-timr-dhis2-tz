@@ -101,10 +101,14 @@
   {
     "code": "Zn1VXPl11BD",
     "operations": [{
+      "operation": ">=",
+      "value": 7
+    }, {
       "operation": "<",
       "value": 1
     }],
     "dimension": [
+      "months",
       "years"
     ]
   },
