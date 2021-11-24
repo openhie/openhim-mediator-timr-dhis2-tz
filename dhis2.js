@@ -1,4 +1,5 @@
 'use strict'
+const fs = require("fs")
 const winston = require('winston')
 const request = require('request')
 const URI = require('urijs')
