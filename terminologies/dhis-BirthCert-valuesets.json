@@ -1,0 +1,26 @@
+{
+  "resourceType": "ValueSet",
+  "id": "dhis2-birthcertificate-tz",
+  "meta": {
+    "lastUpdated": "2018-01-11T14:00:00.495+03:00"
+  },
+  "url": "http://hl7.org/fhir/ValueSet/dhis2-birthcertificate",
+  "version": "1.0.0",
+  "name": "DHIS2 Children With Birth Certificate",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "BID",
+  "date": "2021-06-17T17:57:00.495+03:00",
+  "compose": {
+    "include": [
+      {
+        "system": "http://dhis.moh.go.tz/api/ValueSet",
+        "concept": [
+          {
+            "code": "lK7HiIVCN1z"
+          }
+        ]
+      }
+    ]
+  }
+}

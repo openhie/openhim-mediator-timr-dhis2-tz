@@ -1,0 +1,17 @@
+[{
+    "code": "aphpcNcBNWk",
+    "ageGrp": "= 6 months"
+  },
+  {
+    "code": "Nd5BDnxVEP0",
+    "ageGrp": "> 1 years && <= 5 years"
+  },
+  {
+    "code": "Zn1VXPl11BD",
+    "ageGrp": ">= 7 months && < 1 years"
+  },
+  {
+    "code": "e7jUPPjXtx8",
+    "ageGrp": ">= 1 years && <= 5 years"
+  }
+]

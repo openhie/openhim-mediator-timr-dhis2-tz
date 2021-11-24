@@ -11,19 +11,22 @@ module.exports = function (fhirconf) {
     getDHIS2Facilities: (orchestrations, callback) => {
       winston.info("Scanning DHIS2 facilities")
       let limitDVS = [
-        "f2fafb9a-9250-3d53-952b-87abb0e096a4",
-        "d8db6389-286c-337a-afbc-fddc93a68198",
-        "17e28a2f-cbba-3b12-9c07-f575ae61eb70",
-        "e65ac576-0efd-39c6-8229-17c37e599fb1",
-        "3cbdccf3-3ed1-33bb-aa3b-36bb1337e295",
-        "c8c9aa95-d307-379f-ae4f-06076c89b77f",
-        "a8ffa45b-c7d3-3446-a9ba-ea59e5ad0e37",
-        "125a3ff1-26a7-3afa-8ed3-1af098fa3afb",
-        "a4b1c4f4-8750-372e-9b6a-73e9cd301dc8",
-        "fd95f0c5-6d7d-3bf9-9382-234169c0562b",
-        "e38a0c1b-28ea-363a-ac1a-c1dda9b44536"
+        "bfbaf07e-12d7-3e30-bb97-be9735a8a241",
+        "1fd986f5-a570-364e-8c30-2e7edca2b69b",
+	"05eda041-c874-3630-b7dc-99887e7adad4",
+	"88ce1df2-23cb-3097-9410-8631b6a6746a",
+	"01aa650b-1290-3f03-9529-942b92d5e277",
+	"0cabee54-f6d7-3372-9bda-6a781f5b7ece",
+	"25c5a961-f9af-335b-bfc6-19d63ba4c601",
+	"5ae4583e-b0d5-3946-a300-0ae9e980d547",
+	"3b81b247-07da-3faa-b6d5-e8e8b3e248f0",
+	"2872b0c6-5412-3436-acb5-108fb2db647c",
+	"9b573dd9-1e72-3110-9540-8b7cd1a59df4",
+	"4e29f95f-6616-3c68-b817-71e8a5dbe6d8",
+	"4891c9e8-6570-3687-ad2e-3f670ab43263",
+	"d1bf528e-68cc-39dc-9043-9bf9724b6754",
+	"0330ab8b-8911-3d56-8b3e-148fe958f214"
       ]
-      let error = false
       let url = new URI(config.baseURL).segment("Location").addQuery("identifier", "tanzania-hmis|").addQuery("_count", 200).toString()
 
       const facilities = []
@@ -73,7 +76,7 @@ module.exports = function (fhirconf) {
             }
             for(let ext of entry.resource.extension) {
               if(ext.url === 'DistrictVaccineStore') {
-                DVSID = ext.valueString
+                DVSID = ext.valueReference.reference.split("/")[1]
               }
             }
             if (dhis2FacilityId && limitDVS.includes(DVSID)) {

@@ -1,0 +1,14 @@
+[
+  {
+    "code": "NUUhXEngiby",
+    "ageGrp": "<= 1 years"
+  },
+  {
+    "code": "uRyYLXG9XA0",
+    "ageGrp": "> 1 years"
+  },
+  {
+    "code": "all",
+    "ageGrp": "all"
+  }
+]

@@ -58,22 +58,28 @@ module.exports = {
         if (dim.includes('week')) {
           age = age * 7
         }
+        ageOper.push({
+          operator: operator,
+          age: age + ' ' + dimension
+        })
         // for month, catch +30 days i.e if 3 months then get 3 and 1 day, 3 and 2 days etc
-        if (dimension == 'MONTH') {
-          ageOper.push({
-            operator: '>=',
-            age: age + ' ' + dimension
-          })
-          ageOper.push({
-            operator: '<=',
-            age: age + '.9 ' + dimension
-          })
-        } else {
-          ageOper.push({
-            operator: operator,
-            age: age + ' ' + dimension
-          })
-        }
+        // if (dimension == 'MONTH') {
+        //   ageOper.push({
+        //     operator: '>=',
+        //     age: age + ' ' + dimension
+        //   })
+        //   if(!ageGroup.includes('&&') && !ageGroup.includes('||')) {
+        //     ageOper.push({
+        //       operator: '<=',
+        //       age: age + '.9 ' + dimension
+        //     })
+        //   }
+        // } else {
+        //   ageOper.push({
+        //     operator: operator,
+        //     age: age + ' ' + dimension
+        //   })
+        // }
       } else if (operator === '=') {
         // remove = sign
         ageGroup = ageGroup.replace('=', '')
@@ -117,10 +123,12 @@ module.exports = {
             operator: '>=',
             age: age + ' ' + dimension
           })
-          ageOper.push({
-            operator: '<=',
-            age: age + '.9 ' + dimension
-          })
+          if(!ageGroup.includes('&&') && !ageGroup.includes('||')) {
+            ageOper.push({
+              operator: '<=',
+              age: age + '.9 ' + dimension
+            })
+          }
         } else {
           ageOper.push({
             operator: '=',
@@ -134,3 +142,4 @@ module.exports = {
     callback(ageOper, false)
   }
 }
+

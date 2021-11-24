@@ -325,27 +325,21 @@
   ],
   "configDefs": [
     {
-      "param": "timrOauth2",
-      "displayName": "TImR OAUTH2",
+      "param": "timrPostgres",
+      "displayName": "TImR Postgres",
       "description": "The Open Authentication that generates access token to access TImR server",
       "type": "struct",
       "template": [
         {
-          "param": "url",
-          "displayName": "URL",
-          "description": "The base URL (e.g. http://timr.marc-hi.ca:8080/auth/oauth2_token)",
+          "param": "host",
+          "displayName": "Host",
+          "description": "The host URL (e.g. localhost)",
           "type": "string"
         },
         {
-          "param": "scope",
-          "displayName": "Scope",
-          "description": "The base URL (e.g. http://timr.marc-hi.ca:8080/fhir)",
-          "type": "string"
-        },
-        {
-          "param": "token",
-          "displayName": "Token",
-          "description": "Token",
+          "param": "port",
+          "displayName": "Host Port",
+          "description": "Host Port",
           "type": "string"
         },
         {
@@ -359,19 +353,11 @@
           "displayName": "Password",
           "description": "Password required to generate access token",
           "type": "password"
-        }
-      ]
-    },
-    {
-      "param": "timr",
-      "displayName": "TImR",
-      "description": "The Immunization server to sync data with",
-      "type": "struct",
-      "template": [
+        },
         {
-          "param": "url",
-          "displayName": "URL",
-          "description": "The base URL (e.g. https://vimstraining.elmis-dev.org)",
+          "param": "database",
+          "displayName": "Database Name",
+          "description": "Database Name",
           "type": "string"
         }
       ]
@@ -385,7 +371,7 @@
         {
           "param": "baseURL",
           "displayName": "URL",
-          "description": "The base URL (e.g. http://52.32.67.173:8081/fhir)",
+          "description": "The base URL (e.g. http://localhost:8081/hapi/fhir/hfr)",
           "type": "string"
         },
         {
@@ -472,59 +458,18 @@
           "type": "password"
         }
       ]
-    },
-    {
-      "param": "openinfoman",
-      "displayName": "InterLinked Registry - Openinfoman",
-      "description": "Server holding facility mappings between DHIS2,VIMS,TImR and HFR",
-      "type": "struct",
-      "template": [
-        {
-          "param": "url",
-          "displayName": "URL",
-          "description": "The base URL (e.g. http://52.32.67.173:8984/CSD)",
-          "type": "string"
-        },
-        {
-          "param": "document",
-          "displayName": "Facility Document",
-          "description": "Document holding facilities",
-          "type": "string"
-        },
-        {
-          "param": "username",
-          "displayName": "Username",
-          "description": "Username required to send data to DHIS2",
-          "type": "string"
-        },
-        {
-          "param": "password",
-          "displayName": "Password",
-          "description": "Password required to send data to DHIS2",
-          "type": "password"
-        }
-      ]
     }
   ],
   "config": {
-    "timrOauth2": {
-      "url": "http://34.212.232.56:8080/auth/oauth2_token",
-      "scope": "http://34.212.232.56:8080/fhir",
-      "token": "aWxfbWVkaWF0b3I6QE1lZGlhdG9yU291cmNlMTIz",
-      "username": "il_mediator",
-      "password": "@MediatorSource123"
-    },
-    "timr": {
-      "url": "http://34.212.232.56:8080/"
+    "timrPostgres": {
+      "host": "localhost",
+      "port": "5432",
+      "username": "timr",
+      "password": "timr",
+      "database": "timr"
     },
     "fhir": {
       "baseURL": "http://localhost:8081/hapi/fhir",
-      "username": "",
-      "password": ""
-    },
-    "openinfoman": {
-      "url": "http://localhost:8984",
-      "document": "BID",
       "username": "",
       "password": ""
     },
@@ -535,8 +480,7 @@
     },
     "email_notification": {
       "emails": {
-        "1":"allyshaban5@gmail.com",
-        "2":"ashaban@intrahealth.org"
+        "1":"allyshaban5@gmail.com"
       },
       "smtp_host":"smtp.gmail.com",
       "smtp_port":"587",
@@ -544,3 +488,4 @@
     }
   }
 }
+
