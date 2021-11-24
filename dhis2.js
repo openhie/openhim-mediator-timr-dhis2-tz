@@ -858,7 +858,7 @@ module.exports = function (cnf) {
 
     saveDHISData: function (dataElement, catOptCombo, orgCode, value, orchestrations, callback) {
       var period = moment().subtract(1, 'months').format('YYYYMM')
-      var url = URI(config.url).segment('api/dataValueSets')
+      var url = URI(config.url).segment('api/dataValueSets').addQuery("orgUnitIdScheme","code")
       var username = config.username
       var password = config.password
       var auth = "Basic " + Buffer.from(username + ":" + password).toString("base64");
@@ -894,7 +894,7 @@ module.exports = function (cnf) {
       winston.info('Making datase as complete')
       const fhir = FHIR(nconf.get("fhir"))
       let orchestrations = []
-      let url = URI(nconf.get('dhis2:url')).segment('api/completeDataSetRegistrations')
+      let url = URI(nconf.get('dhis2:url')).segment('api/completeDataSetRegistrations').addQuery("orgUnitIdScheme","code")
       let auth = "Basic " + Buffer.from(nconf.get('dhis2:username') + ":" + nconf.get('dhis2:password')).toString("base64");
       let options = {
         url: url.toString(),
