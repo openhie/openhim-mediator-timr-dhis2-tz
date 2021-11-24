@@ -14,16 +14,6 @@ const DHIS2 = require('./dhis2')
 const FHIR = require('./fhir');
 const mixin = require('./mixin');
 const middleware = require('./middleware');
-const imm_valuesets = require('./terminologies/dhis-immunization-valuesets.json')
-const suppl_valuesets = require('./terminologies/dhis-supplements-valuesets.json')
-const breastfeed_valuesets = require('./terminologies/dhis-breastfeeding-valuesets.json')
-const pmtct_valuesets = require('./terminologies/dhis-pmtct-valuesets.json')
-const ctc_valuesets = require('./terminologies/dhis-ctc-valuesets.json')
-const mosquitonet_valuesets = require('./terminologies/dhis-mosquitonet-valuesets.json')
-const weightAgeRatio_valuesets = require('./terminologies/dhis-weight_age_ratio-valuesets.json')
-const childvisit_valuesets = require('./terminologies/dhis-childvisit-valuesets.json')
-const TT_valuesets = require('./terminologies/dhis-TT-valuesets.json')
-const BirthCert_valuesets = require('./terminologies/dhis-BirthCert-valuesets.json')
 
 const port = 9001
 // Config
