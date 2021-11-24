@@ -63,9 +63,13 @@ module.exports = function (fhirconf) {
             let timrFacilityId
             let dhis2FacilityId
             let multiplevimsid = false
+            let HFRCode
             for(let identifier of entry.resource.identifier) {
               if(identifier.type.text === 'id' && identifier.system === 'http://hfrportal.ehealth.go.tz') {
                 timrFacilityId = identifier.value
+              }
+              if(identifier.type.text === 'Fac_IDNumber' && identifier.system === 'http://hfrportal.ehealth.go.tz') {
+                HFRCode = identifier.value
               }
               if(identifier.type.text === 'id' && identifier.system === 'tanzania-hmis') {
                 if(dhis2FacilityId) {
@@ -79,11 +83,12 @@ module.exports = function (fhirconf) {
                 DVSID = ext.valueReference.reference.split("/")[1]
               }
             }
-            if (dhis2FacilityId && limitDVS.includes(DVSID)) {
+            if (HFRCode && limitDVS.includes(DVSID)) {
               facilities.push({
                 timrFacilityId: timrFacilityId,
                 timrFacilityUUID: 'urn:uuid:' + entry.resource.id,
                 dhis2FacilityId: dhis2FacilityId,
+                HFRCode,
                 facilityName: entry.resource.name,
                 multiplevimsid: multiplevimsid
               })

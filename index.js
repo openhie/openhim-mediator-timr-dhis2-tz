@@ -110,7 +110,7 @@ function setupApp() {
             winston.info('Getting Immunization Data From Warehouse')
             middleware.getImmunizationCoverageData(startDate, endDate, timrAgeGroup, rows => {
               async.each(facilities, (facility, nextFacility) => {
-                var dhis2FacilityId = facility.dhis2FacilityId
+                var HFRCode = facility.HFRCode
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -122,7 +122,7 @@ function setupApp() {
                       dataValues,
                       ageGrpCode: ageGrp.code,
                       dhisDataMapping,
-                      dhis2FacilityId
+                      HFRCode
                     }, (err, res, body) => {
                       return nextFacility()
                     })
@@ -165,7 +165,7 @@ function setupApp() {
             winston.info("Get DHIS2 Facilities From FHIR")
             fhir.getDHIS2Facilities(orchestrations, (facilities) => {
               async.each(facilities, (facility, nextFacility) => {
-                var dhis2FacilityId = facility.dhis2FacilityId
+                var HFRCode = facility.HFRCode
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -177,7 +177,7 @@ function setupApp() {
                       dataValues,
                       ageGrpCode: ageGrp.code,
                       dhisDataMapping,
-                      dhis2FacilityId
+                      HFRCode
                     }, (err, res, body) => {
                       return nextFacility()
                     })
@@ -233,7 +233,7 @@ function setupApp() {
         winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
-            var dhis2FacilityId = facility.dhis2FacilityId
+            var HFRCode = facility.HFRCode
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             async.parallel({
@@ -246,7 +246,7 @@ function setupApp() {
                         facData,
                         dataValues,
                         dhisDataMapping,
-                        dhis2FacilityId
+                        HFRCode
                       }, (err, res, body) => {
                         return callback(null)
                       })
@@ -264,7 +264,7 @@ function setupApp() {
                         facData,
                         dataValues,
                         dhisDataMapping,
-                        dhis2FacilityId
+                        HFRCode
                       }, (err, res, body) => {
                         return callback(null)
                       })
@@ -305,7 +305,7 @@ function setupApp() {
         winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
-            var dhis2FacilityId = facility.dhis2FacilityId
+            var HFRCode = facility.HFRCode
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -316,7 +316,7 @@ function setupApp() {
                   facData,
                   dataValues,
                   dhisDataMapping,
-                  dhis2FacilityId
+                  HFRCode
                 }, (err, res, body) => {
                   return nextFacility()
                 })
@@ -352,7 +352,7 @@ function setupApp() {
         winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
-            var dhis2FacilityId = facility.dhis2FacilityId
+            var HFRCode = facility.HFRCode
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -363,7 +363,7 @@ function setupApp() {
                   facData,
                   dataValues,
                   dhisDataMapping,
-                  dhis2FacilityId
+                  HFRCode
                 }, (err, res, body) => {
                   return nextFacility()
                 })
@@ -399,7 +399,7 @@ function setupApp() {
         winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
-            var dhis2FacilityId = facility.dhis2FacilityId
+            var HFRCode = facility.HFRCode
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -410,7 +410,7 @@ function setupApp() {
                   facData,
                   dataValues,
                   dhisDataMapping,
-                  dhis2FacilityId
+                  HFRCode
                 }, (err, res, body) => {
                   return nextFacility()
                 })
@@ -448,7 +448,7 @@ function setupApp() {
         winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.eachSeries(facilities, (facility, nextFacility) => {
-            var dhis2FacilityId = facility.dhis2FacilityId
+            var HFRCode = facility.HFRCode
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -459,7 +459,7 @@ function setupApp() {
                   facData,
                   dataValues,
                   dhisDataMapping,
-                  dhis2FacilityId
+                  HFRCode
                 }, (err, res, body) => {
                   return nextFacility()
                 })
@@ -497,7 +497,7 @@ function setupApp() {
             middleware.getWeightAgeRatio(startDate, endDate, timrAgeGroup, rows => {
               winston.info("Get DHIS2 Facilities From FHIR")
               async.eachSeries(facilities, (facility, nextFacility) => {
-                var dhis2FacilityId = facility.dhis2FacilityId
+                var HFRCode = facility.HFRCode
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -509,7 +509,7 @@ function setupApp() {
                       dataValues,
                       ageGrpCode: ageGrp.code,
                       dhisDataMapping,
-                      dhis2FacilityId
+                      HFRCode
                     }, (err, res, body) => {
                       return nextFacility()
                     })
@@ -552,7 +552,7 @@ function setupApp() {
             middleware.getChildVisitData(startDate, endDate, timrAgeGroup, rows => {
               winston.info("Get DHIS2 Facilities From FHIR")
               async.eachSeries(facilities, (facility, nextFacility) => {
-                var dhis2FacilityId = facility.dhis2FacilityId
+                var HFRCode = facility.HFRCode
                 var timrFacilityId = facility.timrFacilityId
                 var facilityName = facility.facilityName
                 mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -564,7 +564,7 @@ function setupApp() {
                       dataValues,
                       ageGrpCode: ageGrp.code,
                       dhisDataMapping,
-                      dhis2FacilityId
+                      HFRCode
                     }, (err, res, body) => {
                       return nextFacility()
                     })
@@ -605,7 +605,7 @@ function setupApp() {
         winston.info("Get DHIS2 Facilities From FHIR")
         fhir.getDHIS2Facilities(orchestrations, (facilities) => {
           async.each(facilities, (facility, nextFacility) => {
-            var dhis2FacilityId = facility.dhis2FacilityId
+            var HFRCode = facility.HFRCode
             var timrFacilityId = facility.timrFacilityId
             var facilityName = facility.facilityName
             mixin.extractFacilityData(timrFacilityId, rows, facData => {
@@ -616,7 +616,7 @@ function setupApp() {
                   facData,
                   dataValues,
                   dhisDataMapping,
-                  dhis2FacilityId
+                  HFRCode
                 }, (err, res, body) => {
                   return nextFacility()
                 })

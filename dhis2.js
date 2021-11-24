@@ -275,7 +275,7 @@ module.exports = function (cnf) {
       dataValues,
       ageGrpCode,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, immunizationConcMap, (timrVaccineCode) => {
@@ -369,7 +369,7 @@ module.exports = function (cnf) {
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
-            'orgUnit': dhis2FacilityId,
+            'orgUnit': HFRCode,
             'value': total
           })
           return nxtMapping()
@@ -385,7 +385,7 @@ module.exports = function (cnf) {
       dataValues,
       ageGrpCode,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, supplementsConcMap, (timrVaccineCode) => {
@@ -428,7 +428,7 @@ module.exports = function (cnf) {
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
-            'orgUnit': dhis2FacilityId,
+            'orgUnit': HFRCode,
             'value': total
           })
           return nxtMapping()
@@ -443,7 +443,7 @@ module.exports = function (cnf) {
       facData,
       dataValues,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, breastFeedConcMap, (timrVaccineCode) => {
@@ -472,7 +472,7 @@ module.exports = function (cnf) {
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
-            'orgUnit': dhis2FacilityId,
+            'orgUnit': HFRCode,
             'value': total
           })
           return nxtMapping()
@@ -487,7 +487,7 @@ module.exports = function (cnf) {
       facData,
       dataValues,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let gender
@@ -516,7 +516,7 @@ module.exports = function (cnf) {
           'dataElement': mapping.dataelement,
           'categoryOptionCombo': mapping.catoptcomb,
           'period': period,
-          'orgUnit': dhis2FacilityId,
+          'orgUnit': HFRCode,
           'value': total
         })
         return nxtMapping()
@@ -530,7 +530,7 @@ module.exports = function (cnf) {
       facData,
       dataValues,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let gender
@@ -559,7 +559,7 @@ module.exports = function (cnf) {
           'dataElement': mapping.dataelement,
           'categoryOptionCombo': mapping.catoptcomb,
           'period': period,
-          'orgUnit': dhis2FacilityId,
+          'orgUnit': HFRCode,
           'value': total
         })
         return nxtMapping()
@@ -573,7 +573,7 @@ module.exports = function (cnf) {
       facData,
       dataValues,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let gender
@@ -602,7 +602,7 @@ module.exports = function (cnf) {
           'dataElement': mapping.dataelement,
           'categoryOptionCombo': mapping.catoptcomb,
           'period': period,
-          'orgUnit': dhis2FacilityId,
+          'orgUnit': HFRCode,
           'value': total
         })
         return nxtMapping()
@@ -615,7 +615,7 @@ module.exports = function (cnf) {
       facData,
       dataValues,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let gender
@@ -644,7 +644,7 @@ module.exports = function (cnf) {
           'dataElement': mapping.dataelement,
           'categoryOptionCombo': mapping.catoptcomb,
           'period': period,
-          'orgUnit': dhis2FacilityId,
+          'orgUnit': HFRCode,
           'value': total
         })
         return nxtMapping()
@@ -659,7 +659,7 @@ module.exports = function (cnf) {
       dataValues,
       ageGrpCode,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let ageGrpExist = mapping.catopts.find((catOpt) => {
@@ -704,7 +704,7 @@ module.exports = function (cnf) {
           'dataElement': mapping.dataelement,
           'categoryOptionCombo': mapping.catoptcomb,
           'period': period,
-          'orgUnit': dhis2FacilityId,
+          'orgUnit': HFRCode,
           'value': total
         })
         return nxtMapping()
@@ -719,7 +719,7 @@ module.exports = function (cnf) {
       dataValues,
       ageGrpCode,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         let ageGrpExist = mapping.catopts.find((catOpt) => {
@@ -758,7 +758,7 @@ module.exports = function (cnf) {
           'dataElement': mapping.dataelement,
           'categoryOptionCombo': mapping.catoptcomb,
           'period': period,
-          'orgUnit': dhis2FacilityId,
+          'orgUnit': HFRCode,
           'value': total
         })
         return nxtMapping()
@@ -772,7 +772,7 @@ module.exports = function (cnf) {
       facData,
       dataValues,
       dhisDataMapping,
-      dhis2FacilityId
+      HFRCode
     }, callback) {
       async.each(dhisDataMapping, (mapping, nxtMapping) => {
         this.getTimrCode(mapping.dataelement, TTConcMap, (timrItemCode) => {
@@ -802,7 +802,7 @@ module.exports = function (cnf) {
             'dataElement': mapping.dataelement,
             'categoryOptionCombo': mapping.catoptcomb,
             'period': period,
-            'orgUnit': dhis2FacilityId,
+            'orgUnit': HFRCode,
             'value': total
           })
           return nxtMapping()
@@ -913,7 +913,7 @@ module.exports = function (cnf) {
           completeDSReg.completeDataSetRegistration.push({
             period,
             dataSet: 'cap79mdf6Co',
-            organisationUnit: facility.dhis2FacilityId,
+            organisationUnit: facility.HFRCode,
             attributeOptionCombo: 'uGIJ6IdkP7Q',
             storedBy: 'imported'
           })
