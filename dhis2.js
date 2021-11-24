@@ -39,17 +39,29 @@ module.exports = function (cnf) {
     getDhisDataMapping: function (valuesetMappingFile, callback) {
       let dhisDataMapping = []
       let ageGroups = []
-      fs.readFile(`./dhis2-dataElements-Options-Mapping/${valuesetMappingFile}.json`, (err, mapping) => {
+      fs.readFile(`${__dirname}/terminologies/dhis2-dataElements-Options-Mapping/${valuesetMappingFile}.json`, 'utf8', (err, mapping) => {
         if(err) {
           winston.error(err);
         } else {
           dhisDataMapping = mapping
         }
-        fs.readFile(`./dhis2-dataElements-Options-Mapping/${valuesetMappingFile}-ageGroups.json`, (err, ages) => {
+        fs.readFile(`${__dirname}/terminologies/dhis2-dataElements-Options-Mapping/${valuesetMappingFile}-ageGroups.json`, 'utf8', (err, ages) => {
           if(err) {
             winston.error(err);
           } else {
             ageGroups = ages
+          }
+          if(isJSON(dhisDataMapping)) {
+            dhisDataMapping = JSON.parse(dhisDataMapping)
+          } else {
+            winston.error('dataelements mapping has returned non json contents');
+            dhisDataMapping = []
+          }
+          if(isJSON(ageGroups)) {
+            ageGroups = JSON.parse(ageGroups)
+          } else {
+            winston.error('dataelements agegroups file has returned non json contents');
+            ageGroups = []
           }
           return callback("", dhisDataMapping, ageGroups)
         })
