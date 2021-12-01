@@ -633,13 +633,7 @@ function setupApp() {
   return app
 }
 
-/**
- * start - starts the mediator
- *
- * @param  {Function} callback a node style callback that is called once the
- * server is started
- */
- function reloadConfig(data, callback) {
+function reloadConfig(data, callback) {
   const tmpFile = `${__dirname}/config/tmpConfig.json`;
   fs.writeFile(tmpFile, JSON.stringify(data, 0, 2), (err) => {
     if (err) {
@@ -649,6 +643,12 @@ function setupApp() {
     return callback();
   });
 }
+/**
+ * start - starts the mediator
+ *
+ * @param  {Function} callback a node style callback that is called once the
+ * server is started
+ */
 function start(callback) {
   if (apiConf.register) {
     medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
@@ -661,7 +661,7 @@ function start(callback) {
       medUtils.fetchConfig(apiConf.api, (err, newConfig) => {
         winston.info('Received initial config:', newConfig)
         config = newConfig
-	reloadConfig(config, () => {})
+	      reloadConfig(config, () => {})
         if (err) {
           winston.info('Failed to fetch initial config')
           winston.info(err.stack)

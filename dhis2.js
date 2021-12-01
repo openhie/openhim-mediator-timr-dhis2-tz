@@ -816,7 +816,8 @@ module.exports = function (cnf) {
      * @param {Array} dataValues
      */
     saveBulkData: function (dataValues, orchestrations) {
-      var url = URI(config.url).segment('api/dataValueSets')
+      // var url = URI(config.url).segment('api/dataValueSets').addQuery("orgUnitIdScheme","code")
+      var url = URI(config.url).segment('timr-dhis2-send-data')
       var username = config.username
       var password = config.password
       var auth = "Basic " + Buffer.from(username + ":" + password).toString("base64");
@@ -826,7 +827,8 @@ module.exports = function (cnf) {
         headers: {
           'Content-Type': 'application/json',
           Authorization: auth
-        }
+        },
+        rejectUnauthorized: false
       }
       let before = new Date()
       async.doWhilst(
@@ -894,7 +896,7 @@ module.exports = function (cnf) {
       winston.info('Making datase as complete')
       const fhir = FHIR(nconf.get("fhir"))
       let orchestrations = []
-      let url = URI(nconf.get('dhis2:url')).segment('api/completeDataSetRegistrations').addQuery("orgUnitIdScheme","code")
+      let url = URI(nconf.get('dhis2:url')).segment('timr-dhis2-complete-dataset-registration')
       let auth = "Basic " + Buffer.from(nconf.get('dhis2:username') + ":" + nconf.get('dhis2:password')).toString("base64");
       let options = {
         url: url.toString(),
@@ -913,7 +915,7 @@ module.exports = function (cnf) {
           completeDSReg.completeDataSetRegistration.push({
             period,
             dataSet: 'cap79mdf6Co',
-            organisationUnit: facility.HFRCode,
+            organisationUnit: facility.dhis2FacilityId,
             attributeOptionCombo: 'uGIJ6IdkP7Q',
             storedBy: 'imported'
           })
@@ -927,7 +929,7 @@ module.exports = function (cnf) {
               if (err) {
                 winston.error(err)
               }
-              orchestrations.push(utils.buildOrchestration('Making Dataset Completed', before, 'POST', url.toString(), JSON.stringify(options.json), res, JSON.stringify(body)))
+              orchestrations.push(utils.buildOrchestration('Marking Dataset Completed', before, 'POST', url.toString(), JSON.stringify(options.json), res, JSON.stringify(body)))
               return nextFacility()
             })
           } else {
