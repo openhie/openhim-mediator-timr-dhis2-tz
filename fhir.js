@@ -41,7 +41,7 @@ module.exports = function (fhirconf) {
             password: config.password
           },
         }).then(response => {
-          orchestrations.push(utils.buildOrchestration('Fetching Facilities Mapped With VIMS From FHIR Server', before, 'GET', url, '', response, response.data))
+          orchestrations.push(utils.buildOrchestration('Fetching Facilities Mapped With DHIS2 From FHIR Server', before, 'GET', url, '', response, response.data))
           if(!response.data || !response.data.entry) {
             error = true
             url = false
@@ -62,7 +62,7 @@ module.exports = function (fhirconf) {
             let DVSID
             let timrFacilityId
             let dhis2FacilityId
-            let multiplevimsid = false
+            let multipledhisid = false
             let HFRCode
             for(let identifier of entry.resource.identifier) {
               if(identifier.type.text === 'id' && identifier.system === 'http://hfrportal.ehealth.go.tz') {
@@ -73,7 +73,7 @@ module.exports = function (fhirconf) {
               }
               if(identifier.type.text === 'id' && identifier.system === 'tanzania-hmis') {
                 if(dhis2FacilityId) {
-                  multiplevimsid = true
+                  multipledhisid = true
                 }
                 dhis2FacilityId = identifier.value
               }
@@ -90,7 +90,7 @@ module.exports = function (fhirconf) {
                 dhis2FacilityId: dhis2FacilityId,
                 HFRCode,
                 facilityName: entry.resource.name,
-                multiplevimsid: multiplevimsid
+                multipledhisid: multipledhisid
               })
             }
             return nxtEntry()

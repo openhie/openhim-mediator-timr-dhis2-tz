@@ -13,13 +13,6 @@ setTimeout(() => {
     database: nconf.get("timrPostgres:database"),
     port: nconf.get("timrPostgres:port"),
   })
-  console.log({
-    user: nconf.get("timrPostgres:username"),
-    password: nconf.get("timrPostgres:password"),
-    host: nconf.get("timrPostgres:host"),
-    database: nconf.get("timrPostgres:database"),
-    port: nconf.get("timrPostgres:port"),
-  })
 },1000)
 module.exports = {
   getImmunizationCoverageData: (startDate, endDate, ages, callback) => {
