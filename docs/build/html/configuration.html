@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Configuring The Mediator &#8212; TImR and DHIS2 Data Sync  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Installing The Mediator" href="install.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="configuring-the-mediator">
+<h1>Configuring The Mediator<a class="headerlink" href="#configuring-the-mediator" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt><em>Configuration to connect the mediator with openHIM</em></dt><dd><p>inside the mediator, use your preffered text editor and open config.json under config folder</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vim config/config.json
+</pre></div>
+</div>
+<p>Below is the content of config.json</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+  <span class="s2">&quot;api&quot;</span>: <span class="o">{</span>
+    <span class="s2">&quot;username&quot;</span>: <span class="s2">&quot;root@openhim.org&quot;</span>,
+    <span class="s2">&quot;password&quot;</span>: <span class="s2">&quot;openhim-password&quot;</span>,
+    <span class="s2">&quot;apiURL&quot;</span>: <span class="s2">&quot;https://localhost:8080&quot;</span>,
+    <span class="s2">&quot;trustSelfSigned&quot;</span>: <span class="nb">true</span>
+  <span class="o">}</span>,
+  <span class="s2">&quot;register&quot;</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Change username and password to a real account that can connect to openHIM</p>
+<p>If the mediator and openHIM are on different servers, then you will need to change the apiURL</p>
+</dd>
+</dl>
+<p><strong>You need to start the mediator with below commands before you can proceed with the rest of the configurations</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> openhim-mediator-timr-dhis2-tz
+node index.js
+</pre></div>
+</div>
+<dl>
+<dt><em>Configuration parameters of the mediator with TImR and DHIS2 credentials</em></dt><dd><p>Login to openHIM and click the mediators link
+Click to open the TImR-DHIS2 Trigger mediator</p>
+<a class="reference internal image-reference" href="_images/mediator-index.png"><img alt="alternate text" src="_images/mediator-index.png" style="width: 900.0px; height: 350.0px;" /></a>
+<p>Click the gear icon next to configuration to open the configuration page that looks as below</p>
+<img alt="_images/mediator-configuration.png" src="_images/mediator-configuration.png" />
+<ol class="arabic">
+<li><p>TImR Postgres section defines credentials needed to get data from the TImR warehouse</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Host: Warehouse base URL</p></li>
+<li><p>Host Port: Warehouse port number</p></li>
+<li><p>Username: Warehouse username</p></li>
+<li><p>Password: Warehouse password</p></li>
+<li><p>Database Name: Warehouse database name</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt>FHIR Server section defines credentials for querying the facility mapping tool</dt><dd><ul class="simple">
+<li><p>URL: Base URL of the matching tool</p></li>
+<li><p>Username: Username that has privileges to query FHIR resources to the matching tool</p></li>
+<li><p>Password: Password that has privileges to query FHIR resources to the matching tool</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>DHIS2 section defines credentials required to push data to DHIS2.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>URL: is the DHIS2/national HIM base URL. If DHIS2 is behind national HIM then this should be the national HIM base URL</p></li>
+<li><p>username: is the user that has permission to push data to DHIS2 directly or via national HIM if DHIS2 is behind national HIM</p></li>
+<li><p>password: is the password of the user that has permission to push data to DHIS2 directly or via national HIM if DHIS2 is behind national HIM</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Email Notification section defines credentials for sending emails and email addresses to receive mediator notifications</p></li>
+</ol>
+</dd>
+</dl>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">TImR and DHIS2 Data Sync</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to TImR-DHIS2 Data Sync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing The Mediator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring The Mediator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="install.html" title="previous chapter">Installing The Mediator</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Ally Shaban.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/configuration.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

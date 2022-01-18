@@ -1,0 +1,5 @@
+TImR and DHIS2 Data Elements Translations
+=========================================
+Data translation between TImR and DHIS2 begins by the mediator pulling metadata (Data element's Category combo, category option combo and category options).
+Since Ministry of Health now requires that data synchronization to DHIS2 should go through natioanl HIM, and the national HIM is doesn't expose an API for pulling these metadata, the mediator has done a one time caching of these metadata and their stored under the folder terminologies/dhis2-dataElements-Options-Mapping.
+For each DHIS2 data element, the mediator pulls the corresponding data from TImR and then translate TImR data back to DHIS2 format and submit a bundle of data to DHIS2. A single bundle being submitted consist of DHIS2 data for multiple facilities on a single data element

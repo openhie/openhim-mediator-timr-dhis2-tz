@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction to TImR-DHIS2 Data Sync &#8212; TImR and DHIS2 Data Sync  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installing The Mediator" href="install.html" />
+    <link rel="prev" title="Welcome to TImR and DHIS2 Data Sync’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="introduction-to-timr-dhis2-data-sync">
+<h1>Introduction to TImR-DHIS2 Data Sync<a class="headerlink" href="#introduction-to-timr-dhis2-data-sync" title="Permalink to this headline">¶</a></h1>
+<p>This openHIM mediator is responsible for synchronizing data from TImR to DHIS2.
+The mediator is developed using nodeJS programming language.
+The mediator has several routes and each of these routes are responsible for synchronizing a respective data elements.
+Below are the data elements that this mediator pushes to DHIS2</p>
+<ol class="arabic">
+<li><p>Immunization Coverage</p>
+<ul class="simple">
+<li><p>Pneumococcal conjugate (PCV13)</p>
+<ul>
+<li><p>Pneumococcal (PCV13) (By Age,catchment,Dose and gender)</p></li>
+</ul>
+</li>
+<li><p>Oral Polio Vaccine (OPV)</p>
+<ul>
+<li><p>Watoto Waliochanjwa Polio (By Age,catchment,Dose and gender)</p></li>
+</ul>
+</li>
+<li><p>DTP - Haemophilus influenzae type b conjugate and hepatitis b</p>
+<ul>
+<li><p>Watoto Waliochanjwa Penta (By Age,catchment,Dose and gender)</p></li>
+</ul>
+</li>
+<li><p>Tetanus Toxoid</p>
+<ul>
+<li><p>Watoto Wasiokuwa na Kinga ya Pepopunda Wakati wa Kujifungua (By  Gender)</p></li>
+<li><p>Ambao Hali ya Kinga ya Pepopunda Haijulikani Wakati wa Kujifungua (By  Gender)</p></li>
+<li><p>Watoto Waliokingwa Pepopunda Wakati wa Kujifungua (By Gender)</p></li>
+</ul>
+</li>
+<li><p>Measles and Rubella</p>
+<ul>
+<li><p>No. of measles vaccinations (By Age,catchment,Dose and gender)</p></li>
+</ul>
+</li>
+<li><p>Rotavirus Vaccine</p>
+<ul>
+<li><p>Rota umri wiki 6 hadi 15 (By catchment,Dose and gender)</p></li>
+<li><p>Rota Umri Wiki 10 Hadi 32 (By catchment,Dose and gender)</p></li>
+</ul>
+</li>
+<li><p>BACILLUS CALMETTE-GUERIN VACCINE (BCG)</p>
+<ul>
+<li><p>Watoto Waliochanjwa BCG (By Age,catchment,Dose and gender)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Supplements Data Elements</p>
+<ul class="simple">
+<li><p>Vitamin A</p></li>
+<li><p>Nyongeza ya Vitamin A-Watoto Umri wa Miezi 6 (By Gender)</p>
+<ul>
+<li><p>Nyongeza ya Vitamin A Watoto umri zaidi ya mwaka 1 - 5 (By Gender) ■ Nyongeza ya Vitamin A Watoto chini ya umri wa mwaka 1 (By Gender)</p></li>
+</ul>
+</li>
+<li><p>Mebendazole</p>
+<ul>
+<li><p>Waliopewa Mebendazole / Albendazole Umri wa mwaka 1 hadi 5 (By  Gender)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Breast Feeding</p>
+<ul class="simple">
+<li><p>EBF</p>
+<ul>
+<li><p>Watoto wachanga chini ya miezi sita wanaonyonya maziwa ya mama  pekee (EBF) (By Gender)</p></li>
+</ul>
+</li>
+<li><p>RF</p>
+<ul>
+<li><p>Watoto wachanga wanaopewa maziwa mbadala (RF) (By Gender)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Prevention of Mother to Child Transmission (PMTCT) of HIV</p>
+<ul class="simple">
+<li><p>Watoto waliozaliwa na mama mwenye maambukizi ya VVU/ watoto  wenye HEID no. (By Gender)</p></li>
+</ul>
+</li>
+<li><dl class="simple">
+<dt>Mosquito Net</dt><dd><ul class="simple">
+<li><p>Watoto Waliopatiwa LLIN (By Gender)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Weight-Age Ratio</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Uwiano wa Uzito Kwa Umri (&lt;1 year,&gt;80% au &gt; -2SD) (By Gender)</p></li>
+<li><p>Uwiano wa Uzito Kwa Umri (&lt;1 year,60-80% au -2SD hadi -3SD) (By  Gender)</p></li>
+<li><p>Uwiano wa Uzito Kwa Umri (&lt;1 year,&lt;60% au &lt; - 3SD) (By Gender)</p></li>
+<li><p>Uwiano wa Uzito Kwa Umri (mwaka 1 mpaka 5,&gt;80% au &gt; -2SD) (By Gender)</p></li>
+<li><p>Uwiano wa Uzito Kwa Umri (mwaka 1 mpaka 5,60-80% au -2SD hadi -3SD) (By  Gender)</p></li>
+<li><p>Uwiano wa Uzito Kwa Umri (mwaka 1 mpaka 5,&lt;60% au &lt; - 3SD) (By Gender)</p></li>
+<li><p>Child Visits</p></li>
+<li><p>Jumla ya Mahudhurio ya Watoto Umri Chini ya Mwaka 1 (By Gender)</p></li>
+<li><p>Jumla ya Mahudhurio ya Watoto Umri Mwaka 1 Mpaka 5 (By Gender)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Birth Certificates</p>
+<ul class="simple">
+<li><p>Watoto Walioandikishwa na Kupewa Vyeti vya Kuzaliwa</p></li>
+</ul>
+</li>
+<li><p>CTC Data
+* Watoto waliohamishiwa Kliniki ya huduma na matibabu kwa wenye VVU (CTC)</p></li>
+<li><p>Mosquitouito Net Data</p></li>
+<li><p>Child Visit</p>
+<ul class="simple">
+<li><p>Jumla ya Mahudhurio ya Watoto Umri Mwaka 1 Mpaka 5</p></li>
+<li><p>Jumla ya Mahudhurio ya Watoto Umri Chini ya Mwaka 1</p></li>
+</ul>
+</li>
+<li><p>TT</p>
+<ul class="simple">
+<li><p>Watoto Waliokingwa Pepopunda Wakati wa Kujifungua</p></li>
+<li><p>Watoto Wasiokuwa na Kinga ya Pepopunda Wakati wa Kujifungua</p></li>
+<li><p>Ambao Hali ya Kinga ya Pepopunda Haijulikani Wakati wa Kujifungua</p></li>
+</ul>
+</li>
+</ol>
+<p>The mediator has 11 routes/channels responsible for synchronizing data with DHIS2. Below are the 11 routes/channels that comes with the mediator</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Routes/Channels</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>openHIM Channel</p></td>
+<td><p>Mediator Route</p></td>
+<td><p>Descriptions</p></td>
+</tr>
+<tr class="row-even"><td><p>TImR-DHIS2 Immunization Coverage  Sync</p></td>
+<td><p>/syncImmunizationCoverage</p></td>
+<td><p>Responsible for synchronizing immunization  coverage data</p></td>
+</tr>
+<tr class="row-odd"><td><p>TImR-DHIS2 Supplements Sync</p></td>
+<td><p>/syncSupplements</p></td>
+<td><p>Responsible for Supplements data sync</p></td>
+</tr>
+<tr class="row-even"><td><p>TImR-DHIS2 Breast Feeding Sync</p></td>
+<td><p>/syncBreastFeeding</p></td>
+<td><p>Responsible for Breastfeeding data sync</p></td>
+</tr>
+<tr class="row-odd"><td><p>TImR and DHIS2 Birth Certificates Sync</p></td>
+<td><p>/syncChildWithBirthCert</p></td>
+<td><p>Respinsible for birth certificates data sync</p></td>
+</tr>
+<tr class="row-even"><td><p>TImR-DHIS2 PMTCT  Sync</p></td>
+<td><p>/syncPMTCT</p></td>
+<td><p>Responsible for PMTCT data sync</p></td>
+</tr>
+<tr class="row-odd"><td><p>TImR-DHIS2 Mosquito Net Sync</p></td>
+<td><p>/syncMosquitoNet</p></td>
+<td><p>Responsible for Mosquito nets data sync.</p></td>
+</tr>
+<tr class="row-even"><td><p>TImR-DHIS2 Age Weight Ratio Sync</p></td>
+<td><p>/syncWeightAgeRatio</p></td>
+<td><p>Responsible for Age Weight ratio data sync</p></td>
+</tr>
+<tr class="row-odd"><td><p>TImR-DHIS2 Child Visit Sync</p></td>
+<td><p>/syncChildVisit</p></td>
+<td><p>Responsible for child visit data sync</p></td>
+</tr>
+<tr class="row-even"><td><p>TImR and DHIS2 Child Birth Certs Sync</p></td>
+<td><p>/syncChildWithBirthCert</p></td>
+<td><p>Responsible for Child Certificates data sync</p></td>
+</tr>
+<tr class="row-odd"><td><p>TImR and DHIS2 CTC Sync</p></td>
+<td><p>/syncCTC</p></td>
+<td><p>Responsible for CTC data sync</p></td>
+</tr>
+<tr class="row-even"><td><p>TImR and DHIS2 TT Sync</p></td>
+<td><p>/syncTT</p></td>
+<td><p>Responsible for TT data</p></td>
+</tr>
+<tr class="row-odd"><td><p>TImR and DHIS2 Mark Dataset Completed</p></td>
+<td><p>/completeDataset</p></td>
+<td><p>Responsible for marking facility dataset as complete</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">TImR and DHIS2 Data Sync</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to TImR-DHIS2 Data Sync</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing The Mediator</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to TImR and DHIS2 Data Sync’s documentation!</a></li>
+      <li>Next: <a href="install.html" title="next chapter">Installing The Mediator</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Ally Shaban.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/introduction.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
