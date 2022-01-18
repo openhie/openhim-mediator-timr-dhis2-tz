@@ -1,8 +1,7 @@
 Introduction to TImR-DHIS2 Data Sync
 ====================================
 
-This openHIM mediator is responsible for synchronizing data from TImR to DHIS2.
-The mediator is developed using nodeJS programming language.
+This documentation will be talking of a openHIM mediator written in nodejs that is responsible for synchronizing data from TImR to DHIS2.
 The mediator has several routes and each of these routes are responsible for synchronizing a respective data elements.
 Below are the data elements that this mediator pushes to DHIS2
 
@@ -40,7 +39,9 @@ Below are the data elements that this mediator pushes to DHIS2
 
     * Nyongeza ya Vitamin A-Watoto Umri wa Miezi 6 (By Gender)
 
-      * Nyongeza ya Vitamin A Watoto umri zaidi ya mwaka 1 - 5 (By Gender) ■ Nyongeza ya Vitamin A Watoto chini ya umri wa mwaka 1 (By Gender)
+      * Nyongeza ya Vitamin A Watoto umri zaidi ya mwaka 1 - 5 (By Gender)
+      * Nyongeza ya Vitamin A Watoto chini ya umri wa mwaka 1 (By Gender)
+
     * Mebendazole
 
       * Waliopewa Mebendazole / Albendazole Umri wa mwaka 1 hadi 5 (By  Gender)

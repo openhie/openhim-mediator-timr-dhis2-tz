@@ -34,6 +34,7 @@ Configuring The Mediator
 
 *Configuration parameters of the mediator with TImR and DHIS2 credentials*
   Login to openHIM and click the mediators link
+
   Click to open the TImR-DHIS2 Trigger mediator
 
   .. image:: images/mediator-index.png
