@@ -892,10 +892,9 @@ module.exports = function (cnf) {
       })
     },
 
-    completeDatasetRegistration: (callback) => {
+    completeDatasetRegistration: (orchestrations, callback) => {
       winston.info('Making datase as complete')
       const fhir = FHIR(nconf.get("fhir"))
-      let orchestrations = []
       let url = URI(nconf.get('dhis2:url')).segment('timr-dhis2-complete-dataset-registration')
       let auth = "Basic " + Buffer.from(nconf.get('dhis2:username') + ":" + nconf.get('dhis2:password')).toString("base64");
       let options = {
@@ -910,6 +909,7 @@ module.exports = function (cnf) {
         completeDataSetRegistration: []
       }
       let before = new Date()
+      let errorOccured = false
       fhir.getDHIS2Facilities(orchestrations, (facilities) => {
         async.eachSeries(facilities, (facility, nextFacility) => {
           completeDSReg.completeDataSetRegistration.push({
@@ -927,7 +927,8 @@ module.exports = function (cnf) {
               winston.info(JSON.stringify(body, 0, 2))
               completeDSReg.completeDataSetRegistration = []
               if (err) {
-                winston.error(err)
+                winston.error(err);
+                errorOccured = true
               }
               orchestrations.push(utils.buildOrchestration('Marking Dataset Completed', before, 'POST', url.toString(), JSON.stringify(options.json), res, JSON.stringify(body)))
               return nextFacility()
@@ -945,12 +946,13 @@ module.exports = function (cnf) {
               completeDSReg.completeDataSetRegistration = []
               if (err) {
                 winston.error(err)
+                errorOccured = true
               }
               orchestrations.push(utils.buildOrchestration('Making Dataset Completed', before, 'POST', url.toString(), JSON.stringify(options.json), res, JSON.stringify(body)))
-              return callback()
+              return callback(errorOccured)
             })
           } else {
-            return callback()
+            return callback(errorOccured)
           }
         })
       })

@@ -627,8 +627,18 @@ function setupApp() {
   })
 
   app.get('/completeDataset', (req, res) => {
+    res.end()
+    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    let orchestrations = []
     const dhis2 = DHIS2(config.dhis2)
-    dhis2.completeDatasetRegistration(() => {})
+    dhis2.completeDatasetRegistration(orchestrations, (errorOccured) => {
+      winston.info('Done marking datasets as complete')
+      if(errorOccured) {
+        updateTransaction(req, "", "Successful", "500", orchestrations)
+      } else {
+        updateTransaction(req, "", "Successful", "200", orchestrations)
+      }
+    })
   })
   return app
 }

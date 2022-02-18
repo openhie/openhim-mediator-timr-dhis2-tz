@@ -7,11 +7,8 @@ const moment = require("moment")
 
 exports.buildOrchestration = (name, beforeTimestamp, method, url, requestContent, res, body) => {
   let uri = new URI(url)
-  var body = JSON.stringify({
-    "response": "Response Disabled"
-  })
   if (res == undefined || res == null || res == false) {
-    var statusCode = 503
+    var statusCode = 500
     var header = JSON.stringify({
       "response_header": "Empty Header Returned"
     })
@@ -26,6 +23,9 @@ exports.buildOrchestration = (name, beforeTimestamp, method, url, requestContent
       var statusCode = res.status
     }
     var header = res.headers
+  }
+  if(typeof body == 'object') {
+    body = JSON.stringify(body)
   }
   return {
     name: name,
