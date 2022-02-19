@@ -86,7 +86,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     winston.info("Get DHIS2 Facilities From FHIR")
@@ -141,7 +141,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -196,7 +196,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -283,7 +283,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -330,7 +330,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -377,7 +377,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -426,7 +426,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -473,7 +473,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -528,7 +528,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -583,7 +583,7 @@ function setupApp() {
     const dhis2 = DHIS2(config.dhis2)
     const fhir = FHIR(config.fhir)
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     req.timestamp = new Date()
     let orchestrations = []
     let dataValues = []
@@ -628,7 +628,7 @@ function setupApp() {
 
   app.get('/completeDataset', (req, res) => {
     res.end()
-    updateTransaction(req, "Still Processing", "Processing", "200", "")
+    updateTransaction(req, "Still Processing", "Processing", "200", [])
     let orchestrations = []
     const dhis2 = DHIS2(config.dhis2)
     dhis2.completeDatasetRegistration(orchestrations, (errorOccured) => {

@@ -893,9 +893,9 @@ module.exports = function (cnf) {
     },
 
     completeDatasetRegistration: (orchestrations, callback) => {
-      winston.info('Making datase as complete')
+      winston.info('Marking dataset as complete')
       const fhir = FHIR(nconf.get("fhir"))
-      let url = URI(nconf.get('dhis2:url')).segment('timr-dhis2-complete-dataset-registration')
+      let url = URI(nconf.get('dhis2:url')).segment("api").segment('completeDataSetRegistrations')
       let auth = "Basic " + Buffer.from(nconf.get('dhis2:username') + ":" + nconf.get('dhis2:password')).toString("base64");
       let options = {
         url: url.toString(),
